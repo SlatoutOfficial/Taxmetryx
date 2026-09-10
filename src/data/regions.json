@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "number": "01",
+    "name": "Middle East",
+    "tagline": "OUR ANCHOR & HOME MARKET",
+    "overview": "From our headquarters in the Dubai International Financial Centre (DIFC), we command unmatched technical depth across the GCC and wider Levant. As Gulf economies rapidly diversify and establish modern tax architectures, we guide corporate groups through the interconnected tax landscapes of the UAE, the Kingdom of Saudi Arabia, Qatar, Oman, Bahrain, and Kuwait.",
+    "keyMarkets": ["United Arab Emirates", "Saudi Arabia", "Qatar", "Oman", "Bahrain", "Kuwait"],
+    "keyCities": [
+      { "name": "Dubai (DIFC)", "country": "UAE", "coordinates": [55.2797, 25.2048], "focus": "Global Headquarters & International Tax Hub" },
+      { "name": "Abu Dhabi (ADGM)", "country": "UAE", "coordinates": [54.3773, 24.4539], "focus": "Sovereign Funds & Financial Institutions" },
+      { "name": "Riyadh", "country": "Saudi Arabia", "coordinates": [46.6753, 24.7136], "focus": "Regional Headquarters (RHQ) & Zakat / CIT" },
+      { "name": "Doha", "country": "Qatar", "coordinates": [51.5310, 25.2854], "focus": "QFC Structuring & Energy Sector Advisory" },
+      { "name": "Muscat", "country": "Oman", "coordinates": [58.4059, 23.5859], "focus": "Cross-Border Corporate Tax & VAT" },
+      { "name": "Manama", "country": "Bahrain", "coordinates": [50.5860, 26.2285], "focus": "Domestic Minimum Top-up Tax & Financial Services" },
+      { "name": "Kuwait City", "country": "Kuwait", "coordinates": [47.9774, 29.3759], "focus": "Foreign Investment Tax & Retention Rules" }
+    ],
+    "strategicRelevance": "The GCC is witnessing unprecedented tax convergence with corporate tax laws in the UAE and Bahrain, aggressive ZATCA transfer pricing audits in Saudi Arabia, and regional BEPS implementation.",
+    "stats": {
+      "marketsCovered": "6 GCC Jurisdictions",
+      "bilateralTreaties": "140+ Treaties Active",
+      "specialization": "UAE Corporate Tax & GCC Transfer Pricing"
+    }
+  },
+  {
+    "id": 2,
+    "number": "02",
+    "name": "Asia-Pacific",
+    "tagline": "HIGH-GROWTH TRADE & CORRIDOR ADVISORY",
+    "overview": "The India-UAE and broader APAC-Middle East economic corridors represent some of the world's most dynamic investment routes. Taxmetryx provides strategic cross-border tax advisory for Indian multinational groups expanding into the UAE, Singapore-based regional headquarters, and East Asian conglomerates navigating CEPA trade agreements.",
+    "keyMarkets": ["India", "Singapore", "Hong Kong", "Japan"],
+    "keyCities": [
+      { "name": "Mumbai", "country": "India", "coordinates": [72.8777, 19.0760], "focus": "India-UAE CEPA Corridor & Inbound Structuring" },
+      { "name": "New Delhi", "country": "India", "coordinates": [77.2090, 28.6139], "focus": "Treaty Interpretation & Cross-Border TP" },
+      { "name": "Singapore", "country": "Singapore", "coordinates": [103.8198, 1.3521], "focus": "Holding Company Structuring & Wealth Advisory" }
+    ],
+    "strategicRelevance": "The Comprehensive Economic Partnership Agreement (CEPA) between the UAE and India has multiplied bilateral trade and investment, requiring synchronized transfer pricing policies and Place of Effective Management (POEM) mitigation.",
+    "stats": {
+      "marketsCovered": "4 Core APAC Hubs",
+      "bilateralTreaties": "Synchronized DTAA Reviews",
+      "specialization": "India-UAE Cross-Border Trade & IP Routing"
+    }
+  },
+  {
+    "id": 3,
+    "number": "03",
+    "name": "Europe",
+    "tagline": "TREATY ARCHITECTURES & GLOBAL MINIMUM TAX",
+    "overview": "European multinationals and family offices maintain extensive commercial and investment bridges with the UAE. We collaborate with leading independent European tax practices to deliver seamless advice on bilateral tax treaties, Anti-Tax Avoidance Directives (ATAD), EU Blacklist compliance, and Pillar Two GloBE rules across London, Switzerland, and continental Europe.",
+    "keyMarkets": ["United Kingdom", "Switzerland", "Germany", "Netherlands", "Luxembourg"],
+    "keyCities": [
+      { "name": "London", "country": "United Kingdom", "coordinates": [-0.1278, 51.5074], "focus": "UK-UAE DTAA, Non-Dom Transition & Fund Structures" },
+      { "name": "Zurich", "country": "Switzerland", "coordinates": [8.5417, 47.3769], "focus": "Cross-Border Wealth & Corporate Holdings" },
+      { "name": "Frankfurt", "country": "Germany", "coordinates": [8.6821, 50.1109], "focus": "Industrial & Manufacturing Supply Chain TP" }
+    ],
+    "strategicRelevance": "With European jurisdictions actively scrutinizing substance and economic nexus under ATAD 3 and BEPS 2.0, our defensible UAE substance architectures ensure treaty access and eliminate aggressive withholding tax leakage.",
+    "stats": {
+      "marketsCovered": "5 Tier-1 European Hubs",
+      "bilateralTreaties": "Pillar Two QDMTT Alignment",
+      "specialization": "UK/Europe Inbound Investment & Holding Entities"
+    }
+  }
+]

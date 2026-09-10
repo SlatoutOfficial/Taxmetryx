@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "number": "01",
+    "title": "15+ Years of Combined Experience",
+    "subtitle": "DEEP SPECIALIST PEDIGREE ACROSS LEADING GLOBAL FIRMS",
+    "description": "Our advisory leadership brings over 15 years of concentrated experience gained within Big 4 global tax practices, tier-1 international law firms, and regulatory tax bodies across the UAE, the UK, Europe, and Asia-Pacific. We combine international technical rigor with an instinctive understanding of the UAE's evolving fiscal landscape.",
+    "metricsHighlight": "15+ Years Combined",
+    "deliverables": [
+      "Alumni of Big 4 and international elite tax practices",
+      "Authoritative knowledge of UAE Federal Decree-Laws & FTA rulings",
+      "Track record spanning over 450+ complex cross-border advisory mandates"
+    ]
+  },
+  {
+    "id": 2,
+    "number": "02",
+    "title": "Transfer Pricing Specialists",
+    "subtitle": "ECONOMIC BENCHMARKING & VALUE CHAIN RIGOR",
+    "description": "Transfer pricing is not an afterthought or an add-on service at Taxmetryx—it is our founding core competency. We deploy dedicated quantitative economists and specialized tax counsel who dissect value chains, test arm's length standards against proprietary global databases, and defend complex intra-group arrangements before tax authorities.",
+    "metricsHighlight": "Core Practice Area",
+    "deliverables": [
+      "Access to premium OECD-recognized global benchmarking databases",
+      "Specialized financial transactions and treasury pricing capabilities",
+      "Contemporaneous Master File and Local File architectural defense"
+    ]
+  },
+  {
+    "id": 3,
+    "number": "03",
+    "title": "Industry Understanding",
+    "subtitle": "SECTOR-SPECIFIC FISCAL & COMMERCIAL INTELLECT",
+    "description": "Tax laws apply differently across financial services, real estate developers, multinational technology platforms, logistics hubs, and family conglomerates. We do not provide boilerplate advice; our technical analyses are tuned to the precise commercial contracts, regulatory licensing, and balance sheet dynamics of your specific sector.",
+    "metricsHighlight": "9 Core Sectors",
+    "deliverables": [
+      "Bespoke models for Free Zone holding structures and trading companies",
+      "Specialized financial services input tax recovery methodology",
+      "Real estate and infrastructure capital asset scheme optimization"
+    ]
+  },
+  {
+    "id": 4,
+    "number": "04",
+    "title": "Tailored Solutions",
+    "subtitle": "ARCHITECTURAL POSITION PAPERS & BESPOKE ADVICE",
+    "description": "Every corporate structure has unique shareholder objectives, operational footprints, and historical tax positions. We formulate customized technical position papers, clear executive decision memos, and risk-rated strategies that empower C-suite executives and boards to make confident, defensible tax decisions.",
+    "metricsHighlight": "Zero Generic Templates",
+    "deliverables": [
+      "Direct partner-led engagement on every substantive deliverable",
+      "Risk-rated scenarios detailing technical pros, cons, and exposure thresholds",
+      "Actionable implementation roadmaps with ERP accounting guidelines"
+    ]
+  },
+  {
+    "id": 5,
+    "number": "05",
+    "title": "End-to-End Support",
+    "subtitle": "FROM STRATEGIC DESIGN TO REGULATORY CONTROVERSY DEFENSE",
+    "description": "We remain by your side throughout the complete tax lifecycle. From initial feasibility assessments and corporate restructuring through to annual compliance, voluntary disclosures, FTA clarifications, and formal litigation defense before the Tax Disputes Resolution Committee (TDRC).",
+    "metricsHighlight": "Complete Lifecycle",
+    "deliverables": [
+      "Seamless progression from advisory opinion to statutory tax filing",
+      "Direct representation during FTA technical audits and queries",
+      "Judicial-grade preparation for TDRC petitions and Court hearings"
+    ]
+  }
+]

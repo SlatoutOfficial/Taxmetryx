@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "slug": "financial-services",
+    "number": "01",
+    "name": "Financial Services & Asset Management",
+    "shortDescription": "Navigating banking, private equity, hedge funds, sovereign wealth managers, and DIFC/ADGM regulated capital market vehicles.",
+    "description": "Financial institutions face intricate tax interactions under UAE Corporate Tax and VAT. From qualifying investment fund exemptions under Article 10 to financial services input tax recovery apportionment methods, Taxmetryx designs resilient fiscal structures for banks, private equity managers, and credit funds.",
+    "challenges": [
+      "Securing Qualifying Investment Fund (QIF) corporate tax exemption",
+      "Partial input tax apportionment for exempt vs taxable financial supplies",
+      "OECD Chapter X transfer pricing for intercompany lending and credit guarantees"
+    ],
+    "advisoryFocus": [
+      "Article 10 Qualifying Investment Fund Application",
+      "Special Method Input Tax Recovery Approval with the FTA",
+      "Private Equity Carried Interest & Management Fee Structuring"
+    ],
+    "relatedServices": ["corporate-tax", "transfer-pricing", "vat-and-indirect-tax"],
+    "stats": { "label": "Funds Advised", "value": "60+" },
+    "image": "/images/hero-dubai.jpg"
+  },
+  {
+    "id": 2,
+    "slug": "technology-and-digital-assets",
+    "number": "02",
+    "name": "Technology & Digital Assets",
+    "shortDescription": "Cross-border intellectual property routing, SaaS taxation, digital platforms, and VARA/ADGM regulated virtual asset entities.",
+    "description": "Technology platforms operate borderless businesses with centralized software development, global cloud infrastructure, and distributed remote teams. We structure DEMPE-compliant IP ownership models, navigate SaaS withholding tax leakage, and guide crypto funds through CARF and UAE Corporate Tax rules.",
+    "challenges": [
+      "Establishing tangible economic substance for IP holding companies",
+      "Withholding taxes on cross-border software licenses and cloud APIs",
+      "Virtual asset token classification for corporate tax and VAT"
+    ],
+    "advisoryFocus": [
+      "OECD Transfer Pricing Profit Split & Royalty Benchmarking",
+      "Free Zone Qualifying Intellectual Property Structuring",
+      "VARA / ADGM Crypto-Asset Reporting Framework (CARF) Compliance"
+    ],
+    "relatedServices": ["transfer-pricing", "international-tax", "global-tax-and-emerging-regulations"],
+    "stats": { "label": "Tech Enterprises", "value": "85+" },
+    "image": "/images/insights-architecture.jpg"
+  },
+  {
+    "id": 3,
+    "slug": "real-estate-and-construction",
+    "number": "03",
+    "name": "Real Estate & Construction",
+    "shortDescription": "Structuring commercial and residential property developments, joint ventures, Capital Assets Scheme VAT, and Free Zone property rules.",
+    "description": "The UAE real estate boom demands precise fiscal navigation. Under UAE Corporate Tax, immovable property held in Free Zones is subject to standard 9% tax unless specific conditions are met. Under VAT, developers must navigate the Capital Assets Scheme, retention payments, and mixed commercial-residential classifications.",
+    "challenges": [
+      "Free Zone exclusion for income derived from mainland immovable property",
+      "Capital Assets Scheme 10-year VAT adjustment compliance",
+      "Contractor retention payments and reverse charge mechanics"
+    ],
+    "advisoryFocus": [
+      "Property Joint Venture Tax Optimization",
+      "Capital Asset VAT Health Checks & Apportionment",
+      "Article 27 Restructuring Relief for Property Transfers"
+    ],
+    "relatedServices": ["corporate-tax", "vat-and-indirect-tax", "tax-regulatory-and-controversy"],
+    "stats": { "label": "Property Assets", "value": "AED 18B+" },
+    "image": "/images/expertise-architecture.jpg"
+  },
+  {
+    "id": 4,
+    "slug": "retail-and-consumer-products",
+    "number": "04",
+    "name": "Retail & Consumer Products",
+    "shortDescription": "Supply chain optimization, omnichannel e-commerce, customs valuation, and cross-border GCC distributor transfer pricing.",
+    "description": "From luxury global retail houses to fast-scaling e-commerce marketplaces, consumer brands require frictionless supply chains. Taxmetryx advises on Designated Zone bonded warehousing, customs duty tariff optimization, promotional discounts under VAT, and distributor pricing policies.",
+    "challenges": [
+      "VAT treatment of cross-border dropshipping and marketplace sales",
+      "Transfer pricing margins for exclusive regional distributors",
+      "Customs valuation interaction with intercompany TP year-end adjustments"
+    ],
+    "advisoryFocus": [
+      "Designated Zone Warehousing & Logistics Tax Structuring",
+      "Distribution & Marketing Benchmarking Studies",
+      "Customs-to-VAT Harmonization Reviews"
+    ],
+    "relatedServices": ["transfer-pricing", "vat-and-indirect-tax", "corporate-tax"],
+    "stats": { "label": "Consumer Brands", "value": "40+" },
+    "image": "/images/who-we-are.jpg"
+  },
+  {
+    "id": 5,
+    "slug": "manufacturing-and-industrials",
+    "number": "05",
+    "name": "Manufacturing & Industrials",
+    "shortDescription": "Qualifying Free Zone manufacturing incentives, supply chain transfer pricing, R&D tax optimization, and capital asset depreciation.",
+    "description": "Industrial production is a prioritized pillar under Operation 300bn. Free Zone manufacturing operations enjoy explicit Qualifying Free Zone Person (QFZP) 0% corporate tax status, provided strict raw material sourcing and substantive local processing criteria are substantiated.",
+    "challenges": [
+      "Demonstrating genuine value-add manufacturing within Free Zone boundaries",
+      "Cost-plus transfer pricing models for toll vs contract manufacturers",
+      "Import duty exemptions under industrial licensing frameworks"
+    ],
+    "advisoryFocus": [
+      "QFZP Manufacturing Eligibility & De Minimis Safeguards",
+      "Cost Sharing & Contract Manufacturing TP Agreements",
+      "Tax Depreciation & Opening Balance Valuation Optimization"
+    ],
+    "relatedServices": ["corporate-tax", "transfer-pricing", "vat-and-indirect-tax"],
+    "stats": { "label": "Industrial Plants", "value": "25+" },
+    "image": "/images/contact-dubai.jpg"
+  },
+  {
+    "id": 6,
+    "slug": "energy-and-infrastructure",
+    "number": "06",
+    "name": "Energy & Infrastructure",
+    "shortDescription": "Upstream/downstream concession taxation, renewable energy transition, cross-border EPC contracts, and PE mitigation.",
+    "description": "Oil, gas, and renewable infrastructure projects operate under complex concessions, municipal sovereign fiscal regimes, and high-value Engineering, Procurement, and Construction (EPC) consortiums spanning multiple borders.",
+    "challenges": [
+      "Determining Corporate Tax exemption eligibility for Extractive Natural Resources",
+      "Mitigating Permanent Establishment risks for EPC project offices",
+      "VAT zero-rating substantiation for crude oil and international transport"
+    ],
+    "advisoryFocus": [
+      "Extractive & Non-Extractive Natural Resource Tax Carve-Outs",
+      "EPC Consortium Withholding Tax & Cross-Border Supply Mapping",
+      "Renewable Energy Joint Venture Fiscal Modeling"
+    ],
+    "relatedServices": ["corporate-tax", "international-tax", "tax-regulatory-and-controversy"],
+    "stats": { "label": "Megaprojects", "value": "15+" },
+    "image": "/images/hero-dubai.jpg"
+  },
+  {
+    "id": 7,
+    "slug": "family-offices-and-conglomerates",
+    "number": "07",
+    "name": "Family Offices & Conglomerates",
+    "shortDescription": "Cross-generational wealth succession, UAE Foundation structuring, unincorporated partnership rules, and private wealth governance.",
+    "description": "Family business conglomerates contribute over 60% of regional GDP. With the arrival of corporate tax and international reporting transparency (CRS/FATCA), family enterprises must delineate personal investment assets from commercial operating companies to insulate family wealth.",
+    "challenges": [
+      "DIFC and ADGM Foundation corporate tax status elections",
+      "Connected Person remuneration rules for family board members",
+      "Multi-jurisdictional inheritance and estate tax exposure for overseas assets"
+    ],
+    "advisoryFocus": [
+      "Family Holding Company & UAE Foundation Restructuring",
+      "Article 36 Connected Person Market Value Remuneration Framework",
+      "Cross-Border Non-Resident Alien Succession Tax Planning"
+    ],
+    "relatedServices": ["corporate-tax", "transfer-pricing", "international-tax"],
+    "stats": { "label": "Family Offices", "value": "35+" },
+    "image": "/images/values-sculpture.jpg"
+  },
+  {
+    "id": 8,
+    "slug": "professional-and-corporate-services",
+    "number": "08",
+    "name": "Professional & Corporate Services",
+    "shortDescription": "Partnership structures, cross-border management service charges, headquarter expense allocations, and international mobility.",
+    "description": "Consultancies, law firms, engineering practices, and regional headquarters require defensible intercompany services charging mechanisms that withstand tax audits both in the UAE and in destination client jurisdictions.",
+    "challenges": [
+      "Benefit test substantiation for central management fee allocations",
+      "Withholding taxes levied by foreign client jurisdictions on UAE service fees",
+      "Tax residency certificates and permanent establishment defense for mobile partners"
+    ],
+    "advisoryFocus": [
+      "OECD Low Value-Adding Intra-Group Services (LVAS) Safe Harbors",
+      "Permanent Establishment Risk Protocols for Partner Travel",
+      "Tax Residency Certificate (TRC) Application Dossiers"
+    ],
+    "relatedServices": ["transfer-pricing", "international-tax", "vat-and-indirect-tax"],
+    "stats": { "label": "Advisory Firms", "value": "50+" },
+    "image": "/images/expertise-architecture.jpg"
+  }
+]

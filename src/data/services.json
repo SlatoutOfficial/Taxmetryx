@@ -1,0 +1,383 @@
+[
+  {
+    "id": 1,
+    "slug": "transfer-pricing",
+    "number": "01",
+    "title": "Transfer Pricing",
+    "eyebrow": "ECONOMIC VALUATION & ARM'S LENGTH ALIGNMENT",
+    "shortDescription": "Independent economic benchmarking, defensible documentation, intercompany financial transaction pricing, and cross-border controversy defense aligned with OECD Guidelines and UAE FTA standards.",
+    "description": "Transfer pricing stands at the epicenter of international tax scrutiny. With the formal introduction of UAE Corporate Tax Law No. 47 of 2022 and Article 34's rigorous arm's length requirements, multinational groups operating through the UAE must substantiate cross-border and domestic connected person transactions with robust economic evidence. Taxmetryx delivers precision-engineered transfer pricing models that bridge commercial reality with tax authority expectations.",
+    "heroStatement": "Defensible economics. Resilient intercompany architectures.",
+    "services": [
+      "TP Advisory & Planning",
+      "Benchmarking Studies",
+      "Local File & Master File Documentation",
+      "Financial Transactions & Treasury Pricing",
+      "Intercompany Pricing Models",
+      "TP Policy Formulation",
+      "Advance Pricing Agreements (APAs)",
+      "Operational TP Implementation",
+      "Controversy & Audit Defense"
+    ],
+    "capabilities": [
+      {
+        "title": "Economic Benchmarking & Comparable Searches",
+        "description": "Utilizing specialized global financial databases (Moody's, TP Catalyst, Orbis) to identify statistically robust comparable uncontrolled transactions across EMEA and APAC.",
+        "deliverables": ["Statistical Quartile Analysis", "Working Capital Adjustments", "Economic Nexus Substantiation"]
+      },
+      {
+        "title": "Local File & Master File Architecture",
+        "description": "Drafting standardized, audit-ready compliance packages that reflect the value creation, DEMPE functions for intangibles, and commercial substance of your UAE entity.",
+        "deliverables": ["OECD Action 13 Compliant Master File", "UAE FTA Local File", "Connected Person Disclosure Statements"]
+      },
+      {
+        "title": "Intercompany Financial Transactions",
+        "description": "Assessing arm's length interest rates, credit rating methodologies, cash pooling arrangements, and financial guarantees in accordance with OECD Chapter X guidance.",
+        "deliverables": ["Synthetic Credit Rating Dossier", "Interest Rate Benchmark Report", "Guarantee Fee Valuations"]
+      },
+      {
+        "title": "Advance Pricing Agreements (APAs)",
+        "description": "Direct negotiation of unilateral and bilateral APAs with the UAE Federal Tax Authority and overseas treaty partners to secure certainty for high-value transactions.",
+        "deliverables": ["APA Feasibility Assessment", "Pre-Filing Briefings", "Formal Application Dossiers"]
+      }
+    ],
+    "approach": [
+      { "step": "01", "title": "Value Chain Diagnostic", "description": "Mapping functional, asset, and risk (FAR) allocations across all connected entities to identify tax exposures." },
+      { "step": "02", "title": "Economic Formulation", "description": "Selecting the most appropriate transfer pricing method (TNMM, CUP, Resale Price, Cost Plus, Profit Split) backed by empirical benchmarking." },
+      { "step": "03", "title": "Operational Integration", "description": "Translating policy into everyday accounting entries, intercompany contracts, and invoicing systems." },
+      { "step": "04", "title": "Continuous Governance", "description": "Annual monitoring, margin adjustments, and proactive audit readiness files." }
+    ],
+    "whyItMatters": {
+      "headline": "Why Transfer Pricing Demands Specialized Advisory Today",
+      "points": [
+        { "title": "FTA Audit Trigger", "text": "Intercompany management fees, royalties, and related-party financing are the primary focus of initial FTA audit inquiries." },
+        { "title": "Pillar Two Nexus", "text": "Pillar Two transitional CbCR safe harbors directly depend on Qualified Financial Statements and defensible TP allocations." },
+        { "title": "Penalty Insulation", "text": "Maintaining contemporaneous documentation is the statutory requirement to mitigate non-compliance penalties." }
+      ]
+    },
+    "keyDeliverables": [
+      "Benchmarking Search Reports",
+      "Master File & Local File Documentation",
+      "Intercompany Legal Agreements & Pricing Schedules",
+      "Thin Capitalization & Interest Limitation Assessments",
+      "FTA Representation & Audit Response Memos"
+    ],
+    "applicableFrameworks": ["OECD TP Guidelines 2022", "UAE Federal Decree-Law No. 47 of 2022", "BEPS Action 13", "UN Practical Manual"],
+    "icon": "Scale",
+    "stats": { "value": "450+", "label": "Intercompany Benchmarks Completed" },
+    "relatedSlugs": ["corporate-tax", "international-tax", "tax-regulatory-and-controversy"]
+  },
+  {
+    "id": 2,
+    "slug": "corporate-tax",
+    "number": "02",
+    "title": "Corporate Tax",
+    "eyebrow": "UAE FEDERAL CORPORATE TAX & FREE ZONE OPTIMIZATION",
+    "shortDescription": "Strategic structuring, Qualifying Free Zone Person (QFZP) qualification, Tax Grouping assessments, and comprehensive compliance under UAE Federal Decree-Law No. 47 of 2022.",
+    "description": "The introduction of the UAE Federal Corporate Tax system marked the most transformative fiscal reform in the nation's history. With a headline statutory rate of 9% alongside a 0% regime for Qualifying Free Zone Persons, businesses face a stark divide between compliance and structural exposure. Taxmetryx provides end-to-end corporate tax advisory, from determining permanent establishment risks to structuring eligible transactions and navigating the de minimis rules.",
+    "heroStatement": "Structural precision. Confident corporate tax compliance.",
+    "services": [
+      "UAE Corporate Tax Impact Assessment",
+      "Qualifying Free Zone Person (QFZP) Advisory",
+      "Tax Group Formation & Consolidation",
+      "Transitional Relief & Opening Balance Sheet Structuring",
+      "Corporate Restructuring Relief (Art. 27 & 28)",
+      "Participation Exemption Analysis",
+      "Interest Deduction Limitation (Art. 30)",
+      "Corporate Tax Return Preparation & Filing",
+      "FTA Clarifications & Private Rulings"
+    ],
+    "capabilities": [
+      {
+        "title": "Qualifying Free Zone Person (QFZP) Advisory",
+        "description": "Auditing revenue streams to distinguish Qualifying Income from Excluded Activities, ensuring full compliance with Cabinet Decision No. 139 of 2023 and Ministerial Decision No. 265 of 2023.",
+        "deliverables": ["QFZP Eligibility Audit", "De Minimis Calculation Framework", "Substance Verification Report"]
+      },
+      {
+        "title": "Tax Grouping & Relief Optimization",
+        "description": "Modeling the financial and legal suitability of establishing a UAE Tax Group under Article 40, enabling intra-group loss offsets and eliminating intra-group transfer pricing requirements.",
+        "deliverables": ["Consolidated Financial Modeling", "Tax Group Application Dossier", "Loss Carried Forward Schedules"]
+      },
+      {
+        "title": "Restructuring & Participation Relief",
+        "description": "Advising on mergers, demergers, share exchanges, and asset-for-equity transfers under Articles 27 and 28 to defer taxable gains.",
+        "deliverables": ["Reorganization Tax Memorandum", "Substantial Shareholding Verification", "Participation Exemption Filing"]
+      }
+    ],
+    "approach": [
+      { "step": "01", "title": "Corporate Diagnostic", "description": "Reviewing chart of accounts, contracts, Free Zone licenses, and ownership charts against the Corporate Tax Law." },
+      { "step": "02", "title": "Tax Position Paper", "description": "Drafting unequivocal technical position papers covering exemptions, reliefs, and accounting-to-tax reconciliation." },
+      { "step": "03", "title": "Tax Accounting Implementation", "description": "Configuring ERP systems for deferred tax, taxable income calculation, and non-deductible expense tracking." },
+      { "step": "04", "title": "Filing & Defense", "description": "Preparing statutory corporate tax declarations and handling FTA technical inquiries." }
+    ],
+    "whyItMatters": {
+      "headline": "Why Corporate Tax Strategy is Urgent",
+      "points": [
+        { "title": "QFZP 5-Year Disqualification", "text": "A breach of the de minimis threshold taints an entire Free Zone entity's 0% status for the current and subsequent 4 tax periods." },
+        { "title": "Audit Period Traps", "text": "Unadjusted related party payments or non-deductible entertainment expenses create immediate disallowances upon audit." },
+        { "title": "Opening Balance Optimization", "text": "Correct historical valuation of immovable property and intangible assets provides significant long-term shield." }
+      ]
+    },
+    "keyDeliverables": [
+      "Comprehensive Corporate Tax Impact Report",
+      "QFZP Qualification Certification Dossier",
+      "Tax Group Formation Strategy Paper",
+      "Statutory Corporate Tax Computation & Return Files",
+      "FTA Clarification Request Memos"
+    ],
+    "applicableFrameworks": ["Federal Decree-Law No. 47 of 2022", "Cabinet Decision No. 56 of 2023", "Ministerial Decision No. 139 & 265"],
+    "icon": "Building2",
+    "stats": { "value": "100%", "label": "QFZP Qualification Accuracy" },
+    "relatedSlugs": ["transfer-pricing", "international-tax", "tax-regulatory-and-controversy"]
+  },
+  {
+    "id": 3,
+    "slug": "international-tax",
+    "number": "03",
+    "title": "International Tax",
+    "eyebrow": "GLOBAL STRUCTURING, PILLAR TWO & TREATY PLANNING",
+    "shortDescription": "Navigating OECD Pillar Two 15% Global Minimum Tax (GloBE), bilateral Double Tax Treaty (DTAA) networks, Permanent Establishment (PE) mitigation, and cross-border withholding tax optimization.",
+    "description": "As global tax architecture transitions under the OECD/G20 Inclusive Framework, holding and operating through the UAE requires an agile, cross-border perspective. Taxmetryx assists multinational groups in calculating GloBE top-up tax exposures, interpreting Multilateral Instrument (MLI) provisions, mitigating domestic permanent establishment risks, and deploying Double Tax Treaties across Europe, Asia-Pacific, and the Middle East.",
+    "heroStatement": "Borderless clarity. Frictionless global mobility.",
+    "services": [
+      "OECD Pillar Two (GloBE 15%) Impact Assessment",
+      "Qualified Domestic Minimum Top-up Tax (QDMTT) Planning",
+      "Double Tax Treaty (DTAA) Application & Relief",
+      "Permanent Establishment (PE) Risk Review",
+      "Foreign Tax Credit (FTC) Optimization",
+      "Cross-Border Financing & Royalty Structuring",
+      "Anti-Base Erosion (BEPS) Compliance",
+      "Exit Tax & Inbound Holding Structuring",
+      "Substance-Driven Intellectual Property Routing"
+    ],
+    "capabilities": [
+      {
+        "title": "Pillar Two (GloBE Rules) Modeling",
+        "description": "Quantifying Effective Tax Rate (ETR) per jurisdiction for MNE groups with consolidated revenue exceeding EUR 750 million, tracking Transitional CbCR Safe Harbors.",
+        "deliverables": ["GloBE ETR Model", "Safe Harbor Eligibility Matrix", "Top-Up Tax Exposure Forecast"]
+      },
+      {
+        "title": "Double Tax Treaty (DTAA) Advisory",
+        "description": "Leveraging the UAE's network of over 140 comprehensive bilateral tax treaties to minimize withholding taxes on dividends, royalties, and technical service fees.",
+        "deliverables": ["Treaty Qualification Analysis", "Principal Purpose Test (PPT) Memo", "Tax Residency Certificate (TRC) Support"]
+      },
+      {
+        "title": "Cross-Border Permanent Establishment Defense",
+        "description": "Analyzing dependent agent, fixed place, and construction PE exposures under modern OECD Model conventions.",
+        "deliverables": ["PE Risk Mitigation Manual", "Remote Workforce Tax Protocol", "Board Meeting Governance Guidelines"]
+      }
+    ],
+    "approach": [
+      { "step": "01", "title": "Global Architecture Map", "description": "Documenting legal ownership, operational headquarters, treasury centers, and IP ownership across all tax jurisdictions." },
+      { "step": "02", "title": "Treaty & GloBE Computation", "description": "Applying relevant DTAAs, domestic GAAR rules, and Pillar Two calculation formulas." },
+      { "step": "03", "title": "Substance Realignment", "description": "Establishing tangible economic nexus, local management, and documentation to withstand Principal Purpose Tests." },
+      { "step": "04", "title": "Cross-Border Filing Support", "description": "Coordinating with overseas tax counsel for synchronized multinational reporting." }
+    ],
+    "whyItMatters": {
+      "headline": "Why International Tax Architecture Matters",
+      "points": [
+        { "title": "Pillar Two Invalidation", "text": "Zero or 9% UAE tax rates can trigger Top-Up Tax in parent entity jurisdictions unless the UAE implements QDMTT." },
+        { "title": "BEPS MLI Enforcement", "text": "Foreign tax authorities actively challenge UAE tax treaty claims using the Principal Purpose Test (PPT)." },
+        { "title": "Digital & Remote Workforce", "text": "Senior executives working remotely from the UAE can unintentionally trigger a corporate tax nexus for foreign enterprises." }
+      ]
+    },
+    "keyDeliverables": [
+      "Pillar Two Readiness & ETR Impact Study",
+      "Bilateral Treaty Technical Opinion",
+      "Permanent Establishment Risk Defense File",
+      "Cross-Border Supply & IP Routing Memo",
+      "Tax Residency Certificate (TRC) Dossier"
+    ],
+    "applicableFrameworks": ["OECD GloBE Model Rules", "MLI (Multilateral Convention)", "UAE 140+ Bilateral DTAAs", "UN Model Tax Convention"],
+    "icon": "Globe2",
+    "stats": { "value": "140+", "label": "Bilateral Treaties Navigated" },
+    "relatedSlugs": ["transfer-pricing", "corporate-tax", "global-tax-and-emerging-regulations"]
+  },
+  {
+    "id": 4,
+    "slug": "vat-and-indirect-tax",
+    "number": "04",
+    "title": "VAT & Indirect Tax",
+    "eyebrow": "TRANSACTIONAL INTEGRITY & SUPPLY CHAIN CERTAINTY",
+    "shortDescription": "End-to-end GCC Value Added Tax advisory, complex supply chain VAT reviews, input tax apportionment, real estate tax structuring, and customs duty valuation.",
+    "description": "While VAT in the UAE has matured since its 2018 introduction under Federal Decree-Law No. 8 of 2017, the FTA has significantly intensified audit scrutiny. Ambiguities in cross-border services, zero-rating qualifications for exports, designated zone transactions, and capital asset schemes require deep technical insight. Taxmetryx delivers granular indirect tax optimization that protects cash flow and prevents catastrophic non-compliance fines.",
+    "heroStatement": "Flawless transactions. Frictionless indirect tax compliance.",
+    "services": [
+      "UAE & GCC VAT Advisory & Structuring",
+      "Cross-Border Services & Supply Chain VAT",
+      "Designated Zone & Free Zone VAT Operations",
+      "Input Tax Apportionment & Special Method Approvals",
+      "Real Estate & Construction VAT Structuring",
+      "VAT Health-Check & Historical Audit Prep",
+      "Voluntary Disclosures (Form 211) & Penalty Waivers",
+      "Excise Tax Advisory & Designated Warehouse Compliance",
+      "Customs Duty Classification & Valuation"
+    ],
+    "capabilities": [
+      {
+        "title": "Cross-Border & Designated Zone Supply Chains",
+        "description": "Resolving complex place of supply issues for goods stored in Designated Zones, triangular trade, and digital services delivered to non-residents.",
+        "deliverables": ["Designated Zone Protocol", "Zero-Rating Substantiation Pack", "Customs-to-VAT Reconciliations"]
+      },
+      {
+        "title": "Input Tax Recovery & Partial Exemption",
+        "description": "Designing defensible input tax recovery apportionment methods for financial services, real estate, and mixed-use developers.",
+        "deliverables": ["Apportionment Mathematical Model", "FTA Special Method Request", "Capital Assets Scheme Tracker"]
+      },
+      {
+        "title": "Voluntary Disclosures & Penalty Mitigation",
+        "description": "Auditing historical returns, drafting technical disclosure submissions under Article 8 of the Tax Procedures Law, and requesting administrative penalty waivers.",
+        "deliverables": ["Form 211 Technical Dossier", "Penalty Waiver Petition", "Underpaid Tax Rectification Memo"]
+      }
+    ],
+    "approach": [
+      { "step": "01", "title": "Transaction Discovery", "description": "Reviewing customer contracts, vendor billing, customs entries, and ERP tax codes." },
+      { "step": "02", "title": "Regulatory Analysis", "description": "Applying UAE Executive Regulations and published FTA Public Clarifications." },
+      { "step": "03", "title": "Process Rectification", "description": "Correcting tax invoicing templates, credit note protocols, and standard tax rates." },
+      { "step": "04", "title": "Audit Protection", "description": "Building evidentiary trails for zero-rated export of services and foreign transport." }
+    ],
+    "whyItMatters": {
+      "headline": "Why Indirect Tax Requires Surgical Oversight",
+      "points": [
+        { "title": "Compounding Penalties", "text": "Failure to submit a Voluntary Disclosure before an FTA audit notification leads to non-negotiable fixed and percentage-based penalties." },
+        { "title": "Export of Services Traps", "text": "Zero-rating under Article 31 is frequently denied by the FTA if the foreign customer has a UAE branch or presence related to the supply." },
+        { "title": "Cash Flow Friction", "text": "Unclaimed input tax or delayed refunds negatively impact working capital across capital-intensive operations." }
+      ]
+    },
+    "keyDeliverables": [
+      "VAT Health Check Assessment Report",
+      "Cross-Border Supply Chain Tax Matrix",
+      "Voluntary Disclosure (Form 211) Package",
+      "FTA Public Clarification Request Submission",
+      "Customs-VAT Reconciliation File"
+    ],
+    "applicableFrameworks": ["Federal Decree-Law No. 8 of 2017", "Cabinet Decision No. 52 of 2017", "GCC Common VAT Agreement"],
+    "icon": "Receipt",
+    "stats": { "value": "100%", "label": "Voluntary Disclosure Acceptance" },
+    "relatedSlugs": ["corporate-tax", "tax-regulatory-and-controversy", "services"]
+  },
+  {
+    "id": 5,
+    "slug": "tax-regulatory-and-controversy",
+    "number": "05",
+    "title": "Tax Regulatory & Controversy",
+    "eyebrow": "DISPUTE DEFENSE, FTA RECONSIDERATION & TDRC ADVOCACY",
+    "shortDescription": "Rigorous defense against Federal Tax Authority (FTA) audits, assessment objections, Reconsideration Requests, Tax Disputes Resolution Committee (TDRC) hearings, and Federal Court appeals.",
+    "description": "When tax authorities issue assessments, tax assessments, or administrative penalties, commercial viability requires an unyielding, legally sophisticated response. Taxmetryx represents taxpayers through every phase of controversy under the UAE Tax Procedures Law (Federal Decree-Law No. 28 of 2022). Combining forensic tax analysis with administrative dispute expertise, we formulate unassailable legal arguments that overturn arbitrary assessments.",
+    "heroStatement": "Steadfast defense. Principled dispute resolution.",
+    "services": [
+      "FTA Audit Preparation & On-Site Representation",
+      "Tax Assessment Notification (TAN) Analysis",
+      "Reconsideration Applications (FTA Level)",
+      "Tax Disputes Resolution Committee (TDRC) Advocacy",
+      "Federal Court of Appeal & Cassation Tax Litigation Support",
+      "Administrative Penalty Waiver Applications (Cabinet Res. 49/2021)",
+      "Mutual Agreement Procedure (MAP) Treaty Defense",
+      "Forensic Tax Reconstructions & Evidentiary Dossiers"
+    ],
+    "capabilities": [
+      {
+        "title": "FTA Audit Management & Defense",
+        "description": "Serving as primary liaison during FTA audits, controlling information requests, organizing electronic records, and preventing spontaneous auditor misunderstandings.",
+        "deliverables": ["Audit Protocol Document", "Evidence Dossier", "Official Auditor Response Submissions"]
+      },
+      {
+        "title": "Reconsiderations & TDRC Petitions",
+        "description": "Drafting statutory reconsideration requests and formal complaints to the independent judicial Tax Disputes Resolution Committee.",
+        "deliverables": ["Legal Reconsideration Brief", "Statutory Pre-Conditions Evidence", "TDRC Oral Hearing Memorial"]
+      },
+      {
+        "title": "Penalty Waivers & Installment Plans",
+        "description": "Negotiating administrative penalty reductions and phased payment arrangements with the FTA under statutory relief mechanisms.",
+        "deliverables": ["Cabinet Resolution Relief Petition", "Hardship Substantiation", "FTA Settlement Agreements"]
+      }
+    ],
+    "approach": [
+      { "step": "01", "title": "Assessment Autopsy", "description": "Dissecting the FTA's statutory basis, factual assumptions, and procedural validity within strict statutory timeframes." },
+      { "step": "02", "title": "Evidentiary Reconstruction", "description": "Assembling contemporary commercial contracts, banking records, economic benchmarks, and accounting ledgers." },
+      { "step": "03", "title": "Legal Memorial Drafting", "description": "Formulating detailed technical arguments citing UAE statutes, Cabinet Decisions, and international treaty law." },
+      { "step": "04", "title": "Tribunal Advocacy", "description": "Presenting oral and written defense before the TDRC and coordinating with licensed UAE litigation counsel." }
+    ],
+    "whyItMatters": {
+      "headline": "Why Procedural Mastery Dictates Outcomes",
+      "points": [
+        { "title": "Strict 40-Day Deadlines", "text": "Failing to submit a Reconsideration Request within 40 business days permanently crystallizes the tax liability with no legal recourse." },
+        { "title": "Pay-to-Appeal Rules", "text": "Appealing to the TDRC requires fulfilling strict statutory deposit requirements or securing explicit exemption orders." },
+        { "title": "Evidence Exclusion", "text": "Evidence not presented during initial administrative stages may be dismissed by judicial courts." }
+      ]
+    },
+    "keyDeliverables": [
+      "Tax Audit Defense Dossier",
+      "Official FTA Reconsideration Memorial",
+      "TDRC Legal Petition & Evidentiary Exhibit Index",
+      "Penalty Waiver Dossier under Cabinet Decision No. 49",
+      "Competent Authority MAP Request"
+    ],
+    "applicableFrameworks": ["Federal Decree-Law No. 28 of 2022 (Tax Procedures)", "Cabinet Decision No. 49 of 2021", "UAE Civil Procedure Code"],
+    "icon": "ShieldAlert",
+    "stats": { "value": "AED 120M+", "label": "Disputed Assessments Defended" },
+    "relatedSlugs": ["corporate-tax", "transfer-pricing", "vat-and-indirect-tax"]
+  },
+  {
+    "id": 6,
+    "slug": "global-tax-and-emerging-regulations",
+    "number": "06",
+    "title": "Global Tax & Emerging Regulations",
+    "eyebrow": "SUBSTANCE, TRANSPARENCY & NEXT-GENERATION TAX GOVERNANCE",
+    "shortDescription": "Strategic compliance across Economic Substance Regulations (ESR), Country-by-Country Reporting (CbCR), Crypto-Asset Reporting Framework (CARF), and ESG Tax Transparency.",
+    "description": "The regulatory perimeter for multinational businesses extends far beyond traditional income taxes. With international oversight from the EU Code of Conduct Group and the OECD Global Forum, the UAE mandates strict compliance with Economic Substance Regulations (ESR), Common Reporting Standard (CRS), FATCA, and Country-by-Country Reporting (CbCR). Taxmetryx guides financial institutions, crypto funds, and international groups through the evolving transparency matrix.",
+    "heroStatement": "Defensible substance. Ahead of regulatory shifts.",
+    "services": [
+      "Economic Substance Regulations (ESR) Governance & Reporting",
+      "Country-by-Country Reporting (CbCR) & Notification",
+      "FATCA & Common Reporting Standard (CRS) Audits",
+      "Crypto-Asset Reporting Framework (CARF) Strategy",
+      "Corporate Transparency & Ultimate Beneficial Ownership (UBO)",
+      "EU Blacklist / Grey-list Risk Monitoring",
+      "ESG Tax Governance & Public Tax Disclosures",
+      "Digital Economy & Cross-Border Platform Taxation"
+    ],
+    "capabilities": [
+      {
+        "title": "Economic Substance Regulations (ESR)",
+        "description": "Evaluating Relevant Activities (Holding Company, Intellectual Property, Financing & Leasing, Headquarters), auditing CIGA execution, and filing annual notifications.",
+        "deliverables": ["Substance Adequacy Assessment", "CIGA Governance Record", "Ministry of Finance ESR Filing"]
+      },
+      {
+        "title": "Country-by-Country Reporting (CbCR)",
+        "description": "Preparing Table 1, Table 2, and Table 3 reporting packages for MNEs with revenues above AED 3.15 billion, managing automatic exchange of information risks.",
+        "deliverables": ["CbCR XML Schema Generation", "MoF Portal Submission", "Permanent File Review"]
+      },
+      {
+        "title": "Crypto & Digital Asset Taxation (CARF)",
+        "description": "Designing tax reporting, classification, and withholding frameworks for virtual asset service providers (VASPs) licensed by VARA and ADGM.",
+        "deliverables": ["CARF Readiness Blueprint", "Token Classification Matrix", "On-Chain Transaction Tax Treatment"]
+      }
+    ],
+    "approach": [
+      { "step": "01", "title": "Regulatory Perimeter Audit", "description": "Reviewing commercial registry, offshore entities, bank classifications, and cross-border data flows." },
+      { "step": "02", "title": "Gap & Substance Analysis", "description": "Evaluating board meetings, resident directors, local operational expenditure, and core income generating activities (CIGA)." },
+      { "step": "03", "title": "Filing & Portal Submissions", "description": "Managing automated electronic submissions via the UAE Ministry of Finance and regulatory portals." },
+      { "step": "04", "title": "Inspection Defense", "description": "Handling Ministry of Finance assessments and preventing administrative suspension of commercial licenses." }
+    ],
+    "whyItMatters": {
+      "headline": "Why Transparency Regimes Carry Critical Consequences",
+      "points": [
+        { "title": "Severe Financial Penalties", "text": "Failure to satisfy Economic Substance tests triggers fines starting at AED 50,000 and escalating to AED 400,000 alongside commercial license suspension." },
+        { "title": "Spontaneous Treaty Exchange", "text": "Non-compliance automatically triggers the spontaneous exchange of your confidential corporate information with foreign tax authorities." },
+        { "title": "Banking De-Risking", "text": "UAE and international tier-1 commercial banks freeze corporate accounts that lack compliant ESR and CRS disclosures." }
+      ]
+    },
+    "keyDeliverables": [
+      "Economic Substance Test (EST) Verification Dossier",
+      "Annual ESR Ministry of Finance Filing Package",
+      "CbCR XML Submission & Data Exchange Check",
+      "UBO Register Compliance File",
+      "Crypto-Asset Taxation & Regulatory Protocol"
+    ],
+    "applicableFrameworks": ["Cabinet Resolution No. 57 of 2020 (ESR)", "Cabinet Resolution No. 44 of 2020 (CbCR)", "OECD CARF & CRS Standards"],
+    "icon": "Cpu",
+    "stats": { "value": "100%", "label": "Ministry of Finance Compliance Record" },
+    "relatedSlugs": ["international-tax", "transfer-pricing", "corporate-tax"]
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "number": "01",
+    "title": "Integrity",
+    "subtitle": "UNCOMPROMISING OBJECTIVITY",
+    "description": "We give you the unvarnished facts first. Our advice is independent, rigorously tested against statutory law, and designed to withstand the highest levels of judicial and regulatory scrutiny without opportunistic overreach.",
+    "keyPillars": [
+      "Strict conflict-of-interest screening",
+      "Truthful risk appraisal before commercial expediency",
+      "Unassailable professional ethics"
+    ]
+  },
+  {
+    "id": 2,
+    "number": "02",
+    "title": "Clarity",
+    "subtitle": "DECISIVE ADVISORY WITHOUT EQUIVOCATION",
+    "description": "Tax law is notoriously dense, but our deliverables are not. We translate labyrinthine statutes, Cabinet Decisions, and OECD commentaries into clear, actionable commercial guidance that executives and boards can execute with confidence.",
+    "keyPillars": [
+      "No hedging behind vague disclaimers",
+      "Executive summaries tailored for board decision-making",
+      "Action-oriented implementation playbooks"
+    ]
+  },
+  {
+    "id": 3,
+    "number": "03",
+    "title": "Technical Excellence",
+    "subtitle": "SCHOLARLY RIGOR & FORENSIC ATTENTION TO DETAIL",
+    "description": "In corporate tax and transfer pricing, small nuances in contract wording or accounting classifications create multi-million dirham differences. We obsess over the statutory detail, treaty phrasing, and economic calculations.",
+    "keyPillars": [
+      "Dual qualification in law and quantitative economics",
+      "Exhaustive legal research spanning UAE and international precedents",
+      "Multi-tier quality review on every technical opinion"
+    ]
+  },
+  {
+    "id": 4,
+    "number": "04",
+    "title": "Specialisation",
+    "subtitle": "FOCUSED DEPTH OVER DILUTED BREADTH",
+    "description": "We do not attempt to be everything to everyone. We specialize exclusively in corporate tax, transfer pricing, international tax, indirect tax, and tax controversy. Because we focus solely on tax advisory, our depth of knowledge is unmatched.",
+    "keyPillars": [
+      "Dedicated practice group leaders",
+      "Continuous tracking of FTA administrative practices",
+      "Deep cross-border treaty and Pillar Two capabilities"
+    ]
+  },
+  {
+    "id": 5,
+    "number": "05",
+    "title": "Collaboration",
+    "subtitle": "A TRUE PARTNERSHIP WITH YOUR LEADERSHIP",
+    "description": "We operate as an agile, intellectual extension of your in-house finance, tax, and legal departments. We listen deeply to your commercial ambitions, understand your operational constraints, and co-create enduring tax strategies.",
+    "keyPillars": [
+      "Direct senior partner accessibility",
+      "Knowledge transfer that empowers in-house teams",
+      "Long-term alignment with your corporate trajectory"
+    ]
+  }
+]

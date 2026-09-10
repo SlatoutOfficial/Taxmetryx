@@ -1,0 +1,122 @@
+{
+  "hero": {
+    "eyebrow": "CAREERS AT TAXMETRYX",
+    "headline": "Intellectual rigor. Autonomous impact. At the forefront of Middle East tax transformation.",
+    "description": "We are assembling the premier tax advisory team in the Middle East. If you possess deep technical scholarship, commercial audacity, and a passion for solving intricate fiscal challenges, explore your career with Taxmetryx."
+  },
+  "culturePillars": [
+    {
+      "number": "01",
+      "title": "Unrivaled Technical Depth",
+      "description": "We do not compromise on technical precision. Our professionals dive deep into statutory phrasing, OECD commentaries, and economic benchmarking to produce opinions that set the industry standard."
+    },
+    {
+      "number": "02",
+      "title": "Direct Commercial Autonomy",
+      "description": "You will work directly with founders, board directors, and C-suite decision-makers on marquee transactions, without the bureaucratic layers of traditional conglomerates."
+    },
+    {
+      "number": "03",
+      "title": "Global Exposure from DIFC",
+      "description": "Based in the heart of Dubai International Financial Centre, your mandates will span cross-border investment routes across the GCC, Europe, North America, and Asia-Pacific."
+    }
+  ],
+  "benefits": [
+    "Highly competitive tax-free remuneration packages with substantial performance bonus pool",
+    "Comprehensive international private medical insurance (including dental & optical)",
+    "Annual business-class flight allowance to home country",
+    "Sponsored professional qualifications (ADIT, CTA, CIOT, CPA)",
+    "Modern, high-spec collaborative workspace in DIFC with flexible hybrid working policies",
+    "Continuous executive education with leading international tax professors and economists"
+  ],
+  "openings": [
+    {
+      "id": "tp-dir-01",
+      "title": "Director - Transfer Pricing & Financial Transactions",
+      "department": "Transfer Pricing",
+      "location": "Dubai (DIFC), UAE",
+      "type": "Director",
+      "experience": "10-14 Years",
+      "overview": "Lead complex transfer pricing engagements, financial transaction modeling, APA negotiations, and head our quantitative benchmarking practice.",
+      "responsibilities": [
+        "Lead high-value economic benchmarking studies and Master/Local File preparation for multi-billion dirham MNEs",
+        "Direct synthetic credit rating assessments and intercompany financial transaction pricing models",
+        "Manage bilateral Advance Pricing Agreement (APA) negotiations with the Federal Tax Authority",
+        "Mentor and supervise a dedicated team of transfer pricing economists and managers"
+      ],
+      "requirements": [
+        "10+ years specialized experience within Big-4 or tier-1 tax practice",
+        "Master's degree in Economics, Tax Law, or equivalent professional certification (ADIT / CTA)",
+        "Demonstrated track record defending transfer pricing audits before tax authorities in the GCC, UK, or Europe",
+        "Fluency in English; Arabic proficiency is an advantage"
+      ],
+      "postedDate": "2026-08-25"
+    },
+    {
+      "id": "ct-mgr-02",
+      "title": "Senior Manager - UAE Corporate Tax & Restructuring",
+      "department": "Corporate Tax",
+      "location": "Dubai (DIFC), UAE",
+      "type": "Senior Manager",
+      "experience": "7-10 Years",
+      "overview": "Provide advisory on UAE Corporate Tax Law No. 47, Free Zone QFZP eligibility, Tax Grouping, and M&A corporate restructurings under Articles 27 and 28.",
+      "responsibilities": [
+        "Deliver comprehensive corporate tax impact assessments and technical position papers for large regional conglomerates",
+        "Audit Free Zone business models to determine Qualifying Free Zone Person (QFZP) qualification and de minimis compliance",
+        "Advise on corporate reorganization relief, business transfers, and post-merger integration",
+        "Review statutory corporate tax return filings and represent clients during FTA clarification requests"
+      ],
+      "requirements": [
+        "7+ years corporate tax advisory experience with strong knowledge of UAE Federal Decree-Law No. 47 of 2022",
+        "ACA, ACCA, CPA, or equivalent professional qualification",
+        "Proven ability to manage client relationships and deliver board-level presentations",
+        "Strong analytical and technical writing skills"
+      ],
+      "postedDate": "2026-08-28"
+    },
+    {
+      "id": "it-mgr-03",
+      "title": "Manager - International Tax & Pillar Two",
+      "department": "International Tax",
+      "location": "Dubai (DIFC), UAE",
+      "type": "Senior Manager",
+      "experience": "5-8 Years",
+      "overview": "Drive Pillar Two GloBE 15% modeling, double tax treaty optimization, and cross-border permanent establishment reviews.",
+      "responsibilities": [
+        "Execute GloBE ETR calculations and Transitional CbCR Safe Harbor assessments for multinational groups",
+        "Interpret bilateral Double Tax Treaties (DTAAs) and evaluate Principal Purpose Test (PPT) compliance",
+        "Perform permanent establishment risk diagnostics for remote workforce and agency models",
+        "Draft technical opinions on cross-border withholding tax optimization and foreign tax credit mechanics"
+      ],
+      "requirements": [
+        "5+ years specialized international tax experience in cross-border structuring",
+        "Deep familiarity with OECD GloBE Model Rules, Model Tax Convention, and BEPS Action Plans",
+        "Strong financial modeling skills (Excel / Alteryx)",
+        "Excellent written English communication"
+      ],
+      "postedDate": "2026-09-02"
+    },
+    {
+      "id": "dispute-asc-04",
+      "title": "Associate - Tax Controversy & Dispute Resolution",
+      "department": "Controversy & Regulatory",
+      "location": "Dubai (DIFC), UAE",
+      "type": "Associate",
+      "experience": "2-4 Years",
+      "overview": "Support FTA audit defense, prepare statutory Reconsideration Requests, and assist with Tax Disputes Resolution Committee (TDRC) memorial drafting.",
+      "responsibilities": [
+        "Conduct forensic reviews of accounting records, tax invoices, and contracts during FTA audit proceedings",
+        "Draft factual exhibits and legal research memos for Reconsideration applications under the Tax Procedures Law",
+        "Track statutory filing deadlines and coordinate administrative documentation with the FTA e-services portal",
+        "Prepare penalty waiver submissions under Cabinet Decision No. 49 of 2021"
+      ],
+      "requirements": [
+        "2-4 years tax or legal dispute experience within the UAE or GCC",
+        "Law degree (LLB) or Accounting / Finance degree with formal tax training",
+        "Thorough understanding of the UAE Federal Tax Procedures Law (Federal Decree-Law No. 28 of 2022)",
+        "Bilingual English and Arabic is highly advantageous"
+      ],
+      "postedDate": "2026-09-05"
+    }
+  ]
+}

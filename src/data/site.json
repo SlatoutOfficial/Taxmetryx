@@ -1,0 +1,39 @@
+{
+  "name": "Taxmetryx",
+  "legalName": "Taxmetryx Advisory Ltd.",
+  "tagline": "Complexity. Measured. Resolved.",
+  "subtagline": "UAE-based specialist tax advisory firm operating at the intersection of Transfer Pricing, Corporate Tax, International Tax and Tax Regulation.",
+  "description": "Taxmetryx provides independent, commercially grounded tax advisory to multinational enterprises, regional conglomerates, family offices, and sovereign-backed funds across the UAE and key international markets.",
+  "founded": "2019",
+  "headquarters": {
+    "country": "United Arab Emirates",
+    "city": "Dubai",
+    "address": "Level 14, Al Sa'ada Tower, DIFC",
+    "building": "Dubai International Financial Centre",
+    "zone": "Gate Precinct 4, DIFC, PO Box 507211"
+  },
+  "contact": {
+    "email": "advisory@taxmetryx.com",
+    "phone": "+971 4 818 9400",
+    "phoneFormatted": "+971 (0)4 818 9400",
+    "whatsapp": "+971 50 492 8110",
+    "advisoryHotline": "+971 4 818 9401"
+  },
+  "metrics": {
+    "combinedExperienceYears": 15,
+    "practicesCount": 6,
+    "keyMarketsCount": 10,
+    "regionsCount": 3,
+    "advisoryAccuracyRate": "100%",
+    "crossBorderMattersHandled": "450+"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/taxmetryx",
+    "twitter": "https://x.com/taxmetryx"
+  },
+  "legal": {
+    "licenseNo": "DIFC-CL-89240",
+    "regulatoryBody": "Dubai International Financial Centre Authority",
+    "taxAgencyRegistered": true
+  }
+}
