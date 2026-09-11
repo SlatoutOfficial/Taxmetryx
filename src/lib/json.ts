@@ -40,9 +40,16 @@ export function getServices(): Service[] {
   return servicesData as Service[];
 }
 
+const SERVICE_SLUG_ALIASES: Record<string, string> = {
+  "vat-indirect-tax": "vat-and-indirect-tax",
+  "tax-regulatory-controversy": "tax-regulatory-and-controversy",
+  "global-tax-emerging-regulations": "global-tax-and-emerging-regulations",
+};
+
 export function getServiceBySlug(slug: string): Service | undefined {
+  const normalizedSlug = SERVICE_SLUG_ALIASES[slug] || slug;
   const services = getServices();
-  return services.find((s) => s.slug === slug);
+  return services.find((s) => s.slug === normalizedSlug);
 }
 
 export function getInsights(): Insight[] {

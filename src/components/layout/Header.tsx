@@ -5,9 +5,9 @@ import Container from "@/components/shared/Container";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Globe, Menu, ChevronDown } from "lucide-react";
+import { Globe, Menu, ChevronDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
-import MegaMenu from "@/components/layout/MegaMenu";
+import ServicesDropdown from "@/components/layout/ServicesDropdown";
 import MobileMenu from "@/components/layout/MobileMenu";
 import CTAButton from "@/components/shared/CTAButton";
 import { getNavigation } from "@/lib/json";
@@ -16,13 +16,40 @@ import { useJurisdiction, JURISDICTIONS } from "@/context/JurisdictionContext";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUaeDropdownOpen, setIsUaeDropdownOpen] = useState(false);
   const { jurisdiction, setJurisdiction } = useJurisdiction();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const navigation = getNavigation();
+
+  const handleServicesEnter = () => {
+    if (servicesTimeoutRef.current) {
+      clearTimeout(servicesTimeoutRef.current);
+      servicesTimeoutRef.current = null;
+    }
+    setIsServicesOpen(true);
+  };
+
+  const handleServicesLeave = () => {
+    servicesTimeoutRef.current = setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 150);
+  };
+
+  useEffect(() => {
+    setIsServicesOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    return () => {
+      if (servicesTimeoutRef.current) {
+        clearTimeout(servicesTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -82,26 +109,37 @@ export default function Header() {
                   <div
                     key={item.title}
                     className="relative py-2"
-                    onMouseEnter={() => setIsMegaMenuOpen(true)}
+                    onMouseEnter={handleServicesEnter}
+                    onMouseLeave={handleServicesLeave}
                   >
                     <button
+                      type="button"
+                      onClick={() => setIsServicesOpen((prev) => !prev)}
                       className={cn(
-                        "inline-flex items-center gap-1.5 text-sm tracking-[0.02em] font-medium transition-colors hover:text-brand-red",
-                        isActive || isMegaMenuOpen
+                        "inline-flex items-center gap-1.5 text-sm tracking-[0.02em] font-medium transition-colors hover:text-brand-red cursor-pointer",
+                        isActive || isServicesOpen
                           ? "text-brand-red font-semibold"
                           : "text-brand-primary",
                       )}
+                      aria-expanded={isServicesOpen}
+                      aria-haspopup="true"
                     >
                       <span>{item.title}</span>
                       <ChevronDown
                         className={cn(
                           "w-3.5 h-3.5 transition-transform duration-200",
-                          isMegaMenuOpen
+                          isServicesOpen
                             ? "rotate-180 text-brand-red"
                             : "text-brand-muted",
                         )}
                       />
                     </button>
+
+                    <ServicesDropdown
+                      isOpen={isServicesOpen}
+                      onClose={() => setIsServicesOpen(false)}
+                      onMouseEnter={handleServicesEnter}
+                    />
                   </div>
                 );
               }
@@ -177,7 +215,7 @@ export default function Header() {
                         >
                           <span>{j.name}</span>
                           {isSelected && (
-                            <span className="w-1.5 h-1.5 rounded-full bg-brand-red" />
+                            <Check className="w-3.5 h-3.5 text-brand-red" />
                           )}
                         </button>
                       );
@@ -210,12 +248,6 @@ export default function Header() {
             </button>
           </div>
         </Container>
-
-        {/* Desktop Mega Menu for Services */}
-        <MegaMenu
-          isOpen={isMegaMenuOpen}
-          onClose={() => setIsMegaMenuOpen(false)}
-        />
       </header>
 
       {/* Mobile Drawer Navigation */}

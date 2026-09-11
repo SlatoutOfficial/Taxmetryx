@@ -184,3 +184,68 @@ export function LineReveal({
     />
   );
 }
+
+interface ScaleInProps extends HTMLMotionProps<"div"> {
+  children: React.ReactNode;
+  delay?: number;
+  duration?: number;
+  initialScale?: number;
+  className?: string;
+  viewport?: {
+    once?: boolean;
+    amount?: number | "some" | "all";
+    margin?: string;
+  };
+}
+
+export function ScaleIn({
+  children,
+  delay = 0,
+  duration = 0.75,
+  initialScale = 0.94,
+  className = "",
+  viewport = defaultViewport,
+  ...props
+}: ScaleInProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: initialScale, y: 16 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={viewport}
+      transition={{
+        duration,
+        delay,
+        ease: LUXURY_EASE,
+      }}
+      className={className}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+interface HoverLiftProps extends HTMLMotionProps<"div"> {
+  children: React.ReactNode;
+  yOffset?: number;
+  className?: string;
+}
+
+export function HoverLift({
+  children,
+  yOffset = -4,
+  className = "",
+  ...props
+}: HoverLiftProps) {
+  return (
+    <motion.div
+      whileHover={{ y: yOffset }}
+      transition={{ duration: 0.25, ease: SMOOTH_EASE }}
+      className={className}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  );
+}
+

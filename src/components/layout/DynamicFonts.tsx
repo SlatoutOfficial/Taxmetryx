@@ -4,7 +4,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { TypographyConfig } from "@/lib/json";
 
 const defaultFonts: TypographyConfig = {
-  fontHeading: "DM Serif Display",
+  fontHeading: "Inter",
   fontBody: "Inter",
 };
 
@@ -37,7 +37,12 @@ export default function DynamicFonts() {
     try {
       const cached = localStorage.getItem("taxmetryx_typography");
       if (cached) {
-        setFonts(JSON.parse(cached));
+        const parsed = JSON.parse(cached);
+        if (parsed.fontHeading === "DM Serif Display" || parsed.fontHeading === "Taxmetryx Serif") {
+          parsed.fontHeading = "Inter";
+          localStorage.setItem("taxmetryx_typography", JSON.stringify(parsed));
+        }
+        setFonts(parsed);
       }
     } catch {
       // ignore
@@ -48,9 +53,13 @@ export default function DynamicFonts() {
       .then((res) => res.json())
       .then((data) => {
         if (data.success && data.data) {
-          setFonts(data.data);
+          const freshData = data.data;
+          if (freshData.fontHeading === "DM Serif Display" || freshData.fontHeading === "Taxmetryx Serif") {
+            freshData.fontHeading = "Inter";
+          }
+          setFonts(freshData);
           try {
-            localStorage.setItem("taxmetryx_typography", JSON.stringify(data.data));
+            localStorage.setItem("taxmetryx_typography", JSON.stringify(freshData));
           } catch {
             // ignore
           }
@@ -72,7 +81,9 @@ export default function DynamicFonts() {
     };
   }, []);
 
-  const headingFont = fonts.fontHeading || "DM Serif Display";
+  const headingFont = (fonts.fontHeading && fonts.fontHeading !== "DM Serif Display" && fonts.fontHeading !== "Taxmetryx Serif")
+    ? fonts.fontHeading
+    : "Inter";
   const bodyFont = fonts.fontBody || "Inter";
 
   const fontUrl = useMemo(() => {
@@ -89,29 +100,31 @@ export default function DynamicFonts() {
         dangerouslySetInnerHTML={{
           __html: `
             :root {
-              --font-serif: "${headingFont}", Georgia, serif;
+              --font-serif: "${headingFont}", var(--font-sans), sans-serif;
               --font-sans: "${bodyFont}", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             }
 
-            /* Apply typography without altering brand colors */
+            /* Apply typography consistently across all pages */
             body {
-              font-family: var(--font-sans);
+              font-family: var(--font-sans), sans-serif;
             }
 
             h1, h2, h3, .font-editorial {
-              font-family: var(--font-serif);
+              font-family: var(--font-sans), sans-serif;
+              letter-spacing: -0.03em;
             }
 
             .reference-heading {
-              font-family: var(--font-serif);
+              font-family: var(--font-sans), sans-serif;
+              letter-spacing: -0.04em;
             }
 
             .reference-sans-heading {
-              font-family: var(--font-sans);
+              font-family: var(--font-sans), sans-serif;
             }
 
             .reference-copy {
-              font-family: var(--font-sans);
+              font-family: var(--font-sans), sans-serif;
             }
           `,
         }}

@@ -18,7 +18,7 @@
     ],
     "relatedServices": ["corporate-tax", "transfer-pricing", "vat-and-indirect-tax"],
     "stats": { "label": "Funds Advised", "value": "60+" },
-    "image": "/images/hero-dubai.jpg"
+    "image": "/images/industries/financial-services.jpg"
   },
   {
     "id": 2,
@@ -39,7 +39,7 @@
     ],
     "relatedServices": ["transfer-pricing", "international-tax", "global-tax-and-emerging-regulations"],
     "stats": { "label": "Tech Enterprises", "value": "85+" },
-    "image": "/images/insights-architecture.jpg"
+    "image": "/images/industries/technology.jpg"
   },
   {
     "id": 3,
@@ -60,7 +60,7 @@
     ],
     "relatedServices": ["corporate-tax", "vat-and-indirect-tax", "tax-regulatory-and-controversy"],
     "stats": { "label": "Property Assets", "value": "AED 18B+" },
-    "image": "/images/expertise-architecture.jpg"
+    "image": "/images/industries/real-estate.jpg"
   },
   {
     "id": 4,
@@ -81,7 +81,7 @@
     ],
     "relatedServices": ["transfer-pricing", "vat-and-indirect-tax", "corporate-tax"],
     "stats": { "label": "Consumer Brands", "value": "40+" },
-    "image": "/images/who-we-are.jpg"
+    "image": "/images/industries/retail.jpg"
   },
   {
     "id": 5,
@@ -102,7 +102,7 @@
     ],
     "relatedServices": ["corporate-tax", "transfer-pricing", "vat-and-indirect-tax"],
     "stats": { "label": "Industrial Plants", "value": "25+" },
-    "image": "/images/contact-dubai.jpg"
+    "image": "/images/industries/manufacturing.jpg"
   },
   {
     "id": 6,
@@ -123,7 +123,7 @@
     ],
     "relatedServices": ["corporate-tax", "international-tax", "tax-regulatory-and-controversy"],
     "stats": { "label": "Megaprojects", "value": "15+" },
-    "image": "/images/hero-dubai.jpg"
+    "image": "/images/industries/energy.jpg"
   },
   {
     "id": 7,
@@ -144,7 +144,7 @@
     ],
     "relatedServices": ["corporate-tax", "transfer-pricing", "international-tax"],
     "stats": { "label": "Family Offices", "value": "35+" },
-    "image": "/images/values-sculpture.jpg"
+    "image": "/images/industries/family-offices.jpg"
   },
   {
     "id": 8,
@@ -165,6 +165,6 @@
     ],
     "relatedServices": ["transfer-pricing", "international-tax", "vat-and-indirect-tax"],
     "stats": { "label": "Advisory Firms", "value": "50+" },
-    "image": "/images/expertise-architecture.jpg"
+    "image": "/images/industries/corporate-services.jpg"
   }
 ]

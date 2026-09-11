@@ -31,12 +31,12 @@ export default function ServicesSection() {
 
             {/* Main Headline */}
             <FadeIn delay={0.1} distance={20}>
-              <h2 className="font-serif text-[2.75rem] xl:text-[3.35rem] leading-[1.04] tracking-tight text-[#111b23]">
+              <h2 className="font-sans font-extrabold text-[2.75rem] xl:text-[3.35rem] leading-[1.04] tracking-tight text-[#111b23]">
                 Six practices.
                 <br />
                 <span className="text-[#e00019]">One discipline:</span>
               </h2>
-              <p className="font-serif text-xl xl:text-[1.32rem] text-[#111b23] leading-snug mt-2.5">
+              <p className="font-sans font-semibold text-xl xl:text-[1.32rem] text-[#111b23] leading-snug mt-2.5">
                 understand the facts before
                 <br />
                 forming the view.
@@ -92,7 +92,7 @@ export default function ServicesSection() {
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.9, delay: 0.25, ease: LUXURY_EASE }}
           >
-            <span className="font-serif text-[2.75rem] sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.25rem] tracking-tight leading-[0.88] text-[#e3e1dc] font-normal block">
+            <span className="font-sans font-extrabold text-[2.75rem] sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.25rem] tracking-tight leading-[0.88] text-[#e3e1dc] block">
               BEYOND COMPLIANCE
               <br />
               TOWARDS OPPORTUNITY

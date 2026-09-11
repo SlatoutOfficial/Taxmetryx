@@ -1,12 +1,14 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 
+
 interface CTAButtonProps {
   href?: string;
   onClick?: () => void;
-  variant?: "primary" | "secondary" | "outline" | "dark";
+  variant?: "primary" | "secondary" | "outline" | "dark" | "secondary-light" | "outline-light";
   size?: "sm" | "md" | "lg";
   icon?: boolean;
   children: React.ReactNode;
@@ -33,9 +35,13 @@ export default function CTAButton({
     primary:
       "bg-brand-red text-white hover:bg-[#b80012] active:bg-[#9a000f] border border-transparent shadow-sm",
     secondary:
-      "bg-transparent text-brand-primary border border-brand-charcoal hover:bg-brand-primary hover:text-white active:bg-black",
+      "bg-white text-brand-primary border border-brand-charcoal hover:bg-brand-primary hover:!text-white active:bg-black shadow-xs",
+    "secondary-light":
+      "bg-transparent text-white border border-white/50 hover:bg-white hover:!text-brand-dark hover:border-white active:bg-white/90 shadow-sm",
     outline:
       "bg-transparent text-brand-primary border border-[#E7E5E1] hover:border-brand-charcoal hover:bg-brand-white",
+    "outline-light":
+      "bg-transparent text-white border border-white/30 hover:border-white hover:bg-white/10",
     dark:
       "bg-brand-dark text-white border border-white/20 hover:bg-black hover:border-brand-red",
   };
@@ -48,7 +54,7 @@ export default function CTAButton({
 
   const content = (
     <>
-      <span>{children}</span>
+      <span className="transition-colors duration-300">{children}</span>
       {icon && (
         <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
       )}
@@ -56,9 +62,37 @@ export default function CTAButton({
   );
 
   if (href) {
+    const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      if (onClick) {
+        onClick();
+      }
+      if (href.startsWith("#")) {
+        e.preventDefault();
+        try {
+          const target = document.querySelector(href);
+          if (target) {
+            const lenis = (
+              window as unknown as {
+                __lenis?: { scrollTo: (target: Element | string, opts?: object) => void };
+              }
+            ).__lenis;
+            if (lenis) {
+              lenis.scrollTo(target as HTMLElement, { offset: -80 });
+            } else {
+              target.scrollIntoView({ behavior: "smooth" });
+            }
+            window.history.pushState(null, "", href);
+          }
+        } catch {
+          // Fallback
+        }
+      }
+    };
+
     return (
       <Link
         href={href}
+        onClick={handleLinkClick}
         className={cn(baseClasses, variantClasses[variant], sizeClasses[size], className)}
       >
         {content}

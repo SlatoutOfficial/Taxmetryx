@@ -298,7 +298,7 @@ export default function RadialServices({ services }: { services: Service[] }) {
                 {item.number}
               </span>
               <h3
-                className={`font-serif text-[1.12rem] leading-tight font-bold mt-0.5 mb-1.5 transition-colors duration-200 ${
+                className={`font-sans text-[1.12rem] leading-tight font-bold mt-0.5 mb-1.5 transition-colors duration-200 ${
                   isActive ? "text-[#e00019]" : "text-[#111b23] group-hover:text-[#e00019]"
                 }`}
               >
@@ -332,7 +332,7 @@ export default function RadialServices({ services }: { services: Service[] }) {
                 </div>
                 <div>
                   <span className="text-[10px] font-mono text-[#64748b] block">{item.number}</span>
-                  <h3 className="font-serif text-lg font-bold text-[#111b23]">{serviceTitle}</h3>
+                  <h3 className="font-sans text-lg font-bold text-[#111b23]">{serviceTitle}</h3>
                 </div>
               </div>
               <p className="text-xs text-[#55636e] leading-relaxed pl-13">

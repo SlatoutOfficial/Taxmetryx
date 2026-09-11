@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { toast } from "sonner";
 import { Lock, Mail, ArrowRight, ShieldCheck } from "lucide-react";
+import BrandLogo from "@/components/shared/BrandLogo";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -47,11 +48,8 @@ export default function AdminLoginPage() {
     <div className="min-h-screen bg-[#061016] text-white flex flex-col justify-between p-6 sm:p-10 select-none">
       {/* Top Brand Bar */}
       <div className="flex items-center justify-between">
-        <Link href="/" className="inline-flex items-baseline gap-1.5 group">
-          <span className="font-editorial text-2xl tracking-tight text-white">
-            Taxmetryx
-          </span>
-          <span className="w-2 h-2 rounded-full bg-brand-red inline-block" />
+        <Link href="/" className="inline-flex items-center group">
+          <BrandLogo light />
         </Link>
 
         <div className="flex items-center gap-2 text-xs text-white/50 border border-white/10 px-3 py-1.5">

@@ -175,48 +175,6 @@ export default function ExpertiseSection() {
             </StaggerContainer>
           </div>
         </div>
-
-        <FadeIn delay={0.3} distance={15}>
-          <div className="section-baseline flex items-center justify-between flex-wrap gap-4 pt-4 border-t border-[#e5e4e0] mt-8">
-            <span className="text-[10px] tracking-[0.22em] text-[#6d7a83] uppercase">
-              COMPLEX TAX. CLEARER OUTCOMES.
-            </span>
-
-            <div className="flex items-center gap-6 ml-auto">
-              <div className="flex items-center gap-3 text-xs font-mono text-[#53606a]">
-                <span className="tracking-wider">
-                  0{activeLayer + 1} / 0{expertise.length}
-                </span>
-                <div className="flex items-center gap-1.5 ml-1">
-                  <button
-                    type="button"
-                    onClick={handlePrev}
-                    className="p-1 text-[#6a747b] hover:text-[#e00019] transition-colors cursor-pointer"
-                    aria-label="Previous layer"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleNext}
-                    className="p-1 text-[#6a747b] hover:text-[#e00019] transition-colors cursor-pointer"
-                    aria-label="Next layer"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-
-              <div className="text-[9px] font-mono tracking-[0.22em] text-[#74808a] uppercase text-right leading-tight hidden sm:block">
-                PARTNERS
-                <br />
-                IN A MORE
-                <br />
-                CERTAIN TOMORROW.
-              </div>
-            </div>
-          </div>
-        </FadeIn>
       </Container>
     </section>
   );

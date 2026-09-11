@@ -172,36 +172,8 @@ export default function InsightsSection() {
                 View all insights <ArrowRight />
               </Link>
             </FadeIn>
-
-            <FadeIn delay={0.35} distance={15}>
-              <blockquote>
-                Better questions
-                <br />
-                lead to better outcomes.
-              </blockquote>
-            </FadeIn>
           </div>
         </div>
-
-        <FadeIn
-          className="insight-filters"
-          delay={0.2}
-          distance={20}
-        >
-          <span className="micro-copy">EXPLORE BY TOPIC</span>
-          <div>
-            {categories.map((cat) => (
-              <button
-                type="button"
-                key={cat}
-                aria-pressed={selected === cat}
-                onClick={() => setSelected(cat)}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </FadeIn>
       </Container>
     </section>
   );

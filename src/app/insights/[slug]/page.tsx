@@ -9,6 +9,7 @@ import Breadcrumb from "@/components/shared/Breadcrumb";
 import CTAButton from "@/components/shared/CTAButton";
 import { getInsights, getInsightBySlug } from "@/lib/json";
 import { ArrowUpRight, Clock, User, CheckCircle2, Share2, ArrowLeft, Bookmark } from "lucide-react";
+import { FadeIn, ScaleIn, StaggerContainer, StaggerItem } from "@/components/shared/ScrollMotion";
 
 interface InsightPageProps {
   params: Promise<{ slug: string }>;
@@ -65,21 +66,10 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
 
   return (
     <article className="pt-28 sm:pt-32 pb-24 bg-[#F8F7F4]">
-      {/* Breadcrumb Header */}
-      <Container className="pb-8">
-        <Breadcrumb
-          items={[
-            { label: "Insights", href: "/insights" },
-            { label: insight.category, href: `/insights` },
-            { label: insight.title },
-          ]}
-        />
-      </Container>
-
       {/* Article Header Section */}
       <section className="pb-12 border-b border-[#E7E5E1]">
         <Container>
-          <div className="max-w-4xl space-y-6">
+          <FadeIn direction="up" className="max-w-4xl space-y-6">
             <div className="flex flex-wrap items-center gap-3 text-xs">
               <span className="px-2.5 py-1 bg-brand-red text-white text-[10px] font-mono uppercase tracking-widest font-semibold">
                 {insight.category}
@@ -110,14 +100,14 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </FadeIn>
         </Container>
       </section>
 
       {/* Hero Architectural Image */}
       <section className="py-10 border-b border-[#E7E5E1] bg-white">
         <Container>
-          <div className="relative aspect-[21/9] w-full overflow-hidden border border-[#E7E5E1] bg-brand-dark">
+          <ScaleIn delay={0.1} className="relative aspect-[21/9] w-full overflow-hidden border border-[#E7E5E1] bg-brand-dark">
             <Image
               src={insight.image || "/images/insights-architecture.jpg"}
               alt={insight.title}
@@ -126,7 +116,7 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
               sizes="(max-width: 1440px) 100vw, 1440px"
               className="object-cover object-center"
             />
-          </div>
+          </ScaleIn>
         </Container>
       </section>
 
@@ -137,60 +127,68 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
             {/* Article Content (8 cols) */}
             <div className="lg:col-span-8 space-y-10">
               {/* Executive Lead */}
-              <div className="p-6 sm:p-8 bg-white border-l-4 border-brand-red border-y border-r border-[#E7E5E1] text-base sm:text-lg font-editorial text-brand-primary leading-relaxed">
-                {insight.lead || insight.excerpt}
-              </div>
+              <FadeIn direction="up">
+                <div className="p-6 sm:p-8 bg-white border-l-4 border-brand-red border-y border-r border-[#E7E5E1] text-base sm:text-lg font-editorial text-brand-primary leading-relaxed">
+                  {insight.lead || insight.excerpt}
+                </div>
+              </FadeIn>
 
               {/* Key Takeaways Box */}
               {insight.keyTakeaways && insight.keyTakeaways.length > 0 && (
-                <div className="p-6 sm:p-8 bg-white border border-[#E7E5E1] space-y-4">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-brand-red flex items-center gap-2">
-                    <Bookmark className="w-4 h-4" />
-                    <span>Executive Takeaways & Risk Factors</span>
+                <FadeIn direction="up" delay={0.1}>
+                  <div className="p-6 sm:p-8 bg-white border border-[#E7E5E1] space-y-4">
+                    <div className="text-xs font-semibold uppercase tracking-wider text-brand-red flex items-center gap-2">
+                      <Bookmark className="w-4 h-4" />
+                      <span>Executive Takeaways & Risk Factors</span>
+                    </div>
+                    <ul className="space-y-3">
+                      {insight.keyTakeaways.map((takeaway, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-brand-charcoal">
+                          <CheckCircle2 className="w-4 h-4 text-brand-red shrink-0 mt-0.5" />
+                          <span className="leading-relaxed">{takeaway}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="space-y-3">
-                    {insight.keyTakeaways.map((takeaway, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-brand-charcoal">
-                        <CheckCircle2 className="w-4 h-4 text-brand-red shrink-0 mt-0.5" />
-                        <span className="leading-relaxed">{takeaway}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                </FadeIn>
               )}
 
               {/* Editorial Sections */}
-              <div className="space-y-12 bg-white p-8 sm:p-12 border border-[#E7E5E1]">
-                {insight.sections.map((section, idx) => (
-                  <div key={idx} id={`section-${idx}`} className="space-y-4">
-                    <h2 className="font-editorial text-2xl sm:text-3xl text-brand-primary border-b border-[#E7E5E1] pb-3">
-                      {section.heading}
-                    </h2>
-                    <div className="space-y-4 text-sm sm:text-base text-brand-charcoal/85 leading-relaxed">
-                      {section.content.map((p, pIdx) => (
-                        <p key={pIdx}>{p}</p>
-                      ))}
+              <FadeIn direction="up" delay={0.15}>
+                <div className="space-y-12 bg-white p-8 sm:p-12 border border-[#E7E5E1]">
+                  {insight.sections.map((section, idx) => (
+                    <div key={idx} id={`section-${idx}`} className="space-y-4">
+                      <h2 className="font-editorial text-2xl sm:text-3xl text-brand-primary border-b border-[#E7E5E1] pb-3">
+                        {section.heading}
+                      </h2>
+                      <div className="space-y-4 text-sm sm:text-base text-brand-charcoal/85 leading-relaxed">
+                        {section.content.map((p, pIdx) => (
+                          <p key={pIdx}>{p}</p>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              </FadeIn>
 
               {/* Author Bio Box */}
-              <div className="p-8 bg-white border border-[#E7E5E1] space-y-3">
-                <span className="text-[10px] font-semibold uppercase tracking-widest text-brand-muted block">
-                  ABOUT THE AUTHOR
-                </span>
-                <div className="font-editorial text-xl text-brand-primary">
-                  {insight.author.name}
+              <FadeIn direction="up">
+                <div className="p-8 bg-white border border-[#E7E5E1] space-y-3">
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-brand-muted block">
+                    ABOUT THE AUTHOR
+                  </span>
+                  <div className="font-editorial text-xl text-brand-primary">
+                    {insight.author.name}
+                  </div>
+                  <div className="text-xs font-semibold text-brand-red uppercase tracking-wider">
+                    {insight.author.role}
+                  </div>
+                  <p className="text-xs text-brand-muted leading-relaxed">
+                    {insight.author.bio ||
+                      "Specialist advisor representing multinational enterprises before the UAE Federal Tax Authority and overseas competent authorities."}
+                  </p>
                 </div>
-                <div className="text-xs font-semibold text-brand-red uppercase tracking-wider">
-                  {insight.author.role}
-                </div>
-                <p className="text-xs text-brand-muted leading-relaxed">
-                  {insight.author.bio ||
-                    "Specialist advisor representing multinational enterprises before the UAE Federal Tax Authority and overseas competent authorities."}
-                </p>
-              </div>
+              </FadeIn>
 
               {/* Back to archive link */}
               <div className="pt-4">
@@ -205,7 +203,7 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
             </div>
 
             {/* Sticky Sidebar (4 cols) */}
-            <div className="lg:col-span-4 space-y-8 sticky top-28">
+            <FadeIn direction="left" delay={0.2} className="lg:col-span-4 space-y-8 sticky top-28">
               {/* Table of Contents */}
               {insight.tableOfContents && insight.tableOfContents.length > 0 && (
                 <div className="p-6 bg-white border border-[#E7E5E1] space-y-4">
@@ -220,7 +218,7 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
                           className="hover:text-brand-red transition-colors block py-0.5"
                         >
                           <span className="font-mono text-brand-red mr-2">
-                            0{idx + 1}.
+                            {idx + 1}.
                           </span>
                           {item.title}
                         </a>
@@ -262,7 +260,7 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
                   ))}
                 </div>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </Container>
       </section>
@@ -270,7 +268,7 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
       {/* Related Insights Row */}
       <section className="py-16 bg-white border-t border-[#E7E5E1]">
         <Container>
-          <div className="mb-10 flex items-end justify-between">
+          <FadeIn direction="up" className="mb-10 flex items-end justify-between">
             <div>
               <SectionLabel>FURTHER READING</SectionLabel>
               <h3 className="font-editorial text-2xl sm:text-3xl text-brand-primary">
@@ -284,34 +282,35 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
               <span>View All</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
-          </div>
+          </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {related.map((item) => (
-              <Link
-                key={item.slug}
-                href={`/insights/${item.slug}`}
-                className="p-6 border border-[#E7E5E1] bg-[#F8F7F4]/60 hover:border-brand-red hover:bg-[#F8F7F4] transition-all duration-300 space-y-3 group block"
-              >
-                <div className="flex items-center justify-between text-[11px] font-mono text-brand-muted">
-                  <span className="text-brand-red uppercase font-semibold">
-                    {item.category}
-                  </span>
-                  <span>{item.readTime}</span>
-                </div>
-                <h4 className="font-editorial text-lg text-brand-primary group-hover:text-brand-red transition-colors line-clamp-2">
-                  {item.title}
-                </h4>
-                <p className="text-xs text-brand-muted line-clamp-2">
-                  {item.excerpt}
-                </p>
-                <div className="pt-2 flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider text-brand-red">
-                  <span>Read Article</span>
-                  <ArrowUpRight className="w-3 h-3" />
-                </div>
-              </Link>
+              <StaggerItem key={item.slug}>
+                <Link
+                  href={`/insights/${item.slug}`}
+                  className="p-6 border border-[#E7E5E1] bg-[#F8F7F4]/60 hover:border-brand-red hover:bg-[#F8F7F4] transition-all duration-300 space-y-3 group block h-full"
+                >
+                  <div className="flex items-center justify-between text-[11px] font-mono text-brand-muted">
+                    <span className="text-brand-red uppercase font-semibold">
+                      {item.category}
+                    </span>
+                    <span>{item.readTime}</span>
+                  </div>
+                  <h4 className="font-editorial text-lg text-brand-primary group-hover:text-brand-red transition-colors line-clamp-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-xs text-brand-muted line-clamp-2">
+                    {item.excerpt}
+                  </p>
+                  <div className="pt-2 flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider text-brand-red">
+                    <span>Read Article</span>
+                    <ArrowUpRight className="w-3 h-3" />
+                  </div>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </Container>
       </section>
     </article>
