@@ -4,10 +4,10 @@
     "number": "01",
     "name": "Middle East",
     "tagline": "OUR ANCHOR & HOME MARKET",
-    "overview": "From our headquarters in the Dubai International Financial Centre (DIFC), we command unmatched technical depth across the GCC and wider Levant. As Gulf economies rapidly diversify and establish modern tax architectures, we guide corporate groups through the interconnected tax landscapes of the UAE, the Kingdom of Saudi Arabia, Qatar, Oman, Bahrain, and Kuwait.",
+    "overview": "From our headquarters in the Dubai, we command unmatched technical depth across the GCC and wider Levant. As Gulf economies rapidly diversify and establish modern tax architectures, we guide corporate groups through the interconnected tax landscapes of the UAE, the Kingdom of Saudi Arabia, Qatar, Oman, Bahrain, and Kuwait.",
     "keyMarkets": ["United Arab Emirates", "Saudi Arabia", "Qatar", "Oman", "Bahrain", "Kuwait"],
     "keyCities": [
-      { "name": "Dubai (DIFC)", "country": "UAE", "coordinates": [55.2797, 25.2048], "focus": "Global Headquarters & International Tax Hub" },
+      { "name": "Dubai", "country": "UAE", "coordinates": [55.2797, 25.2048], "focus": "Global Headquarters & International Tax Hub" },
       { "name": "Abu Dhabi (ADGM)", "country": "UAE", "coordinates": [54.3773, 24.4539], "focus": "Sovereign Funds & Financial Institutions" },
       { "name": "Riyadh", "country": "Saudi Arabia", "coordinates": [46.6753, 24.7136], "focus": "Regional Headquarters (RHQ) & Zakat / CIT" },
       { "name": "Doha", "country": "Qatar", "coordinates": [51.5310, 25.2854], "focus": "QFC Structuring & Energy Sector Advisory" },

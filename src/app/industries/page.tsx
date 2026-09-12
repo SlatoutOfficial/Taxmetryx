@@ -103,7 +103,7 @@ export default function IndustriesPage() {
                   <div className="relative aspect-[16/11] w-full overflow-hidden bg-brand-dark group">
                     <Image
                       src="/images/industries/industries-hero.jpg"
-                      alt="Taxmetryx Sector Advisory Practice - Dubai DIFC Skyline"
+                      alt="Taxmetryx Sector Advisory Practice - Dubai Skyline"
                       fill
                       priority
                       sizes="(max-width: 1024px) 100vw, 40vw"
@@ -117,7 +117,7 @@ export default function IndustriesPage() {
                           PRACTICE FOOTPRINT
                         </div>
                         <div className="font-editorial text-base sm:text-lg">
-                          Dubai DIFC • ADGM • Mainland UAE
+                          Dubai • ADGM • Mainland UAE
                         </div>
                       </div>
                       <span className="px-2.5 py-1 bg-black/50 backdrop-blur-md border border-white/20 text-[10px] font-mono uppercase text-white">

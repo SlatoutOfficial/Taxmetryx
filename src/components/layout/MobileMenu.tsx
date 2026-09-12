@@ -107,7 +107,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <Globe className="w-4 h-4 text-brand-red" />
             <span>Region: United Arab Emirates (UAE)</span>
           </div>
-          <span>DIFC, Dubai</span>
+          <span>Dubai</span>
         </div>
 
         <CTAButton

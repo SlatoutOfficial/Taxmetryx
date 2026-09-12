@@ -18,11 +18,11 @@ export const metadata: Metadata = {
     template: "%s | Taxmetryx Advisory",
   },
   description:
-    "Taxmetryx is a premier UAE-based corporate tax and transfer pricing advisory firm operating from DIFC Dubai, delivering defensible solutions across Transfer Pricing, Corporate Tax, International Tax, and Controversy.",
+    "Taxmetryx is a premier UAE-based corporate tax and transfer pricing advisory firm operating from Dubai, delivering defensible solutions across Transfer Pricing, Corporate Tax, International Tax, and Controversy.",
   keywords: [
     "UAE Corporate Tax",
     "Transfer Pricing Dubai",
-    "DIFC Tax Advisory",
+    "Tax Advisory",
     "International Tax UAE",
     "Qualifying Free Zone Person",
     "Pillar Two GloBE",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         url: "/images/hero-dubai.jpg",
         width: 1200,
         height: 630,
-        alt: "Taxmetryx Corporate Advisory Dubai DIFC",
+        alt: "Taxmetryx Corporate Advisory Dubai",
       },
     ],
   },

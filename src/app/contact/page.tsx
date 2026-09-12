@@ -63,7 +63,7 @@ export default function ContactPage() {
                   <div className="relative aspect-[16/11] w-full overflow-hidden bg-brand-dark group">
                     <Image
                       src="/images/contact-dubai.jpg"
-                      alt="Taxmetryx Headquarters at Dubai International Financial Centre"
+                      alt="Taxmetryx Headquarters at Dubai"
                       fill
                       priority
                       sizes="(max-width: 1024px) 100vw, 42vw"
@@ -163,7 +163,7 @@ export default function ContactPage() {
               </div>
 
               <div className="px-8 py-4 bg-white border-t border-[#E7E5E1] text-[11px] font-mono text-brand-muted flex items-center justify-between">
-                <span>License: {site.legal.licenseNo}</span>
+                {site.legal.licenseNo && <span>License: {site.legal.licenseNo}</span>}
                 <span className="text-brand-primary font-semibold">Oud Metha District</span>
               </div>
             </StaggerItem>

@@ -58,8 +58,8 @@
     "twitter": "https://x.com/taxmetryx"
   },
   "legal": {
-    "licenseNo": "DIFC-CL-89240",
-    "regulatoryBody": "Dubai International Financial Centre Authority",
+    "licenseNo": "",
+    "regulatoryBody": "",
     "taxAgencyRegistered": true
   }
 }

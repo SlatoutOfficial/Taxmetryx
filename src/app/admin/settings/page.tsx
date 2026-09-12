@@ -55,7 +55,7 @@ export default function AdminSettingsPage() {
             Site & Licensing Settings
           </h1>
           <p className="text-xs text-white/60">
-            Dynamically update firm regulatory credentials, hotline numbers, and DIFC headquarters metadata.
+            Dynamically update firm regulatory credentials, hotline numbers, and headquarters metadata.
           </p>
         </div>
 
@@ -169,12 +169,12 @@ export default function AdminSettingsPage() {
         <div className="p-6 bg-white/5 border border-white/10 space-y-4">
           <div className="flex items-center gap-2 text-brand-red uppercase tracking-wider font-semibold text-xs border-b border-white/10 pb-3">
             <ShieldCheck className="w-4 h-4" />
-            <span>DIFC Licensing & Registration</span>
+            <span>Licensing & Registration</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-white/70 uppercase font-semibold">DIFC License No.</label>
+              <label className="text-white/70 uppercase font-semibold">License No.</label>
               <input
                 type="text"
                 value={config.legal.licenseNo}

@@ -2,7 +2,7 @@ export interface JobOpening {
   id: string;
   title: string;
   department: "Transfer Pricing" | "Corporate Tax" | "International Tax" | "Controversy & Regulatory" | "Advisory Operations";
-  location: "Dubai (DIFC), UAE" | "Abu Dhabi (ADGM), UAE" | "Hybrid / Cross-Border";
+  location: "Dubai, UAE" | "Abu Dhabi (ADGM), UAE" | "Hybrid / Cross-Border";
   type: "Full-Time" | "Director" | "Senior Manager" | "Associate";
   experience: string;
   overview: string;

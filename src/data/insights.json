@@ -1,5 +1,704 @@
 [
   {
+    "id": 9,
+    "slug": "choosing-a-transfer-pricing-consultant",
+    "title": "Choosing a TP Adviser Who Can Defend the Position",
+    "category": "Transfer Pricing",
+    "jurisdiction": "UAE",
+    "publishedAt": "2026-09-12",
+    "readTime": "7 min read",
+    "day": "12",
+    "monthYear": "SEP 2026",
+    "featured": true,
+    "lead": "The questions UAE businesses should ask before commissioning a transfer pricing study — and the answers that show the adviser can explain and defend the reasoning behind the result.",
+    "excerpt": "The questions UAE businesses should ask before commissioning a transfer pricing study — and the answers that show the adviser can explain and defend the reasoning behind the result.",
+    "image": "/images/insights/choosing-a-transfer-pricing-consultant.png",
+    "author": {
+      "name": "Taxmetryx Global",
+      "role": "Transfer Pricing Insights",
+      "bio": "Taxmetryx Global is a specialist advisory practice with deep expertise in Transfer Pricing, Corporate Tax and International Taxation, supporting businesses across the UAE and GCC."
+    },
+    "tableOfContents": [
+      {
+        "id": "section-0",
+        "title": "You are buying judgement, not just a report"
+      },
+      {
+        "id": "section-1",
+        "title": "Why this tested party — and why this method"
+      },
+      {
+        "id": "section-2",
+        "title": "Experience, the counterparty and what comes after"
+      },
+      {
+        "id": "section-3",
+        "title": "The scorecard — and the question checklist"
+      }
+    ],
+    "keyTakeaways": [],
+    "sections": [
+      {
+        "heading": "You are buying judgement, not just a report",
+        "content": [
+          "A transfer pricing (TP) report can contain an attractive range, a recognised database and a confident conclusion while leaving the central commercial questions unanswered. The business is buying professional judgement about its transactions — and a record of that judgement that can withstand examination. Database access and report production are useful inputs, but the quality of the reasoning determines how useful the final work will be.",
+          "THE CENTRAL COMMERCIAL QUESTIONS ? 1",
+          "Who actually makes the decisions?",
+          "2",
+          "What risks does the business control?",
+          "3",
+          "Why is the selected company the right party to test?",
+          "4",
+          "What evidence establishes that the comparables perform similar activities?",
+          "The business interview comes before the margin ? “Who will you speak to, and how will you establish what our business actually does?”",
+          "What a credible answer includes. Interviews with the people responsible for commercial decisions, operations and finance, supported by contracts and transaction records. A questionnaire alone may not reveal who approves discounts, decides credit limits, controls inventory exposure or manages key customer relationships.",
+          "Three layers to distinguish. The trade licence description, the contractual allocation of responsibilities and actual conduct. These may align — but that alignment needs to be established. The UAE framework requires the analysis to reflect the transaction's characteristics, including functions, assets and risks.  [1]",
+          "Trade licence description ? → ? Contractual allocation ? → ? Actual conduct ? Ask for the basis of the characterisation",
+          "“Why are you describing us as a limited-risk distributor, contract manufacturer, service provider or entrepreneur?”",
+          "An answer based only on a group policy or a familiar industry label is incomplete. Request the factual bridge between the description and the evidence. The label should help explain the transaction — it should not predetermine the margin before the business has been examined. A report that calls a company routine while describing substantial independent commercial authority needs a clear reconciliation.",
+          "For a distributor, show who… ? Determines prices ? Bears obsolete stock ? Develops the market ? Manages customer defaults ? Has the resources to absorb those risks"
+        ]
+      },
+      {
+        "heading": "Why this tested party — and why this method",
+        "content": [
+          "“Why have you selected this entity or segment as the tested party, and what would change your conclusion?”",
+          "For a one-sided method, ask whether the selected party has the less complex profile and reliable comparable information. The UAE entity is not selected simply because the report is being prepared in the UAE — the other party's activities also matter to the decision.",
+          "“Which methods did you consider, and what evidence led you to reject the alternatives?”",
+          "A useful explanation addresses actual internal comparables, data quality and transaction characteristics. Generic statements such as “the Comparable Uncontrolled Price method (CUP) is unavailable” need to identify what was investigated. Transactional Net Margin Method (TNMM) selection should explain the tested activity, the cost or revenue base and why a net profit comparison reliably addresses the transaction.  [2]",
+          "Look inside the qualitative comparable review ? “Can you show us how the accepted and rejected companies were assessed?”",
+          "Ask for the original search population, search date, screening criteria and a company-by-company decision trail, supported by website pages, annual reports and other reliable evidence. Industry codes identify possible candidates; they do not settle comparability.  [2]",
+          "A WEAK ANSWER ? “Functionally different.”",
+          "No stated difference, no source — nothing another reviewer can evaluate. Rejections of this kind weaken the whole set.",
+          "AN EVIDENCE-BASED ANSWER",
+          "“The company manufactures branded products and undertakes substantial product development, while the tested party only distributes third-party goods.”",
+          "A stated difference a reviewer can evaluate.",
+          "Handle the hard cases consistently: a missing website does not establish a company's functions, and an unusually high or low margin is a reason to investigate — not, by itself, evidence that the company is unsuitable. The FTA guide emphasises documented selection criteria and reasons for exclusions.  [2]",
+          "Ask the adviser to think from the other side ? “What would a tax authority challenge first, and what evidence would answer that challenge?”",
+          "Advisers who have defended positions may recognise where functional descriptions fail under questioning, which comparable exclusions attract attention and how accounting inconsistencies weaken otherwise sound arguments."
+        ]
+      },
+      {
+        "heading": "Experience, the counterparty and what comes after",
+        "content": [
+          "Ask for anonymised examples of issues defended, the jurisdiction, the stage of the proceedings and the proposed team's personal involvement. Distinguish a reasoned acceptance of the TP position from a negotiated settlement or a case that closed on a different issue — and ask what that experience changed in the team's approach to documentation.",
+          "An indicator, not a guarantee. Successful defence is a useful indicator of relevant experience, not a guarantee of the next outcome. An adviser with strong research, judgement and review controls may also produce excellent work. Evaluate the people who will perform and review your assignment, as well as the firm's credentials.",
+          "Ask whether the policy works for the counterparty ? “Would the other country's authority understand and accept the same commercial explanation?”",
+          "Ask whether the proposed adjustment affects the counterparty's deduction, taxable income, withholding tax, invoicing or accounting. A UAE conclusion does not establish compliance abroad. The factual account should stay consistent even where local documentation and comparable requirements differ. A payment described as a service fee by the recipient should have a coherent service and benefit explanation for the payer — a cost-plus conclusion cannot resolve a separate dispute over whether any service was received.",
+          "Ask what happens after the report",
+          "“How will the policy be implemented, monitored and updated — and what will we receive that allows us to reproduce the conclusion?”",
+          "Expect a practical answer covering agreements, invoices, cost allocations, segmented accounts, periodic monitoring and responsibility for any true-up — plus who prepares the annual comparable financial update, when a fresh search is required and what support is included if the FTA requests information.",
+          "Deliverables you can reuse. The agreed deliverables should include the calculations, financial reconciliation, comparable decision trail and implementation recommendations, subject to legitimate database licensing restrictions. Understand what evidence remains accessible if the adviser changes.",
+          "Common mistakes businesses can identify",
+          "Weak work often reveals itself through disconnected sections: a standard functional analysis, an unexplained tested party, an entity-wide margin covering unrelated transactions, comparable exclusions without evidence, inconsistent profit indicators, stale data, salary conclusions based only on company profits, and agreements describing activities the business does not perform.",
+          "Avoid asking for a predetermined result. A request to “find a range that includes our margin” undermines objective selection. Ask instead for a defensible analysis of the facts, an explanation of any exposure and practical ways to improve the position."
+        ]
+      },
+      {
+        "heading": "The scorecard — and the question checklist",
+        "content": [
+          "Ask for: Business understanding; A useful response contains: Interview plan, operational records and a clear characterisation rationale",
+          "Ask for: Method judgement; A useful response contains: Transaction-specific alternatives, data limitations and tested party reasoning",
+          "Ask for: Comparable quality; A useful response contains: Search history, qualitative evidence and reviewable acceptance/rejection decisions",
+          "Ask for: Defence capability; A useful response contains: Relevant examples, team involvement and an assessment of likely challenges",
+          "Ask for: Implementation; A useful response contains: Agreements, calculations, monitoring, ownership and counterparty review",
+          "The right adviser should make the position easier for management to understand and explain. A defensible range starts with a defensible account of the business.",
+          "TAKE THESE QUESTIONS INTO THE APPOINTMENT MEETING ? 1",
+          "Who will you speak to, and how will you establish what our business actually does?",
+          "2",
+          "Why are you describing us as a limited-risk distributor, contract manufacturer, service provider or entrepreneur?",
+          "3",
+          "Why have you selected this entity or segment as the tested party, and what would change your conclusion?",
+          "4",
+          "Which methods did you consider, and what evidence led you to reject the alternatives?",
+          "5",
+          "Can you show us how the accepted and rejected companies were assessed?",
+          "6",
+          "What would a tax authority challenge first, and what evidence would answer that challenge?",
+          "7",
+          "Would the other country's authority understand and accept the same commercial explanation?",
+          "8",
+          "How will the policy be implemented, monitored and updated — and what will we receive that allows us to reproduce the conclusion?",
+          "SOURCES & PUBLICATION NOTE ? 1",
+          "UAE Ministry of Finance, Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses and its amendments, consolidated English version dated 13 January 2026 (identified as an unofficial translation). Relevant provision: Article 34. Link",
+          "2",
+          "Federal Tax Authority, Transfer Pricing Guide, CTGTP1, October 2023 — method selection, comparability analysis and documented selection criteria. Link",
+          "Publication note. General information based on UAE sources reviewed as at 12 September 2026. Application depends on the facts, the applicable Tax Period and subsequent developments. OECD guidance provides interpretative context and does not replace applicable UAE law."
+        ]
+      }
+    ],
+    "tags": [
+      "Transfer Pricing",
+      "UAE"
+    ],
+    "relatedSlugs": [
+      "transfer-pricing-supporting-both-sides-of-the-border",
+      "evaluating-connected-person-payments",
+      "fta-audit-readiness"
+    ],
+    "sourceLinks": [
+      {
+        "title": "Federal Decree Law No. 47 of 2022 and its amendments en v13.1.26",
+        "url": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+      },
+      {
+        "title": "Transfer Pricing Guide   EN   23 10 2023",
+        "url": "https://tax.gov.ae/Datafolder/Files/Pdf/2023/Transfer%20Pricing%20Guide%20-%20EN%20-%2023%2010%202023.pdf"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "slug": "transfer-pricing-supporting-both-sides-of-the-border",
+    "title": "A Transfer Pricing Policy That Works on Both Sides of the Border",
+    "category": "Transfer Pricing",
+    "jurisdiction": "UAE",
+    "publishedAt": "2026-09-12",
+    "readTime": "6 min read",
+    "day": "12",
+    "monthYear": "SEP 2026",
+    "featured": false,
+    "lead": "How UAE businesses can align commercial substance, local requirements and group implementation. RP means Related Party; FTA means the UAE Federal Tax Authority.",
+    "excerpt": "How UAE businesses can align commercial substance, local requirements and group implementation. RP means Related Party; FTA means the UAE Federal Tax Authority.",
+    "image": "/images/insights/transfer-pricing-supporting-both-sides-of-the-border.png",
+    "author": {
+      "name": "Taxmetryx Global",
+      "role": "Transfer Pricing Insights",
+      "bio": "Taxmetryx Global is a specialist advisory practice with deep expertise in Transfer Pricing, Corporate Tax and International Taxation, supporting businesses across the UAE and GCC."
+    },
+    "tableOfContents": [
+      {
+        "id": "section-0",
+        "title": "One pricing change, two countries affected"
+      },
+      {
+        "id": "section-1",
+        "title": "The two-country review matrix"
+      },
+      {
+        "id": "section-2",
+        "title": "Operate the policy throughout the year"
+      }
+    ],
+    "keyTakeaways": [],
+    "sections": [
+      {
+        "heading": "One pricing change, two countries affected",
+        "content": [
+          "A transfer pricing (TP) change in the UAE can change the income, expense or cash position of a company elsewhere. A higher service fee may increase the UAE provider's income while raising a deductibility question for the recipient. A reduction in a distributor's purchase price can improve its margin while reducing the supplier's return. The policy therefore needs a consistent explanation for both parties — a UAE report is one part of that work.",
+          "UAE ENTITY ? Income · VAT ? customs · disclosure ? COUNTERPARTY ? Deduction · WHT ? local documentation ? ⇄ ? ONE TRANSACTION · ONE SET OF FACTS ? Establish one consistent account of the transaction",
+          "Record what is supplied, who performs the activities, who owns or uses relevant assets and who controls the economically significant risks — and why an independent business would agree to the terms. Local files may use different formats or datasets, but the UAE company cannot be described as controlling an important risk in one country's file while the same decision-making is assigned elsewhere in another file without a factual explanation.",
+          "SERVICES",
+          "Both sides should understand the activities, the recipient benefit, the charging base and the allocation.",
+          "GOODS",
+          "Both sides should understand product characteristics, market responsibilities, inventory and credit exposure.",
+          "FINANCE",
+          "The terms, duration, borrower circumstances and use of funds matter to both parties' analysis.",
+          "Global policies need a UAE review. A group-wide study can be a useful foundation where transactions and conditions are comparable, but the FTA guide requires its suitability to be evaluated in the UAE context, including the treatment of local or regional comparables. If relevant local information exists and was omitted, explain and address that omission; where information is unavailable, retain the audit trail.  [2]",
+          "Select the tested party on the facts",
+          "A one-sided method tests a selected financial indicator for one party, but still requires information about the other party to characterise the transaction. The tested party is generally the one for which the method and comparable information are most reliable — commonly the less complex party.  [6]\n\nConsider whether either side makes unique and valuable contributions that affect the method choice. A foreign tested party requires reliable foreign financial data and a reasoned explanation of its suitability.",
+          "Not by default. Do not choose the UAE entity solely to suit the local filing exercise — and do not pick whichever national analysis produces a preferred tax result.",
+          "When national analyses differ, examine the assumptions, tested activity, method, period and data. Consistent policy ≠ identical reports: a consistent commercial account, compatible implementation and reasoned local differences.",
+          "The two-country review matrix — the principle",
+          "The matrix on the next page is a review checklist, not a statement that every tax applies to every transaction. Apply each country's rules to the facts before implementation — an arm's length amount does not, by itself, establish deductibility or remove another tax obligation."
+        ]
+      },
+      {
+        "heading": "The two-country review matrix",
+        "content": [
+          "Review area: Transaction character; UAE side: Identify the actual supply and functions; Counterparty side: Confirm the matching transaction and benefit",
+          "Review area: Pricing evidence; UAE side: Apply an appropriate method with relevant evidence; Counterparty side: Test compatibility with local requirements",
+          "Review area: Deductibility; UAE side: Review business purpose and other deduction rules where applicable; Counterparty side: Confirm whether the matching expense qualifies",
+          "Review area: Other taxes; UAE side: Assess relevant VAT and customs consequences; Counterparty side: Assess local withholding, indirect tax and customs treatment",
+          "Review area: Accounting; UAE side: Reconcile invoices, accruals and tax-only adjustments; Counterparty side: Record and explain the corresponding treatment",
+          "Review area: Settlement; UAE side: Identify payer, payment terms and currency; Counterparty side: Confirm cash, funding and settlement implications",
+          "Review area: Disputes; UAE side: Consider the applicable UAE procedure; Counterparty side: Identify foreign remedies and any treaty route",
+          "? A margin adjustment changes another company's result",
+          "An illustrative UAE distributor has external sales of AED 10.0m, intercompany purchases of AED 8.5m and other operating costs of AED 1.2m — operating profit AED 300,000, a 3% Operating Profit / Operating Revenue margin. Assume a properly supported analysis establishes a 4% target for this specific transaction and period.",
+          "AS REPORTED ? External sales ? AED 10.0m ? Intercompany purchases ? AED 8.5m ? Other operating costs ? AED 1.2m ? Operating profit ? AED 300,000 · 3% ? AFTER THE ADJUSTMENT ? External sales ? AED 10.0m ? Intercompany purchases ? AED 8.4m ? Other operating costs ? AED 1.2m ? Operating profit ? AED 400,000 · 4%",
+          "The mirror image. The supplier's matching sales revenue decreases by AED 100,000 if implemented through a commercial purchase-price adjustment.",
+          "The 4% target is an assumption for this illustration, not a recommended or official UAE margin. Before posting, assess whether the supplier's reduced return remains appropriate, how the adjustment is documented, which period each entity records and whether VAT, customs or other taxes are affected. Distinguish an actual price change supported by a credit note from a tax-only adjustment — they can require different accounting and compliance actions.",
+          "Apply the current adjustment guidance precisely ? WHAT CTP011 CONFIRMS",
+          "Taxpayers self-assess appropriate upward or downward TP adjustments in the Tax Return without prior FTA approval. Downward-adjusted RP transactions must be disclosed irrespective of value or nature. Maintain the supporting rationale, benchmarking, financial reconciliation and symmetrical counterparty adjustments.  [5]",
+          "WHERE ITS SCOPE ENDS",
+          "The clarification is limited to adjustments required under Article 34(1) and expressly excludes corresponding adjustments under Articles 34(10)–(11). Where a foreign authority adjusts a transaction involving a UAE taxable person, Article 34(11) provides an application route to the FTA — a UAE self-assessment is not automatic acceptance of the result abroad.  [1][5]"
+        ]
+      },
+      {
+        "heading": "Operate the policy throughout the year",
+        "content": [
+          "Where taxation in both countries creates a dispute, assess any available treaty Mutual Agreement Procedure and the applicable domestic remedies, eligibility and deadlines — a separate case-specific review. A consistency check before implementation can reduce the need to address incompatible positions later.",
+          "1 ? START OF YEAR",
+          "Confirm the relationship map, transaction scope, responsibilities and pricing mechanism. Agree the data needed by both entities and who is authorised to approve changes.",
+          "2 ? DURING THE YEAR",
+          "Review margins, cost allocations, service evidence and overdue balances at a frequency appropriate to the business. Investigate changes in volumes, functions, market conditions and risk allocation. A quarterly review can be useful — the frequency is a management decision, not a universal statutory requirement.",
+          "3 ? BEFORE CLOSING",
+          "Calculate any true-up, validate the evidence and coordinate both parties' accounting and tax treatment.",
+          "4 ? AFTER CLOSING",
+          "Reconcile the final accounts, Tax Return and local documentation. Keep the annual comparable update and full-search cycle aligned with the applicable requirements.",
+          "Governance: the policy should name an owner in each entity, a group coordinator and a reviewer responsible for resolving differences. A group policy needs a consistent commercial explanation in every country it touches.",
+          "SOURCES & PUBLICATION NOTE ? 1",
+          "UAE Ministry of Finance, Federal Decree-Law No. 47 of 2022 and its amendments, consolidated English version dated 13 January 2026 (unofficial translation). Article 34, including Articles 34(1), 34(10) and 34(11). Link",
+          "2",
+          "Federal Tax Authority, Transfer Pricing Guide, CTGTP1, October 2023 — group policy suitability and local comparables. Link",
+          "3",
+          "Federal Tax Authority, Corporate Tax Public Clarification CTP011 — Downward adjustments made by a Taxable Person in the Tax Return, July 2026. Link",
+          "4",
+          "OECD, Transfer Pricing Guidelines for Multinational Enterprises and Tax Administrations 2022 — tested party selection and information on both parties (paras 3.18–3.20). Link",
+          "Publication note. General information based on UAE sources reviewed as at 12 September 2026. Application depends on the facts, the applicable Tax Period and subsequent developments. OECD guidance provides interpretative context and does not replace applicable UAE law. In this document, [1]–[2] refer to sources 1–2, [5] to source 3 and [6] to source 4, matching the article's original numbering."
+        ]
+      }
+    ],
+    "tags": [
+      "Transfer Pricing",
+      "UAE"
+    ],
+    "relatedSlugs": [
+      "choosing-a-transfer-pricing-consultant",
+      "evaluating-connected-person-payments",
+      "fta-audit-readiness"
+    ],
+    "sourceLinks": [
+      {
+        "title": "Federal Decree Law No. 47 of 2022 and its amendments en v13.1.26",
+        "url": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+      },
+      {
+        "title": "Transfer Pricing Guide   EN   23 10 2023",
+        "url": "https://tax.gov.ae/Datafolder/Files/Pdf/2023/Transfer%20Pricing%20Guide%20-%20EN%20-%2023%2010%202023.pdf"
+      },
+      {
+        "title": "CTP011   TP downwards adjustment  07 2026",
+        "url": "https://tax.gov.ae//Datafolder/Files/Pdf/2026/CTP011%20-%20TP%20downwards%20adjustment%20-07%202026.pdf"
+      },
+      {
+        "title": "0e655865 en",
+        "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2022/01/oecd-transfer-pricing-guidelines-for-multinational-enterprises-and-tax-administrations-2022_57104b3a/0e655865-en.pdf"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "slug": "evaluating-connected-person-payments",
+    "title": "Connected Person Payments and the Evidence Behind Market Value",
+    "category": "Transfer Pricing",
+    "jurisdiction": "UAE",
+    "publishedAt": "2026-09-12",
+    "readTime": "9 min read",
+    "day": "12",
+    "monthYear": "SEP 2026",
+    "featured": false,
+    "lead": "A practical UAE approach to classification, qualitative assessment and remuneration benchmarking after Public Clarification CTP010.",
+    "excerpt": "A practical UAE approach to classification, qualitative assessment and remuneration benchmarking after Public Clarification CTP010.",
+    "image": "/images/insights/evaluating-connected-person-payments.png",
+    "author": {
+      "name": "Taxmetryx Global",
+      "role": "Transfer Pricing Insights",
+      "bio": "Taxmetryx Global is a specialist advisory practice with deep expertise in Transfer Pricing, Corporate Tax and International Taxation, supporting businesses across the UAE and GCC."
+    },
+    "tableOfContents": [
+      {
+        "id": "section-0",
+        "title": "Classification, contribution, then market evidence"
+      },
+      {
+        "id": "section-1",
+        "title": "What CTP010 clarified — and worked starting points"
+      },
+      {
+        "id": "section-2",
+        "title": "Use direct remuneration evidence where it is reliable"
+      },
+      {
+        "id": "section-3",
+        "title": "Reconcile the evidence before reaching a conclusion"
+      }
+    ],
+    "keyTakeaways": [],
+    "sections": [
+      {
+        "heading": "Classification, contribution, then market evidence",
+        "content": [
+          "A defensible assessment of a payment to an owner, director or senior executive begins by identifying the correct person and the correct transaction. Distinguish a Related Party (RP) from a Connected Person (CP) before applying the transfer pricing (TP) analysis.",
+          "Q1  What work does the individual actually perform?",
+          "Q2  How does the business benefit?",
+          "Q3  What would independent parties pay for comparable work?",
+          "Published salary data can help answer the last question only. It cannot establish what work was performed or how the business benefits — and a profitable company may afford a substantial payment without that amount reflecting market value.",
+          "Identify the taxpayer before its connected persons",
+          "Establish whether the business is a separate juridical person, a natural person's business or another legal arrangement. A trade name does not necessarily identify a separate taxable entity. Then prepare a relationship register covering direct and indirect ownership, relevant family relationships, governing-body membership and actual decision-making authority — reviewed when appointments, ownership or delegated powers change.",
+          "Why the legal form matters",
+          "For a company, genuinely remunerated work by an owner requires analysis on its facts. For a natural person's own business, withdrawals are not transformed into deductible salary by a benchmarking exercise. Article 33 separately addresses owner profit distributions and relevant withdrawals.  [1]",
+          "Test related-party status before using the CP label ? STEP 1 · ARTICLE 35",
+          "Related Party test. A natural person and a juridical person are RPs where the ownership test reaches 50% or more — counting the natural person together with related persons — or where the control test is met. Control extends beyond shares to specified voting, board, profit-entitlement and significant-influence tests.",
+          "IF RP → STOP THERE",
+          "Under CTP010, a person satisfying both the RP and CP definitions is treated only as an RP for Corporate Tax purposes.  [1][4] So do not assume every salary paid to a shareholder — or a shareholder's spouse — belongs in the CP category. Identify the relationship first, then apply the appropriate pricing, deductibility and reporting treatment.",
+          "STEP 2 · ARTICLE 36",
+          "Connected Person test. Includes a natural-person owner without a minimum shareholding percentage, directors and officers, and related parties of those owners, directors or officers — with provisions for unincorporated partnerships.",
+          "Then assess the payment itself and the Article 36(6) exceptions (including recognised-stock-exchange-listed and qualifying regulatory-oversight cases) separately. Ordinary trade licensing should not be assumed to resolve the regulatory-oversight exception, and an exception to Article 36(1) does not erase other applicable Corporate Tax requirements.  [1]",
+          "Financial statement related-party disclosures are a useful starting point for enquiries — not a substitute for mapping the statutory tests. Reconcile the accounting key-management category to the tax analysis, with reasons for differences."
+        ]
+      },
+      {
+        "heading": "What CTP010 clarified — and worked starting points",
+        "content": [
+          "CTP010 is an FTA Public Clarification issued in April 2026 — an interpretation of existing legislation, not a new amendment to Article 36. It states that it applies from implementation of the relevant legislation unless otherwise stated, so earlier-period classifications deserve review where it exposes a mismatch.  [4] ? DIRECTORS ? Board or equivalent governing-body membership is relevant to the director test. Having “director” in a job title is insufficient by itself. ? OFFICERS ? Examine actual authority over the business and final strategic decision-making or binding powers. Administrative execution of pre-approved decisions is different from holding that authority. ? INTERIM & OUTSOURCED ? The clarification also addresses individuals acting through interim or outsourced arrangements. Employment status alone does not settle the question. ? A practical classification table ? The examples assume a UAE company. Each conclusion requires verification of the full ownership chain, relationships and actual control. ?",
+          "Illustrative facts: Individual owns 50% of the company; Starting classification: RP through ownership; Evidence to verify: Share register and direct/indirect ownership",
+          "Illustrative facts: Individual owns 20%, no further related holdings and no control; Starting classification: CP through ownership; Evidence to verify: Related persons' holdings and all control rights",
+          "Illustrative facts: Spouse of a 50% shareholder holds no shares personally; Starting classification: RP through the combined ownership test; Evidence to verify: Marriage relationship and the shareholder's interest",
+          "Illustrative facts: Independent board member; no ownership or separate Article 35 control; Starting classification: CP as director; Evidence to verify: Formal appointment and constitutional documents",
+          "Illustrative facts: Employee titled “Sales Director”, outside the governing body, only implements approved decisions; Starting classification: Title alone does not establish CP status; Evidence to verify: Officer test and any other RP/CP relationship",
+          "Illustrative facts: Interim consultant directs the whole business with final authority; Starting classification: Assess officer status and separately assess Article 35 control; Evidence to verify: Engagement terms, delegated authority and conduct",
+          "Illustrative facts: Employee holds a power of attorney limited to predefined administrative tasks; Starting classification: Power of attorney alone does not settle the classification; Evidence to verify: Scope of discretion and any other relationship",
+          "? Establish the actual services and business purpose",
+          "For a CP payment within Article 36(1), the payment must correspond with market value and be incurred wholly and exclusively for the business; Article 36(5) applies the relevant Article 34 provisions as the context requires.  [1]  Prevent the same full-time contribution being attributed to several companies without a credible allocation.",
+          "PREPARE AN EVIDENCE-BASED ROLE PROFILE, DESCRIBING… ? Actual decision rights and responsibilities ? Time commitment and other appointments ? Reporting relationships ? The scale of the business managed ? Work undertaken for other group entities ? How shared contributions are allocated"
+        ]
+      },
+      {
+        "heading": "Use direct remuneration evidence where it is reliable",
+        "content": [
+          "Start with reliable internal evidence if available, such as remuneration for an independent executive undertaking comparable work — explaining differences in responsibility, experience, working time and performance arrangements. An internal employee is not automatically comparable merely because the title matches. External sources — salary surveys, remuneration databases, recruitment evidence, public disclosures — can add support: assess each source's sample, date, geography, sector, company scale, job definition and compensation measure.",
+          "METHOD DISCIPLINE",
+          "Direct market comparisons may support the Comparable Uncontrolled Price (CUP) method where sufficiently reliable — but a broad survey should not be labelled a conclusive CUP without explaining comparability. Where another approach is required, explain why the recognised methods cannot reasonably be applied and how the alternative meets Article 34(4). No particular salary website is a statutory safe harbour.  [1]",
+          "Make the compensation measures consistent",
+          "Separate base pay, allowances, bonuses, commissions and benefits, then determine which components the source includes. Compare the same period and currency, and investigate whether a displayed figure is monthly or annual — do not multiply an annual survey amount by twelve.",
+          "AED 720,000 ? BASE PAY ? Addressed by a base-salary benchmark ? AED 900,000 ? CASH COMPENSATION ? May be addressed by a cash-compensation benchmark if it includes the AED 180,000 bonus ? AED 960,000 ? TOTAL PACKAGE ? Comparable only if the benchmark covers the AED 60,000 benefits on a consistent basis",
+          "Illustration of reconciliation only — these figures are not a market range.",
+          "Use the qualitative profile to explain the selected benchmark and conclusion. An amount below a survey's maximum is not automatically market value — a maximum is different from a percentile, and a sparse or mixed sample may be unreliable. Greater pay requires evidence of a comparable role and compensation arrangement, not reliance on the highest number displayed.",
+          "Keep profitability corroboration in its proper place",
+          "An industry comparison of Operating Profit / Operating Revenue after remuneration may give context; Employee Cost / Operating Cost (EC/OC) can add a cost-structure comparison. Both can identify questions requiring explanation, but neither directly prices the individual's work.",
+          "DEFINE THE MEASURE CONSISTENTLY",
+          "Operating cost = operating revenue − operating profit (same operating perimeter)\nEC/OC = employee cost ÷ operating cost\nThree-year weighted: sum of employee costs ÷ sum of operating costs — not the simple average of annual percentages.",
+          "Why these ratios are not a ceiling ? Low EC/OC can coexist with excess pay to one person ? High margins may reflect assets or market conditions ? Losses can arise from start-up or disruption ? Outsourcing, owner involvement and accounting classifications distort comparisons",
+          "Treat these measures as corroborative analysis — not an individual salary ceiling or an automatic pass/fail test."
+        ]
+      },
+      {
+        "heading": "Reconcile the evidence before reaching a conclusion",
+        "content": [
+          "A well-supported conclusion states the correct RP/CP classification, the work actually performed, the payment tested, the selected method and comparable evidence — explains material differences and the basis for any position within a reliable range, and records the limitations of any supporting company-level analysis.\n\nResolve conflicts, don't shop between tests. If direct remuneration evidence indicates a concern while company profits appear strong, investigate the concern. Weak company performance does not establish that the salary alone caused the problem. Review reporting separately from pricing — disclosure thresholds are not market-value exemptions. ? The annual evidence pack ? 1 ? Relationship assessment and role profile ? 2 ? Service evidence and approved remuneration arrangement ? 3 ? Full compensation reconciliation ? 4 ? Source extracts and qualitative comparison ? 5 ? The documented conclusion ? Update for changes in responsibilities and the market. ? The payment must be supported by the work performed and the market evidence for that work. That is the foundation of a more defensible remuneration position. ? The role-to-evidence map ? A generic list of everything a managing director might do is not enough — connect responsibilities to evidence of work actually performed, and assess contributions reasonably: growth may reflect the wider team, capital, brands and market conditions. ?",
+          "Qualitative factor: Decision authority; Useful evidence: Delegation matrix and examples of approvals; Relevance to the benchmark: Distinguishes executive leadership from operational support",
+          "Qualitative factor: Operational scope; Useful evidence: Sites, functions, countries and teams supervised; Relevance to the benchmark: Tests whether the reference role has similar breadth",
+          "Qualitative factor: Time commitment; Useful evidence: Contracts, activity records and other appointments; Relevance to the benchmark: Identifies part-year, part-time and shared roles",
+          "Qualitative factor: Relevant experience; Useful evidence: Employment history and sector responsibilities; Relevance to the benchmark: Supports seniority without relying on title alone",
+          "Qualitative factor: Business contribution; Useful evidence: Projects, commercial outcomes and performance reviews; Relevance to the benchmark: Supports the services and incentive rationale",
+          "Qualitative factor: Company complexity; Useful evidence: Revenue, workforce, business model and operational risks; Relevance to the benchmark: Tests whether survey companies are genuinely comparable",
+          "? SOURCES & PUBLICATION NOTE ? 1",
+          "UAE Ministry of Finance, Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses and its amendments, consolidated English version dated 13 January 2026 (identified as an unofficial translation). Relevant provisions: Articles 33, 34, 35 and 36. Link",
+          "2",
+          "Federal Tax Authority, Corporate Tax Public Clarification CTP010 — Clarification of the terms director and officer for the purpose of payments to Connected Persons under Article 36, April 2026. Link",
+          "Publication note. General information based on UAE sources reviewed as at 12 September 2026. Application depends on the facts, the applicable Tax Period and subsequent developments. OECD guidance provides interpretative context and does not replace applicable UAE law. In this document, [1] refers to source 1 and [4] to source 2, matching the article's original numbering."
+        ]
+      }
+    ],
+    "tags": [
+      "Transfer Pricing",
+      "UAE"
+    ],
+    "relatedSlugs": [
+      "choosing-a-transfer-pricing-consultant",
+      "transfer-pricing-supporting-both-sides-of-the-border",
+      "fta-audit-readiness"
+    ],
+    "sourceLinks": [
+      {
+        "title": "Federal Decree Law No. 47 of 2022 and its amendments en v13.1.26",
+        "url": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+      },
+      {
+        "title": "CTP010 Clarification of director and officer 04 2026",
+        "url": "https://tax.gov.ae/Datafolder/Files/Pdf/2026/Guide/CTP010-Clarification-of-director-and-officer-04-2026.pdf"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "slug": "fta-audit-readiness",
+    "title": "Preparing Your Transfer Pricing Position for an FTA Audit",
+    "category": "Transfer Pricing",
+    "jurisdiction": "UAE",
+    "publishedAt": "2026-09-12",
+    "readTime": "6 min read",
+    "day": "12",
+    "monthYear": "SEP 2026",
+    "featured": false,
+    "lead": "The evidence UAE businesses should assemble before their pricing is questioned — so a Federal Tax Authority (FTA) reviewer can follow the transaction from commercial facts to the Tax Return.",
+    "excerpt": "The evidence UAE businesses should assemble before their pricing is questioned — so a Federal Tax Authority (FTA) reviewer can follow the transaction from commercial facts to the Tax Return.",
+    "image": "/images/insights/fta-audit-readiness.png",
+    "author": {
+      "name": "Taxmetryx Global",
+      "role": "Transfer Pricing Insights",
+      "bio": "Taxmetryx Global is a specialist advisory practice with deep expertise in Transfer Pricing, Corporate Tax and International Taxation, supporting businesses across the UAE and GCC."
+    },
+    "tableOfContents": [
+      {
+        "id": "section-0",
+        "title": "Be able to reconstruct the conclusion"
+      },
+      {
+        "id": "section-1",
+        "title": "An evidence trail another person can follow"
+      },
+      {
+        "id": "section-2",
+        "title": "Examine the strongest challenge before the FTA does"
+      }
+    ],
+    "keyTakeaways": [],
+    "sections": [
+      {
+        "heading": "Be able to reconstruct the conclusion",
+        "content": [
+          "An FTA reviewer should be able to follow the transaction from the commercial facts through the method and comparable selection to the financial result and Tax Return. The relationship inventory should distinguish Related Parties (RPs) and Connected Persons (CPs).\n\nAn in-range operating margin is one part of that account. Its reliability depends on the transaction tested, the accuracy of the functional analysis and the quality of the data.",
+          "Commercial facts ? ↓ ? Functional analysis & characterisation ? ↓ ? Method & comparable selection ? ↓ ? Tested financial result ? ↓ ? Tax Return & disclosures",
+          "The connecting principle: a strong defence connects each important statement to a record that existed when the business made the relevant decision.",
+          "Substance gives the numbers their meaning",
+          "Start with the functions, assets and risks of each relevant party. Identify who negotiates and approves key commercial terms, who can accept or reject risks, who performs the associated work and who has the capacity to bear the financial consequences.",
+          "Contract and conduct can diverge in both directions. A contract may allocate market risk to a foreign principal, while the UAE team independently sets strategy and controls the material decisions. Conversely, a local team may perform substantial operational activity within a framework directed and controlled elsewhere. Neither conclusion follows from headcount or job titles alone.",
+          "Records that support the story ? 1 ? Interview notes ? 2 ? Authority matrices ? 3 ? Budget approvals ? 4 ? Operational reports ? 5 ? Decision records ? These help explain any gap between contractual wording and conduct.  [2] ? Be ready to explain every methodological choice",
+          "The audit file should answer: why the transaction was analysed separately or aggregated · why the method fits · why the tested party was selected · why the chosen profit indicator measures the relevant activity · why credible alternatives were less reliable.",
+          "FOR TNMM, DEFINE THE SEGMENT",
+          "Identify which revenues and costs belong to the tested segment; address mixed activities, transactions with independent customers, pass-through costs and expenses affected by other controlled transactions. A blended margin can conceal a loss on one activity behind profits on another.",
+          "Allocations need their own explanation. Revenue, headcount, floor area and time records can all be suitable allocation keys in different circumstances. Their suitability depends on what causes the cost and who benefits from it — not the convenience of the available spreadsheet."
+        ]
+      },
+      {
+        "heading": "An evidence trail another person can follow",
+        "content": [
+          "Retain the original search strategy, database export, screening decisions and financial extraction. For each accepted company, preserve evidence of relevant activities and independence. For each rejected company, record the factual reason and its source. ? A website review should cover ? Product ranges and manufacturing facilities ? Service descriptions and customer channels ? Group ownership and independence ? Material business changes ? Historical pages for the tested years ? If public evidence is insufficient, record the limitation and apply a consistent treatment. ? Geography needs reasoning too. The guide prefers local, then regional, then other comparables where suitable data is unavailable — the audit trail should show the reasoning behind any expansion.  [2] ? Build a financial reconciliation that reconnects ? Start with the financial statements and trial balance; reconcile controlled transaction totals to ledgers, invoices and related-party schedules; connect the segmented profit calculation to those records. Use consistent definitions — operating profit ÷ operating revenue differs from operating profit ÷ operating cost, and profit before tax may include non-operating items. ?",
+          "Evidence area: Relationship mapping; Records to assemble: Ownership chain, relevant family relationships, appointments and delegated authority; Question it helps answer: Who belongs in the RP/CP population?",
+          "Evidence area: Actual transaction; Records to assemble: Contracts, invoices, correspondence and delivery or service records; Question it helps answer: What was supplied, by whom, on what terms?",
+          "Evidence area: Functions and risks; Records to assemble: Interviews, approvals, budgets and operational records; Question it helps answer: Does the characterisation reflect conduct?",
+          "Evidence area: Economic analysis; Records to assemble: Method rationale, search export, qualitative matrix and data sources; Question it helps answer: Can the comparable result be reproduced?",
+          "Evidence area: Financial result; Records to assemble: Trial balance bridge, segment schedules and allocation workings; Question it helps answer: Does the tested result reconcile?",
+          "Evidence area: Implementation; Records to assemble: Pricing policy, true-up calculations and counterparty confirmation; Question it helps answer: Was the position implemented consistently?",
+          "Explain foreign exchange treatment, exceptional items and accounting differences where material.",
+          "Agreements and delivery evidence work together",
+          "Maintain agreements that describe the actual scope, charging basis, payment terms, responsibilities and review mechanism — and that remain consistent with the parties' conduct.",
+          "SERVICES",
+          "Preserve evidence of activity and recipient benefit: work products, meeting records, project support, cost allocations. A signed agreement and invoice alone do not establish delivery. Separate shareholder activity and duplication.",
+          "REMUNERATION",
+          "Keep the individual's actual role, time commitment, total package, approvals and comparable pay evidence — connecting payment to work performed.",
+          "BALANCES",
+          "Retain ageing, ordinary credit terms, settlement records and the analysis of whether extended credit constitutes financing needing compensation."
+        ]
+      },
+      {
+        "heading": "Examine the strongest challenge before the FTA does",
+        "content": [
+          "AN ILLUSTRATIVE TENSION",
+          "A distributor is described as limited-risk, with a margin inside its benchmark range. But the same files show local managers deciding major discounts, funding market development and absorbing inventory losses.",
+          "The preparation question is whether those facts remain consistent with the proposed characterisation and comparables. The answer may require better evidence about approvals and reimbursements, a revised functional analysis, segmentation or a different comparable set — addressing the substantive issue, not just the percentile calculation.",
+          "Run an internal challenge review: ask a reviewer to identify the strongest alternative explanation, the weakest comparable and the least supported financial adjustment. This is a recommended preparation practice, not a prescribed FTA audit procedure.",
+          "Organise the response before a request arrives",
+          "Nominate a response coordinator, allocate each evidence area to an owner and maintain a version-controlled record of information supplied. Read the scope and deadline of each request carefully; answer with the relevant evidence, and explain limitations accurately rather than filling gaps with assumptions.",
+          "Article 55 provides a 30-day period for requested Master File / Local File documentation and other requested arm's length support, unless the FTA directs a later date — not a universal deadline for every notice.\nArticle 56 requires relevant Corporate Tax records to be kept for seven years after the end of the Tax Period; check any additional preservation requirement for an ongoing matter.  [1]",
+          "No reconstruction. Do not backdate agreements or reconstruct records as though they existed earlier. A later explanatory memorandum can be useful if it states when it was prepared and identifies the contemporaneous evidence supporting it. Review an identified error through the applicable correction procedure with advice appropriate to the facts and stage of the matter.",
+          "MANAGEMENT SHOULD BE ABLE TO ANSWER ? 1",
+          "What is our position?",
+          "2",
+          "What is the strongest challenge to it?",
+          "3",
+          "Where is the evidence supporting our answer?",
+          "SOURCES & PUBLICATION NOTE ? 1",
+          "UAE Ministry of Finance, Federal Decree-Law No. 47 of 2022 on the Taxation of Corporations and Businesses and its amendments, consolidated English version dated 13 January 2026 (identified as an unofficial translation). Relevant provisions: Articles 34, 55 and 56. Link",
+          "2",
+          "Federal Tax Authority, Transfer Pricing Guide, CTGTP1, October 2023 — functional analysis, comparability, documentation and selection criteria. Link",
+          "Publication note. General information based on UAE sources reviewed as at 12 September 2026. Application depends on the facts, the applicable Tax Period and subsequent developments. OECD guidance provides interpretative context and does not replace applicable UAE law."
+        ]
+      }
+    ],
+    "tags": [
+      "Transfer Pricing",
+      "UAE",
+      "FTA Audit Readiness"
+    ],
+    "relatedSlugs": [
+      "choosing-a-transfer-pricing-consultant",
+      "transfer-pricing-supporting-both-sides-of-the-border",
+      "evaluating-connected-person-payments"
+    ],
+    "sourceLinks": [
+      {
+        "title": "Federal Decree Law No. 47 of 2022 and its amendments en v13.1.26",
+        "url": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+      },
+      {
+        "title": "Transfer Pricing Guide   EN   23 10 2023",
+        "url": "https://tax.gov.ae/Datafolder/Files/Pdf/2023/Transfer%20Pricing%20Guide%20-%20EN%20-%2023%2010%202023.pdf"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "slug": "common-transfer-pricing-misconceptions-in-uae",
+    "title": "Ten UAE Transfer Pricing Misconceptions That Deserve a Second Look",
+    "category": "Transfer Pricing",
+    "jurisdiction": "UAE",
+    "publishedAt": "2026-09-12",
+    "readTime": "8 min read",
+    "day": "12",
+    "monthYear": "SEP 2026",
+    "featured": false,
+    "lead": "Practical corrections for businesses reviewing their transfer pricing compliance. RP and CP mean Related Party and Connected Person; TNMM means the Transactional Net Margin Method.",
+    "excerpt": "Practical corrections for businesses reviewing their transfer pricing compliance. RP and CP mean Related Party and Connected Person; TNMM means the Transactional Net Margin Method.",
+    "image": "/images/insights/common-transfer-pricing-misconceptions-in-uae.png",
+    "author": {
+      "name": "Taxmetryx Global",
+      "role": "Transfer Pricing Insights",
+      "bio": "Taxmetryx Global is a specialist advisory practice with deep expertise in Transfer Pricing, Corporate Tax and International Taxation, supporting businesses across the UAE and GCC."
+    },
+    "tableOfContents": [
+      {
+        "id": "section-0",
+        "title": "None of these shortcuts replaces the actual transaction"
+      },
+      {
+        "id": "section-1",
+        "title": "Domestic transactions, balances and aggregation"
+      },
+      {
+        "id": "section-2",
+        "title": "Agreements, methods and Free Zones"
+      },
+      {
+        "id": "section-3",
+        "title": "Documentation depth and year-end fixes"
+      },
+      {
+        "id": "section-4",
+        "title": "Reporting thresholds are not the whole obligation"
+      }
+    ],
+    "keyTakeaways": [],
+    "sections": [
+      {
+        "heading": "None of these shortcuts replaces the actual transaction",
+        "content": [
+          "Transfer pricing (TP) obligations are often reduced to a threshold, a benchmark range or a year-end adjustment. Each serves a purpose, but none replaces the analysis of the actual transaction. These ten misconceptions show where to examine the current approach.",
+          "1 ? Benchmarking needs no annual update ? 2 ? TP applies only above thresholds ? 3 ? Mainland-to-mainland is out of scope ? 4 ? Balances never require interest ? 5 ? One benchmark justifies everything ? 6 ? Agreements are unimportant ? 7 ? TNMM answers every question ? 8 ? Documentation is a Free Zone issue ? 9 ? No Local File means no documentation ? 10 ? Year-end TNMM adjustments fix everything ? 1 ? A benchmarking study does not need an annual update ? THE MISCONCEPTION",
+          "Once a study is prepared, it can be used unchanged for three years.",
+          "THE CORRECT POSITION",
+          "The FTA guide calls for a full comparable search every three years, with an annual financial update in the intervening years as a minimum. A change in the circumstances of the controlled transaction or relevant parties requires a full analysis of comparable selection in the year of change. Reusing the search does not mean reusing stale financial results.  [2]",
+          "BUSINESS ACTION   Record the last full search date, update comparable financials annually and review changes in activities, risks, markets and terms. A volatile loan or remuneration arrangement may need current market evidence suited to that transaction.",
+          "2 ? TP applies only above disclosure or Local File thresholds ? THE MISCONCEPTION",
+          "Below the reporting thresholds, there is no transfer pricing obligation.",
+          "THE CORRECT POSITION",
+          "Article 34 establishes the arm's length requirement. Reporting thresholds determine particular compliance outputs; they do not switch that requirement on. Article 36 and general deductibility requirements also need separate consideration for relevant payments.  [1]",
+          "BUSINESS ACTION   Prepare a transaction and relationship inventory before assessing disclosure, Master File and Local File requirements. Assess each obligation separately and document the conclusion."
+        ]
+      },
+      {
+        "heading": "Domestic transactions, balances and aggregation",
+        "content": [
+          "3 ? Mainland-to-mainland transactions do not need TP analysis ? THE MISCONCEPTION",
+          "Transactions between two UAE mainland companies fall outside TP because both pay UAE Corporate Tax.",
+          "THE CORRECT POSITION",
+          "Domestic related-party transactions are within the arm's length framework. Ministerial Decision No. 97 provides Local File scope exclusions for specified resident transactions, including relevant same-rate cases — exclusions from the Local File, not a general exemption from Article 34. A qualifying Corporate Tax Group requires a separate assessment of the tax-group rules.  [1][3]",
+          "BUSINESS ACTION   Identify the parties' actual tax status and retain proportionate pricing support even where the transaction is excluded from the Local File. Geography alone does not settle the question.",
+          "4 ? Outstanding related-party balances never require interest ? THE MISCONCEPTION",
+          "A trade balance can remain outstanding indefinitely without financing consequences.",
+          "THE CORRECT POSITION",
+          "Review the nature of the balance, agreed and arm's length credit terms, ageing and actual settlement. Ordinary trade credit may not need a separate interest charge where the terms and conduct are arm's length. Repeated or prolonged extension beyond an arm's length credit period may constitute financing and require compensation. A year-end balance alone proves neither conclusion.  [2]",
+          "BUSINESS ACTION   Maintain invoice-level ageing and settlement evidence; analyse any financing period and an appropriate rate where warranted. Do not apply a long-term loan benchmark to short-term trade credit, or charge interest from invoice day one without considering the credit terms.",
+          "5 ? One entity-level benchmark justifies every transaction ? THE MISCONCEPTION",
+          "An overall company margin within a benchmark range validates purchases, services, remuneration, loans and other group transactions together.",
+          "THE CORRECT POSITION",
+          "Transaction-level analysis is preferred where possible. Aggregation may be appropriate where transactions are sufficiently linked and the combined test is reliable. A single operating margin does not automatically establish market pay, an appropriate loan rate or the existence of a service benefit.  [2]",
+          "BUSINESS ACTION   Map each transaction to its proposed method and evidence. Document the aggregation rationale and segment materially different activities. Check whether profitable independent business masks the result of controlled transactions."
+        ]
+      },
+      {
+        "heading": "Agreements, methods and Free Zones",
+        "content": [
+          "6 ? Intercompany agreements are unimportant ? THE MISCONCEPTION",
+          "A benchmark makes written terms unnecessary.",
+          "THE CORRECT POSITION",
+          "Contractual terms are one of the statutory comparability factors. Agreements help establish scope, responsibilities, pricing and settlement terms. Conduct also matters: a document cannot establish that services were delivered or risks were controlled if the facts show otherwise.  [1]",
+          "BUSINESS ACTION   Maintain agreements reflecting the actual arrangement and preserve invoices, delivery records and approvals. Update the terms when the business changes. Explain historical gaps accurately instead of backdating documents.",
+          "7 ? TNMM is the answer to every pricing question ? THE MISCONCEPTION",
+          "A net-margin benchmark is the universal UAE method.",
+          "THE CORRECT POSITION",
+          "Select the method by reference to the transaction, functional analysis, available evidence and comparative reliability. Comparable Uncontrolled Price (CUP), resale price, cost plus and profit split remain relevant where the facts support them. Article 34 also permits another method subject to its conditions.  [1]",
+          "BUSINESS ACTION   Ask what alternatives were examined. A comparable price may be more informative for a loan or property rental; direct remuneration evidence may better address executive pay. Explain why TNMM is reliable when it is selected.",
+          "8 ? Only Qualifying Free Zone Persons need documentation ? THE MISCONCEPTION",
+          "TP documentation is a Free Zone requirement.",
+          "THE CORRECT POSITION",
+          "Mainland businesses can have TP documentation obligations. Qualifying Free Zone Person status has its own conditions, including compliance with Articles 34 and 55, but that does not limit those articles to Free Zone businesses. Formal file thresholds and reasonable supporting records must be considered for the relevant taxable person.  [1][3]",
+          "BUSINESS ACTION   Assess the entity's pricing and documentation obligations independently of its licence location, and separately review any Free Zone conditions."
+        ]
+      },
+      {
+        "heading": "Documentation depth and year-end fixes",
+        "content": [
+          "9 ? No Local File means no documentation ? THE MISCONCEPTION",
+          "An entity outside the Local File thresholds can simply retain its accounts.",
+          "THE CORRECT POSITION",
+          "The FTA guide requires reasonable records supporting the arm's length nature of relevant transactions even where a Master File or Local File is not required. Article 55 allows the FTA to request supporting information. Proportionate documentation may be appropriate, but it must answer the substantive pricing question.  [1][2]",
+          "BUSINESS ACTION   Keep a concise transaction memorandum, agreements, pricing basis, relevant comparable evidence and calculations. Depth depends on complexity, scale and risk — a full external database study is not automatically necessary if reliable support exists elsewhere.",
+          "10 ? Everything can be fixed at year-end through a TNMM adjustment ? THE MISCONCEPTION",
+          "A closing margin adjustment can fix all earlier gaps in policy, conduct and evidence.",
+          "THE CORRECT POSITION",
+          "The FTA guide recognises outcome testing, and properly supported adjustments may be necessary. But a year-end calculation cannot establish a missing service, change who controlled risk or resolve another country's treatment. The adjustment must relate to the actual transaction and a reliable arm's length analysis.  [2]  CTP011 confirms self-assessed adjustments need no prior FTA approval, and downward-adjusted RP transactions must be disclosed regardless of value or nature — keep the rationale, benchmarking, reconciliation and symmetrical counterparty adjustments. It does not replace Articles 34(10)–(11).  [5]",
+          "BUSINESS ACTION   Establish pricing and evidence collection during the year, monitor results, investigate variances and coordinate the closing adjustment with the counterparty. Reconcile the financial statements, tax computation and disclosure.",
+          "Keep the documentation thresholds in perspective",
+          "Under Ministerial Decision No. 97, the formal Master File / Local File conditions include entity revenue of at least AED 200 million in the relevant Tax Period, or membership during that period in a qualifying MNE group with consolidated revenue of at least AED 3.15 billion. The FTA guide explains the Master File exception for a UAE-headquartered group without business establishments outside the UAE; the relevant Local File obligation can remain. Those conditions differ from the Tax Return disclosure thresholds on the next page.  [3][2]"
+        ]
+      },
+      {
+        "heading": "Reporting thresholds are not the whole obligation",
+        "content": [
+          "Requirement: Ordinary RP transaction schedule; Threshold or trigger: Aggregate RP transactions exceeding AED 40 million, with categories exceeding AED 4 million disclosed once that trigger is met; apply the return guide's calculation rules, including its exclusion of declared dividends",
+          "Requirement: CP schedule; Threshold or trigger: Payments or benefits exceeding AED 500,000 per CP together with that CP's related parties; apply the return guide's aggregation rules",
+          "Requirement: Downward-adjusted RP transactions (CTP011); Threshold or trigger: Disclosure irrespective of the transaction's value or nature",
+          "Requirement: Pricing and supporting evidence; Threshold or trigger: Assess separately from the above reporting thresholds",
+          "A note on older guidance: the November 2024 Tax Returns Guide contains older prior-approval wording for downward adjustments. Read that wording subject to the later CTP011 clarification, and check the current return requirements for the period rather than treating a single threshold as the answer to every compliance question.  [5][7]",
+          "Review the obligation, the transaction and the evidence together. That combination produces a more useful compliance assessment than checking whether a file has been prepared.",
+          "SOURCES & PUBLICATION NOTE ? 1",
+          "UAE Ministry of Finance, Federal Decree-Law No. 47 of 2022 and its amendments, consolidated English version dated 13 January 2026 (unofficial translation). Articles 34, 36 and 55. Link",
+          "2 ? Federal Tax Authority, Transfer Pricing Guide, CTGTP1, October 2023. Link ? 3",
+          "UAE Ministry of Finance, Ministerial Decision No. 97 of 2023 — Requirements for Maintaining Transfer Pricing Documentation, Article 2. Link",
+          "4",
+          "Federal Tax Authority, Corporate Tax Public Clarification CTP011 — Downward adjustments made by a Taxable Person in the Tax Return, July 2026. Link",
+          "5",
+          "Federal Tax Authority, Tax Returns, Corporate Tax Guide CTGTXR1, November 2024 — used for ordinary disclosure thresholds only; older downward-adjustment approval statements read subject to CTP011. Link",
+          "Publication note. General information based on UAE sources reviewed as at 12 September 2026. Application depends on the facts, the applicable Tax Period and subsequent developments. OECD guidance provides interpretative context and does not replace applicable UAE law. In this document, [1]–[3] refer to sources 1–3, [5] to source 4 and [7] to source 5, matching the article's original numbering."
+        ]
+      }
+    ],
+    "tags": [
+      "Transfer Pricing",
+      "UAE"
+    ],
+    "relatedSlugs": [
+      "choosing-a-transfer-pricing-consultant",
+      "transfer-pricing-supporting-both-sides-of-the-border",
+      "evaluating-connected-person-payments"
+    ],
+    "sourceLinks": [
+      {
+        "title": "Federal Decree Law No. 47 of 2022 and its amendments en v13.1.26",
+        "url": "https://mof.gov.ae/wp-content/uploads/2026/01/Federal-Decree-Law-No.-47-of-2022-and-its-amendments-en-v13.1.26.pdf"
+      },
+      {
+        "title": "Transfer Pricing Guide   EN   23 10 2023",
+        "url": "https://tax.gov.ae/Datafolder/Files/Pdf/2023/Transfer%20Pricing%20Guide%20-%20EN%20-%2023%2010%202023.pdf"
+      },
+      {
+        "title": "Ministerial Decision No. 97 of 2023 for the Purposes of Federal Decree Law No. 47 of 2022",
+        "url": "https://mof.gov.ae/wp-content/uploads/2023/05/Ministerial-Decision-No.-97-of-2023-for-the-Purposes-of-Federal-Decree-Law-No.-47-of-2022.pdf"
+      },
+      {
+        "title": "CTP011   TP downwards adjustment  07 2026",
+        "url": "https://tax.gov.ae//Datafolder/Files/Pdf/2026/CTP011%20-%20TP%20downwards%20adjustment%20-07%202026.pdf"
+      },
+      {
+        "title": "CT Returns EN 11 11 2024",
+        "url": "https://tax.gov.ae//Datafolder/Files/Guides/CT/CT-Returns-EN-11-11-2024.pdf"
+      }
+    ]
+  },
+  {
     "id": 1,
     "slug": "uae-transfer-pricing-compliance-navigating-fta-scrutiny",
     "title": "UAE Transfer Pricing Compliance: Navigating Article 34 and Emerging FTA Audit Scrutiny",
@@ -9,7 +708,7 @@
     "readTime": "8 min read",
     "day": "18",
     "monthYear": "AUG 2026",
-    "featured": true,
+    "featured": false,
     "lead": "As the Federal Tax Authority shifts from educational outreach to rigorous compliance enforcement, intercompany management fees, financial transactions, and intangible asset licensing are emerging as primary audit focal points.",
     "excerpt": "A technical dissection of statutory documentation mandates under UAE Corporate Tax Law No. 47 of 2022, detailing how MNEs must prepare Local Files, Master Files, and economic benchmarking to withstand FTA inquiries.",
     "image": "/images/insights-architecture.jpg",
@@ -19,10 +718,22 @@
       "bio": "Former Big-4 TP leader with 16 years specializing in financial transactions and GCC economic nexus."
     },
     "tableOfContents": [
-      { "id": "legislative-foundation", "title": "The Legislative Foundation of Article 34" },
-      { "id": "connected-person-transactions", "title": "Connected Person Transactions & Market Value" },
-      { "id": "documentation-thresholds", "title": "Statutory Documentation Thresholds" },
-      { "id": "audit-defense-strategy", "title": "Formulating an Unassailable Audit Defense" }
+      {
+        "id": "legislative-foundation",
+        "title": "The Legislative Foundation of Article 34"
+      },
+      {
+        "id": "connected-person-transactions",
+        "title": "Connected Person Transactions & Market Value"
+      },
+      {
+        "id": "documentation-thresholds",
+        "title": "Statutory Documentation Thresholds"
+      },
+      {
+        "id": "audit-defense-strategy",
+        "title": "Formulating an Unassailable Audit Defense"
+      }
     ],
     "keyTakeaways": [
       "Article 34 mandates contemporaneous documentation for groups exceeding revenue thresholds.",
@@ -59,8 +770,16 @@
         ]
       }
     ],
-    "tags": ["Transfer Pricing", "UAE Corporate Tax", "FTA Audits", "Benchmarking"],
-    "relatedSlugs": ["qualifying-free-zone-person-navigating-de-minimis-rules", "pillar-two-globe-rules-impact-on-uae-mne-groups"]
+    "tags": [
+      "Transfer Pricing",
+      "UAE Corporate Tax",
+      "FTA Audits",
+      "Benchmarking"
+    ],
+    "relatedSlugs": [
+      "qualifying-free-zone-person-navigating-de-minimis-rules",
+      "pillar-two-globe-rules-impact-on-uae-mne-groups"
+    ]
   },
   {
     "id": 2,
@@ -82,10 +801,22 @@
       "bio": "Specialist in UAE Free Zone fiscal regulations and corporate group reorganizations."
     },
     "tableOfContents": [
-      { "id": "qfzp-statutory-conditions", "title": "Core Statutory Conditions for 0% Taxation" },
-      { "id": "de-minimis-arithmetic", "title": "The De Minimis Arithmetic: 5% vs AED 5M" },
-      { "id": "qualifying-activities-matrix", "title": "Qualifying vs Excluded Activities Matrix" },
-      { "id": "five-year-tainting-rule", "title": "Navigating the 5-Year Disqualification Taint" }
+      {
+        "id": "qfzp-statutory-conditions",
+        "title": "Core Statutory Conditions for 0% Taxation"
+      },
+      {
+        "id": "de-minimis-arithmetic",
+        "title": "The De Minimis Arithmetic: 5% vs AED 5M"
+      },
+      {
+        "id": "qualifying-activities-matrix",
+        "title": "Qualifying vs Excluded Activities Matrix"
+      },
+      {
+        "id": "five-year-tainting-rule",
+        "title": "Navigating the 5-Year Disqualification Taint"
+      }
     ],
     "keyTakeaways": [
       "QFZP entities must satisfy all statutory conditions simultaneously to maintain 0% tax.",
@@ -120,8 +851,17 @@
         ]
       }
     ],
-    "tags": ["Corporate Tax", "Free Zone", "QFZP", "De Minimis", "Cabinet Decision 139"],
-    "relatedSlugs": ["uae-transfer-pricing-compliance-navigating-fta-scrutiny", "vat-treatment-of-cross-border-services-export-substantiation"]
+    "tags": [
+      "Corporate Tax",
+      "Free Zone",
+      "QFZP",
+      "De Minimis",
+      "Cabinet Decision 139"
+    ],
+    "relatedSlugs": [
+      "uae-transfer-pricing-compliance-navigating-fta-scrutiny",
+      "vat-treatment-of-cross-border-services-export-substantiation"
+    ]
   },
   {
     "id": 3,
@@ -143,10 +883,22 @@
       "bio": "Advises sovereign wealth entities and Forbes Global 500 conglomerates on global minimum tax architectures."
     },
     "tableOfContents": [
-      { "id": "pillar-two-mechanics", "title": "Mechanics of the 15% Minimum Effective Tax Rate" },
-      { "id": "transitional-safe-harbors", "title": "Leveraging Transitional CbCR Safe Harbors" },
-      { "id": "qdmtt-interaction", "title": "The Role of the UAE QDMTT" },
-      { "id": "holding-structure-realignment", "title": "Holding Structure Realignment" }
+      {
+        "id": "pillar-two-mechanics",
+        "title": "Mechanics of the 15% Minimum Effective Tax Rate"
+      },
+      {
+        "id": "transitional-safe-harbors",
+        "title": "Leveraging Transitional CbCR Safe Harbors"
+      },
+      {
+        "id": "qdmtt-interaction",
+        "title": "The Role of the UAE QDMTT"
+      },
+      {
+        "id": "holding-structure-realignment",
+        "title": "Holding Structure Realignment"
+      }
     ],
     "keyTakeaways": [
       "In-scope groups (EUR 750M+) face minimum 15% tax regardless of UAE 0% or 9% rates.",
@@ -181,8 +933,17 @@
         ]
       }
     ],
-    "tags": ["Pillar Two", "GloBE", "OECD", "QDMTT", "International Tax"],
-    "relatedSlugs": ["uae-transfer-pricing-compliance-navigating-fta-scrutiny", "economic-substance-regulations-esr-audit-defense"]
+    "tags": [
+      "Pillar Two",
+      "GloBE",
+      "OECD",
+      "QDMTT",
+      "International Tax"
+    ],
+    "relatedSlugs": [
+      "uae-transfer-pricing-compliance-navigating-fta-scrutiny",
+      "economic-substance-regulations-esr-audit-defense"
+    ]
   },
   {
     "id": 4,
@@ -204,10 +965,22 @@
       "bio": "Specialist in UAE Free Zone fiscal regulations and corporate group reorganizations."
     },
     "tableOfContents": [
-      { "id": "article-31-criteria", "title": "The Statutory Test for Zero-Rated Exports" },
-      { "id": "residence-verification-hurdles", "title": "Overcoming Foreign Recipient Residence Inquiries" },
-      { "id": "local-branch-risk", "title": "The UAE Local Branch Trap" },
-      { "id": "evidentiary-dossier-checklist", "title": "Essential Evidentiary Documentation Checklist" }
+      {
+        "id": "article-31-criteria",
+        "title": "The Statutory Test for Zero-Rated Exports"
+      },
+      {
+        "id": "residence-verification-hurdles",
+        "title": "Overcoming Foreign Recipient Residence Inquiries"
+      },
+      {
+        "id": "local-branch-risk",
+        "title": "The UAE Local Branch Trap"
+      },
+      {
+        "id": "evidentiary-dossier-checklist",
+        "title": "Essential Evidentiary Documentation Checklist"
+      }
     ],
     "keyTakeaways": [
       "Zero-rating is an exemption with credit, not an automatic assumption.",
@@ -235,8 +1008,17 @@
         ]
       }
     ],
-    "tags": ["VAT", "Zero-Rating", "Article 31", "Indirect Tax", "Cross-Border Trade"],
-    "relatedSlugs": ["fta-tax-dispute-resolution-tdrc-appeals-strategy", "qualifying-free-zone-person-navigating-de-minimis-rules"]
+    "tags": [
+      "VAT",
+      "Zero-Rating",
+      "Article 31",
+      "Indirect Tax",
+      "Cross-Border Trade"
+    ],
+    "relatedSlugs": [
+      "fta-tax-dispute-resolution-tdrc-appeals-strategy",
+      "qualifying-free-zone-person-navigating-de-minimis-rules"
+    ]
   },
   {
     "id": 5,
@@ -258,10 +1040,22 @@
       "bio": "Advocates before the Tax Disputes Resolution Committee and coordinates UAE Federal Court tax appeals."
     },
     "tableOfContents": [
-      { "id": "administrative-timeline", "title": "The Statutory Controversy Timeline" },
-      { "id": "reconsideration-memorial", "title": "Drafting an Effective Reconsideration Memorial" },
-      { "id": "tdrc-jurisdiction", "title": "Escalating to the Tax Disputes Resolution Committee" },
-      { "id": "settlement-and-waiver", "title": "Securing Penalty Waivers under Cabinet Res. 49" }
+      {
+        "id": "administrative-timeline",
+        "title": "The Statutory Controversy Timeline"
+      },
+      {
+        "id": "reconsideration-memorial",
+        "title": "Drafting an Effective Reconsideration Memorial"
+      },
+      {
+        "id": "tdrc-jurisdiction",
+        "title": "Escalating to the Tax Disputes Resolution Committee"
+      },
+      {
+        "id": "settlement-and-waiver",
+        "title": "Securing Penalty Waivers under Cabinet Res. 49"
+      }
     ],
     "keyTakeaways": [
       "Reconsideration Requests must be submitted strictly within 40 business days of notification.",
@@ -289,8 +1083,17 @@
         ]
       }
     ],
-    "tags": ["Tax Controversy", "TDRC", "FTA", "Appeals", "Penalty Waivers"],
-    "relatedSlugs": ["uae-transfer-pricing-compliance-navigating-fta-scrutiny", "economic-substance-regulations-esr-audit-defense"]
+    "tags": [
+      "Tax Controversy",
+      "TDRC",
+      "FTA",
+      "Appeals",
+      "Penalty Waivers"
+    ],
+    "relatedSlugs": [
+      "uae-transfer-pricing-compliance-navigating-fta-scrutiny",
+      "economic-substance-regulations-esr-audit-defense"
+    ]
   },
   {
     "id": 6,
@@ -312,10 +1115,22 @@
       "bio": "Advises sovereign wealth entities and Forbes Global 500 conglomerates on global minimum tax architectures."
     },
     "tableOfContents": [
-      { "id": "esr-and-corporate-tax-nexus", "title": "The Interplay Between ESR and UAE Corporate Tax" },
-      { "id": "ciga-documentation", "title": "Substantiating Core Income Generating Activities (CIGA)" },
-      { "id": "holding-entity-substance", "title": "Pure Equity Holding Entity Minimum Requirements" },
-      { "id": "penalty-relief-strategies", "title": "Appealing Ministry of Finance Penalties" }
+      {
+        "id": "esr-and-corporate-tax-nexus",
+        "title": "The Interplay Between ESR and UAE Corporate Tax"
+      },
+      {
+        "id": "ciga-documentation",
+        "title": "Substantiating Core Income Generating Activities (CIGA)"
+      },
+      {
+        "id": "holding-entity-substance",
+        "title": "Pure Equity Holding Entity Minimum Requirements"
+      },
+      {
+        "id": "penalty-relief-strategies",
+        "title": "Appealing Ministry of Finance Penalties"
+      }
     ],
     "keyTakeaways": [
       "ZATCA audits focus on substance and local headcount for Regional Headquarters.",
@@ -337,8 +1152,17 @@
         ]
       }
     ],
-    "tags": ["KSA", "ZATCA", "ESR", "Economic Substance", "Regional Headquarters"],
-    "relatedSlugs": ["pillar-two-globe-rules-impact-on-uae-mne-groups", "uae-transfer-pricing-compliance-navigating-fta-scrutiny"]
+    "tags": [
+      "KSA",
+      "ZATCA",
+      "ESR",
+      "Economic Substance",
+      "Regional Headquarters"
+    ],
+    "relatedSlugs": [
+      "pillar-two-globe-rules-impact-on-uae-mne-groups",
+      "uae-transfer-pricing-compliance-navigating-fta-scrutiny"
+    ]
   },
   {
     "id": 7,
@@ -360,9 +1184,18 @@
       "bio": "Former Big-4 TP leader with 16 years specializing in financial transactions and GCC economic nexus."
     },
     "tableOfContents": [
-      { "id": "carf-perimeter", "title": "The Regulatory Perimeter of CARF" },
-      { "id": "vasp-reporting-obligations", "title": "VASP Reporting Obligations & Due Diligence" },
-      { "id": "crypto-tax-nexus", "title": "Corporate Tax Nexus for Virtual Asset Trading" }
+      {
+        "id": "carf-perimeter",
+        "title": "The Regulatory Perimeter of CARF"
+      },
+      {
+        "id": "vasp-reporting-obligations",
+        "title": "VASP Reporting Obligations & Due Diligence"
+      },
+      {
+        "id": "crypto-tax-nexus",
+        "title": "Corporate Tax Nexus for Virtual Asset Trading"
+      }
     ],
     "keyTakeaways": [
       "CARF expands automatic tax information exchange across APAC and Middle East corridors.",
@@ -384,8 +1217,18 @@
         ]
       }
     ],
-    "tags": ["Crypto", "CARF", "APAC", "Singapore", "Cross-Border Wealth", "Global Tax"],
-    "relatedSlugs": ["pillar-two-globe-rules-impact-on-uae-mne-groups", "fta-tax-dispute-resolution-tdrc-appeals-strategy"]
+    "tags": [
+      "Crypto",
+      "CARF",
+      "APAC",
+      "Singapore",
+      "Cross-Border Wealth",
+      "Global Tax"
+    ],
+    "relatedSlugs": [
+      "pillar-two-globe-rules-impact-on-uae-mne-groups",
+      "fta-tax-dispute-resolution-tdrc-appeals-strategy"
+    ]
   },
   {
     "id": 8,
@@ -407,10 +1250,22 @@
       "bio": "Former Big-4 TP leader with 16 years specializing in financial transactions and GCC economic nexus."
     },
     "tableOfContents": [
-      { "id": "general-interest-limitation", "title": "The 30% EBITDA Statutory Cap" },
-      { "id": "de-minimis-threshold", "title": "The AED 12M De Minimis Safe Harbor" },
-      { "id": "article-32-specific-provisions", "title": "Article 32 Related Party Debt Restrictions" },
-      { "id": "treasury-benchmarking", "title": "Synthetic Credit Ratings & Arm's Length Interest" }
+      {
+        "id": "general-interest-limitation",
+        "title": "The 30% EBITDA Statutory Cap"
+      },
+      {
+        "id": "de-minimis-threshold",
+        "title": "The AED 12M De Minimis Safe Harbor"
+      },
+      {
+        "id": "article-32-specific-provisions",
+        "title": "Article 32 Related Party Debt Restrictions"
+      },
+      {
+        "id": "treasury-benchmarking",
+        "title": "Synthetic Credit Ratings & Arm's Length Interest"
+      }
     ],
     "keyTakeaways": [
       "Net Interest Expenditure is capped at 30% of adjusted EBITDA.",
@@ -432,7 +1287,16 @@
         ]
       }
     ],
-    "tags": ["Article 30", "Interest Limitation", "Treasury", "Debt Pushdown", "Corporate Tax"],
-    "relatedSlugs": ["uae-transfer-pricing-compliance-navigating-fta-scrutiny", "qualifying-free-zone-person-navigating-de-minimis-rules"]
+    "tags": [
+      "Article 30",
+      "Interest Limitation",
+      "Treasury",
+      "Debt Pushdown",
+      "Corporate Tax"
+    ],
+    "relatedSlugs": [
+      "uae-transfer-pricing-compliance-navigating-fta-scrutiny",
+      "qualifying-free-zone-person-navigating-de-minimis-rules"
+    ]
   }
 ]

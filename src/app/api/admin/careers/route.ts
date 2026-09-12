@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
         id,
         data.title,
         data.department || "Transfer Pricing",
-        data.location || "Dubai (DIFC), UAE",
+        data.location || "Dubai, UAE",
         data.type || "Full-Time",
         data.experience || "5-8 Years",
         data.overview || "",

@@ -83,7 +83,7 @@ export default function InsightsPage() {
                 </div>
                 <div className="border-l border-[#E7E5E1] pl-4 sm:pl-7">
                   <div className="font-editorial text-2xl sm:text-3xl text-brand-red font-bold whitespace-nowrap">
-                    DIFC / ADGM
+                    UAE
                   </div>
                   <div className="text-[10px] font-mono uppercase tracking-wider text-brand-muted whitespace-nowrap">
                     Jurisdictions
@@ -111,7 +111,7 @@ export default function InsightsPage() {
                         RESEARCH DESK
                       </div>
                       <div className="font-editorial text-base sm:text-lg">
-                        Dubai DIFC • Tax Research
+                        Dubai • Tax Research
                       </div>
                     </div>
                     <span className="px-2.5 py-1 bg-black/50 backdrop-blur-md border border-white/20 text-[10px] font-mono uppercase text-white">

@@ -30,4 +30,5 @@ export interface Insight {
   sections: InsightSection[];
   tags: string[];
   relatedSlugs: string[];
+  sourceLinks?: { title: string; url: string }[];
 }
