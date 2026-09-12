@@ -10,6 +10,7 @@ import {
 } from "d3-geo";
 import * as topojson from "topojson-client";
 import worldData from "world-atlas/countries-110m.json";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 interface RegionConfig {
   name: string;
@@ -451,54 +452,90 @@ export default function WorldGlobe({
 
   return (
     <div className="reference-map globe-wrapper">
-      {/* Decorative dashed boundary circle ring */}
-      <div className="globe-orbit-ring" aria-hidden="true" />
+      {/* Main Stage: 3D Globe + Right-Side Simple Line Controls */}
+      <div className="globe-stage">
+        <div
+          ref={containerRef}
+          className={`globe-canvas-container ${isInteracting ? "is-dragging" : ""}`}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerUp}
+        >
+          {/* Decorative dashed boundary circle ring aligned with globe center */}
+          <div className="globe-orbit-ring" aria-hidden="true" />
 
-      {/* Interactive 3D Canvas */}
-      <div
-        ref={containerRef}
-        className={`globe-canvas-container ${isInteracting ? "is-dragging" : ""}`}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerCancel={onPointerUp}
-      >
-        <canvas
-          ref={canvasRef}
-          className="globe-canvas"
-          style={{ width: "100%", height: "100%", display: "block" }}
-        />
+          <canvas
+            ref={canvasRef}
+            className="globe-canvas"
+            style={{ width: "100%", height: "100%", display: "block" }}
+          />
+        </div>
+
+        {/* Region Selector Buttons: Right Side with Unique Luxury Button Style */}
+        <div className="globe-side-controls">
+          {Object.entries(REGIONS).map(([key, reg], idx) => {
+            const isPressed = selected === key;
+            return (
+              <button
+                key={key}
+                type="button"
+                aria-pressed={isPressed}
+                onClick={() => handleSelect(key)}
+                className={`globe-side-btn ${isPressed ? "is-active" : ""}`}
+              >
+                <div className="globe-side-card-accent" aria-hidden="true" />
+                <div className="globe-side-header">
+                  <div className="globe-side-header-left">
+                    <span className="globe-side-num">0{idx + 1}</span>
+                    <strong className="globe-side-title">{reg.name}</strong>
+                  </div>
+                  <span
+                    className={`globe-side-action ${isPressed ? "is-active" : ""}`}
+                    aria-hidden="true"
+                  >
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                  </span>
+                </div>
+                <span className="globe-side-desc">{reg.text}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Region Selector Buttons */}
-      <div className="map-region-controls">
-        {Object.entries(REGIONS).map(([key, reg]) => {
-          const isPressed = selected === key;
-          return (
-            <button
-              key={key}
-              type="button"
-              aria-pressed={isPressed}
-              onClick={() => handleSelect(key)}
-              className={`region-control-btn ${isPressed ? "is-active" : ""}`}
-            >
-              <strong>{reg.name}</strong>
-              <span>{reg.text}</span>
-            </button>
-          );
-        })}
+      {/* In Button Place: 3 Stats with Count Animation Style */}
+      <div className="globe-bottom-stats">
+        <div className="globe-stat-item">
+          <strong className="globe-stat-value">
+            <AnimatedCounter value={3} />
+          </strong>
+          <span className="globe-stat-label">REGIONS</span>
+        </div>
+        <div className="globe-stat-item">
+          <strong className="globe-stat-value">
+            <AnimatedCounter value={10} suffix="+" />
+          </strong>
+          <span className="globe-stat-label">KEY MARKETS</span>
+        </div>
+        <div className="globe-stat-item">
+          <strong className="globe-stat-value">
+            <AnimatedCounter value={1} />
+          </strong>
+          <span className="globe-stat-label">INTEGRATED PERSPECTIVE</span>
+        </div>
       </div>
-
-      {/* Floating brand slogan */}
-      <span className="map-motto micro-copy">
-        PEOPLE.
-        <br />
-        PERSPECTIVE.
-        <br />
-        POSSIBILITIES.
-        <br />
-        BEYOND BORDERS.
-      </span>
     </div>
   );
 }

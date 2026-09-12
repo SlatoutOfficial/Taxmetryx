@@ -7,28 +7,8 @@ import SectionLabel from "@/components/shared/SectionLabel";
 import WorldGlobe from "@/components/ui/WorldGlobe";
 import {
   FadeIn,
-  StaggerContainer,
-  StaggerItem,
   LUXURY_EASE,
 } from "@/components/shared/ScrollMotion";
-
-const REGION_ITEMS = [
-  {
-    key: "Middle East",
-    title: "Middle East",
-    text: "UAE | Saudi Arabia | Qatar | Oman | Bahrain | Kuwait",
-  },
-  {
-    key: "Asia-Pacific",
-    title: "Asia-Pacific",
-    text: "India and key Asia-Pacific markets",
-  },
-  {
-    key: "Europe",
-    title: "Europe",
-    text: "United Kingdom and key European markets",
-  },
-];
 
 export default function WhereWeServeSection() {
   const [activeRegion, setActiveRegion] = useState("Middle East");
@@ -42,53 +22,36 @@ export default function WhereWeServeSection() {
         <div className="regions-composition">
           <div className="regions-intro">
             <FadeIn distance={20}>
-              <SectionLabel>WHERE WE SERVE</SectionLabel>
+              <SectionLabel>Where we work</SectionLabel>
             </FadeIn>
             <FadeIn delay={0.1} distance={28}>
               <h2 className="reference-heading">
-                Local depth.
+                Working across
                 <br />
                 <em>
-                  Cross-border
+                  the UAE
                   <br />
-                  perspective.
+                  and India.
                 </em>
               </h2>
             </FadeIn>
             <FadeIn delay={0.2} distance={24}>
               <p className="reference-copy">
-                Based in the UAE, Taxmetryx advises on tax and Transfer Pricing
-                matters that cross jurisdictions—supporting businesses across the
-                Middle East, Asia-Pacific and Europe.
+                With a team in Dubai, Kerala and Bangalore, we support UAE businesses and cross-border assignments involving India and other markets. Where local rules or procedures require it, the engagement can include coordination with the client's appointed advisers in the relevant jurisdiction.
               </p>
             </FadeIn>
-            <StaggerContainer
-              className="region-list"
-              staggerDelay={0.12}
-              delayChildren={0.25}
-            >
-              {REGION_ITEMS.map(({ key, title, text }, i) => (
-                <StaggerItem
-                  key={key}
-                  className={`region-item ${activeRegion === key ? "is-active" : ""}`}
-                  onClick={() => setActiveRegion(key)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      setActiveRegion(key);
-                    }
-                  }}
-                >
-                  <span className="reference-number">0{i + 1}</span>
-                  <div>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
+            <FadeIn delay={0.28} distance={20}>
+              <div className="region-callout">
+                <p className="region-callout-primary">
+                  Select a region to see how we support it. These are coverage
+                  descriptions, not additional office claims.
+                </p>
+                <p className="region-callout-secondary">
+                  Stylised map for orientation only. Team locations: Dubai,
+                  Kerala and Bangalore.
+                </p>
+              </div>
+            </FadeIn>
           </div>
 
           <motion.div
@@ -103,37 +66,6 @@ export default function WhereWeServeSection() {
             />
           </motion.div>
         </div>
-
-        <StaggerContainer
-          className="regions-baseline"
-          staggerDelay={0.1}
-          delayChildren={0.15}
-        >
-          <StaggerItem className="micro-copy">
-            ONE TRANSACTION RARELY STAYS
-            <br />
-            IN ONE JURISDICTION.
-            <br />
-            <em>NEITHER DOES OUR THINKING.</em>
-          </StaggerItem>
-          {[
-            ["3", "REGIONS"],
-            ["10+", "KEY MARKETS"],
-            ["1", "INTEGRATED PERSPECTIVE"],
-          ].map(([value, label]) => (
-            <StaggerItem key={label}>
-              <strong>{value}</strong>
-              <span>{label}</span>
-            </StaggerItem>
-          ))}
-          <StaggerItem className="micro-copy">
-            A MORE
-            <br />
-            CONNECTED
-            <br />
-            TOMORROW.
-          </StaggerItem>
-        </StaggerContainer>
       </Container>
     </section>
   );
