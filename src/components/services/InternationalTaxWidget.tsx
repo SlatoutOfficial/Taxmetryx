@@ -126,7 +126,7 @@ export default function InternationalTaxWidget() {
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <div>
                 <span className="text-xs text-white/50 font-mono">Bilateral DTAA Profile</span>
-                <h4 className="font-editorial text-xl text-white">UAE — {selectedCountry.country}</h4>
+                <h4 className="font-editorial text-xl text-white">UAE - {selectedCountry.country}</h4>
               </div>
               <span className="text-[10px] font-mono px-2 py-0.5 bg-[#00B4D8]/20 text-[#00B4D8] border border-[#00B4D8]/40">
                 {selectedCountry.mliPptStatus}

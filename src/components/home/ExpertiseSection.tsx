@@ -86,7 +86,7 @@ export default function ExpertiseSection() {
             <FadeIn delay={0.25} distance={24}>
               <p className="reference-copy">
                 We combine deep technical expertise with a clear understanding of
-                business and commercial realities — to deliver tax solutions that
+                business and commercial realities - to deliver tax solutions that
                 create lasting value.
               </p>
             </FadeIn>

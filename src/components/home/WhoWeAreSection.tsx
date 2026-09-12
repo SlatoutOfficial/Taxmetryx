@@ -12,8 +12,7 @@ export default function WhoWeAreSection() {
           {/* Left Column */}
           <div>
             <FadeIn distance={15}>
-              <div className="flex items-center gap-2.5 mb-5">
-                <span className="w-8 h-[2px] bg-[#e00019]" />
+              <div className="flex items-center mb-5">
                 <span className="text-[12px] font-mono font-bold tracking-[0.15em] text-[#e00019] uppercase">
                   WHO WE ARE
                 </span>

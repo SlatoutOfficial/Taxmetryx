@@ -23,21 +23,21 @@ export default function ServicesPage() {
           <div className="grid gap-8 lg:grid-cols-[0.8fr_2fr] lg:gap-16">
             <h2 className="text-white service-section-heading">Six areas,<br /><span className="text-[#e00019]">one discipline.</span></h2>
             <ul className="grid gap-6 sm:grid-cols-3">
-              {["Every engagement starts from your transactions and facts, not a template.", "Each service below opens into its full scope of work — 65 defined areas in total.", "Related services connect, so cross-cutting matters are handled once, coherently."].map((text, index) => <li key={text} className="border-t border-white/20 pt-4"><span className="font-mono text-xs text-[#fca5a5]">0{index + 1}</span><p className="mt-3 text-sm leading-7 text-white/80">{text}</p></li>)}
+              {["Every engagement starts from your transactions and facts, not a template.", "Each service below opens into its full scope of work - 65 defined areas in total.", "Related services connect, so cross-cutting matters are handled once, coherently."].map((text, index) => <li key={text} className="border-t border-white/20 pt-4"><span className="font-mono text-xs text-[#fca5a5]">0{index + 1}</span><p className="mt-3 text-sm leading-7 text-white/80">{text}</p></li>)}
             </ul>
           </div>
         </Container>
       </section>
       <section id="service-practices" className="scroll-mt-28 py-14 sm:py-20">
         <Container className="px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 flex items-end justify-between gap-4 border-b border-[#e8e7e4] pb-6"><h2 className="text-[#111b23] service-section-heading"><ServiceHeadingText text="Our services" /></h2><span className="text-xs text-[#63717c]">01 — 06</span></div>
+          <div className="mb-10 flex items-end justify-between gap-4 border-b border-[#e8e7e4] pb-6"><h2 className="text-[#111b23] service-section-heading"><ServiceHeadingText text="Our services" /></h2><span className="text-xs text-[#63717c]">01 - 06</span></div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
               {services.map(service => (
                 <Link key={service.slug} href={`/services/${service.slug}`} className="group flex min-w-0 flex-col overflow-hidden rounded-tr-[2.5rem] border border-[#e8e7e4] bg-[#faf9f6] transition-[border-color,box-shadow] duration-300 hover:border-[#e00019]/40 hover:shadow-[0_16px_40px_-20px_rgba(17,27,35,0.3)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c80016]">
                   <div className="relative aspect-[16/10] overflow-hidden bg-[#111b23]">
                     <Image src={getServiceTheme(service.slug).heroImage} alt="" fill sizes="(min-width: 1360px) 420px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105 motion-reduce:transition-none" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111b23]/65 via-transparent to-transparent" />
-                    <span className="absolute bottom-5 left-6 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-white"><span className="h-px w-6 bg-[#ff2840]" />Advisory / {service.number}</span>
+                    <span className="absolute bottom-5 left-6 flex items-center text-[10px] font-semibold uppercase tracking-[0.18em] text-white">Advisory / {service.number}</span>
                   </div>
                   <div className="flex flex-1 flex-col p-6 lg:p-7">
                     <h3 className="text-[#111b23] service-card-heading"><ServiceHeadingText text={service.title} /></h3>

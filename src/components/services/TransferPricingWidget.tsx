@@ -98,7 +98,7 @@ export default function TransferPricingWidget() {
                     Arm&apos;s Length Compliant
                   </div>
                   <p className="text-xs text-white/80 leading-relaxed">
-                    Operating margin of {testedMargin.toFixed(1)}% falls inside the defensible interquartile range (4.2% – 8.9%). Lowest probability of FTA transfer pricing audit adjustment.
+                    Operating margin of {testedMargin.toFixed(1)}% falls inside the defensible interquartile range (4.2% - 8.9%). Lowest probability of FTA transfer pricing audit adjustment.
                   </p>
                   <div className="pt-2 text-[10px] font-mono text-emerald-400/90 border-t border-white/10 flex items-center justify-between">
                     <span>Audit Exposure: Negligible</span>
@@ -139,7 +139,7 @@ export default function TransferPricingWidget() {
           <div className="space-y-3 pt-4 border-t border-white/10">
             <div className="flex items-center justify-between text-xs font-mono">
               <span className="text-white/70">Empirical Comparable Range (Orbis / Moody&apos;s Set)</span>
-              <span className="text-[#D4AF37]">Interquartile Range: 4.2% – 8.9%</span>
+              <span className="text-[#D4AF37]">Interquartile Range: 4.2% - 8.9%</span>
             </div>
 
             <div className="relative h-10 bg-white/10 border border-white/20 flex items-center overflow-hidden">

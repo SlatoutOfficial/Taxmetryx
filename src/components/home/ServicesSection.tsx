@@ -21,8 +21,7 @@ export default function ServicesSection() {
           <div className="services-intro relative z-10">
             {/* Section Tag */}
             <FadeIn distance={15}>
-              <div className="flex items-center gap-2.5 mb-5">
-                <span className="w-5 h-[2px] bg-[#e00019]" />
+              <div className="flex items-center mb-5">
                 <span className="text-[11px] font-mono tracking-[0.22em] text-[#53606a] uppercase">
                   OUR SERVICES
                 </span>
@@ -52,22 +51,10 @@ export default function ServicesSection() {
             <FadeIn delay={0.25} distance={15}>
               <p className="text-[0.9375rem] text-[#55636e] leading-[1.7] max-w-[340px]">
                 From day-to-day compliance to complex cross-border structures, our
-                services are built on a single discipline — a deep understanding of
+                services are built on a single discipline - a deep understanding of
                 the facts, the business and the broader tax landscape.
               </p>
             </FadeIn>
-
-            {/* Bottom Tagline with Red Bar
-            <FadeIn delay={0.35} distance={15}>
-              <div className="flex items-start gap-3 mt-8">
-                <span className="w-6 h-[2px] bg-[#e00019] mt-2 shrink-0" />
-                <div className="font-mono text-[10px] tracking-[0.22em] text-[#64748b] uppercase leading-relaxed">
-                  PRACTICAL ADVICE.
-                  <br />
-                  LASTING IMPACT.
-                </div>
-              </div>
-            </FadeIn> */}
           </div>
 
           {/* Radial Interactive Diagram */}

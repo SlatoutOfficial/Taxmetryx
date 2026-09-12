@@ -256,8 +256,7 @@ export default function AboutPage() {
             {/* Right Column: Text Content */}
             <div className="w-full max-w-2xl relative">
               <FadeIn distance={20} delay={0.2}>
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="w-12 h-[2px] bg-[#e00019]" />
+                <div className="flex items-center mb-6">
                   <span className="text-[11px] font-mono font-bold tracking-[0.2em] text-[#e00019] uppercase">
                     Leadership Profile
                   </span>

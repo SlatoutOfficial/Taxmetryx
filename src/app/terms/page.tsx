@@ -56,7 +56,7 @@ export default function TermsPage() {
             <StaggerItem className="space-y-3">
               <h2 className="font-editorial text-2xl text-brand-primary">2. No Advisory Relationship Created</h2>
               <p>
-                The information published on this website—including insights, newsletters, statutory summaries, and benchmarks—is provided solely for general informational purposes. Transmission or receipt of information through this website does not constitute or create a client-advisor or attorney-client relationship. Formal advisory services require a written Engagement Letter signed by an authorized Taxmetryx partner.
+                The information published on this website - including insights, newsletters, statutory summaries, and benchmarks - is provided solely for general informational purposes. Transmission or receipt of information through this website does not constitute or create a client-advisor or attorney-client relationship. Formal advisory services require a written Engagement Letter signed by an authorized Taxmetryx partner.
               </p>
             </StaggerItem>
 

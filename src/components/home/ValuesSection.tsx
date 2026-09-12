@@ -73,7 +73,7 @@ export default function ValuesSection() {
             <FadeIn delay={0.25} distance={24}>
               <p className="reference-copy">
                 Our values guide how we think, how we work and how we support our
-                clients—today and in the long term.
+                clients - today and in the long term.
               </p>
             </FadeIn>
           </div>

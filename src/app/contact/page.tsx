@@ -156,7 +156,7 @@ export default function ContactPage() {
                   <div className="flex items-center gap-3">
                     <Clock className="w-4 h-4 text-brand-red shrink-0" />
                     <span className="text-brand-muted">
-                      Monday — Friday: 08:30 – 18:00 GST
+                      Monday - Friday: 08:30 - 18:00 GST
                     </span>
                   </div>
                 </div>
@@ -219,7 +219,7 @@ export default function ContactPage() {
                   <div className="flex items-center gap-3">
                     <Clock className="w-4 h-4 text-brand-red shrink-0" />
                     <span className="text-brand-muted">
-                      Monday — Friday: 09:00 – 17:30 GST
+                      Monday - Friday: 09:00 - 17:30 GST
                     </span>
                   </div>
                 </div>

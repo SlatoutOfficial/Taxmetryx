@@ -165,7 +165,7 @@ export default function ContactSection() {
             <FadeIn delay={0.2} distance={24}>
               <div className="reference-copy">
                 <p>
-                  Every sound tax position begins the same way—with a clear
+                  Every sound tax position begins the same way - with a clear
                   understanding of the business.
                 </p>
                 <p>

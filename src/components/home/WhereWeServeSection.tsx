@@ -26,29 +26,27 @@ export default function WhereWeServeSection() {
             </FadeIn>
             <FadeIn delay={0.1} distance={28}>
               <h2 className="reference-heading">
-                Working across
+                Connected across
                 <br />
                 <em>
-                  the UAE
+                  the GCC,
                   <br />
-                  and India.
+                  Asia & Europe.
                 </em>
               </h2>
             </FadeIn>
             <FadeIn delay={0.2} distance={24}>
               <p className="reference-copy">
-                With a team in Dubai, Kerala and Bangalore, we support UAE businesses and cross-border assignments involving India and other markets. Where local rules or procedures require it, the engagement can include coordination with the client's appointed advisers in the relevant jurisdiction.
+                With team members based in Dubai, Kerala and Bangalore, we support UAE businesses and cross-border engagements involving markets across the GCC, Asia and Europe. Where local laws or procedures require jurisdiction-specific input, we coordinate with the client’s appointed advisers in the relevant market.
               </p>
             </FadeIn>
             <FadeIn delay={0.28} distance={20}>
               <div className="region-callout">
                 <p className="region-callout-primary">
-                  Select a region to see how we support it. These are coverage
-                  descriptions, not additional office claims.
+                  Select a region to explore how we support cross-border business.
                 </p>
                 <p className="region-callout-secondary">
-                  Stylised map for orientation only. Team locations: Dubai,
-                  Kerala and Bangalore.
+                  The regional descriptions reflect engagement coverage and do not indicate additional office locations. Stylised map for orientation only. Team locations: Dubai, Kerala and Bangalore.
                 </p>
               </div>
             </FadeIn>
