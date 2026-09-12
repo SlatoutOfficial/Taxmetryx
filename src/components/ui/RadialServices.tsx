@@ -221,17 +221,9 @@ export default function RadialServices({ services }: { services: Service[] }) {
         <div
           className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-[156px] h-[156px] rounded-full bg-white border border-[#e8e6e1] shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex flex-col items-center justify-center p-3 z-10"
         >
-          <div className="scale-90 mb-0.5">
+          <div className="scale-100 mb-0.5">
             <BrandLogo markOnly />
           </div>
-          <div className="font-sans font-semibold text-[9px] tracking-[0.24em] text-[#55636e] uppercase text-center leading-[1.5]">
-            CLARITY
-            <br />
-            CREATES
-            <br />
-            CONFIDENCE
-          </div>
-          <div className="w-5 h-[1.5px] bg-[#e00019] mx-auto mt-2" />
         </div>
 
         {/* Icon Nodes (Floating White Circles) */}
@@ -244,11 +236,10 @@ export default function RadialServices({ services }: { services: Service[] }) {
               key={`node-${item.slug}`}
               href={`/services/${item.slug}`}
               style={{ left: item.nodeLeft, top: item.nodeTop }}
-              className={`absolute -translate-x-1/2 -translate-y-1/2 w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center transition-all duration-250 z-20 cursor-pointer ${
-                isActive
-                  ? "border-2 border-[#e00019] shadow-[0_6px_20px_rgba(224,0,25,0.18)] text-[#e00019] scale-105"
-                  : "border border-[#eeece7] shadow-[0_4px_14px_rgba(0,0,0,0.06)] text-[#1e293b] hover:text-[#e00019] hover:border-[#e0001960]"
-              }`}
+              className={`absolute -translate-x-1/2 -translate-y-1/2 w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center transition-all duration-250 z-20 cursor-pointer ${isActive
+                ? "border-2 border-[#e00019] shadow-[0_6px_20px_rgba(224,0,25,0.18)] text-[#e00019] scale-105"
+                : "border border-[#eeece7] shadow-[0_4px_14px_rgba(0,0,0,0.06)] text-[#1e293b] hover:text-[#e00019] hover:border-[#e0001960]"
+                }`}
               onMouseEnter={() => setActive(idx)}
               onMouseLeave={() => setActive(null)}
               aria-label={item.title}
@@ -269,38 +260,36 @@ export default function RadialServices({ services }: { services: Service[] }) {
           const positionStyle =
             item.side === "right"
               ? {
-                  left: `calc(${item.nodeLeft} + 35px)`,
-                  top: item.topOffset,
-                  maxWidth: "245px",
-                }
+                left: `calc(${item.nodeLeft} + 35px)`,
+                top: item.topOffset,
+                maxWidth: "245px",
+              }
               : {
-                  right: `calc(100% - ${item.nodeLeft} + 35px)`,
-                  top: item.topOffset,
-                  maxWidth: "245px",
-                };
+                right: `calc(100% - ${item.nodeLeft} + 35px)`,
+                top: item.topOffset,
+                maxWidth: "245px",
+              };
 
           return (
             <Link
               key={`text-${item.slug}`}
               href={`/services/${item.slug}`}
               style={positionStyle}
-              className="absolute group z-20 cursor-pointer transition-opacity duration-200"
+              className="absolute group z-20 cursor-pointer transition-all duration-300 ease-out hover:-translate-y-1"
               onMouseEnter={() => setActive(idx)}
               onMouseLeave={() => setActive(null)}
             >
               {/* Optional top red dash */}
               <span
-                className={`w-4 h-[1.5px] block mb-1 transition-colors duration-200 ${
-                  isActive ? "bg-[#e00019]" : "bg-[#dedad4] group-hover:bg-[#e00019]"
-                }`}
+                className={`w-4 h-[1.5px] block mb-1 transition-colors duration-200 ${isActive ? "bg-[#e00019]" : "bg-[#dedad4] group-hover:bg-[#e00019]"
+                  }`}
               />
-              <span className="text-[10.5px] font-mono tracking-wider text-[#64748b]">
+              {/* <span className="text-[10.5px] font-mono tracking-wider text-[#64748b]">
                 {item.number}
-              </span>
+              </span> */}
               <h3
-                className={`font-sans text-[1.12rem] leading-tight font-bold mt-0.5 mb-1.5 transition-colors duration-200 ${
-                  isActive ? "text-[#e00019]" : "text-[#111b23] group-hover:text-[#e00019]"
-                }`}
+                className={`font-sans text-[1.12rem] leading-tight font-bold mt-0.5 mb-1.5 transition-colors duration-200 ${isActive ? "text-[#e00019]" : "text-[#111b23] group-hover:text-[#e00019]"
+                  }`}
               >
                 {serviceTitle}
               </h3>

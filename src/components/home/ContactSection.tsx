@@ -138,14 +138,16 @@ export default function ContactSection() {
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 1.2, ease: LUXURY_EASE }}
       >
-        <Image
-          src="/images/contact-reference.webp"
-          alt="A sunlit concrete gateway framing the Burj Khalifa"
-          fill
-          sizes="100vw"
-          className="contact-backdrop"
-        />
-      </motion.div>
+          <Image
+            src="/images/contact us image.png"
+            alt="A sunlit concrete gateway framing the Burj Khalifa"
+            fill
+            sizes="100vw"
+            className="contact-backdrop"
+          />
+          {/* Gradient shade on the left to ensure the form and text remain legible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent z-10 pointer-events-none" />
+        </motion.div>
 
       <Container className="contact-container relative z-10">
         <div className="contact-composition">
@@ -230,8 +232,8 @@ export default function ContactSection() {
                       isDropdownOpen
                         ? "border-brand-red shadow-sm bg-white"
                         : errors.areaOfInterest
-                        ? "border-brand-red bg-white"
-                        : "border-[#d2d7da] hover:border-brand-muted hover:bg-white",
+                          ? "border-brand-red bg-white"
+                          : "border-[#d2d7da] hover:border-brand-muted hover:bg-white",
                     )}
                   >
                     <div className="flex items-center gap-2.5 truncate">

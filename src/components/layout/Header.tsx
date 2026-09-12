@@ -89,12 +89,14 @@ export default function Header() {
       >
         <Container className="flex items-center justify-between gap-2">
           {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-baseline gap-1.5 group select-none"
-          >
-            <BrandLogo />
-          </Link>
+          <div className="xl:relative xl:w-[280px] xl:h-[40px] flex items-center">
+            <Link
+              href="/"
+              className="flex items-baseline gap-1.5 group select-none xl:absolute xl:top-1/2 xl:-translate-y-1/2 xl:left-0 xl:scale-125 xl:origin-left"
+            >
+              <BrandLogo />
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center space-x-5 xl:space-x-7">

@@ -57,7 +57,7 @@ export default function ServicesSection() {
               </p>
             </FadeIn>
 
-            {/* Bottom Tagline with Red Bar */}
+            {/* Bottom Tagline with Red Bar
             <FadeIn delay={0.35} distance={15}>
               <div className="flex items-start gap-3 mt-8">
                 <span className="w-6 h-[2px] bg-[#e00019] mt-2 shrink-0" />
@@ -67,7 +67,7 @@ export default function ServicesSection() {
                   LASTING IMPACT.
                 </div>
               </div>
-            </FadeIn>
+            </FadeIn> */}
           </div>
 
           {/* Radial Interactive Diagram */}
@@ -83,7 +83,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Bottom Baseline Row: Huge Watermark */}
-        <div className="mt-8 lg:mt-12 pt-6 border-t border-[#eeece8]/60">
+        {/* <div className="mt-8 lg:mt-12 pt-6 border-t border-[#eeece8]/60">
           <motion.div
             className="select-none pointer-events-none"
             aria-hidden="true"
@@ -98,7 +98,7 @@ export default function ServicesSection() {
               TOWARDS OPPORTUNITY
             </span>
           </motion.div>
-        </div>
+        </div> */}
       </Container>
     </section>
   );
