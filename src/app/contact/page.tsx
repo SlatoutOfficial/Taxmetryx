@@ -93,7 +93,7 @@ export default function ContactPage() {
             <div className="max-w-2xl mb-12 space-y-3">
               <SectionLabel>PHYSICAL PRESENCE</SectionLabel>
               <h2 className="font-editorial text-clamp-heading text-brand-primary">
-                <span className="text-[#e00019]">Executive Advisory</span> Hubs
+                <span className="text-[#eb0045]">Executive Advisory</span> Hubs
               </h2>
               <p className="text-xs sm:text-sm text-brand-muted">
                 Strategically positioned across the UAE&apos;s primary financial free zones.

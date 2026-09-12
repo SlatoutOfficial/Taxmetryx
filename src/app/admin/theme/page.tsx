@@ -14,6 +14,7 @@ import {
 import { TypographyConfig } from "@/lib/json";
 
 const HEADING_FONT_OPTIONS = [
+  { label: "Montserrat (Taxmetryx Standard)", value: "Montserrat" },
   { label: "DM Serif Display (Taxmetryx Classic)", value: "DM Serif Display" },
   { label: "Playfair Display (Prestige Editorial)", value: "Playfair Display" },
   { label: "Cormorant Garamond (High Luxury Heritage)", value: "Cormorant Garamond" },
@@ -29,6 +30,7 @@ const HEADING_FONT_OPTIONS = [
 ];
 
 const BODY_FONT_OPTIONS = [
+  { label: "Montserrat (Taxmetryx Standard)", value: "Montserrat" },
   { label: "Inter (High-Legibility Swiss Sans)", value: "Inter" },
   { label: "Plus Jakarta Sans (Contemporary Corporate)", value: "Plus Jakarta Sans" },
   { label: "Outfit (Clean Geometric Sans)", value: "Outfit" },
@@ -39,6 +41,12 @@ const BODY_FONT_OPTIONS = [
 ];
 
 const CURATED_PAIRINGS = [
+  {
+    name: "Montserrat Unified (Taxmetryx Standard)",
+    desc: "Unified clean modern geometric aesthetic across all headings and text",
+    heading: "Montserrat",
+    body: "Montserrat",
+  },
   {
     name: "Classic Editorial",
     desc: "Heritage corporate prestige with high readability",
@@ -66,8 +74,8 @@ const CURATED_PAIRINGS = [
 ];
 
 const DEFAULT_TYPOGRAPHY: TypographyConfig = {
-  fontHeading: "Inter",
-  fontBody: "Inter",
+  fontHeading: "Montserrat",
+  fontBody: "Montserrat",
 };
 
 export default function AdminTypographyPage() {
@@ -447,10 +455,10 @@ export default function AdminTypographyPage() {
       </div>
 
       {/* Live Interactive Typography Preview */}
-      <div className="p-8 bg-[#f8f7f4] text-[#111111] border border-white/20 space-y-6">
+      <div className="p-8 bg-[#f8f7f4] text-[#414042] border border-white/20 space-y-6">
         <div className="flex items-center justify-between border-b border-[#e7e5e1] pb-4">
           <div className="flex items-center gap-2">
-            <Eye className="w-4 h-4 text-[#d90016]" />
+            <Eye className="w-4 h-4 text-[#eb0045]" />
             <span className="text-xs font-bold uppercase tracking-widest text-[#646464]">
               Live Typography Specimen
             </span>
@@ -469,9 +477,9 @@ export default function AdminTypographyPage() {
           </span>
           <h1
             style={{ fontFamily: `"${config.fontHeading}", sans-serif` }}
-            className="text-4xl sm:text-5xl font-bold tracking-tight text-[#111111] leading-[1.08]"
+            className="text-4xl sm:text-5xl font-bold tracking-tight text-[#414042] leading-[1.08]"
           >
-            Complexity. <span className="text-[#d90016]">Measured. Resolved.</span>
+            Complexity. <span className="text-[#eb0045]">Measured. Resolved.</span>
           </h1>
         </div>
 
@@ -479,9 +487,9 @@ export default function AdminTypographyPage() {
         <div>
           <h2
             style={{ fontFamily: `"${config.fontHeading}", sans-serif` }}
-            className="text-2xl sm:text-3xl font-bold text-[#111111] mb-2"
+            className="text-2xl sm:text-3xl font-bold text-[#414042] mb-2"
           >
-            Facts first. <span className="text-[#d90016]">Then the view.</span>
+            Facts first. <span className="text-[#eb0045]">Then the view.</span>
           </h2>
           <p
             style={{ fontFamily: `"${config.fontBody}", sans-serif` }}
@@ -494,12 +502,12 @@ export default function AdminTypographyPage() {
         {/* Specimen Micro Typography */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-[#e7e5e1]">
           <div className="p-4 bg-white border border-[#e7e5e1]">
-            <span className="text-[10px] font-mono text-[#d90016] uppercase font-bold block mb-1">
+            <span className="text-[10px] font-mono text-[#eb0045] uppercase font-bold block mb-1">
               PRACTICE 01
             </span>
             <h3
               style={{ fontFamily: `"${config.fontHeading}", sans-serif` }}
-              className="text-base font-bold text-[#111111] mb-1"
+              className="text-base font-bold text-[#414042] mb-1"
             >
               Corporate Tax Structuring
             </h3>
@@ -512,12 +520,12 @@ export default function AdminTypographyPage() {
           </div>
 
           <div className="p-4 bg-white border border-[#e7e5e1]">
-            <span className="text-[10px] font-mono text-[#d90016] uppercase font-bold block mb-1">
+            <span className="text-[10px] font-mono text-[#eb0045] uppercase font-bold block mb-1">
               PRACTICE 02
             </span>
             <h3
               style={{ fontFamily: `"${config.fontHeading}", sans-serif` }}
-              className="text-base font-bold text-[#111111] mb-1"
+              className="text-base font-bold text-[#414042] mb-1"
             >
               Transfer Pricing Execution
             </h3>
@@ -530,12 +538,12 @@ export default function AdminTypographyPage() {
           </div>
 
           <div className="p-4 bg-white border border-[#e7e5e1]">
-            <span className="text-[10px] font-mono text-[#d90016] uppercase font-bold block mb-1">
+            <span className="text-[10px] font-mono text-[#eb0045] uppercase font-bold block mb-1">
               PRACTICE 03
             </span>
             <h3
               style={{ fontFamily: `"${config.fontHeading}", sans-serif` }}
-              className="text-base font-bold text-[#111111] mb-1"
+              className="text-base font-bold text-[#414042] mb-1"
             >
               Cross-Border Controversy
             </h3>

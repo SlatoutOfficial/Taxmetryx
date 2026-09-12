@@ -4,14 +4,12 @@ import React, { useEffect, useState, useMemo } from "react";
 import { TypographyConfig } from "@/lib/json";
 
 const defaultFonts: TypographyConfig = {
-  fontHeading: "Inter",
-  fontBody: "Inter",
+  fontHeading: "Montserrat",
+  fontBody: "Montserrat",
 };
 
 function getGoogleFontUrl(fontNames: string[]): string {
   const localFonts = new Set([
-    "Taxmetryx Inter",
-    "Taxmetryx Serif",
     "system-ui",
     "Arial",
     "Georgia",
@@ -22,7 +20,7 @@ function getGoogleFontUrl(fontNames: string[]): string {
 
   const families = fontNames
     .filter((f) => f && !localFonts.has(f.trim()))
-    .map((name) => `family=${encodeURIComponent(name.trim()).replace(/%20/g, "+")}:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600`)
+    .map((name) => `family=${encodeURIComponent(name.trim()).replace(/%20/g, "+")}:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700`)
     .join("&");
 
   if (!families) return "";
@@ -38,10 +36,17 @@ export default function DynamicFonts() {
       const cached = localStorage.getItem("taxmetryx_typography");
       if (cached) {
         const parsed = JSON.parse(cached);
-        if (parsed.fontHeading === "DM Serif Display" || parsed.fontHeading === "Taxmetryx Serif") {
-          parsed.fontHeading = "Inter";
-          localStorage.setItem("taxmetryx_typography", JSON.stringify(parsed));
+        if (
+          parsed.fontHeading === "DM Serif Display" ||
+          parsed.fontHeading === "Taxmetryx Serif" ||
+          parsed.fontHeading === "Inter"
+        ) {
+          parsed.fontHeading = "Montserrat";
         }
+        if (parsed.fontBody === "Inter") {
+          parsed.fontBody = "Montserrat";
+        }
+        localStorage.setItem("taxmetryx_typography", JSON.stringify(parsed));
         setFonts(parsed);
       }
     } catch {
@@ -54,8 +59,15 @@ export default function DynamicFonts() {
       .then((data) => {
         if (data.success && data.data) {
           const freshData = data.data;
-          if (freshData.fontHeading === "DM Serif Display" || freshData.fontHeading === "Taxmetryx Serif") {
-            freshData.fontHeading = "Inter";
+          if (
+            freshData.fontHeading === "DM Serif Display" ||
+            freshData.fontHeading === "Taxmetryx Serif" ||
+            freshData.fontHeading === "Inter"
+          ) {
+            freshData.fontHeading = "Montserrat";
+          }
+          if (freshData.fontBody === "Inter") {
+            freshData.fontBody = "Montserrat";
           }
           setFonts(freshData);
           try {
@@ -81,10 +93,8 @@ export default function DynamicFonts() {
     };
   }, []);
 
-  const headingFont = (fonts.fontHeading && fonts.fontHeading !== "DM Serif Display" && fonts.fontHeading !== "Taxmetryx Serif")
-    ? fonts.fontHeading
-    : "Inter";
-  const bodyFont = fonts.fontBody || "Inter";
+  const headingFont = fonts.fontHeading || "Montserrat";
+  const bodyFont = fonts.fontBody || "Montserrat";
 
   const fontUrl = useMemo(() => {
     return getGoogleFontUrl([headingFont, bodyFont]);
@@ -100,31 +110,31 @@ export default function DynamicFonts() {
         dangerouslySetInnerHTML={{
           __html: `
             :root {
-              --font-serif: "${headingFont}", var(--font-sans), sans-serif;
-              --font-sans: "${bodyFont}", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+              --font-serif: "${headingFont}", "Montserrat", var(--font-sans), sans-serif;
+              --font-sans: "${bodyFont}", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             }
 
             /* Apply typography consistently across all pages */
-            body {
-              font-family: var(--font-sans), sans-serif;
+            body, button, input, textarea, select {
+              font-family: var(--font-sans), "Montserrat", sans-serif;
             }
 
-            h1, h2, h3, .font-editorial {
-              font-family: var(--font-sans), sans-serif;
-              letter-spacing: -0.03em;
+            h1, h2, h3, h4, h5, h6, .font-editorial {
+              font-family: var(--font-sans), "Montserrat", sans-serif;
+              letter-spacing: -0.025em;
             }
 
             .reference-heading {
-              font-family: var(--font-sans), sans-serif;
-              letter-spacing: -0.04em;
+              font-family: var(--font-sans), "Montserrat", sans-serif;
+              letter-spacing: -0.03em;
             }
 
             .reference-sans-heading {
-              font-family: var(--font-sans), sans-serif;
+              font-family: var(--font-sans), "Montserrat", sans-serif;
             }
 
             .reference-copy {
-              font-family: var(--font-sans), sans-serif;
+              font-family: var(--font-sans), "Montserrat", sans-serif;
             }
           `,
         }}

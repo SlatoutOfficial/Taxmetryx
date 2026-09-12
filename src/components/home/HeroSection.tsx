@@ -60,7 +60,7 @@ export default function HeroSection() {
         <div className="hero-text-block">
           <FadeIn delay={0.1} distance={20}>
             <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-[#cfd3d6] bg-white/50 backdrop-blur-sm text-[11px] font-mono tracking-[0.15em] text-[#53606a] uppercase mb-6 shadow-sm">
-              Transfer Pricing <span className="mx-2 text-[#e00019] font-bold">&bull;</span> Corporate Tax <span className="mx-2 text-[#e00019] font-bold">&bull;</span> International Tax
+              Transfer Pricing <span className="mx-2 text-[#eb0045] font-bold">&bull;</span> Corporate Tax <span className="mx-2 text-[#eb0045] font-bold">&bull;</span> International Tax
             </div>
           </FadeIn>
 
@@ -103,13 +103,13 @@ export default function HeroSection() {
         {/* Floating Location Badge */}
         <div className="absolute bottom-full right-6 lg:right-12 mb-6 z-20 hidden md:block">
           <FadeIn delay={0.6} distance={20}>
-            <div className="inline-flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-full bg-white/35 hover:bg-white/50 backdrop-blur-md border border-white/60 shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300 hover:shadow-[0_6px_28px_rgba(224,0,25,0.12)] hover:border-white/80 hover:-translate-y-0.5 group select-none max-w-full">
+            <div className="inline-flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-full bg-white/35 hover:bg-white/50 backdrop-blur-md border border-white/60 shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300 hover:shadow-[0_6px_28px_rgba(235,0,69,0.12)] hover:border-white/80 hover:-translate-y-0.5 group select-none max-w-full">
               <div className="flex items-center gap-1.5 sm:gap-2 text-[10.5px] sm:text-xs font-semibold tracking-wider text-[#14181b] uppercase whitespace-nowrap">
-                <span className="hover:text-[#e00019] transition-colors cursor-default">Dubai</span>
-                <span className="text-[#e00019] font-bold">&bull;</span>
-                <span className="hover:text-[#e00019] transition-colors cursor-default">Kerala</span>
-                <span className="text-[#e00019] font-bold">&bull;</span>
-                <span className="hover:text-[#e00019] transition-colors cursor-default">Bangalore</span>
+                <span className="hover:text-[#eb0045] transition-colors cursor-default">Dubai</span>
+                <span className="text-[#eb0045] font-bold">&bull;</span>
+                <span className="hover:text-[#eb0045] transition-colors cursor-default">Kerala</span>
+                <span className="text-[#eb0045] font-bold">&bull;</span>
+                <span className="hover:text-[#eb0045] transition-colors cursor-default">Bangalore</span>
               </div>
             </div>
           </FadeIn>

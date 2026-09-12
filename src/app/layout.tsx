@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import "./home.css";
 import SiteShell from "@/components/layout/SiteShell";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://taxmetryx.com"),
@@ -69,8 +77,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full scroll-smooth antialiased">
-      <body className="min-h-full flex flex-col bg-[#F8F7F4] text-[#111111] font-sans selection:bg-[#D90016] selection:text-white">
+    <html lang="en" className={`h-full scroll-smooth antialiased ${montserrat.variable}`}>
+      <body className={`${montserrat.className} min-h-full flex flex-col bg-[#F8F7F4] text-[#414042] font-sans selection:bg-[#eb0045] selection:text-white`}>
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

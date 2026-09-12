@@ -49,12 +49,12 @@
   align-items: center;
   gap: 1.5rem;
   padding: 1.5rem;
-  border-top: 3px solid #e00019;
-  background: repeating-linear-gradient(135deg, transparent, transparent 9px, #111b2305 9px, #111b2305 10px);
+  border-top: 3px solid #eb0045;
+  background: repeating-linear-gradient(135deg, transparent, transparent 9px, #41404208 9px, #41404208 10px);
 }
 
 .service-practice-count-number {
-  color: #e00019;
+  color: #eb0045;
   font-size: clamp(3.5rem, 5vw, 5.5rem);
   font-weight: 750;
   line-height: 1;
@@ -62,7 +62,7 @@
 }
 
 .service-practice-label {
-  color: #111b23;
+  color: #414042;
   font-size: 0.625rem;
   font-weight: 650;
   letter-spacing: 0.16em;
@@ -78,8 +78,8 @@
   color: #53606a;
 }
 
-.service-practice-link:hover { color: #e00019; }
-.service-practice-link:focus-visible { outline: 2px solid #e00019; outline-offset: 4px; }
+.service-practice-link:hover { color: #eb0045; }
+.service-practice-link:focus-visible { outline: 2px solid #eb0045; outline-offset: 4px; }
 
 .service-practice-summary {
   padding: 1.5rem;
@@ -195,11 +195,13 @@
 }
 
 @theme {
-  --color-brand-red: #d90016;
-  --color-brand-red-hover: #b50012;
+  --font-sans: var(--font-montserrat), "Montserrat", sans-serif;
+  --font-serif: var(--font-montserrat), "Montserrat", sans-serif;
+  --color-brand-red: #eb0045;
+  --color-brand-red-hover: #c9003b;
   --color-brand-dark: #061016;
-  --color-brand-primary: #111111;
-  --color-brand-charcoal: #171717;
+  --color-brand-primary: #414042;
+  --color-brand-charcoal: #414042;
   --color-brand-muted: #646464;
   --color-brand-bg: #f8f7f4;
   --color-brand-hairline: #e7e5e1;
@@ -257,16 +259,16 @@
 
 @layer base {
   :root {
-    --font-sans: "Taxmetryx Inter";
-    --font-serif: "Taxmetryx Inter", sans-serif;
+    --font-sans: var(--font-montserrat), "Montserrat", sans-serif;
+    --font-serif: var(--font-montserrat), "Montserrat", sans-serif;
     --bg-main: #f8f7f4;
     --bg-white: #ffffff;
-    --text-primary: #111111;
-    --text-charcoal: #171717;
+    --text-primary: #414042;
+    --text-charcoal: #414042;
     --text-muted: #646464;
-    --brand-red: #d90016;
-    --brand-red-hover: #b50012;
-    --brand-red-light: rgba(217, 0, 22, 0.08);
+    --brand-red: #eb0045;
+    --brand-red-hover: #c9003b;
+    --brand-red-light: rgba(235, 0, 69, 0.08);
     --brand-dark: #061016;
     --border-hairline: #e7e5e1;
     --border-dark: rgba(255, 255, 255, 0.1);
@@ -285,6 +287,7 @@
     color: var(--text-primary);
     font-family:
       var(--font-sans),
+      "Montserrat",
       -apple-system,
       BlinkMacSystemFont,
       "Segoe UI",
@@ -300,13 +303,14 @@
   .font-editorial {
     font-family:
       var(--font-sans),
+      "Montserrat",
       -apple-system,
       BlinkMacSystemFont,
       "Segoe UI",
       Roboto,
       sans-serif;
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.025em;
   }
 }
 
@@ -325,11 +329,11 @@
   }
 
   .bg-brand-red {
-    background-color: #d90016;
+    background-color: #eb0045;
   }
 
   .text-brand-red {
-    color: #d90016;
+    color: #eb0045;
   }
 
   .text-brand-dark {
@@ -337,7 +341,7 @@
   }
 
   .text-brand-primary {
-    color: #111111;
+    color: #414042;
   }
 
   .text-brand-muted {
@@ -349,7 +353,7 @@
   }
 
   .border-brand-red {
-    border-color: #d90016;
+    border-color: #eb0045;
   }
 }
 
@@ -461,9 +465,9 @@ html.lenis body {
 }
 
 .btn-shade-primary {
-  background: linear-gradient(135deg, #e6001a 0%, #c40014 45%, #9b000f 100%);
+  background: linear-gradient(135deg, #eb0045 0%, #c9003b 45%, #9b002c 100%);
   box-shadow: 
-    0 4px 16px -2px rgba(217, 0, 22, 0.42),
+    0 4px 16px -2px rgba(235, 0, 69, 0.42),
     0 2px 6px -1px rgba(0, 0, 0, 0.18),
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.35),
     inset 0 -2px 4px 0 rgba(0, 0, 0, 0.25);
@@ -471,10 +475,10 @@ html.lenis body {
 }
 
 .btn-shade-primary:hover {
-  background: linear-gradient(135deg, #f00520 0%, #d40016 45%, #ad0012 100%);
+  background: linear-gradient(135deg, #ff1a5d 0%, #eb0045 45%, #c9003b 100%);
   box-shadow: 
-    0 8px 28px -2px rgba(217, 0, 22, 0.58),
-    0 4px 12px -2px rgba(217, 0, 22, 0.35),
+    0 8px 28px -2px rgba(235, 0, 69, 0.58),
+    0 4px 12px -2px rgba(235, 0, 69, 0.35),
     inset 0 1px 2px 0 rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
 }
@@ -528,10 +532,10 @@ html.lenis body {
 }
 
 .btn-shade-dark:hover {
-  border-color: #d90016;
+  border-color: #eb0045;
   box-shadow: 
-    0 8px 25px -2px rgba(217, 0, 22, 0.38),
-    0 0 18px rgba(217, 0, 22, 0.25);
+    0 8px 25px -2px rgba(235, 0, 69, 0.38),
+    0 0 18px rgba(235, 0, 69, 0.25);
   transform: translateY(-2px);
 }
 
@@ -543,7 +547,7 @@ html.lenis body {
 
 .btn-shade-outline:hover {
   background: #ffffff;
-  border-color: #111111;
+  border-color: #414042;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }

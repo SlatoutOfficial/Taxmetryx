@@ -30,12 +30,12 @@ export default function ServicesSection() {
 
             {/* Main Headline */}
             <FadeIn delay={0.1} distance={20}>
-              <h2 className="font-sans font-extrabold text-[2.75rem] xl:text-[3.35rem] leading-[1.04] tracking-tight text-[#111b23]">
+              <h2 className="font-sans font-extrabold text-[2.75rem] xl:text-[3.35rem] leading-[1.04] tracking-tight text-[#414042]">
                 Six practices.
                 <br />
-                <span className="text-[#e00019]">One discipline:</span>
+                <span className="text-[#eb0045]">One discipline:</span>
               </h2>
-              <p className="font-sans font-semibold text-xl xl:text-[1.32rem] text-[#111b23] leading-snug mt-2.5">
+              <p className="font-sans font-semibold text-xl xl:text-[1.32rem] text-[#414042] leading-snug mt-2.5">
                 understand the facts before
                 <br />
                 forming the view.

@@ -25,7 +25,7 @@ export default function ServiceAreasAccordion({
       return next;
     });
   const controlClass =
-    "min-h-10 cursor-pointer px-2 text-xs font-semibold text-[#63717c] hover:text-[#e00019] disabled:opacity-40 disabled:cursor-default focus-visible:outline-2 focus-visible:outline-[#c80016]";
+    "min-h-10 cursor-pointer px-2 text-xs font-semibold text-[#63717c] hover:text-[#eb0045] disabled:opacity-40 disabled:cursor-default focus-visible:outline-2 focus-visible:outline-[#eb0045]";
 
   return (
     <div>
@@ -64,7 +64,7 @@ export default function ServiceAreasAccordion({
             <div
               key={item.number}
               className={`overflow-hidden rounded-sm border bg-white transition-colors ${
-                open ? "border-[#e0001930]" : "border-[#e8e7e4]"
+                open ? "border-[#eb004530]" : "border-[#e8e7e4]"
               }`}
             >
               <h3>
@@ -74,9 +74,9 @@ export default function ServiceAreasAccordion({
                   aria-expanded={open}
                   aria-controls={`${id}-panel-${index}`}
                   onClick={() => toggle(index)}
-                  className="flex w-full cursor-pointer items-start gap-3 p-5 text-left hover:bg-[#fafaf9] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[#c80016] sm:gap-4 sm:p-6"
+                  className="flex w-full cursor-pointer items-start gap-3 p-5 text-left hover:bg-[#fafaf9] focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[#eb0045] sm:gap-4 sm:p-6"
                 >
-                  <span className="pt-0.5 font-mono text-xs text-[#e00019]">
+                  <span className="pt-0.5 font-mono text-xs text-[#eb0045]">
                     {item.number}
                   </span>
                   <span className="flex-1 text-sm font-semibold leading-6 text-[#17232c] sm:text-base">
@@ -84,7 +84,7 @@ export default function ServiceAreasAccordion({
                   </span>
                   {open ? (
                     <Minus
-                      className="mt-1 h-4 w-4 shrink-0 text-[#e00019]"
+                      className="mt-1 h-4 w-4 shrink-0 text-[#eb0045]"
                       aria-hidden="true"
                     />
                   ) : (
@@ -104,7 +104,7 @@ export default function ServiceAreasAccordion({
                   <p>{item.description}</p>
                   {item.inPractice && <p>{item.inPractice}</p>}
                   {item.youReceive && (
-                    <p className="border-l-2 border-[#e00019] bg-[#f6f5f2] px-4 py-3 text-[#17232c]">
+                    <p className="border-l-2 border-[#eb0045] bg-[#f6f5f2] px-4 py-3 text-[#17232c]">
                       <strong className="font-semibold">You receive: </strong>
                       {item.youReceive}
                     </p>
@@ -113,7 +113,7 @@ export default function ServiceAreasAccordion({
                     <div className="pt-2">
                       <Link
                         href={pageHref}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e00019] hover:text-[#e00019] hover:underline"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#eb0045] hover:text-[#eb0045] hover:underline"
                       >
                         Open dedicated service page
                         <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />

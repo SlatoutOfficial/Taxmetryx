@@ -56,11 +56,11 @@ export default function InsightsPage() {
             <FadeIn direction="up" className="lg:col-span-7 space-y-6">
               <SectionLabel>TECHNICAL PUBLICATIONS & RESEARCH</SectionLabel>
               <h1 className="font-editorial text-clamp-hero text-brand-primary leading-tight">
-                Knowledge today. <br />
-                <span className="text-brand-red">A more certain tomorrow.</span>
+                Insights <br />
+                <span className="text-brand-red">That Turn Complexity into Clarity.</span>
               </h1>
               <p className="text-sm sm:text-base text-brand-charcoal/85 leading-relaxed font-sans max-w-xl">
-                Forensic analysis, statutory interpretations, and cross-border advisory opinions authored by Taxmetryx practice leaders in Dubai DIFC.
+                Explore expert perspectives, regulatory updates and practical guidance designed to help businesses navigate change, manage risk and make informed decisions with confidence.
               </p>
 
               {/* Fast Facts Bar */}

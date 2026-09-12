@@ -277,7 +277,7 @@ export default function WorldGlobe({
 
         if (isActive) {
           // Signature Taxmetryx crimson red
-          ctx.fillStyle = "#e00019";
+          ctx.fillStyle = "#eb0045";
           ctx.fill();
           ctx.strokeStyle = "#ffffff";
           ctx.lineWidth = 1;
@@ -325,7 +325,7 @@ export default function WorldGlobe({
           if (pt) {
             ctx.beginPath();
             ctx.arc(pt[0], pt[1], 3, 0, Math.PI * 2);
-            ctx.fillStyle = "#e00019";
+            ctx.fillStyle = "#eb0045";
             ctx.fill();
             ctx.strokeStyle = "#ffffff";
             ctx.lineWidth = 1.2;
@@ -356,12 +356,12 @@ export default function WorldGlobe({
           const pulseR = 7 + Math.sin(pulsePhaseRef.current) * 3;
           ctx.beginPath();
           ctx.arc(pt[0], pt[1], pulseR + 3, 0, Math.PI * 2);
-          ctx.fillStyle = "rgba(224, 0, 25, 0.16)";
+          ctx.fillStyle = "rgba(235, 0, 69, 0.16)";
           ctx.fill();
 
           ctx.beginPath();
           ctx.arc(pt[0], pt[1], 4.5, 0, Math.PI * 2);
-          ctx.fillStyle = "#e00019";
+          ctx.fillStyle = "#eb0045";
           ctx.fill();
           ctx.strokeStyle = "#ffffff";
           ctx.lineWidth = 1.8;
@@ -371,7 +371,7 @@ export default function WorldGlobe({
           const pinR = isCurrentRegion ? 4 : 3;
           ctx.beginPath();
           ctx.arc(pt[0], pt[1], pinR, 0, Math.PI * 2);
-          ctx.fillStyle = isCurrentRegion ? "#e00019" : "#8a9295";
+          ctx.fillStyle = isCurrentRegion ? "#eb0045" : "#8a9295";
           ctx.fill();
           ctx.strokeStyle = "#ffffff";
           ctx.lineWidth = 1.4;

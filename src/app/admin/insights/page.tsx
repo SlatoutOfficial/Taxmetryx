@@ -280,7 +280,7 @@ export default function AdminInsightsPage() {
                   onChange={(e) =>
                     setCurrentInsight({ ...currentInsight, featured: e.target.checked })
                   }
-                  className="accent-[#D90016] w-4 h-4"
+                  className="accent-[#eb0045] w-4 h-4"
                 />
                 <label htmlFor="featuredCheck" className="text-white/80 select-none cursor-pointer">
                   Feature as Homepage Lead Insight
