@@ -377,12 +377,42 @@ export default function ContactSection() {
               </a>
             </StaggerItem>
             <StaggerItem>
-              <div>
-                <MapPin />
-                <span>
-                  <strong>Office</strong>
-                  {site.headquarters.address}
-                </span>
+              <div className="!items-start">
+                <MapPin className="mt-1 shrink-0" />
+                <div className="space-y-3.5">
+                  <strong className="!mb-1">Offices</strong>
+                  {(site.offices || [
+                    {
+                      id: "dubai",
+                      name: "Dubai",
+                      line1: "137-A-77 | Plot number 11-0",
+                      line2: "Sultan Business Centre | Oud Metha | Dubai",
+                    },
+                    {
+                      id: "kerala",
+                      name: "Kerala",
+                      line1: "4th Floor | Noble Building | Mavoor Rd | Arayidathupalam",
+                      line2: "Kozhikode | Kerala 673004 | India",
+                    },
+                    {
+                      id: "bangalore",
+                      name: "Bangalore",
+                      line1: "No 46 | 4th floor | 3rd cross | Domlur village | Near",
+                      line2: "Aryan Suzuki BENGALURU | KARNATAKA 560071",
+                    },
+                  ]).map((office) => (
+                    <div key={office.id} className="space-y-0.5">
+                      <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-brand-red block">
+                        {office.name}
+                      </span>
+                      <p className="text-xs text-brand-charcoal/85 leading-relaxed font-sans m-0">
+                        {office.line1}
+                        <br />
+                        {office.line2}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </StaggerItem>
             <StaggerItem>

@@ -5,6 +5,15 @@ export interface NavItem {
   hasDropdown?: boolean;
 }
 
+export interface OfficeLocation {
+  id: string;
+  city: string;
+  region: string;
+  name: string;
+  line1: string;
+  line2: string;
+}
+
 export interface SiteConfig {
   name: string;
   legalName: string;
@@ -19,6 +28,7 @@ export interface SiteConfig {
     building: string;
     zone: string;
   };
+  offices?: OfficeLocation[];
   contact: {
     email: string;
     phone: string;
