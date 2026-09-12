@@ -16,23 +16,23 @@ import {
 const trust = [
   {
     Icon: Landmark,
-    title: "UAE-Based",
-    text: "Local Expertise. Global Perspective.",
+    title: "Founder-led advice",
+    text: "Ajin Thomas and his team stay close to every assignment, from scoping to delivery",
   },
   {
     Icon: Users,
-    title: "Trusted by Global Businesses",
-    text: "Across Key Industries",
-  },
-  {
-    Icon: FileCheck2,
-    title: "End-to-End Support",
-    text: "From Strategy to Resolution",
+    title: "Six connected service areas",
+    text: "Direct, indirect, international and emerging-regulation work under one discipline.",
   },
   {
     Icon: Globe2,
-    title: "International Outlook",
-    text: "Cross-Border Tax Solutions",
+    title: "UAE & cross-border reach",
+    text: "A team across Dubai, Kerala and Bangalore for UAE and India-linked assignments.",
+  },
+    {
+    Icon: FileCheck2,
+    title: "End-to-End Support",
+    text: "From Strategy to Resolution",
   },
 ];
 
@@ -57,46 +57,52 @@ export default function HeroSection() {
       </motion.div>
 
       <Container className="hero-content relative z-10">
-        <FadeIn delay={0.1} distance={20}>
-          <SectionLabel>UAE | TRANSFER PRICING | TAX | GLOBAL</SectionLabel>
-        </FadeIn>
+        <div className="hero-text-block">
+          <FadeIn delay={0.1} distance={20}>
+            <SectionLabel>Transfer Pricing · Corporate Tax · International Tax</SectionLabel>
+          </FadeIn>
 
-        <FadeIn delay={0.2} distance={30}>
-          <h1 id="hero-heading">
-            Complexity.
-            <br />
-            <span>Measured. Resolved.</span>
-          </h1>
-        </FadeIn>
+          <FadeIn delay={0.2} distance={30}>
+            <h1 id="hero-heading">
+              Tax advice for
+              <br />
+              <span>your business.</span>
+            </h1>
+          </FadeIn>
 
-        <FadeIn delay={0.35} distance={24}>
-          <div className="hero-copy">
-            <p>
-              Taxmetryx is a UAE-based specialist tax advisory firm operating at
-              the intersection of Transfer Pricing, Corporate Tax, International
-              Tax and Tax Regulation.
-            </p>
-            <p>
-              We help businesses navigate complex tax matters—from policy design
-              and transaction structuring to compliance, implementation,
-              controversy and litigation.
-            </p>
-            <strong className="hero-signoff">Your Tax Expert.</strong>
-          </div>
-        </FadeIn>
+          <FadeIn delay={0.35} distance={24}>
+            <div className="hero-copy">
+              <p>
+                Taxmetryx Global advises businesses on Transfer Pricing, Corporate Tax and cross-border tax matters. We help you assess the implications, prepare the supporting documentation and put the right processes in place.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
 
-        <FadeIn delay={0.5} distance={20}>
-          <div className="hero-actions">
-            <CTAButton href="/services" icon>
-              Explore Our Services
-            </CTAButton>
-            <CTAButton href="/contact" variant="secondary" icon>
-              Speak to Our Experts
-            </CTAButton>
-          </div>
-        </FadeIn>
+        <div className="hero-bottom-row flex flex-col md:flex-row md:items-end md:justify-between gap-6 mt-8">
+          <FadeIn delay={0.5} distance={20} className="hero-actions-wrapper !mt-0">
+            <div className="hero-actions">
+              <CTAButton href="/services" icon>
+                Explore Our Services
+              </CTAButton>
+              <CTAButton href="/contact" variant="secondary" icon>
+                Speak to Our Experts
+              </CTAButton>
+            </div>
+          </FadeIn>
 
-
+          <FadeIn delay={0.6} distance={20} className="hero-location-badge text-left md:text-right pb-1">
+            <div className="inline-flex items-center gap-2 sm:gap-2.5 px-4 py-2 rounded-full bg-white/35 hover:bg-white/50 backdrop-blur-md border border-white/60 shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-300 hover:shadow-[0_6px_28px_rgba(224,0,25,0.12)] hover:border-white/80 hover:-translate-y-0.5 group select-none max-w-full">
+              <div className="flex items-center gap-1.5 sm:gap-2 text-[10.5px] sm:text-xs font-semibold tracking-wider text-[#14181b] uppercase whitespace-nowrap">
+                <span className="hover:text-[#e00019] transition-colors cursor-default">Dubai</span>
+                <span className="text-[#e00019] font-bold">&bull;</span>
+                <span className="hover:text-[#e00019] transition-colors cursor-default">Kerala</span>
+                <span className="text-[#e00019] font-bold">&bull;</span>
+                <span className="hover:text-[#e00019] transition-colors cursor-default">Bangalore</span>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
       </Container>
 
       <div className="hero-trust relative z-10">

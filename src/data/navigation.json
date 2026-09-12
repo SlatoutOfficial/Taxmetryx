@@ -3,9 +3,7 @@
     { "title": "Home", "href": "/" },
     { "title": "About Us", "href": "/about" },
     { "title": "Our Services", "href": "/services", "hasDropdown": true },
-    { "title": "Industries", "href": "/industries" },
     { "title": "Insights", "href": "/insights" },
-    { "title": "Careers", "href": "/careers" },
     { "title": "Contact", "href": "/contact" }
   ],
   "servicesDropdown": [

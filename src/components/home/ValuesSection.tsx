@@ -76,15 +76,6 @@ export default function ValuesSection() {
                 clients—today and in the long term.
               </p>
             </FadeIn>
-            <FadeIn delay={0.35}>
-              <p className="micro-copy">
-                PEOPLE.
-                <br />
-                PRINCIPLES.
-                <br />
-                PROGRESS.
-              </p>
-            </FadeIn>
           </div>
 
           <motion.div

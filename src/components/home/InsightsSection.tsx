@@ -3,13 +3,14 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Container from "@/components/shared/Container";
 import SectionLabel from "@/components/shared/SectionLabel";
 import CTAButton from "@/components/shared/CTAButton";
 import { getInsights } from "@/lib/json";
 import { useJurisdiction } from "@/context/JurisdictionContext";
+import { Insight } from "@/types/insight";
 import {
   FadeIn,
   StaggerContainer,
@@ -29,6 +30,7 @@ const categories = [
 
 export default function InsightsSection() {
   const [selected, setSelected] = useState("All");
+  const [hoveredInsight, setHoveredInsight] = useState<Insight | null>(null);
   const { jurisdiction, filterActive, clearFilter } = useJurisdiction();
   const allInsights = getInsights();
 
@@ -58,60 +60,144 @@ export default function InsightsSection() {
         <div className="insights-composition">
           <div className="insights-main">
             <FadeIn className="insights-visual" distance={25}>
-              <Image
-                src="/images/insights-reference.webp"
-                alt="Sculptural concrete architecture"
-                fill
-                sizes="(max-width: 900px) 100vw, 60vw"
-              />
+              <div className="insights-visual-bg">
+                <AnimatePresence mode="sync">
+                  <motion.div
+                    key={hoveredInsight ? hoveredInsight.id : "default-visual"}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4, ease: LUXURY_EASE }}
+                    className="insights-visual-slide"
+                  >
+                    <Image
+                      src={hoveredInsight?.image || "/images/insights-reference.webp"}
+                      alt={hoveredInsight?.title || "Sculptural concrete architecture"}
+                      fill
+                      className="insights-visual-img"
+                      sizes="(max-width: 900px) 100vw, 60vw"
+                      priority
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
               <div className="insights-intro">
-                <SectionLabel>INSIGHTS</SectionLabel>
-                <h2 className="reference-heading">
-                  Knowledge
-                  <br />
-                  today.
-                  <br />A more certain
-                  <br />
-                  tomorrow.
-                </h2>
-                <LineReveal delay={0.2} />
-                <p className="reference-copy">
-                  Thoughts, perspectives and practical insights on Transfer
-                  Pricing, Corporate Tax, International Tax, regulation and the
-                  evolving global tax landscape.
-                </p>
+                <AnimatePresence mode="wait">
+                  {hoveredInsight ? (
+                    <motion.div
+                      key={hoveredInsight.id}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.3, ease: LUXURY_EASE }}
+                      className="insights-dynamic-content"
+                    >
+                      <div className="flex items-center gap-2 mb-2.5">
+                        <span className="w-2 h-2 rounded-full bg-[#e00019] animate-pulse" />
+                        <span className="text-[11px] font-mono tracking-widest text-[#e00019] uppercase font-semibold">
+                          {hoveredInsight.category}
+                        </span>
+                        {hoveredInsight.jurisdiction && (
+                          <span className="text-[10px] font-mono tracking-wider text-[#646A70] uppercase bg-[#EAE8E3] px-1.5 py-0.5 ml-1">
+                            {hoveredInsight.jurisdiction}
+                          </span>
+                        )}
+                      </div>
+
+                      <h2 className="reference-heading insights-dynamic-heading">
+                        {hoveredInsight.title}
+                      </h2>
+
+                      <p className="reference-copy insights-dynamic-copy">
+                        {hoveredInsight.excerpt || hoveredInsight.lead}
+                      </p>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="default-intro"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.3, ease: LUXURY_EASE }}
+                      className="insights-default-content"
+                    >
+                      <SectionLabel>INSIGHTS</SectionLabel>
+                      <h2 className="reference-heading">
+                        <em>
+                          Knowledge
+                          <br />
+                          today.
+                        </em>
+                        <br />A more certain
+                        <br />
+                        tomorrow.
+                      </h2>
+                      <LineReveal delay={0.2} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </FadeIn>
 
             {featured && (
               <FadeIn delay={0.2} distance={20}>
-                <p className="micro-copy featured-label">FEATURED INSIGHT</p>
+                <div className="flex items-center justify-between featured-label mb-2">
+                  <p className="micro-copy">FEATURED INSIGHT</p>
+                  {featured.jurisdiction && (
+                    <span className="text-[10px] font-mono tracking-widest text-[#727d85] uppercase">
+                      {featured.jurisdiction}
+                    </span>
+                  )}
+                </div>
+
                 <Link
                   href={`/insights/${featured.slug}`}
-                  className="featured-insight"
+                  className="featured-insight group"
                 >
-                  <Image
-                    src="/images/insights-reference.webp"
-                    alt=""
-                    fill
-                    sizes="(max-width: 900px) 100vw, 60vw"
-                  />
-                  <div>
-                    <span className="micro-copy">{featured.category}</span>
-                    <h3>{featured.title}</h3>
-                    <small>
-                      {featured.monthYear} &nbsp; | &nbsp; {featured.readTime}
-                    </small>
+                  <div className="featured-insight-stage">
+                    <div className="featured-insight-media">
+                      <Image
+                        src={featured.image || "/images/insights-reference.webp"}
+                        alt={featured.title}
+                        fill
+                        className="featured-insight-img"
+                        sizes="(max-width: 900px) 100vw, 60vw"
+                        priority
+                      />
+                      <div className="featured-insight-scrim" />
+                    </div>
+
+                    <div className="featured-insight-body">
+                      <div className="featured-insight-details">
+                        <span className="featured-insight-tag">
+                          {featured.category}
+                        </span>
+                        <h3 className="featured-insight-title">
+                          {featured.title}
+                        </h3>
+                        {featured.excerpt && (
+                          <p className="featured-insight-excerpt">
+                            {featured.excerpt}
+                          </p>
+                        )}
+                        <small className="featured-insight-meta">
+                          {featured.monthYear} &nbsp; | &nbsp; {featured.readTime}
+                        </small>
+                      </div>
+                      <span className="featured-insight-action">
+                        Read insight <ArrowRight />
+                      </span>
+                    </div>
                   </div>
-                  <span>
-                    Read insight <ArrowRight />
-                  </span>
                 </Link>
               </FadeIn>
             )}
           </div>
 
-          <div className="latest-insights">
+          <div
+            className="latest-insights"
+            onMouseLeave={() => setHoveredInsight(null)}
+          >
             <FadeIn
               className="flex items-center justify-between gap-2 flex-wrap mb-4"
               distance={15}
@@ -139,27 +225,32 @@ export default function InsightsSection() {
               delayChildren={0.1}
             >
               {list.length ? (
-                list.map((article) => (
-                  <StaggerItem key={article.id}>
-                    <Link
-                      href={`/insights/${article.slug}`}
-                      className="insight-row"
-                    >
-                      <time dateTime={article.publishedAt}>
-                        <strong>{article.day}</strong>
-                        <small>{article.monthYear}</small>
-                      </time>
-                      <div>
-                        <span className="insight-category">
-                          {article.category}
-                        </span>
-                        <h3>{article.title}</h3>
-                        <p>{article.excerpt}</p>
-                      </div>
-                      <ArrowRight />
-                    </Link>
-                  </StaggerItem>
-                ))
+                list.map((article) => {
+                  const isActive = hoveredInsight?.id === article.id;
+                  return (
+                    <StaggerItem key={article.id}>
+                      <Link
+                        href={`/insights/${article.slug}`}
+                        className={`insight-row ${isActive ? "is-active" : ""}`}
+                        onMouseEnter={() => setHoveredInsight(article)}
+                        onFocus={() => setHoveredInsight(article)}
+                      >
+                        <time dateTime={article.publishedAt}>
+                          <strong>{article.day}</strong>
+                          <small>{article.monthYear}</small>
+                        </time>
+                        <div>
+                          <span className="insight-category">
+                            {article.category}
+                          </span>
+                          <h3>{article.title}</h3>
+                          <p>{article.excerpt}</p>
+                        </div>
+                        <ArrowRight />
+                      </Link>
+                    </StaggerItem>
+                  );
+                })
               ) : (
                 <p className="insight-empty">
                   New insights in this practice are coming soon.{" "}
