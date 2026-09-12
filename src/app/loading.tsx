@@ -1,14 +1,12 @@
 import React from "react";
+import BrandLogo from "@/components/shared/BrandLogo";
 
 export default function Loading() {
   return (
     <div className="min-h-screen bg-[#F8F7F4] flex flex-col items-center justify-center p-6 select-none">
-      <div className="space-y-6 text-center">
-        <div className="inline-flex items-baseline gap-1.5">
-          <span className="font-editorial text-3xl sm:text-4xl tracking-tight text-brand-primary">
-            Taxmetryx
-          </span>
-          <span className="w-2 h-2 rounded-full bg-brand-red animate-ping" />
+      <div className="space-y-6 text-center flex flex-col items-center">
+        <div className="inline-flex items-center">
+          <BrandLogo />
         </div>
 
         {/* Thin red progress line */}

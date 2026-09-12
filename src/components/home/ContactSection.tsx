@@ -304,7 +304,7 @@ export default function ContactSection() {
                                       : "text-brand-muted group-hover:text-brand-red",
                                   )}
                                 >
-                                  {String(idx + 1).padStart(2, "0")}
+                                  {idx + 1}
                                 </span>
                                 <span className="tracking-[0.01em]">{interest}</span>
                               </div>

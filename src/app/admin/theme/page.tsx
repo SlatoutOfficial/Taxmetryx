@@ -66,7 +66,7 @@ const CURATED_PAIRINGS = [
 ];
 
 const DEFAULT_TYPOGRAPHY: TypographyConfig = {
-  fontHeading: "DM Serif Display",
+  fontHeading: "Inter",
   fontBody: "Inter",
 };
 
@@ -468,7 +468,7 @@ export default function AdminTypographyPage() {
             • UAE | TRANSFER PRICING | CORPORATE TAX | GLOBAL
           </span>
           <h1
-            style={{ fontFamily: `"${config.fontHeading}", Georgia, serif` }}
+            style={{ fontFamily: `"${config.fontHeading}", sans-serif` }}
             className="text-4xl sm:text-5xl font-bold tracking-tight text-[#111111] leading-[1.08]"
           >
             Complexity. <span className="text-[#d90016]">Measured. Resolved.</span>
@@ -478,7 +478,7 @@ export default function AdminTypographyPage() {
         {/* Specimen Heading 2 */}
         <div>
           <h2
-            style={{ fontFamily: `"${config.fontHeading}", Georgia, serif` }}
+            style={{ fontFamily: `"${config.fontHeading}", sans-serif` }}
             className="text-2xl sm:text-3xl font-bold text-[#111111] mb-2"
           >
             Facts first. <span className="text-[#d90016]">Then the view.</span>
@@ -498,7 +498,7 @@ export default function AdminTypographyPage() {
               PRACTICE 01
             </span>
             <h3
-              style={{ fontFamily: `"${config.fontHeading}", Georgia, serif` }}
+              style={{ fontFamily: `"${config.fontHeading}", sans-serif` }}
               className="text-base font-bold text-[#111111] mb-1"
             >
               Corporate Tax Structuring
@@ -516,7 +516,7 @@ export default function AdminTypographyPage() {
               PRACTICE 02
             </span>
             <h3
-              style={{ fontFamily: `"${config.fontHeading}", Georgia, serif` }}
+              style={{ fontFamily: `"${config.fontHeading}", sans-serif` }}
               className="text-base font-bold text-[#111111] mb-1"
             >
               Transfer Pricing Execution
@@ -534,7 +534,7 @@ export default function AdminTypographyPage() {
               PRACTICE 03
             </span>
             <h3
-              style={{ fontFamily: `"${config.fontHeading}", Georgia, serif` }}
+              style={{ fontFamily: `"${config.fontHeading}", sans-serif` }}
               className="text-base font-bold text-[#111111] mb-1"
             >
               Cross-Border Controversy

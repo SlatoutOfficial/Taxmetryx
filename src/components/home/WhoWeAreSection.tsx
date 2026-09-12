@@ -47,17 +47,17 @@ const principles = [
 
 const pillars = [
   {
-    number: "01",
+    number: "1",
     title: "UAE",
     text: "Our base. Our perspective.",
   },
   {
-    number: "02",
+    number: "2",
     title: "Global",
     text: "Our reach. Your advantage.",
   },
   {
-    number: "03",
+    number: "3",
     title: "Long-Term",
     text: "Our commitment. Your confidence.",
   },
