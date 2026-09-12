@@ -1,4 +1,4 @@
-import { Service } from "@/types/service";
+import { Service, SubService } from "@/types/service";
 import { Insight } from "@/types/insight";
 import { Region } from "@/types/region";
 import { Industry } from "@/types/industry";
@@ -50,6 +50,82 @@ export function getServiceBySlug(slug: string): Service | undefined {
   const normalizedSlug = SERVICE_SLUG_ALIASES[slug] || slug;
   const services = getServices();
   return services.find((s) => s.slug === normalizedSlug);
+}
+
+export function slugifySubService(title: string): string {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+export interface SubServiceDetail {
+  service: Service;
+  subservice: SubService;
+  index: number;
+  total: number;
+  prev?: { title: string; slug: string; number: string };
+  next?: { title: string; slug: string; number: string };
+}
+
+export function getSubServiceBySlug(serviceSlug: string, subSlug: string): SubServiceDetail | undefined {
+  const service = getServiceBySlug(serviceSlug);
+  if (!service || !service.subservices) return undefined;
+
+  const index = service.subservices.findIndex((sub) => {
+    const slug = sub.slug || slugifySubService(sub.title);
+    return slug === subSlug;
+  });
+
+  if (index === -1) return undefined;
+
+  const subservice = service.subservices[index];
+  const total = service.subservices.length;
+
+  const prevSub = index > 0 ? service.subservices[index - 1] : undefined;
+  const nextSub = index < total - 1 ? service.subservices[index + 1] : undefined;
+
+  return {
+    service,
+    subservice: {
+      ...subservice,
+      slug: subservice.slug || slugifySubService(subservice.title),
+    },
+    index: index + 1,
+    total,
+    prev: prevSub
+      ? {
+          title: prevSub.title,
+          slug: prevSub.slug || slugifySubService(prevSub.title),
+          number: prevSub.number,
+        }
+      : undefined,
+    next: nextSub
+      ? {
+          title: nextSub.title,
+          slug: nextSub.slug || slugifySubService(nextSub.title),
+          number: nextSub.number,
+        }
+      : undefined,
+  };
+}
+
+export function getAllSubServiceParams(): { slug: string; subSlug: string }[] {
+  const services = getServices();
+  const params: { slug: string; subSlug: string }[] = [];
+
+  for (const service of services) {
+    if (!service.subservices) continue;
+    for (const sub of service.subservices) {
+      params.push({
+        slug: service.slug,
+        subSlug: sub.slug || slugifySubService(sub.title),
+      });
+    }
+  }
+
+  return params;
 }
 
 export function getInsights(): Insight[] {

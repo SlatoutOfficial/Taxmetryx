@@ -31,7 +31,7 @@ const categories = [
 export default function InsightsSection() {
   const [selected, setSelected] = useState("All");
   const [hoveredInsight, setHoveredInsight] = useState<Insight | null>(null);
-  const { jurisdiction, filterActive, clearFilter } = useJurisdiction();
+  const { jurisdiction, filterActive } = useJurisdiction();
   const allInsights = getInsights();
 
   // Filter by active jurisdiction first
@@ -198,25 +198,8 @@ export default function InsightsSection() {
             className="latest-insights"
             onMouseLeave={() => setHoveredInsight(null)}
           >
-            <FadeIn
-              className="flex items-center justify-between gap-2 flex-wrap mb-4"
-              distance={15}
-            >
+            <FadeIn distance={15}>
               <SectionLabel>LATEST INSIGHTS</SectionLabel>
-              {filterActive && (
-                <div className="flex items-center gap-2 text-[10px] font-mono tracking-wider uppercase bg-[#F8F7F4] border border-[#E7E5E1] px-2 py-1">
-                  <span className="text-[#646A70]">JURISDICTION:</span>
-                  <span className="text-[#080E14] font-semibold">{jurisdiction.name}</span>
-                  <button
-                    type="button"
-                    onClick={clearFilter}
-                    className="text-[#e00019] hover:underline font-bold ml-1 cursor-pointer"
-                    title="Show all jurisdictions"
-                  >
-                    × Show All
-                  </button>
-                </div>
-              )}
             </FadeIn>
 
             <StaggerContainer

@@ -11,39 +11,40 @@
       "number": "01",
       "slug": "transfer-pricing",
       "title": "Transfer Pricing",
-      "summary": "Benchmarking, local file & master file, economic analysis and cross-border controversy defense."
+      "summary": "Benchmarking, documentation and pricing policies for related-party transactions."
     },
     {
       "number": "02",
       "slug": "corporate-tax",
       "title": "Corporate Tax",
-      "summary": "UAE Federal Corporate Tax structuring, Qualifying Free Zone exemptions, and tax group optimization."
+      "summary": "UAE tax assessments, computations, returns and ongoing advisory support."
     },
     {
       "number": "03",
       "slug": "international-tax",
       "title": "International Tax",
-      "summary": "Pillar Two (GloBE), bilateral tax treaties, withholding tax optimization, and PE risk management."
+      "summary": "Tax analysis for cross-border operations, investment and group structures."
     },
     {
       "number": "04",
       "slug": "vat-and-indirect-tax",
       "title": "VAT & Indirect Tax",
-      "summary": "UAE/GCC VAT advisory, cross-border supply chains, recovery reviews, and customs valuation."
+      "summary": "Transaction advice, compliance reviews and support across VAT, customs and excise."
     },
     {
       "number": "05",
       "slug": "tax-regulatory-and-controversy",
       "title": "Tax Regulatory & Controversy",
-      "summary": "Federal Tax Authority (FTA) audit defense, reconsideration requests, and TDRC dispute resolution."
+      "summary": "Technical support for authority enquiries, tax audits and disputes."
     },
     {
       "number": "06",
       "slug": "global-tax-and-emerging-regulations",
       "title": "Global Tax & Emerging Regulations",
-      "summary": "Economic Substance Regulations (ESR), CbCR compliance, CARF crypto frameworks, and ESG tax governance."
+      "summary": "Readiness for new reporting requirements, global minimum tax and digital tax administration."
     }
   ],
+
   "quickLinks": [
     { "title": "About Us", "href": "/about" },
     { "title": "Our Services", "href": "/services" },

@@ -10,6 +10,15 @@ export interface ServiceApproachStep {
   description: string;
 }
 
+export interface SubService {
+  number: string;
+  title: string;
+  slug?: string;
+  description: string;
+  inPractice?: string;
+  youReceive?: string;
+}
+
 export interface Service {
   id: number;
   slug: string;
@@ -19,6 +28,12 @@ export interface Service {
   shortDescription: string;
   description: string;
   heroStatement: string;
+  lede?: string;
+  overviewDescription?: string;
+  whenToInvolve?: string[];
+  subservicesCount?: number;
+  subservices?: SubService[];
+  typicalOutputs?: string;
   services: string[];
   capabilities: ServiceCapability[];
   approach: ServiceApproachStep[];
@@ -32,3 +47,4 @@ export interface Service {
   stats?: { value: string; label: string };
   relatedSlugs: string[];
 }
+

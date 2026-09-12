@@ -24,7 +24,6 @@ export default function Header() {
   const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const navigation = getNavigation();
-
   const handleServicesEnter = () => {
     if (servicesTimeoutRef.current) {
       clearTimeout(servicesTimeoutRef.current);
@@ -73,6 +72,7 @@ export default function Header() {
       }
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -83,8 +83,8 @@ export default function Header() {
         className={cn(
           "fixed top-0 left-0 w-full z-40 transition-all duration-300",
           isScrolled
-            ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-[#E7E5E1] py-3.5"
-            : "bg-white/95 border-b border-[#E7E5E1] py-4 lg:py-5",
+            ? "bg-white shadow-sm border-b border-[#E7E5E1] py-3.5"
+            : "bg-transparent border-b border-transparent py-4 lg:py-5",
         )}
       >
         <Container className="flex items-center justify-between gap-2">
@@ -114,19 +114,22 @@ export default function Header() {
                     onMouseEnter={handleServicesEnter}
                     onMouseLeave={handleServicesLeave}
                   >
-                    <button
-                      type="button"
-                      onClick={() => setIsServicesOpen((prev) => !prev)}
+                    <div
                       className={cn(
                         "inline-flex items-center gap-1.5 text-sm tracking-[0.02em] font-medium transition-colors hover:text-brand-red cursor-pointer",
                         isActive || isServicesOpen
                           ? "text-brand-red font-semibold"
                           : "text-brand-primary",
                       )}
-                      aria-expanded={isServicesOpen}
-                      aria-haspopup="true"
                     >
-                      <span>{item.title}</span>
+                      <Link href={item.href} onClick={() => setIsServicesOpen(false)} className="py-1" aria-current={isActive ? "page" : undefined}>{item.title}</Link>
+                      <button
+                        type="button"
+                        onClick={() => setIsServicesOpen((prev) => !prev)}
+                        aria-label="Toggle services dropdown"
+                        aria-expanded={isServicesOpen}
+                        className="flex h-8 w-6 items-center justify-center cursor-pointer"
+                      >
                       <ChevronDown
                         className={cn(
                           "w-3.5 h-3.5 transition-transform duration-200",
@@ -135,7 +138,8 @@ export default function Header() {
                             : "text-brand-muted",
                         )}
                       />
-                    </button>
+                      </button>
+                    </div>
 
                     <ServicesDropdown
                       isOpen={isServicesOpen}

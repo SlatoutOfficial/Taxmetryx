@@ -203,8 +203,16 @@ export const serviceThemes: Record<string, ServiceTheme> = {
   },
 };
 
+const THEME_SLUG_ALIASES: Record<string, string> = {
+  "vat-indirect-tax": "vat-and-indirect-tax",
+  "tax-regulatory-controversy": "tax-regulatory-and-controversy",
+  "global-tax-emerging-regulations": "global-tax-and-emerging-regulations",
+};
+
 export function getServiceTheme(slug: string): ServiceTheme {
+  const normalizedSlug = THEME_SLUG_ALIASES[slug] || slug;
   return (
+    serviceThemes[normalizedSlug] ||
     serviceThemes[slug] || {
       slug,
       themeName: "Specialized Corporate Tax Advisory",
@@ -235,3 +243,4 @@ export function getServiceTheme(slug: string): ServiceTheme {
     }
   );
 }
+

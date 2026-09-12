@@ -8,7 +8,7 @@ export default function BrandLogo({
   return (
     <span className={`brand-logo ${light ? "brand-logo-light" : ""} flex items-center`}>
       <img 
-        src="/logo.png" 
+        src={light ? "/logo-white.png" : "/logo.png"} 
         alt="Taxmetryx Logo" 
         className="h-12 md:h-14 lg:h-16 w-auto object-contain" 
       />

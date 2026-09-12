@@ -41,17 +41,22 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           if (item.hasDropdown) {
             return (
               <div key={item.title} className="border-b border-white/10 pb-4">
-                <button
-                  onClick={() => setServicesExpanded(!servicesExpanded)}
-                  className="flex items-center justify-between w-full text-left py-2 font-editorial text-2xl text-white/90 hover:text-white"
-                >
-                  <span>{item.title}</span>
+                <div className="flex items-center justify-between w-full font-editorial text-2xl text-white/90">
+                  <Link href={item.href} onClick={onClose} className="flex-1 py-2 hover:text-white">{item.title}</Link>
+                  <button
+                    type="button"
+                    onClick={() => setServicesExpanded(!servicesExpanded)}
+                    aria-label="Toggle services dropdown"
+                    aria-expanded={servicesExpanded}
+                    className="flex h-11 w-11 items-center justify-center hover:text-white"
+                  >
                   <ChevronDown
                     className={`w-5 h-5 transition-transform duration-200 ${
                       servicesExpanded ? "rotate-180 text-brand-red" : ""
                     }`}
                   />
-                </button>
+                  </button>
+                </div>
                 {servicesExpanded && (
                   <div className="mt-3 pl-4 space-y-3 border-l border-brand-red/40 py-2">
                     {services.map((service) => (
