@@ -13,6 +13,7 @@ export interface ServiceApproachStep {
 export interface SubService {
   number: string;
   title: string;
+  slug?: string;
   description: string;
   inPractice?: string;
   youReceive?: string;

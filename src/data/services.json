@@ -122,7 +122,7 @@
     "relatedSlugs": [
       "corporate-tax",
       "international-tax",
-      "tax-regulatory-controversy"
+      "tax-regulatory-and-controversy"
     ],
     "lede": "Related-party transactions need a pricing approach that reflects the activities performed, risks assumed and commercial terms. We help businesses assess their arrangements, develop an appropriate methodology and prepare documentation that connects the analysis with the financial results — so the pricing position can be explained, evidenced and maintained year after year.",
     "overviewDescription": "Benchmarking, documentation and pricing policies for related-party transactions.",
@@ -345,8 +345,8 @@
     },
     "relatedSlugs": [
       "transfer-pricing",
-      "tax-regulatory-controversy",
-      "global-tax-emerging-regulations"
+      "tax-regulatory-and-controversy",
+      "global-tax-and-emerging-regulations"
     ],
     "lede": "Corporate Tax affects reporting, commercial arrangements and decisions about how a business is organised. We support UAE businesses in assessing their position, preparing tax calculations and returns, and maintaining evidence for the treatment adopted — from first registration through to ongoing compliance, reliefs and authority interactions.",
     "overviewDescription": "UAE tax assessments, computations, returns and ongoing advisory support.",
@@ -555,7 +555,7 @@
     "relatedSlugs": [
       "transfer-pricing",
       "corporate-tax",
-      "global-tax-emerging-regulations"
+      "global-tax-and-emerging-regulations"
     ],
     "lede": "A cross-border decision can have tax implications in more than one country. We assess how domestic rules, tax treaties and the group's operating arrangements interact, helping businesses understand exposure before entering a market, moving activities or making payments overseas — and coordinate local advice in other jurisdictions where the matter requires it.",
     "overviewDescription": "Tax analysis for cross-border operations, investment and group structures.",
@@ -749,9 +749,9 @@
       "label": "Voluntary Disclosure Acceptance"
     },
     "relatedSlugs": [
-      "tax-regulatory-controversy",
+      "tax-regulatory-and-controversy",
       "international-tax",
-      "global-tax-emerging-regulations"
+      "global-tax-and-emerging-regulations"
     ],
     "lede": "Indirect tax treatment depends on the transaction, its supporting documents and how it is recorded. We help businesses review VAT processes and cross-border flows, identify errors and maintain a clearer connection between commercial activity, invoices and returns — across VAT, customs duty and excise obligations.",
     "overviewDescription": "Transaction advice, compliance reviews and support across VAT, customs and excise.",
@@ -957,7 +957,7 @@
     "relatedSlugs": [
       "transfer-pricing",
       "corporate-tax",
-      "vat-indirect-tax"
+      "vat-and-indirect-tax"
     ],
     "lede": "An authority enquiry requires a clear explanation supported by consistent records. We help businesses assess the issue, organise evidence and prepare technical responses — from first information request through reconsideration and dispute — with specialist legal or authorised representation coordinated when the matter requires it.",
     "overviewDescription": "Technical support for authority enquiries, tax audits and disputes.",
@@ -1135,7 +1135,7 @@
     },
     "relatedSlugs": [
       "international-tax",
-      "vat-indirect-tax",
+      "vat-and-indirect-tax",
       "corporate-tax"
     ],
     "lede": "New tax requirements can change data needs, reporting processes and responsibility across a group. We help businesses establish what applies, identify gaps and plan implementation — separating current obligations from proposals, and turning regulatory change into a managed project rather than a recurring surprise.",

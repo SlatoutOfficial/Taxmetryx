@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import ServicesDropdown from "@/components/layout/ServicesDropdown";
 import MobileMenu from "@/components/layout/MobileMenu";
 import CTAButton from "@/components/shared/CTAButton";
-import { getNavigation, getServiceBySlug } from "@/lib/json";
+import { getNavigation } from "@/lib/json";
 
 import { useJurisdiction, JURISDICTIONS } from "@/context/JurisdictionContext";
 
@@ -24,15 +24,6 @@ export default function Header() {
   const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const navigation = getNavigation();
-  const serviceSlug = pathname.match(/^\/services\/([^/]+)\/?$/)?.[1];
-  const hasDarkHero = Boolean(serviceSlug && getServiceBySlug(serviceSlug));
-  const isDarkHeader = hasDarkHero && !isScrolled;
-  const navTextClass = isDarkHeader ? "text-white" : "text-brand-primary";
-  const navAccentClass = isDarkHeader ? "text-[#FF7185]" : "text-brand-red";
-  const navHoverClass = isDarkHeader
-    ? "hover:text-[#FF7185]"
-    : "hover:text-brand-red";
-
   const handleServicesEnter = () => {
     if (servicesTimeoutRef.current) {
       clearTimeout(servicesTimeoutRef.current);
@@ -103,7 +94,7 @@ export default function Header() {
               href="/"
               className="flex items-baseline gap-1.5 group select-none xl:absolute xl:top-1/2 xl:-translate-y-1/2 xl:left-0 xl:scale-125 xl:origin-left"
             >
-              <BrandLogo light={isDarkHeader} />
+              <BrandLogo />
             </Link>
           </div>
 
@@ -123,29 +114,32 @@ export default function Header() {
                     onMouseEnter={handleServicesEnter}
                     onMouseLeave={handleServicesLeave}
                   >
-                    <button
-                      type="button"
-                      onClick={() => setIsServicesOpen((prev) => !prev)}
+                    <div
                       className={cn(
-                        "inline-flex items-center gap-1.5 text-sm tracking-[0.02em] font-medium transition-colors cursor-pointer",
-                        navHoverClass,
+                        "inline-flex items-center gap-1.5 text-sm tracking-[0.02em] font-medium transition-colors hover:text-brand-red cursor-pointer",
                         isActive || isServicesOpen
-                          ? `${navAccentClass} font-semibold`
-                          : navTextClass,
+                          ? "text-brand-red font-semibold"
+                          : "text-brand-primary",
                       )}
-                      aria-expanded={isServicesOpen}
-                      aria-haspopup="true"
                     >
-                      <span>{item.title}</span>
+                      <Link href={item.href} onClick={() => setIsServicesOpen(false)} className="py-1" aria-current={isActive ? "page" : undefined}>{item.title}</Link>
+                      <button
+                        type="button"
+                        onClick={() => setIsServicesOpen((prev) => !prev)}
+                        aria-label="Toggle services dropdown"
+                        aria-expanded={isServicesOpen}
+                        className="flex h-8 w-6 items-center justify-center cursor-pointer"
+                      >
                       <ChevronDown
                         className={cn(
                           "w-3.5 h-3.5 transition-transform duration-200",
                           isServicesOpen
-                            ? `rotate-180 ${navAccentClass}`
-                            : isDarkHeader ? "text-white/80" : "text-brand-muted",
+                            ? "rotate-180 text-brand-red"
+                            : "text-brand-muted",
                         )}
                       />
-                    </button>
+                      </button>
+                    </div>
 
                     <ServicesDropdown
                       isOpen={isServicesOpen}
@@ -161,16 +155,15 @@ export default function Header() {
                   key={item.title}
                   href={item.href}
                   className={cn(
-                    "text-sm tracking-[0.02em] font-medium transition-colors relative py-1",
-                    navHoverClass,
+                    "text-sm tracking-[0.02em] font-medium transition-colors hover:text-brand-red relative py-1",
                     isActive
-                      ? `${navAccentClass} font-semibold`
-                      : navTextClass,
+                      ? "text-brand-red font-semibold"
+                      : "text-brand-primary",
                   )}
                 >
                   {item.title}
                   {isActive && (
-                    <span className={cn("absolute bottom-0 left-0 w-full h-[1.5px]", isDarkHeader ? "bg-[#FF7185]" : "bg-brand-red")} />
+                    <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-brand-red" />
                   )}
                 </Link>
               );
