@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-6">
             <Link
               href="/"
-              className="inline-flex items-baseline gap-1.5 group select-none"
+              className="inline-flex items-center gap-1.5 group select-none"
             >
               <BrandLogo light />
             </Link>

@@ -222,7 +222,7 @@ export default function RadialServices({ services }: { services: Service[] }) {
           className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-[156px] h-[156px] rounded-full bg-white border border-[#e8e6e1] shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex flex-col items-center justify-center p-3 z-10"
         >
           <div className="scale-100 mb-0.5">
-            <BrandLogo markOnly />
+            <BrandLogo markOnly imgClassName="h-12" />
           </div>
         </div>
 
