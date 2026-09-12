@@ -1746,9 +1746,17 @@
 }
 
 .contact-composition {
-  display: grid;
-  grid-template-columns: 38% 23%;
+  display: flex;
+  justify-content: flex-start;
   gap: 35px;
+}
+
+.contact-main {
+  flex: 0 0 45%;
+}
+
+.contact-details {
+  flex: 0 0 32%;
 }
 
 .contact-main .reference-copy {
@@ -1757,9 +1765,9 @@
   font-size: 0.9375rem;
 }
 
-.contact-main .reference-heading {
-  font-size: clamp(3.4375rem, 5.75vw, 5.3125rem);
-}
+  .contact-main .reference-heading {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+  }
 
 .reference-contact-form {
   display: flex;
@@ -1947,7 +1955,8 @@
   }
 
   .contact-composition {
-    grid-template-columns: 43% 26%;
+    display: grid;
+    grid-template-columns: 55% 35%;
   }
 }
 
@@ -2206,8 +2215,16 @@
   }
 
   .contact-composition {
-    grid-template-columns: 55% 35%;
-    gap: 25px;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .contact-main {
+    flex: none;
+    width: 100%;
+  }
+  .contact-details {
+    flex: none;
+    width: 100%;
   }
 
   .contact-backdrop {
@@ -2611,7 +2628,8 @@
   }
 
   .contact-composition {
-    grid-template-columns: minmax(0, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 30px;
   }
 
