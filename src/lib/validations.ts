@@ -10,9 +10,8 @@ export const contactSchema = z.object({
     "Corporate Tax",
     "International Tax",
     "VAT & Indirect Tax",
-    "Tax Regulatory & Controversy",
-    "Global Tax & Emerging Regulations",
-    "General Advisory"
+    "Tax Technology",
+    "Other"
   ], {
     message: "Please select a valid area of advisory interest"
   }),

@@ -25,9 +25,8 @@ const interests = [
   "Corporate Tax",
   "International Tax",
   "VAT & Indirect Tax",
-  "Tax Regulatory & Controversy",
-  "Global Tax & Emerging Regulations",
-  "General Advisory",
+  "Tax Technology",
+  "Other",
 ] as const;
 
 const fields = [
@@ -138,40 +137,35 @@ export default function ContactSection() {
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 1.2, ease: LUXURY_EASE }}
       >
-          <Image
-            src="/images/contact us image.png"
-            alt="A sunlit concrete gateway framing the Burj Khalifa"
-            fill
-            sizes="100vw"
-            className="contact-backdrop"
-          />
-          {/* Gradient shade on the left to ensure the form and text remain legible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent z-10 pointer-events-none" />
-        </motion.div>
+        <Image
+          src="/images/contact us image.png"
+          alt="A sunlit concrete gateway framing the Burj Khalifa"
+          fill
+          sizes="100vw"
+          className="contact-backdrop"
+        />
+        {/* Gradient shade on the left to ensure the form and text remain legible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent z-10 pointer-events-none" />
+      </motion.div>
 
       <Container className="contact-container relative z-10">
         <div className="contact-composition">
-          <div className="contact-main">
+          <div className="contact-main lg:w-[120%] xl:w-[130%]">
             <FadeIn distance={20}>
               <SectionLabel>CONTACT US</SectionLabel>
             </FadeIn>
             <FadeIn delay={0.1} distance={28}>
               <h2 className="reference-heading">
-                Let’s start
+                Bring us the challenge.
                 <br />
-                with the <em>facts.</em>
+                We’ll bring the <span className="text-[#e00019]">clarity.</span>
               </h2>
             </FadeIn>
             <FadeIn delay={0.2} distance={24}>
-              <div className="reference-copy">
+              <div className="reference-copy max-w-2xl">
                 <p>
-                  Every sound tax position begins the same way - with a clear
-                  understanding of the business.
-                </p>
-                <p>
-                  Bring us the transaction, the challenge or the question. We will
-                  bring the technical depth, commercial perspective and clarity
-                  required to move forward.
+                  Share the transaction, question or challenge. We’ll bring technical
+                  depth, commercial perspective and a clear way forward.
                 </p>
               </div>
             </FadeIn>
@@ -182,162 +176,111 @@ export default function ContactSection() {
                 noValidate
                 className="reference-contact-form"
               >
-                <div className="contact-fields">
-                  {fields.map((field) => (
-                    <div key={field.name}>
-                      <label
-                        htmlFor={`contact-${field.name}`}
-                        className="sr-only"
-                      >
-                        {field.label}
-                      </label>
-                      <input
-                        id={`contact-${field.name}`}
-                        type={field.type}
-                        autoComplete={field.autoComplete}
-                        placeholder={field.label + " *"}
-                        {...register(field.name)}
-                        aria-required="true"
-                        aria-invalid={!!errors[field.name]}
-                        aria-describedby={
-                          errors[field.name] ? `error-${field.name}` : undefined
-                        }
-                      />
-                      {errors[field.name] && (
-                        <p
-                          className="field-error"
-                          id={`error-${field.name}`}
-                          role="alert"
+                {/* HOW CAN WE HELP - Pill Selectors */}
+                <div className="mb-6">
+                  <h4 className="text-[10px] font-bold tracking-[0.15em] text-[#53606a] uppercase mb-3">
+                    HOW CAN WE HELP?
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {interests.map((interest) => {
+                      const isSelected = selectedInterest === interest;
+                      return (
+                        <button
+                          key={interest}
+                          type="button"
+                          onClick={() => setValue("areaOfInterest", interest, { shouldValidate: true })}
+                          className={cn(
+                            "px-3.5 py-2 rounded-[4px] border text-[13px] transition-colors focus:outline-none whitespace-nowrap",
+                            isSelected
+                              ? "bg-[#fff5f6] border-[#e00019] text-[#e00019] font-medium"
+                              : "bg-white border-[#e5e5e5] text-brand-charcoal hover:border-[#cfcfcf]"
+                          )}
                         >
-                          {errors[field.name]?.message}
-                        </p>
-                      )}
-                    </div>
-                  ))}
+                          {interest}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <input type="hidden" {...register("areaOfInterest")} value={selectedInterest} />
+                  {errors.areaOfInterest && (
+                    <p className="field-error mt-2">{errors.areaOfInterest.message}</p>
+                  )}
                 </div>
 
-                <div className="relative w-full" ref={dropdownRef}>
-                  <label id="contact-interest-label" className="sr-only">
-                    Area of interest
-                  </label>
-                  <button
-                    id="contact-interest"
-                    type="button"
-                    onClick={() => setIsDropdownOpen((prev) => !prev)}
-                    aria-haspopup="listbox"
-                    aria-expanded={isDropdownOpen}
-                    aria-labelledby="contact-interest-label"
-                    className={cn(
-                      "luxury-dropdown-trigger group flex items-center justify-between w-full px-3.5 py-2.5 text-left border bg-white/90 backdrop-blur-sm transition-all duration-200 cursor-pointer rounded-[2px]",
-                      isDropdownOpen
-                        ? "border-brand-red shadow-sm bg-white"
-                        : errors.areaOfInterest
-                          ? "border-brand-red bg-white"
-                          : "border-[#d2d7da] hover:border-brand-muted hover:bg-white",
-                    )}
-                  >
-                    <div className="flex items-center gap-2.5 truncate">
-                      <span className="text-[10px] font-mono tracking-widest uppercase text-brand-muted shrink-0 font-medium">
-                        PRACTICE:
-                      </span>
-                      <span className="text-[0.9375rem] font-medium text-brand-primary tracking-[0.01em] truncate">
-                        {selectedInterest}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2 ml-2 shrink-0">
-                      <span className="text-[10px] font-mono tracking-widest uppercase text-brand-muted/70 hidden sm:inline-block">
-                        CHANGE
-                      </span>
-                      <ChevronDown
-                        className={cn(
-                          "w-4 h-4 text-brand-charcoal/80 transition-transform duration-200 group-hover:text-brand-red",
-                          isDropdownOpen && "rotate-180 text-brand-red",
-                        )}
-                      />
-                    </div>
-                  </button>
+                <div className="contact-fields grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label htmlFor="contact-name" className="sr-only">Your name *</label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      placeholder="Your name *"
+                      {...register("name")}
+                      className={cn(
+                        "w-full px-4 py-3 bg-white border rounded-[4px] text-[14px] placeholder:text-brand-muted focus:outline-none transition-colors",
+                        errors.name ? "border-[#e00019]" : "border-[#e5e5e5] focus:border-[#e00019]"
+                      )}
+                    />
+                    {errors.name && <p className="field-error mt-1">{errors.name.message}</p>}
+                  </div>
 
-                  <input
-                    type="hidden"
-                    {...register("areaOfInterest")}
-                    value={selectedInterest}
-                  />
+                  <div>
+                    <label htmlFor="contact-company" className="sr-only">Company *</label>
+                    <input
+                      id="contact-company"
+                      type="text"
+                      placeholder="Company *"
+                      {...register("company")}
+                      className={cn(
+                        "w-full px-4 py-3 bg-white border rounded-[4px] text-[14px] placeholder:text-brand-muted focus:outline-none transition-colors",
+                        errors.company ? "border-[#e00019]" : "border-[#e5e5e5] focus:border-[#e00019]"
+                      )}
+                    />
+                    {errors.company && <p className="field-error mt-1">{errors.company.message}</p>}
+                  </div>
 
-                  {/* Luxury Dropdown Menu - Drop-Up */}
-                  {isDropdownOpen && (
-                    <div
-                      role="listbox"
-                      aria-labelledby="contact-interest-label"
-                      tabIndex={-1}
-                      className="absolute left-0 right-0 bottom-[calc(100%+6px)] z-50 bg-white border border-[#d2d7da] shadow-2xl rounded-[2px] overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-150"
-                    >
-                      <div className="px-3.5 py-2 bg-[#f8f7f4] border-b border-[#e7e5e1] flex items-center justify-between">
-                        <span className="text-[10px] font-mono tracking-widest uppercase text-brand-muted font-semibold">
-                          Select Area of Advisory
-                        </span>
-                        <span className="text-[10px] font-mono text-brand-red font-semibold">
-                          PRACTICE
-                        </span>
-                      </div>
+                  <div>
+                    <label htmlFor="contact-email" className="sr-only">Work email *</label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      placeholder="Work email *"
+                      {...register("email")}
+                      className={cn(
+                        "w-full px-4 py-3 bg-white border rounded-[4px] text-[14px] placeholder:text-brand-muted focus:outline-none transition-colors",
+                        errors.email ? "border-[#e00019]" : "border-[#e5e5e5] focus:border-[#e00019]"
+                      )}
+                    />
+                    {errors.email && <p className="field-error mt-1">{errors.email.message}</p>}
+                  </div>
 
-                      <div className="divide-y divide-[#f2f2f0]">
-                        {interests.map((interest, idx) => {
-                          const isSelected = selectedInterest === interest;
-                          return (
-                            <button
-                              key={interest}
-                              type="button"
-                              role="option"
-                              aria-selected={isSelected}
-                              onClick={() => handleSelectInterest(interest)}
-                              className={cn(
-                                "w-full text-left px-3.5 py-2.5 flex items-center justify-between text-sm transition-colors cursor-pointer group",
-                                isSelected
-                                  ? "bg-[#faf9f6] text-brand-primary font-medium"
-                                  : "text-brand-charcoal/90 hover:bg-[#f8f7f4] hover:text-brand-primary",
-                              )}
-                            >
-                              <div className="flex items-center gap-3">
-                                <span
-                                  className={cn(
-                                    "font-mono text-[11px] w-5 transition-colors",
-                                    isSelected
-                                      ? "text-brand-red font-semibold"
-                                      : "text-brand-muted group-hover:text-brand-red",
-                                  )}
-                                >
-                                  {idx + 1}
-                                </span>
-                                <span className="tracking-[0.01em]">{interest}</span>
-                              </div>
-                              {isSelected && (
-                                <Check className="w-4 h-4 text-brand-red shrink-0" />
-                              )}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-
-                  {errors.areaOfInterest && (
-                    <p id="error-interest" className="field-error" role="alert">
-                      {errors.areaOfInterest.message}
-                    </p>
-                  )}
+                  <div>
+                    <label htmlFor="contact-phone" className="sr-only">Phone number</label>
+                    <input
+                      id="contact-phone"
+                      type="tel"
+                      placeholder="Phone number"
+                      {...register("phone")}
+                      className={cn(
+                        "w-full px-4 py-3 bg-white border rounded-[4px] text-[14px] placeholder:text-brand-muted focus:outline-none transition-colors",
+                        errors.phone ? "border-[#e00019]" : "border-[#e5e5e5] focus:border-[#e00019]"
+                      )}
+                    />
+                    {errors.phone && <p className="field-error mt-1">{errors.phone.message}</p>}
+                  </div>
                 </div>
 
                 <label htmlFor="contact-message" className="sr-only">
-                  Your message
+                  Tell us briefly what you need *
                 </label>
                 <textarea
                   id="contact-message"
                   rows={3}
-                  placeholder="Your message *"
+                  placeholder="Tell us briefly what you need *"
                   {...register("message")}
-                  aria-required="true"
-                  aria-invalid={!!errors.message}
-                  aria-describedby={errors.message ? "error-message" : undefined}
+                  className={cn(
+                    "w-full px-4 py-3 bg-white border rounded-[4px] text-[14px] placeholder:text-brand-muted focus:outline-none transition-colors resize-y mb-4",
+                    errors.message ? "border-[#e00019]" : "border-[#e5e5e5] focus:border-[#e00019]"
+                  )}
                 />
                 {errors.message && (
                   <p id="error-message" className="field-error" role="alert">
@@ -346,7 +289,7 @@ export default function ContactSection() {
                 )}
 
                 <CTAButton type="submit" disabled={isSubmitting} icon>
-                  {isSubmitting ? "Sending…" : "Send Message"}
+                  {isSubmitting ? "Sending…" : "TALK TO OUR TEAM"}
                 </CTAButton>
               </form>
             </FadeIn>
@@ -354,68 +297,64 @@ export default function ContactSection() {
 
           <StaggerContainer
             as="address"
-            className="contact-details"
+            className="contact-details lg:ml-12 xl:ml-16"
             staggerDelay={0.1}
             delayChildren={0.2}
           >
             <StaggerItem>
-              <a href={`mailto:${site.contact.email}`}>
+              <a href="mailto:info@taxmetryx.com">
                 <Mail />
                 <span>
                   <strong>Email</strong>
-                  {site.contact.email}
+                  info@taxmetryx.com
                 </span>
               </a>
             </StaggerItem>
             <StaggerItem>
-              <a href={`tel:${site.contact.phone}`}>
+              <a href="tel:+971502759185">
                 <Phone />
                 <span>
                   <strong>Telephone</strong>
-                  {site.contact.phoneFormatted}
+                  +971 50 275 9185
                 </span>
               </a>
             </StaggerItem>
             <StaggerItem>
-              <div className="!items-start">
-                <MapPin className="mt-1 shrink-0" />
-                <div className="space-y-3.5">
-                  <strong className="!mb-1">Offices</strong>
-                  {(site.offices || [
-                    {
-                      id: "dubai",
-                      name: "Dubai",
-                      line1: "137-A-77 | Plot number 11-0",
-                      line2: "Sultan Business Centre | Oud Metha | Dubai",
-                    },
-                    {
-                      id: "kerala",
-                      name: "Kerala",
-                      line1: "4th Floor | Noble Building | Mavoor Rd | Arayidathupalam",
-                      line2: "Kozhikode | Kerala 673004 | India",
-                    },
-                    {
-                      id: "bangalore",
-                      name: "Bangalore",
-                      line1: "No 46 | 4th floor | 3rd cross | Domlur village | Near",
-                      line2: "Aryan Suzuki BENGALURU | KARNATAKA 560071",
-                    },
-                  ]).map((office) => (
-                    <div key={office.id} className="space-y-0.5">
-                      <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-brand-red block">
-                        {office.name}
+              <div>
+                <MapPin />
+                <span className="flex flex-col gap-6">
+                  <div>
+                    <strong>Offices</strong>
+
+                    <div className="mt-3">
+                      <h5 className="text-[10px] font-bold tracking-[0.15em] text-[#e00019] uppercase mb-1.5">DUBAI</h5>
+                      <span className="leading-[1.6]">
+                        137-A-77 | Plot number 11-0<br />
+                        Sultan Business Centre | Oud Metha
                       </span>
-                      <p className="text-xs text-brand-charcoal/85 leading-relaxed font-sans m-0">
-                        {office.line1}
-                        <br />
-                        {office.line2}
-                      </p>
                     </div>
-                  ))}
-                </div>
+                  </div>
+
+                  <div>
+                    <h5 className="text-[10px] font-bold tracking-[0.15em] text-[#e00019] uppercase mb-1.5">KERALA</h5>
+                    <span className="leading-[1.6]">
+                      4th Floor | Noble Building | Mavoor Road<br />
+                      Arayidathupalam<br />
+                      Kozhikode | Kerala 673004 | India
+                    </span>
+                  </div>
+
+                  <div>
+                    <h5 className="text-[10px] font-bold tracking-[0.15em] text-[#e00019] uppercase mb-1.5">BANGALORE</h5>
+                    <span className="leading-[1.6]">
+                      No 46 | 4th floor | 3rd cross | Domlur<br />
+                      Aryan Suzuki BENGALURU | KARNATAKA
+                    </span>
+                  </div>
+                </span>
               </div>
             </StaggerItem>
-            <StaggerItem>
+            {/* <StaggerItem>
               <a
                 href={site.social.linkedin}
                 target="_blank"
@@ -426,8 +365,8 @@ export default function ContactSection() {
                   <strong>LinkedIn</strong>Connect with Taxmetryx
                 </span>
               </a>
-            </StaggerItem>
-            <StaggerItem>
+            </StaggerItem> */}
+            {/* <StaggerItem>
               <p className="micro-copy">
                 IDEAS.
                 <br />
@@ -435,7 +374,7 @@ export default function ContactSection() {
                 <br />
                 PROGRESS.
               </p>
-            </StaggerItem>
+            </StaggerItem> */}
           </StaggerContainer>
         </div>
       </Container>
