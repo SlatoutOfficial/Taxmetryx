@@ -199,7 +199,7 @@ export default function RadialServices({ services }: { services: Service[] }) {
                   y1={yHub}
                   x2={xNode}
                   y2={yNode}
-                  stroke={isActive ? "#e00019" : "#e0ddd7"}
+                  stroke={isActive ? "#eb0045" : "#e0ddd7"}
                   strokeWidth={isActive ? "1.5" : "1"}
                   className="transition-colors duration-300"
                 />
@@ -209,8 +209,8 @@ export default function RadialServices({ services }: { services: Service[] }) {
                   cx={xOrbit}
                   cy={yOrbit}
                   r="3.5"
-                  fill="#e00019"
-                  className={isActive ? "drop-shadow-[0_0_4px_rgba(224,0,25,0.6)]" : ""}
+                  fill="#eb0045"
+                  className={isActive ? "drop-shadow-[0_0_4px_rgba(235,0,69,0.6)]" : ""}
                 />
               </g>
             );
@@ -222,7 +222,7 @@ export default function RadialServices({ services }: { services: Service[] }) {
           className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-[156px] h-[156px] rounded-full bg-white border border-[#e8e6e1] shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex flex-col items-center justify-center p-3 z-10"
         >
           <div className="scale-100 mb-0.5">
-            <BrandLogo markOnly />
+            <BrandLogo markOnly imgClassName="h-12" />
           </div>
         </div>
 
@@ -237,8 +237,8 @@ export default function RadialServices({ services }: { services: Service[] }) {
               href={`/services/${item.slug}`}
               style={{ left: item.nodeLeft, top: item.nodeTop }}
               className={`absolute -translate-x-1/2 -translate-y-1/2 w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center transition-all duration-250 z-20 cursor-pointer ${isActive
-                ? "border-2 border-[#e00019] shadow-[0_6px_20px_rgba(224,0,25,0.18)] text-[#e00019] scale-105"
-                : "border border-[#eeece7] shadow-[0_4px_14px_rgba(0,0,0,0.06)] text-[#1e293b] hover:text-[#e00019] hover:border-[#e0001960]"
+                ? "border-2 border-[#eb0045] shadow-[0_6px_20px_rgba(235,0,69,0.18)] text-[#eb0045] scale-105"
+                : "border border-[#eeece7] shadow-[0_4px_14px_rgba(0,0,0,0.06)] text-[#414042] hover:text-[#eb0045] hover:border-[#eb004560]"
                 }`}
               onMouseEnter={() => setActive(idx)}
               onMouseLeave={() => setActive(null)}
@@ -281,14 +281,14 @@ export default function RadialServices({ services }: { services: Service[] }) {
             >
               {/* Optional top red dash */}
               <span
-                className={`w-4 h-[1.5px] block mb-1 transition-colors duration-200 ${isActive ? "bg-[#e00019]" : "bg-[#dedad4] group-hover:bg-[#e00019]"
+                className={`w-4 h-[1.5px] block mb-1 transition-colors duration-200 ${isActive ? "bg-[#eb0045]" : "bg-[#dedad4] group-hover:bg-[#eb0045]"
                   }`}
               />
               {/* <span className="text-[10.5px] font-mono tracking-wider text-[#64748b]">
                 {item.number}
               </span> */}
               <h3
-                className={`font-sans text-[1.12rem] leading-tight font-bold mt-0.5 mb-1.5 transition-colors duration-200 ${isActive ? "text-[#e00019]" : "text-[#111b23] group-hover:text-[#e00019]"
+                className={`font-sans text-[1.12rem] leading-tight font-bold mt-0.5 mb-1.5 transition-colors duration-200 ${isActive ? "text-[#eb0045]" : "text-[#414042] group-hover:text-[#eb0045]"
                   }`}
               >
                 {serviceTitle}
@@ -313,15 +313,15 @@ export default function RadialServices({ services }: { services: Service[] }) {
             <Link
               key={`mobile-${item.slug}`}
               href={`/services/${item.slug}`}
-              className="block p-5 bg-white rounded-lg border border-[#e8e6e1] shadow-sm hover:border-[#e00019] transition-all"
+              className="block p-5 bg-white rounded-lg border border-[#e8e6e1] shadow-sm hover:border-[#eb0045] transition-all"
             >
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 rounded-full bg-[#f8f7f5] flex items-center justify-center text-[#111b23]">
+                <div className="w-10 h-10 rounded-full bg-[#f8f7f5] flex items-center justify-center text-[#414042]">
                   <Icon className="w-5 h-5 stroke-[1.4]" />
                 </div>
                 <div>
                   <span className="text-[10px] font-mono text-[#64748b] block">{item.number}</span>
-                  <h3 className="font-sans text-lg font-bold text-[#111b23]">{serviceTitle}</h3>
+                  <h3 className="font-sans text-lg font-bold text-[#414042]">{serviceTitle}</h3>
                 </div>
               </div>
               <p className="text-xs text-[#55636e] leading-relaxed pl-13">

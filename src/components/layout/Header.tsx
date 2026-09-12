@@ -76,23 +76,22 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
   return (
     <>
       <header
         className={cn(
           "fixed top-0 left-0 w-full z-40 transition-all duration-300",
           isScrolled
-            ? "bg-white shadow-sm border-b border-[#E7E5E1] py-3.5"
-            : "bg-transparent border-b border-transparent py-4 lg:py-5",
+            ? "bg-white shadow-sm border-b border-[#E7E5E1] py-2 sm:py-2.5"
+            : "bg-transparent border-b border-transparent py-2.5 sm:py-3",
         )}
       >
         <Container className="flex items-center justify-between gap-2">
           {/* Logo */}
-          <div className="xl:relative xl:w-[280px] xl:h-[40px] flex items-center">
+          <div className="flex items-center shrink-0">
             <Link
               href="/"
-              className="flex items-baseline gap-1.5 group select-none xl:absolute xl:top-1/2 xl:-translate-y-1/2 xl:left-0 xl:scale-125 xl:origin-left"
+              className="flex items-center gap-1.5 group select-none"
             >
               <BrandLogo />
             </Link>

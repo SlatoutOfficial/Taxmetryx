@@ -93,8 +93,8 @@ export default function InsightsSection() {
                       className="insights-dynamic-content"
                     >
                       <div className="flex items-center gap-2 mb-2.5">
-                        <span className="w-2 h-2 rounded-full bg-[#e00019] animate-pulse" />
-                        <span className="text-[11px] font-mono tracking-widest text-[#e00019] uppercase font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-[#eb0045] animate-pulse" />
+                        <span className="text-[11px] font-mono tracking-widest text-[#eb0045] uppercase font-semibold">
                           {hoveredInsight.category}
                         </span>
                         {hoveredInsight.jurisdiction && (

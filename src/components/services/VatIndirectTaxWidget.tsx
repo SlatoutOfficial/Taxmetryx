@@ -66,12 +66,12 @@ export default function VatIndirectTaxWidget() {
   const [selectedScenario, setSelectedScenario] = useState<VatScenario>(VAT_SCENARIOS[0]);
 
   return (
-    <div className="bg-[#1C1D21] text-white border border-[#E63946]/30 shadow-2xl p-6 sm:p-8 rounded-none">
+    <div className="bg-[#1C1D21] text-white border border-[#eb0045]/30 shadow-2xl p-6 sm:p-8 rounded-none">
       {/* Header */}
       <div className="border-b border-white/10 pb-6">
         <div className="flex items-center gap-2">
-          <span className="inline-block w-2.5 h-2.5 bg-[#E63946] rounded-full animate-pulse" />
-          <span className="font-mono text-xs uppercase tracking-widest text-[#E63946]">
+          <span className="inline-block w-2.5 h-2.5 bg-[#eb0045] rounded-full animate-pulse" />
+          <span className="font-mono text-xs uppercase tracking-widest text-[#eb0045]">
             Federal Decree-Law No. 8 &amp; Cabinet Decision No. 52
           </span>
         </div>
@@ -96,12 +96,12 @@ export default function VatIndirectTaxWidget() {
                 key={scenario.id}
                 onClick={() => setSelectedScenario(scenario)}
                 className={`p-3.5 border cursor-pointer transition-all ${selectedScenario.id === scenario.id
-                    ? "bg-white/[0.08] border-[#E63946] shadow-sm"
+                    ? "bg-white/[0.08] border-[#eb0045] shadow-sm"
                     : "bg-white/[0.02] border-white/10 hover:bg-white/[0.05]"
                   }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono uppercase text-[#E63946] tracking-wider">
+                  <span className="text-[10px] font-mono uppercase text-[#eb0045] tracking-wider">
                     {scenario.category}
                   </span>
                   <span className={`text-[10px] font-mono px-2 py-0.5 border ${scenario.rateColor}`}>
@@ -134,7 +134,7 @@ export default function VatIndirectTaxWidget() {
 
             <div className="flex justify-between py-2 border-b border-white/10">
               <span className="text-white/60">Form 201 VAT Return Box:</span>
-              <span className="text-[#E63946] font-bold">{selectedScenario.form201Box}</span>
+              <span className="text-[#eb0045] font-bold">{selectedScenario.form201Box}</span>
             </div>
 
             <div className="space-y-1 py-1">
@@ -145,8 +145,8 @@ export default function VatIndirectTaxWidget() {
             </div>
           </div>
 
-          <div className="p-4 bg-red-950/30 border border-[#E63946]/40 space-y-1.5">
-            <div className="flex items-center gap-2 text-[#E63946] text-xs font-mono font-bold uppercase">
+          <div className="p-4 bg-red-950/30 border border-[#eb0045]/40 space-y-1.5">
+            <div className="flex items-center gap-2 text-[#eb0045] text-xs font-mono font-bold uppercase">
               <AlertTriangle className="w-4 h-4 shrink-0" />
               FTA Audit Defense Focus
             </div>

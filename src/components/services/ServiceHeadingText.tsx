@@ -1,4 +1,4 @@
-﻿/** Homepage-style emphasis without changing the heading wording. */
+/** Homepage-style emphasis without changing the heading wording. */
 export default function ServiceHeadingText({ text }: { text: string }) {
   const phrases: Record<string, string> = {
     "Our services": "services",
@@ -17,5 +17,5 @@ export default function ServiceHeadingText({ text }: { text: string }) {
   const accent = phrases[text];
   const split = accent ? text.lastIndexOf(accent) : text.lastIndexOf(" ") + 1;
   if (split <= 0) return <>{text}</>;
-  return <>{text.slice(0, split)}<span className="text-[#e00019]">{text.slice(split)}</span></>;
+  return <>{text.slice(0, split)}<span className="text-[#eb0045]">{text.slice(split)}</span></>;
 }

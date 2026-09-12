@@ -16,30 +16,26 @@ export default function ServicesSection() {
       className="reference-section reference-services relative overflow-hidden py-14 lg:py-20"
     >
       <Container>
-        {/* Section Tag Above All */}
-        <div className="flex justify-start mb-8 lg:mb-12">
-          <FadeIn distance={15}>
-            <div className="flex items-center gap-2.5">
-              <span className="w-5 h-[2px] bg-[#e00019]" />
-              <span className="text-[11px] font-mono tracking-[0.22em] text-[#53606a] uppercase">
-                OUR SERVICES
-              </span>
-            </div>
-          </FadeIn>
-        </div>
-
         {/* Main Grid: Left Intro + Right Radial Orbit */}
-        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[330px_1fr] gap-6 xl:gap-10 items-start">
-          <div className="services-intro relative z-10 pt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[330px_1fr] gap-6 xl:gap-10 items-center">
+          <div className="services-intro relative z-10">
+            {/* Section Tag */}
+            <FadeIn distance={15}>
+              <div className="flex items-center mb-5">
+                <span className="text-[11px] font-mono tracking-[0.22em] text-[#53606a] uppercase">
+                  OUR SERVICES
+                </span>
+              </div>
+            </FadeIn>
 
             {/* Main Headline */}
             <FadeIn delay={0.1} distance={20}>
-              <h2 className="font-sans font-extrabold text-[2.75rem] xl:text-[3.35rem] leading-[1.04] tracking-tight text-[#111b23]">
+              <h2 className="font-sans font-extrabold text-[2.75rem] xl:text-[3.35rem] leading-[1.04] tracking-tight text-[#414042]">
                 Six practices.
                 <br />
-                <span className="text-[#e00019]">One discipline:</span>
+                <span className="text-[#eb0045]">One discipline:</span>
               </h2>
-              <p className="font-sans font-semibold text-xl xl:text-[1.32rem] text-[#111b23] leading-snug mt-2.5">
+              <p className="font-sans font-semibold text-xl xl:text-[1.32rem] text-[#414042] leading-snug mt-2.5">
                 understand the facts before
                 <br />
                 forming the view.
@@ -55,22 +51,10 @@ export default function ServicesSection() {
             <FadeIn delay={0.25} distance={15}>
               <p className="text-[0.9375rem] text-[#55636e] leading-[1.7] max-w-[340px]">
                 From day-to-day compliance to complex cross-border structures, our
-                services are built on a single discipline — a deep understanding of
+                services are built on a single discipline - a deep understanding of
                 the facts, the business and the broader tax landscape.
               </p>
             </FadeIn>
-
-            {/* Bottom Tagline with Red Bar
-            <FadeIn delay={0.35} distance={15}>
-              <div className="flex items-start gap-3 mt-8">
-                <span className="w-6 h-[2px] bg-[#e00019] mt-2 shrink-0" />
-                <div className="font-mono text-[10px] tracking-[0.22em] text-[#64748b] uppercase leading-relaxed">
-                  PRACTICAL ADVICE.
-                  <br />
-                  LASTING IMPACT.
-                </div>
-              </div>
-            </FadeIn> */}
           </div>
 
           {/* Radial Interactive Diagram */}

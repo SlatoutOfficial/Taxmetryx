@@ -24,7 +24,7 @@
 .reference-heading em,
 .reference-sans-heading em,
 .micro-copy em {
-  color: #e00019;
+  color: #eb0045;
   font-style: normal;
 }
 
@@ -62,7 +62,7 @@
 
 .reference-number {
   display: block;
-  color: #e00019;
+  color: #eb0045;
   font-size: 0.859375rem;
   line-height: 1.6;
 }
@@ -72,7 +72,7 @@
   display: block;
   width: 19px;
   height: 1px;
-  background: #e00019;
+  background: #eb0045;
   margin-top: 4px;
 }
 
@@ -111,12 +111,12 @@
 
 .reference-home a:focus-visible,
 .reference-home button:focus-visible {
-  outline: 2px solid #e00019;
+  outline: 2px solid #eb0045;
   outline-offset: 5px;
 }
 
 .reference-home .bg-brand-red {
-  background: #e00019;
+  background: #eb0045;
 }
 
 .reference-home .hero-actions a,
@@ -172,7 +172,7 @@
 }
 
 .hero-content h1 span {
-  color: #e00019;
+  color: #eb0045;
 }
 
 .hero-copy {
@@ -199,7 +199,7 @@
   width: 45px;
   height: 2px;
   margin-bottom: 11px;
-  background: #e00019;
+  background: #eb0045;
 }
 
 .hero-actions-wrapper {
@@ -254,7 +254,7 @@
 
 .hero-trust {
   position: relative;
-  background: linear-gradient(90deg, #111b23ed, #111b23bf);
+  background: linear-gradient(90deg, #414042ed, #414042bf);
   color: white;
   padding: 26px 0;
 }
@@ -348,7 +348,7 @@
   padding: 14px;
   background: #f4f4f3;
   border-radius: 50%;
-  color: #e00019;
+  color: #eb0045;
 }
 
 .about-principle svg {
@@ -474,7 +474,7 @@
 }
 
 .orbit-lines line.active {
-  stroke: #e00019;
+  stroke: #eb0045;
 }
 
 .orbit-hub {
@@ -548,14 +548,14 @@
 .orbit-node small {
   position: absolute;
   bottom: -23px;
-  color: #e00019;
+  color: #eb0045;
   font-size: 0.78125rem;
 }
 
 .is-active .orbit-node {
-  color: #e00019;
+  color: #eb0045;
   box-shadow:
-    0 0 0 1px #e0001930,
+    0 0 0 1px #eb004530,
     3px 7px 18px #63594e20;
 }
 
@@ -598,7 +598,7 @@
 }
 
 .practice-copy:hover h3 {
-  color: #e00019;
+  color: #eb0045;
 }
 
 .orbit-practice-1 .practice-copy {
@@ -667,7 +667,7 @@
 }
 
 .region-callout-primary {
-  border-left: 3.5px solid #e00019;
+  border-left: 3.5px solid #eb0045;
   padding-left: 18px;
   font-family: var(--font-sans), sans-serif;
   font-size: clamp(1.0625rem, 1.25vw, 1.25rem);
@@ -711,7 +711,7 @@
 }
 
 .region-list>.region-item.is-active .reference-number {
-  color: #e00019;
+  color: #eb0045;
 }
 
 .region-list>.region-item>div {
@@ -721,7 +721,7 @@
 }
 
 .region-list>.region-item.is-active>div {
-  border-left: 2px solid #e00019;
+  border-left: 2px solid #eb0045;
 }
 
 .region-list h3 {
@@ -869,7 +869,7 @@
 }
 
 .globe-side-btn.is-active .globe-side-card-accent {
-  background: #e00019;
+  background: #eb0045;
   box-shadow: 0 0 10px rgba(224, 0, 25, 0.45);
 }
 
@@ -899,7 +899,7 @@
 }
 
 .globe-side-btn.is-active .globe-side-num {
-  color: #e00019;
+  color: #eb0045;
   background: rgba(224, 0, 25, 0.09);
 }
 
@@ -932,7 +932,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #e00019;
+  background: #eb0045;
   box-shadow: 0 0 0 3px rgba(224, 0, 25, 0.2);
   animation: pulseBeacon 2s infinite ease-in-out;
 }
@@ -957,7 +957,7 @@
 
 .globe-side-btn:hover .globe-arrow-icon {
   opacity: 0.95;
-  color: #e00019;
+  color: #eb0045;
   transform: translateX(2px);
 }
 
@@ -1006,7 +1006,7 @@
   font-size: clamp(2.2rem, 3.2vw, 3rem);
   font-weight: 700;
   line-height: 1;
-  color: #e00019;
+  color: #eb0045;
   letter-spacing: -0.025em;
 }
 
@@ -1050,7 +1050,7 @@
 
 .region-control-btn.is-active {
   background: #ffffff;
-  border-top-color: #e00019;
+  border-top-color: #eb0045;
   box-shadow: 0 4px 14px rgba(71, 65, 55, 0.08);
 }
 
@@ -1129,7 +1129,7 @@
 }
 
 .expertise-stat strong {
-  color: #e00019;
+  color: #eb0045;
   font:
     5.9375rem/0.9 var(--font-sans),
     sans-serif;
@@ -1176,7 +1176,7 @@
 }
 
 .expertise-layer.is-active {
-  border-left-color: #e00019;
+  border-left-color: #eb0045;
   background: linear-gradient(165deg, #fff 0%, #fdfdfc 65%, #eae8e3);
   box-shadow: 0 14px 16px -8px #47413790;
 }
@@ -1286,7 +1286,7 @@
 }
 
 .values-list article:hover::before {
-  border-bottom: 1.5px solid #e00019;
+  border-bottom: 1.5px solid #eb0045;
   width: 62px;
 }
 
@@ -1295,7 +1295,7 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #e00019;
+  background: #eb0045;
   position: absolute;
   left: -16px;
   top: 13px;
@@ -1326,7 +1326,7 @@
 }
 
 .values-list article:hover h3 {
-  color: #e00019;
+  color: #eb0045;
 }
 
 .values-list h3::after {
@@ -1334,7 +1334,7 @@
   display: block;
   width: 25px;
   height: 1.5px;
-  background: #e00019;
+  background: #eb0045;
   margin-top: 5px;
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1517,7 +1517,7 @@
   font-size: 0.625rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #e00019;
+  color: #eb0045;
   font-weight: 600;
   margin-bottom: 6px;
 }
@@ -1566,7 +1566,7 @@
 }
 
 .featured-insight:hover .featured-insight-action {
-  color: #e00019;
+  color: #eb0045;
 }
 
 .featured-insight-action svg {
@@ -1615,7 +1615,7 @@
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #e00019;
+  color: #eb0045;
   margin-bottom: 6px;
 }
 
@@ -1638,7 +1638,7 @@
 
 .insight-row>svg {
   width: 13px;
-  color: #e00019;
+  color: #eb0045;
   margin-top: 18px;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1646,13 +1646,13 @@
 .insight-row:hover,
 .insight-row.is-active {
   background: transparent;
-  border-left-color: #e00019;
+  border-left-color: #eb0045;
   padding-left: 20px;
 }
 
 .insight-row:hover h3,
 .insight-row.is-active h3 {
-  color: #e00019;
+  color: #eb0045;
 }
 
 .insight-row:hover>svg,
@@ -1661,7 +1661,7 @@
 }
 
 .all-insights {
-  color: #e00019;
+  color: #eb0045;
   display: flex;
   align-items: center;
   gap: 9px;
@@ -1698,7 +1698,7 @@
 }
 
 .insight-empty a {
-  color: #e00019;
+  color: #eb0045;
   text-decoration: underline;
 }
 
@@ -1727,7 +1727,7 @@
 }
 
 .insight-filters button[aria-pressed="true"] {
-  color: #e00019;
+  color: #eb0045;
   text-decoration: underline;
   text-underline-offset: 8px;
 }
@@ -1786,7 +1786,7 @@
 }
 
 .reference-contact-form :is(input, select, textarea):focus {
-  outline: 1px solid #e00019;
+  outline: 1px solid #eb0045;
 }
 
 .reference-contact-form textarea {
@@ -1808,7 +1808,7 @@
 }
 
 .field-error {
-  color: #c80016;
+  color: #eb0045;
   font-size: 0.78125rem;
   margin-top: 4px;
 }
@@ -1833,7 +1833,7 @@
 .contact-details svg {
   width: 20px;
   height: 20px;
-  color: #e00019;
+  color: #eb0045;
   stroke-width: 1.4;
   flex-shrink: 0;
 }

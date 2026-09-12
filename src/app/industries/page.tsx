@@ -67,7 +67,7 @@ export default function IndustriesPage() {
 
               <FadeIn distance={20} delay={0.18}>
                 <p className="text-sm sm:text-base text-brand-charcoal/85 leading-relaxed font-sans max-w-xl">
-                  Tax law is never abstract—it operates through the prism of your industry&apos;s contractual frameworks, capital expenditures, supply chains, and regulatory licensing. We advise the foremost commercial sectors across the UAE and global markets.
+                  Tax law is never abstract - it operates through the prism of your industry&apos;s contractual frameworks, capital expenditures, supply chains, and regulatory licensing. We advise the foremost commercial sectors across the UAE and global markets.
                 </p>
               </FadeIn>
 

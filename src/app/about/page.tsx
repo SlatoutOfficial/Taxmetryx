@@ -35,7 +35,7 @@ export default function AboutPage() {
             <h2 className="text-[#53606a] font-mono text-xs tracking-[0.3em] uppercase leading-relaxed font-semibold">
               Clarity<br />Beyond<br />Borders
             </h2>
-            <div className="w-6 h-[1.5px] bg-[#e00019] ml-auto mt-4" />
+            <div className="w-6 h-[1.5px] bg-[#eb0045] ml-auto mt-4" />
           </div> */}
         </div>
 
@@ -45,21 +45,21 @@ export default function AboutPage() {
             <div className="space-y-8 pr-0 lg:pr-12">
               <FadeIn distance={20} delay={0.05}>
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="w-8 h-[1.5px] bg-[#e00019]" />
-                  <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-[#e00019] uppercase">
+                  <span className="w-8 h-[1.5px] bg-[#eb0045]" />
+                  <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-[#eb0045] uppercase">
                     ABOUT US
                   </span>
                 </div>
-                <h1 className="font-sans text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#111b23] tracking-tight leading-[1.1] mb-8">
+                <h1 className="font-sans text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#414042] tracking-tight leading-[1.1] mb-8">
                   About <br />
-                  <span className="text-[#e00019]">Taxmetryx</span>
+                  <span className="text-[#eb0045]">Taxmetryx</span>
                 </h1>
                 <p className="text-lg sm:text-xl text-[#53606a] leading-relaxed max-w-lg font-light mb-16">
                   A founder-led tax advisory practice focused on technical quality, practical advice and the way clients are treated throughout an engagement.
                 </p>
 
                 <div className="flex items-center gap-4 mt-auto pt-8 border-t border-[#e5e5e5]">
-                  <span className="w-8 h-[1.5px] bg-[#e00019]" />
+                  <span className="w-8 h-[1.5px] bg-[#eb0045]" />
                   <span className="text-[9px] font-mono tracking-[0.2em] text-[#8b98a5] uppercase">
                     PEOPLE | INSIGHTS | BETTER OUTCOMES
                   </span>
@@ -77,7 +77,7 @@ export default function AboutPage() {
           <FadeIn distance={20}>
             <div className="bg-[#f8f9fa] rounded-2xl p-8 lg:p-12">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-[#e5e5e5] pb-6 mb-10 gap-4">
-                <h3 className="text-[11px] font-bold tracking-[0.15em] text-[#111b23] uppercase">
+                <h3 className="text-[11px] font-bold tracking-[0.15em] text-[#414042] uppercase">
                   BUILT ON OUR CORE PRINCIPLES
                 </h3>
                 <h3 className="text-[10px] font-mono tracking-[0.2em] text-[#8b98a5] uppercase hidden md:block">
@@ -93,8 +93,8 @@ export default function AboutPage() {
                   { icon: BarChart3, text: "Offer technically sound advice that remains practical and commercially relevant" }
                 ].map((item, i) => (
                   <StaggerItem key={i} className="pt-6 sm:pt-0 pl-0 sm:pl-8 lg:pl-10 first:pl-0 flex flex-col gap-5">
-                    <item.icon className="w-8 h-8 text-[#e00019] shrink-0" strokeWidth={1.5} />
-                    <p className="text-[14.5px] font-medium text-[#111b23] leading-relaxed pr-2">
+                    <item.icon className="w-8 h-8 text-[#eb0045] shrink-0" strokeWidth={1.5} />
+                    <p className="text-[14.5px] font-medium text-[#414042] leading-relaxed pr-2">
                       {item.text}
                     </p>
                   </StaggerItem>
@@ -111,12 +111,12 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-24 mb-16">
             <FadeIn distance={20}>
               <div className="flex items-center gap-4 mb-6">
-                <span className="w-8 h-[1.5px] bg-[#e00019]" />
-                <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-[#e00019] uppercase">
+                <span className="w-8 h-[1.5px] bg-[#eb0045]" />
+                <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-[#eb0045] uppercase">
                   OUR STORY
                 </span>
               </div>
-              <h2 className="font-sans text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#111b23] tracking-tight leading-[1.1]">
+              <h2 className="font-sans text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#414042] tracking-tight leading-[1.1]">
                 A practice built around the client experience
               </h2>
             </FadeIn>
@@ -151,14 +151,14 @@ export default function AboutPage() {
                 icon: Target
               }
             ].map((card, i) => (
-              <StaggerItem key={i} className="border border-[#e5e5e5] rounded-xl bg-white relative flex flex-col overflow-hidden group hover:border-[#e00019]/40 transition-colors">
+              <StaggerItem key={i} className="border border-[#e5e5e5] rounded-xl bg-white relative flex flex-col overflow-hidden group hover:border-[#eb0045]/40 transition-colors">
                 <div className="p-8 pr-24 flex-1">
-                  <div className="text-[10px] font-bold text-[#e00019] uppercase tracking-widest mb-4">{card.stage}</div>
-                  <h3 className="font-sans font-bold text-[17px] text-[#111b23] mb-3">{card.title}</h3>
+                  <div className="text-[10px] font-bold text-[#eb0045] uppercase tracking-widest mb-4">{card.stage}</div>
+                  <h3 className="font-sans font-bold text-[17px] text-[#414042] mb-3">{card.title}</h3>
                   <p className="text-[14px] text-[#7a7a7a] leading-relaxed font-light">{card.text}</p>
                 </div>
                 <div className="absolute top-0 right-0 bottom-0 w-[72px] bg-[#f8f9fa] border-l border-[#e5e5e5] flex items-center justify-center transition-colors group-hover:bg-[#fff5f6]">
-                  <card.icon className="w-6 h-6 text-[#e00019]/60 group-hover:text-[#e00019] transition-colors" strokeWidth={1.5} />
+                  <card.icon className="w-6 h-6 text-[#eb0045]/60 group-hover:text-[#eb0045] transition-colors" strokeWidth={1.5} />
                 </div>
               </StaggerItem>
             ))}
@@ -176,17 +176,17 @@ export default function AboutPage() {
                 
                 {/* Custom Red Geometric Shapes */}
                 <div className="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 w-[90%] h-[95%] bg-[#fbe5e8] rounded-[30px] transform rotate-12 -z-20" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-[#e00019] rounded-[30px] transform -rotate-12 -z-10" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-[#eb0045] rounded-[30px] transform -rotate-12 -z-10" />
                 
                 {/* Floating Quote (No Box) */}
                 <div className="absolute top-1/4 -left-12 lg:-left-24 z-20 hidden md:block">
-                  <div className="text-6xl text-[#e00019] font-serif leading-none h-8 mb-4 tracking-tighter">&ldquo;</div>
-                  <p className="text-[17px] font-bold text-[#111b23] leading-snug mb-8">
+                  <div className="text-6xl text-[#eb0045] font-serif leading-none h-8 mb-4 tracking-tighter">&ldquo;</div>
+                  <p className="text-[17px] font-bold text-[#414042] leading-snug mb-8">
                     Better questions.<br />Clearer answers.<br />Stronger businesses.
                   </p>
                   
                   {/* Signature Block */}
-                  <div className="font-editorial text-4xl text-[#111b23] mb-3 transform -rotate-2">
+                  <div className="font-editorial text-4xl text-[#414042] mb-3 transform -rotate-2">
                     Ajin Thomas
                   </div>
                   <div className="text-[9px] font-bold tracking-widest text-[#53606a] uppercase">
@@ -209,13 +209,12 @@ export default function AboutPage() {
             {/* Right: Text */}
             <div className="w-full pl-0 lg:pl-12 mt-16 lg:mt-0">
               <FadeIn distance={20} delay={0.2}>
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="w-8 h-[1.5px] bg-[#e00019]" />
-                  <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-[#e00019] uppercase">
-                    LEADERSHIP
+                <div className="flex items-center mb-6">
+                  <span className="text-[11px] font-mono font-bold tracking-[0.2em] text-[#eb0045] uppercase">
+                    Leadership Profile
                   </span>
                 </div>
-                <h2 className="font-sans text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#111b23] tracking-tight leading-[1.1] mb-8">
+                <h2 className="font-sans text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#414042] tracking-tight leading-[1.1] mb-8">
                   Meet Ajin Thomas
                 </h2>
                 <div className="space-y-6 text-[15px] text-[#53606a] leading-[1.8] font-light mb-12">
@@ -226,7 +225,7 @@ export default function AboutPage() {
                 {/* Tag Pills */}
                 <div className="flex flex-wrap gap-3">
                   {["Chartered Accountant", "Transfer Pricing", "Corporate Tax", "International Taxation"].map(tag => (
-                    <span key={tag} className="px-5 py-2.5 bg-white border border-[#e5e5e5] rounded-full text-[12px] font-semibold text-[#111b23] shadow-sm tracking-wide">
+                    <span key={tag} className="px-5 py-2.5 bg-white border border-[#e5e5e5] rounded-full text-[12px] font-semibold text-[#414042] shadow-sm tracking-wide">
                       {tag}
                     </span>
                   ))}
@@ -241,7 +240,7 @@ export default function AboutPage() {
       <section className="bg-white border-b border-[#E7E5E1]">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
           {/* Left: Image Placeholder (since we don't have the exact image) */}
-          <div className="relative bg-[#111b23] h-[400px] lg:h-auto overflow-hidden">
+          <div className="relative bg-[#414042] h-[400px] lg:h-auto overflow-hidden">
             {/* Fallback pattern/color if image is missing */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#1a2530] to-[#0a1015]" />
             <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center opacity-30 pointer-events-none">
@@ -262,12 +261,12 @@ export default function AboutPage() {
           <div className="flex flex-col justify-center p-12 lg:p-24">
             <FadeIn distance={20}>
               <div className="flex items-center gap-4 mb-6">
-                <span className="w-8 h-[1.5px] bg-[#e00019]" />
-                <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-[#e00019] uppercase">
+                <span className="w-8 h-[1.5px] bg-[#eb0045]" />
+                <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-[#eb0045] uppercase">
                   HOW WE THINK
                 </span>
               </div>
-              <h2 className="font-sans text-4xl sm:text-5xl font-extrabold text-[#111b23] tracking-tight leading-[1.1] mb-8">
+              <h2 className="font-sans text-4xl sm:text-5xl font-extrabold text-[#414042] tracking-tight leading-[1.1] mb-8">
                 A young team with a<br />business-focused approach
               </h2>
               <div className="space-y-6 text-[15px] text-[#53606a] leading-[1.8] font-light max-w-xl">
@@ -285,12 +284,12 @@ export default function AboutPage() {
           <div className="mb-16">
             <FadeIn distance={20}>
               <div className="flex items-center gap-4 mb-6">
-                <span className="w-8 h-[1.5px] bg-[#e00019]" />
-                <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-[#e00019] uppercase">
+                <span className="w-8 h-[1.5px] bg-[#eb0045]" />
+                <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-[#eb0045] uppercase">
                   HOW WE WORK
                 </span>
               </div>
-              <h2 className="font-sans text-4xl sm:text-5xl font-extrabold text-[#111b23] tracking-tight leading-[1.1] mb-6">
+              <h2 className="font-sans text-4xl sm:text-5xl font-extrabold text-[#414042] tracking-tight leading-[1.1] mb-6">
                 Four steps, every engagement
               </h2>
             </FadeIn>
@@ -303,9 +302,9 @@ export default function AboutPage() {
               { num: "03", title: "Analyse and explain", text: "We assess the facts, develop our position and discuss the implications with..." },
               { num: "04", title: "Deliver and support", text: "We provide the agreed output and help clarify the practical next steps..." }
             ].map(step => (
-              <StaggerItem key={step.num} className="p-10 border border-[#e5e5e5] rounded-xl bg-white flex flex-col h-full hover:border-[#e00019] hover:shadow-lg transition-all duration-300">
-                <div className="text-3xl font-black text-[#e00019] mb-6">{step.num}</div>
-                <h3 className="font-sans font-bold text-[17px] text-[#111b23] mb-4">{step.title}</h3>
+              <StaggerItem key={step.num} className="p-10 border border-[#e5e5e5] rounded-xl bg-white flex flex-col h-full hover:border-[#eb0045] hover:shadow-lg transition-all duration-300">
+                <div className="text-3xl font-black text-[#eb0045] mb-6">{step.num}</div>
+                <h3 className="font-sans font-bold text-[17px] text-[#414042] mb-4">{step.title}</h3>
                 <p className="text-[14px] text-[#7a7a7a] leading-relaxed font-light mt-auto">{step.text}</p>
               </StaggerItem>
             ))}
@@ -369,12 +368,12 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 mb-12 items-center">
             <FadeIn distance={20}>
               <div className="flex items-center gap-4 mb-6">
-                <span className="w-8 h-[1.5px] bg-[#e00019]" />
-                <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-[#e00019] uppercase">
+                <span className="w-8 h-[1.5px] bg-[#eb0045]" />
+                <span className="text-[10px] font-mono font-bold tracking-[0.2em] text-[#eb0045] uppercase">
                   WHERE WE ARE
                 </span>
               </div>
-              <h2 className="font-sans text-4xl sm:text-5xl font-extrabold text-[#111b23] tracking-tight leading-[1.1] mb-6">
+              <h2 className="font-sans text-4xl sm:text-5xl font-extrabold text-[#414042] tracking-tight leading-[1.1] mb-6">
                 Team locations
               </h2>
               <p className="text-[15px] text-[#53606a] leading-[1.8] font-light max-w-xl">
@@ -397,15 +396,15 @@ export default function AboutPage() {
               { name: "Kerala", country: "India" },
               { name: "Bangalore", country: "India" }
             ].map((loc, i) => (
-              <StaggerItem key={loc.name} className="p-8 border-x border-b border-[#e5e5e5] border-t-[3px] border-t-[#e00019] rounded-b-lg rounded-t-sm bg-white hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-shadow duration-300">
-                <h3 className="font-sans font-bold text-xl text-[#111b23] leading-tight mb-2">{loc.name}</h3>
+              <StaggerItem key={loc.name} className="p-8 border-x border-b border-[#e5e5e5] border-t-[3px] border-t-[#eb0045] rounded-b-lg rounded-t-sm bg-white hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-shadow duration-300">
+                <h3 className="font-sans font-bold text-xl text-[#414042] leading-tight mb-2">{loc.name}</h3>
                 <p className="text-[13px] text-[#7a7a7a] font-light">{loc.country}</p>
               </StaggerItem>
             ))}
           </StaggerContainer>
 
           <FadeIn distance={20} delay={0.3}>
-            <a href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#e00019] text-white rounded-full font-medium text-[15px] transition-all hover:bg-[#b80015] hover:shadow-[0_0_20px_rgba(224,0,25,0.4)]">
+            <a href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#eb0045] text-white rounded-full font-medium text-[15px] transition-all hover:bg-[#b80015] hover:shadow-[0_0_20px_rgba(224,0,25,0.4)]">
               Speak with our team
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

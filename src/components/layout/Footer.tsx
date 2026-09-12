@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-6">
             <Link
               href="/"
-              className="inline-flex items-baseline gap-1.5 group select-none"
+              className="inline-flex items-center gap-1.5 group select-none"
             >
               <BrandLogo light />
             </Link>
@@ -35,11 +35,11 @@ export default function Footer() {
               {site.description}
             </p>
 
-            <div className="pt-2 text-xs text-white/40 space-y-1">
+            {/* <div className="pt-2 text-xs text-white/40 space-y-1">
               <div>Licensed by: {site.legal.regulatoryBody}</div>
               <div>License ID: {site.legal.licenseNo}</div>
               <div>Registered UAE Tax Agency</div>
-            </div>
+            </div> */}
 
             <div className="flex items-center space-x-4 pt-2">
               <a
@@ -115,7 +115,7 @@ export default function Footer() {
             </div>
 
             <div className="space-y-4 text-sm text-white/70">
-              <div className="flex items-start gap-3">
+              {/* <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-brand-red mt-1 shrink-0" />
                 <div className="leading-relaxed">
                   <div className="font-medium text-white">
@@ -126,7 +126,7 @@ export default function Footer() {
                     Dubai, United Arab Emirates
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-brand-red shrink-0" />
