@@ -15,6 +15,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/shared/ScrollMotion";
+import ServiceAreasAccordion from "@/components/services/ServiceAreasAccordion";
 import {
   ArrowUpRight,
   Check,
@@ -22,6 +23,8 @@ import {
   ShieldCheck,
   HelpCircle,
   Layers,
+  AlertCircle,
+  FileCheck2,
 } from "lucide-react";
 
 interface ServicePageProps {
@@ -97,6 +100,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               {/* Eyebrow & Number */}
               <FadeIn distance={15} delay={0.05}>
                 <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] px-2.5 py-1 bg-[#EB0045] text-white font-bold">
+                    SERVICE {service.number}
+                  </span>
                   <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] px-2.5 py-1 bg-white/5 border border-white/20 text-white/90">
                     {theme.badgeLabel}
                   </span>
@@ -110,28 +116,26 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 </h1>
               </FadeIn>
 
-              {/* Distinct Hero Statement */}
-              <FadeIn distance={20} delay={0.18}>
-                <div className="text-lg sm:text-xl font-editorial italic text-brand-red max-w-xl">
-                  &ldquo;{service.heroStatement}&rdquo;
-                </div>
-              </FadeIn>
-
-              {/* Short Description */}
+              {/* Lede Description */}
               <FadeIn distance={15} delay={0.24}>
-                <p className="text-sm sm:text-base text-white/80 leading-relaxed max-w-2xl font-sans">
-                  {service.shortDescription}
+                <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl font-sans font-light">
+                  {service.lede || service.description}
                 </p>
               </FadeIn>
 
               {/* Action Buttons */}
               <FadeIn distance={15} delay={0.3}>
                 <div className="flex flex-wrap items-center gap-4 pt-4">
-                  <CTAButton href="/contact" variant="primary" size="lg" icon>
-                    Initiate Practice Advisory
+                  <CTAButton
+                    href={`/contact?service=${encodeURIComponent(service.title)}`}
+                    variant="primary"
+                    size="lg"
+                    icon
+                  >
+                    Discuss this matter
                   </CTAButton>
-                  <CTAButton href="#capabilities" variant="secondary-light" size="lg">
-                    View Capabilities
+                  <CTAButton href="#areas-of-work" variant="secondary-light" size="lg">
+                    {service.subservices?.length || service.subservicesCount || 0} Areas of Work
                   </CTAButton>
                 </div>
               </FadeIn>
@@ -178,8 +182,99 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </Container>
       </section>
 
-      {/* 2. Practice Overview & Context (Split Layout with High-Res Context Photography) */}
-      <section className="py-16 sm:py-24 border-b border-[#E7E5E1] bg-white overflow-hidden">
+      {/* 2. When to Involve Us (Critical Triggers from Prototype) */}
+      {service.whenToInvolve && service.whenToInvolve.length > 0 && (
+        <section className="py-12 sm:py-16 border-b border-[#E7E5E1] bg-[#FAF9F5]">
+          <Container>
+            <FadeIn distance={20} delay={0.05}>
+              <div className="p-8 sm:p-10 bg-white border border-[#E7E5E1] shadow-xs relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1.5 h-full bg-[#EB0045]" />
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2.5">
+                    <span className="p-1.5 bg-[#EB0045]/10 text-[#EB0045]">
+                      <AlertCircle className="w-4 h-4" />
+                    </span>
+                    <h3 className="font-editorial text-2xl sm:text-3xl text-brand-primary">
+                      When to Involve Us
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-brand-muted max-w-2xl font-sans">
+                    Key business milestones, transaction events, and regulatory moments that call for immediate {service.title} advisory:
+                  </p>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                    {service.whenToInvolve.map((trigger, tIdx) => (
+                      <div
+                        key={tIdx}
+                        className="flex items-start gap-3 p-4 bg-[#FAF9F5] border border-[#E7E5E1]/80 hover:border-brand-charcoal/40 transition-colors"
+                      >
+                        <span className="font-mono text-xs font-bold text-[#EB0045] mt-0.5 shrink-0">
+                          0{tIdx + 1}
+                        </span>
+                        <p className="text-xs sm:text-sm text-brand-charcoal leading-relaxed font-sans">
+                          {trigger}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          </Container>
+        </section>
+      )}
+
+      {/* 3. Defined Areas of Work (Complete Subservices Scope from Prototype) */}
+      {service.subservices && service.subservices.length > 0 && (
+        <section id="areas-of-work" className="py-16 sm:py-24 border-b border-[#E7E5E1] bg-white">
+          <Container>
+            <FadeIn distance={20} delay={0.05}>
+              <div className="max-w-3xl mb-12 space-y-3">
+                <SectionLabel>FULL SCOPE OF WORK</SectionLabel>
+                <h2 className="font-editorial text-clamp-heading text-brand-primary">
+                  Defined Areas of Work
+                </h2>
+                <p className="text-sm text-brand-charcoal/80 leading-relaxed font-sans">
+                  Every engagement begins from your specific transactions, trial balance, and operating facts — not a template. Explore the {service.subservices.length} structured areas of work we execute within this practice.
+                </p>
+              </div>
+            </FadeIn>
+
+            <ServiceAreasAccordion
+              subservices={service.subservices}
+              serviceTitle={service.title}
+            />
+
+            {/* Typical Outputs Box */}
+            {service.typicalOutputs && (
+              <FadeIn distance={15} delay={0.1}>
+                <div className="mt-12 p-6 sm:p-8 bg-[#FAF9F5] border border-[#E7E5E1] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-xs">
+                  <div className="space-y-1.5 max-w-2xl">
+                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#EB0045] block">
+                      Typical Outputs &amp; Deliverables
+                    </span>
+                    <p className="text-xs sm:text-sm text-brand-charcoal leading-relaxed font-sans">
+                      {service.typicalOutputs}
+                    </p>
+                  </div>
+                  <CTAButton
+                    href={`/contact?service=${encodeURIComponent(service.title)}`}
+                    variant="primary"
+                    size="md"
+                    icon
+                    className="shrink-0"
+                  >
+                    Request Deliverables Pack
+                  </CTAButton>
+                </div>
+              </FadeIn>
+            )}
+          </Container>
+        </section>
+      )}
+
+      {/* 4. Technical Context & Statutory Reality */}
+      <section className="py-16 sm:py-20 border-b border-[#E7E5E1] bg-[#FAF9F5] overflow-hidden">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
@@ -193,29 +288,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 </div>
 
                 <p className="text-sm sm:text-base text-brand-charcoal/85 leading-relaxed font-sans mt-4">
-                  {service.description}
+                  {service.lede || service.description}
                 </p>
 
-                {/* Comprehensive Service Scope Badges */}
-                <div className="pt-4 space-y-3">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-brand-primary flex items-center gap-1.5">
-                    <Layers className="w-3.5 h-3.5 text-brand-red" />
-                    Comprehensive Service Scope:
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {service.services.map((sub) => (
-                      <span
-                        key={sub}
-                        className="px-3 py-1.5 bg-[#F8F7F4] hover:bg-[#F2EFE9] border border-[#E7E5E1] text-xs text-brand-charcoal font-medium transition-colors"
-                      >
-                        {sub}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
                 {/* Partner Highlight Quote */}
-                <div className="p-4 bg-[#F8F7F4] border-l-4 border-brand-red space-y-2 mt-6">
+                <div className="p-4 bg-white border-l-4 border-brand-red space-y-2 mt-6 shadow-xs">
                   <p className="text-xs sm:text-sm font-editorial italic text-brand-charcoal">
                     &ldquo;{theme.highlightQuote.quote}&rdquo;
                   </p>
@@ -229,7 +306,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {/* Right Context Image & Framework Box */}
             <div className="lg:col-span-6 space-y-4">
               <ScaleIn delay={0.15} duration={0.8}>
-                <div className="relative border border-[#E7E5E1] bg-[#F8F7F4] p-3 shadow-md">
+                <div className="relative border border-[#E7E5E1] bg-white p-3 shadow-md">
                   <div className="relative aspect-[4/3] w-full overflow-hidden border border-[#E7E5E1]">
                     <Image
                       src={theme.contextImage}
@@ -246,7 +323,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 </div>
 
                 {/* Statutory Frameworks Pill Box */}
-                <div className="p-4 bg-[#F8F7F4] border border-[#E7E5E1] space-y-2 mt-4">
+                <div className="p-4 bg-white border border-[#E7E5E1] space-y-2 mt-4 shadow-xs">
                   <div className="text-xs font-mono font-bold uppercase tracking-wider text-brand-charcoal flex items-center gap-1.5">
                     <ShieldCheck className="w-4 h-4 text-brand-red" />
                     Governing Statutory Frameworks:
@@ -266,71 +343,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </Container>
       </section>
 
-      {/* 4. Specialized Workstreams & Core Capabilities */}
-      <section id="capabilities" className="py-16 sm:py-24 border-b border-[#E7E5E1] bg-white">
-        <Container>
-          <FadeIn distance={20} delay={0.05}>
-            <div className="max-w-3xl mb-14 space-y-3">
-              <SectionLabel>SPECIALIZED WORKSTREAMS</SectionLabel>
-              <h2 className="font-editorial text-clamp-heading text-brand-primary">
-                Core Capabilities &amp; Workstreams
-              </h2>
-              <p className="text-sm text-brand-muted">
-                Deep, focused workstreams tailored to enterprise corporate groups, Free Zone holding companies, and multinational structures.
-              </p>
-            </div>
-          </FadeIn>
-
-          <StaggerContainer
-            className={`grid gap-6 lg:gap-8 ${
-              service.capabilities.length === 3
-                ? "grid-cols-1 md:grid-cols-3"
-                : service.capabilities.length === 1
-                ? "grid-cols-1 max-w-2xl mx-auto"
-                : "grid-cols-1 md:grid-cols-2"
-            }`}
-          >
-            {service.capabilities.map((cap, idx) => (
-              <StaggerItem
-                key={idx}
-                className="p-6 sm:p-8 bg-[#FAF9F5] border border-[#E7E5E1] hover:border-brand-charcoal hover:shadow-lg transition-all duration-300 space-y-5 group flex flex-col justify-between"
-              >
-                <div className="flex items-center justify-between border-b border-[#E7E5E1] pb-4">
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm font-bold text-brand-red">
-                      {idx + 1}
-                    </span>
-                    <h3 className="font-editorial text-xl sm:text-2xl text-brand-primary group-hover:text-brand-red transition-colors">
-                      {cap.title}
-                    </h3>
-                  </div>
-                  <ArrowUpRight className="w-5 h-5 text-brand-muted group-hover:text-brand-red transition-colors" />
-                </div>
-
-                <p className="text-xs sm:text-sm text-brand-charcoal/80 leading-relaxed font-sans">
-                  {cap.description}
-                </p>
-
-                {cap.deliverables && cap.deliverables.length > 0 && (
-                  <div className="pt-2 space-y-2">
-                    <div className="text-[11px] font-mono uppercase text-brand-muted tracking-wider">
-                      Target Deliverables:
-                    </div>
-                    <div className="space-y-1.5">
-                      {cap.deliverables.map((del, dIdx) => (
-                        <div key={dIdx} className="flex items-center gap-2 text-xs text-brand-charcoal">
-                          <Check className="w-3.5 h-3.5 text-brand-red shrink-0" />
-                          <span>{del}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </Container>
-      </section>
 
       {/* 5. The Four-Phase Engagement Cycle */}
       <section className="py-16 sm:py-24 bg-[#F8F7F4] border-b border-[#E7E5E1]">
@@ -482,34 +494,41 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </Container>
       </section>
 
-      {/* 8. Closing Confidential Consultation Banner */}
+      {/* 8. Closing Consultation Banner */}
       <section className="py-16 sm:py-24 bg-brand-dark text-white border-t border-white/10">
         <Container>
           <ScaleIn initialScale={0.96} duration={0.8}>
             <div className="relative p-8 sm:p-14 bg-gradient-to-r from-black/60 to-white/5 border border-white/15 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 shadow-2xl">
               <div className="space-y-3 max-w-2xl">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-brand-red">
-                    DIFC CONFIDENTIAL ENGAGEMENT
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#EB0045] font-bold">
+                    PRACTICE ADVISORY &amp; ENGAGEMENT
                   </span>
                 </div>
                 <h3 className="font-editorial text-2xl sm:text-4xl text-white">
-                  Initiate your {service.title} consultation
+                  Discuss a {service.title} matter
                 </h3>
-                <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-sans">
-                  Direct engagement with our DIFC tax partners. We conduct preliminary diagnostic assessments to identify exposures under UAE law and formulate defensible technical positions.
+                <p className="text-sm sm:text-base text-white/80 leading-relaxed font-sans font-light">
+                  Tell us about the transaction or question and we will outline the work involved, the information needed, and a clear path forward.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 shrink-0 w-full sm:w-auto">
-                <CTAButton href="/contact" variant="primary" size="lg" icon className="w-full sm:w-auto text-center">
-                  Schedule Partner Briefing
+                <CTAButton
+                  href={`/contact?service=${encodeURIComponent(service.title)}`}
+                  variant="primary"
+                  size="lg"
+                  icon
+                  className="w-full sm:w-auto text-center"
+                >
+                  Contact our team
                 </CTAButton>
               </div>
             </div>
           </ScaleIn>
         </Container>
       </section>
+
     </div>
   );
 }
