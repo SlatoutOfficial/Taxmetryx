@@ -18,8 +18,8 @@ export default function Footer() {
 
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-white/10">
-          {/* Col 1: Brand (4 cols) */}
-          <div className="lg:col-span-4 space-y-6">
+          {/* Col 1: Brand (3 cols) */}
+          <div className="lg:col-span-3 space-y-6">
             <Link
               href="/"
               className="inline-flex items-center gap-1.5 group select-none"
@@ -34,12 +34,6 @@ export default function Footer() {
             <p className="text-sm text-white/60 leading-relaxed max-w-sm">
               {site.description}
             </p>
-
-            {/* <div className="pt-2 text-xs text-white/40 space-y-1">
-              <div>Licensed by: {site.legal.regulatoryBody}</div>
-              <div>License ID: {site.legal.licenseNo}</div>
-              <div>Registered UAE Tax Agency</div>
-            </div> */}
 
             <div className="flex items-center space-x-4 pt-2">
               <a
@@ -108,54 +102,82 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Contact (3 cols) */}
-          <div className="lg:col-span-3 space-y-5">
+          {/* Col 4: Global Offices & Contact (4 cols) */}
+          <div className="lg:col-span-4 space-y-5">
             <div className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/40">
-              04 / Contact & DIFC
+              04 / Global Offices & Contact
             </div>
 
-            <div className="space-y-4 text-sm text-white/70">
-              {/* <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-brand-red mt-1 shrink-0" />
-                <div className="leading-relaxed">
-                  <div className="font-medium text-white">
-                    {site.headquarters.address}
+            <div className="space-y-4 text-xs text-white/70">
+              {/* Offices */}
+              <div className="space-y-3">
+                {(site.offices || [
+                  {
+                    id: "dubai",
+                    name: "Dubai",
+                    line1: "137-A-77 | Plot number 11-0",
+                    line2: "Sultan Business Centre | Oud Metha | Dubai",
+                  },
+                  {
+                    id: "kerala",
+                    name: "Kerala",
+                    line1: "4th Floor | Noble Building | Mavoor Rd | Arayidathupalam",
+                    line2: "Kozhikode | Kerala 673004 | India",
+                  },
+                  {
+                    id: "bangalore",
+                    name: "Bangalore",
+                    line1: "No 46 | 4th floor | 3rd cross | Domlur village | Near",
+                    line2: "Aryan Suzuki BENGALURU | KARNATAKA 560071",
+                  },
+                ]).map((office) => (
+                  <div key={office.id} className="flex items-start gap-2.5">
+                    <MapPin className="w-3.5 h-3.5 text-brand-red mt-0.5 shrink-0" />
+                    <div className="leading-relaxed">
+                      <span className="font-semibold uppercase text-[10px] tracking-wider text-brand-red block">
+                        {office.name}
+                      </span>
+                      <div className="text-white/80 text-[11px] sm:text-xs">
+                        {office.line1}
+                        <br />
+                        {office.line2}
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-white/50">{site.headquarters.zone}</div>
-                  <div className="text-white/50">
-                    Dubai, United Arab Emirates
-                  </div>
+                ))}
+              </div>
+
+              {/* Direct Reach */}
+              <div className="pt-3 border-t border-white/10 space-y-2">
+                <div className="flex items-center gap-2.5">
+                  <Mail className="w-3.5 h-3.5 text-brand-red shrink-0" />
+                  <a
+                    href={`mailto:${site.contact.email}`}
+                    className="hover:text-brand-red transition-colors text-white/80 text-xs"
+                  >
+                    {site.contact.email}
+                  </a>
                 </div>
-              </div> */}
 
-              <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-brand-red shrink-0" />
-                <a
-                  href={`mailto:${site.contact.email}`}
-                  className="hover:text-brand-red transition-colors"
-                >
-                  {site.contact.email}
-                </a>
-              </div>
+                <div className="flex items-center gap-2.5">
+                  <Phone className="w-3.5 h-3.5 text-brand-red shrink-0" />
+                  <a
+                    href={`tel:${site.contact.phone}`}
+                    className="hover:text-brand-red transition-colors text-white/80 text-xs"
+                  >
+                    {site.contact.phoneFormatted}
+                  </a>
+                </div>
 
-              <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-brand-red shrink-0" />
-                <a
-                  href={`tel:${site.contact.phone}`}
-                  className="hover:text-brand-red transition-colors"
-                >
-                  {site.contact.phoneFormatted}
-                </a>
-              </div>
-
-              <div className="pt-2">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] font-semibold text-brand-red hover:text-white transition-colors"
-                >
-                  <span>Book Private Consultation</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </Link>
+                <div className="pt-1">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] font-semibold text-brand-red hover:text-white transition-colors"
+                  >
+                    <span>Book Private Consultation</span>
+                    <ArrowUpRight className="w-3 h-3" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

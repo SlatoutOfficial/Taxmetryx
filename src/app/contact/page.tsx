@@ -16,9 +16,9 @@ import {
 import { MapPin, Phone, Mail, Clock, Building, ShieldCheck, ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Our Tax Directors | Taxmetryx Dubai DIFC",
+  title: "Contact Our Tax Directors | Taxmetryx Global",
   description:
-    "Direct confidential consultations with Taxmetryx partners. Level 14, Al Sa'ada Tower, Dubai International Financial Centre (DIFC).",
+    "Direct confidential consultations with Taxmetryx partners. Sultan Business Centre, Oud Metha, Dubai.",
 };
 
 export default function ContactPage() {
@@ -72,10 +72,10 @@ export default function ContactPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4 text-white">
                       <div className="text-[10px] font-mono uppercase tracking-widest text-brand-red font-semibold">
-                        DIFC GATE PRECINCT
+                        DUBAI HEADQUARTERS
                       </div>
                       <div className="font-editorial text-base sm:text-lg">
-                        Level 14, Al Sa&apos;ada Tower • Dubai
+                        Sultan Business Centre • Oud Metha • Dubai
                       </div>
                     </div>
                   </div>
@@ -96,19 +96,19 @@ export default function ContactPage() {
                 <span className="text-[#eb0045]">Executive Advisory</span> Hubs
               </h2>
               <p className="text-xs sm:text-sm text-brand-muted">
-                Strategically positioned across the UAE&apos;s primary financial free zones.
+                Strategically positioned across primary financial and commercial hubs.
               </p>
             </div>
           </FadeIn>
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Dubai DIFC Headquarters */}
+            {/* Dubai Headquarters */}
             <StaggerItem className="border border-[#E7E5E1] bg-[#F8F7F4]/50 overflow-hidden hover:border-brand-red transition-all group flex flex-col justify-between">
               <div>
                 <div className="relative aspect-[16/9] w-full overflow-hidden bg-brand-dark border-b border-[#E7E5E1]">
                   <Image
                     src="/images/contact-dubai.jpg"
-                    alt="Dubai DIFC Practice"
+                    alt="Dubai Practice"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -121,10 +121,10 @@ export default function ContactPage() {
                   </div>
                   <div className="absolute bottom-4 left-4 right-4 text-white">
                     <h3 className="font-editorial text-2xl text-white">
-                      Dubai (DIFC) Practice
+                      Dubai Practice
                     </h3>
                     <p className="text-xs text-white/80 font-sans">
-                      Dubai International Financial Centre, United Arab Emirates
+                      Sultan Business Centre, Oud Metha, Dubai, UAE
                     </p>
                   </div>
                 </div>
@@ -164,7 +164,7 @@ export default function ContactPage() {
 
               <div className="px-8 py-4 bg-white border-t border-[#E7E5E1] text-[11px] font-mono text-brand-muted flex items-center justify-between">
                 <span>License: {site.legal.licenseNo}</span>
-                <span className="text-brand-primary font-semibold">DIFC Gate District</span>
+                <span className="text-brand-primary font-semibold">Oud Metha District</span>
               </div>
             </StaggerItem>
 
