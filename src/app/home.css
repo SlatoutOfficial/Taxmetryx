@@ -200,26 +200,6 @@
   flex-wrap: wrap;
 }
 
-.hero-actions a:nth-child(2) {
-  background: rgba(255, 255, 255, 0.85);
-  border-color: #111b23;
-}
-
-.hero-actions a:nth-child(2),
-.hero-actions a:nth-child(2) * {
-  color: #111b23;
-}
-
-.hero-actions a:nth-child(2):hover {
-  background: #111b23 !important;
-  border-color: #111b23 !important;
-}
-
-.hero-actions a:nth-child(2):hover,
-.hero-actions a:nth-child(2):hover * {
-  color: #ffffff !important;
-}
-
 .hero-note {
   position: absolute;
   top: 14px;

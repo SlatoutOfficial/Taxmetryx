@@ -171,7 +171,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setIsUaeDropdownOpen((prev) => !prev)}
-                className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-brand-primary hover:text-brand-red px-2.5 py-1.5 border border-[#E7E5E1] bg-white/70 hover:bg-white transition-colors cursor-pointer"
+                className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-brand-primary hover:text-brand-red px-3 py-1.5 border border-[#E7E5E1] bg-white/80 hover:bg-white transition-all rounded-[8px_2px_8px_2px] shadow-xs cursor-pointer"
                 aria-expanded={isUaeDropdownOpen}
                 aria-haspopup="listbox"
               >
@@ -233,16 +233,13 @@ export default function Header() {
 
           {/* Mobile menu hamburger button */}
           <div className="flex xl:hidden items-center gap-2">
-            <Link
-              href="/contact"
-              className="text-[11px] uppercase tracking-wider font-semibold text-white bg-brand-red px-3 py-2"
-            >
+            <CTAButton href="/contact" size="sm">
               Consult
-            </Link>
+            </CTAButton>
             <button
               onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Open mobile navigation menu"
-              className="p-2 border border-[#E7E5E1] bg-white text-brand-primary hover:text-brand-red transition-colors"
+              className="p-2 border border-[#E7E5E1] bg-white text-brand-primary hover:text-brand-red transition-all rounded-[8px_2px_8px_2px] shadow-xs cursor-pointer"
             >
               <Menu className="w-5 h-5" />
             </button>

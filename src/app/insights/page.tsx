@@ -7,6 +7,7 @@ import Container from "@/components/shared/Container";
 import Counter from "@/components/shared/Counter";
 import SectionLabel from "@/components/shared/SectionLabel";
 import Breadcrumb from "@/components/shared/Breadcrumb";
+import CTAButton from "@/components/shared/CTAButton";
 import { getInsights } from "@/lib/json";
 import { ArrowUpRight, Search, Clock, User, Tag, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -187,15 +188,18 @@ export default function InsightsPage() {
               <p className="text-xs text-brand-muted">
                 Try clearing your search query or choosing another category filter.
               </p>
-              <button
-                onClick={() => {
-                  setSelectedCategory("ALL");
-                  setSearchQuery("");
-                }}
-                className="text-xs uppercase font-semibold text-brand-red hover:underline pt-2 inline-block cursor-pointer"
-              >
-                Reset Filters
-              </button>
+              <div className="pt-2">
+                <CTAButton
+                  onClick={() => {
+                    setSelectedCategory("ALL");
+                    setSearchQuery("");
+                  }}
+                  variant="primary"
+                  size="sm"
+                >
+                  Reset Filters
+                </CTAButton>
+              </div>
             </div>
           ) : (
             <StaggerContainer

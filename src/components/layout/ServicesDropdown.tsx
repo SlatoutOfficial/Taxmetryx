@@ -14,6 +14,7 @@ import {
   ShieldAlert,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Button from "@/components/shared/Button";
 
 interface PracticeDetail {
   slug: string;
@@ -157,7 +158,7 @@ export default function ServicesDropdown({
                       onClick={onClose}
                       onMouseEnter={() => setActiveSlug(practice.slug)}
                       className={cn(
-                        "group flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-150 cursor-pointer border text-left",
+                        "group flex items-center justify-between px-3 py-2.5 rounded-[10px_3px_10px_3px] transition-all duration-150 cursor-pointer border text-left",
                         isSelected
                           ? "bg-white border-[#E0DDD5] shadow-xs"
                           : "border-transparent hover:bg-white/70",
@@ -167,7 +168,7 @@ export default function ServicesDropdown({
                         {/* Icon */}
                         <div
                           className={cn(
-                            "w-7 h-7 rounded-lg flex items-center justify-center transition-colors shrink-0",
+                            "w-7 h-7 rounded-[7px_2px_7px_2px] flex items-center justify-center transition-colors shrink-0",
                             isSelected
                               ? "bg-brand-red/10 text-brand-red"
                               : "bg-[#F0EEE8] text-[#55636e] group-hover:bg-brand-red/5 group-hover:text-brand-red",
@@ -258,14 +259,15 @@ export default function ServicesDropdown({
 
             {/* Bottom Actions */}
             <div className="pt-4 mt-4 border-t border-[#F0EFEB] flex items-center">
-              <Link
+              <Button
                 href={`/services/${active.slug}`}
                 onClick={onClose}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-red hover:bg-[#c20016] text-white text-xs font-semibold tracking-wide transition-colors shadow-xs group/btn"
+                variant="primary"
+                size="sm"
+                icon
               >
-                <span>Explore {active.title}</span>
-                <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-              </Link>
+                Explore {active.title}
+              </Button>
             </div>
           </div>
         </div>

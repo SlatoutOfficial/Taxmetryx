@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Container from "@/components/shared/Container";
 import SectionLabel from "@/components/shared/SectionLabel";
+import CTAButton from "@/components/shared/CTAButton";
 import { getInsights } from "@/lib/json";
 import { useJurisdiction } from "@/context/JurisdictionContext";
 import {
@@ -167,10 +168,10 @@ export default function InsightsSection() {
               )}
             </StaggerContainer>
 
-            <FadeIn delay={0.25} distance={15}>
-              <Link href="/insights" className="all-insights">
-                View all insights <ArrowRight />
-              </Link>
+            <FadeIn delay={0.25} distance={15} className="pt-4">
+              <CTAButton href="/insights" variant="secondary" size="md" icon>
+                View All Insights
+              </CTAButton>
             </FadeIn>
           </div>
         </div>

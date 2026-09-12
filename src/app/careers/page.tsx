@@ -319,14 +319,15 @@ export default function CareersPage() {
                     </h3>
                   </div>
 
-                  <button
-                    type="button"
+                  <CTAButton
                     onClick={() => setSelectedJob(job)}
-                    className="px-6 py-3 bg-brand-primary text-white text-xs uppercase tracking-wider font-medium hover:bg-brand-red transition-colors inline-flex items-center gap-1.5 self-start lg:self-auto cursor-pointer"
+                    variant="dark"
+                    size="sm"
+                    icon
+                    className="self-start lg:self-auto"
                   >
-                    <span>Apply for Role</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </button>
+                    Apply for Role
+                  </CTAButton>
                 </div>
 
                 <p className="text-xs sm:text-sm text-brand-charcoal/80 leading-relaxed max-w-3xl">
