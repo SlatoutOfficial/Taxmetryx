@@ -82,7 +82,7 @@ export default function ExpertiseSection() {
                 </em>
               </h2>
             </FadeIn>
-            <LineReveal delay={0.2} />
+
             <FadeIn delay={0.25} distance={24}>
               <p className="reference-copy">
                 We combine deep technical expertise with a clear understanding of
@@ -112,36 +112,7 @@ export default function ExpertiseSection() {
           </div>
 
           <div className="relative">
-            {/* Architectural curved drafting arc with red dots as in reference design */}
-            <div className="hidden xl:flex absolute -left-20 top-0 bottom-0 w-28 flex-col items-center justify-center z-10 pointer-events-none select-none">
-              <svg
-                className="absolute inset-0 w-full h-full"
-                viewBox="0 0 112 500"
-                fill="none"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M 100 20 C 10 160, 10 340, 100 480"
-                  stroke="#cfd3d6"
-                  strokeWidth="1"
-                />
-                <circle cx="85" cy="50" r="3.5" fill="#e00019" />
-                <circle cx="28" cy="250" r="3.5" fill="#e00019" />
-                <circle cx="85" cy="450" r="3.5" fill="#e00019" />
-              </svg>
-              <div className="text-center font-mono text-[9px] tracking-[0.24em] text-[#53606a] uppercase leading-[1.8] pl-2 z-10 bg-[#fafaf9]/80 py-2 backdrop-blur-[2px]">
-                INSIGHTS
-                <br />
-                THAT
-                <br />
-                MOVE
-                <br />
-                BUSINESS
-                <br />
-                FORWARD
-                <div className="w-4 h-[1.5px] bg-[#e00019] mx-auto mt-2" />
-              </div>
-            </div>
+
 
             <StaggerContainer
               className="expertise-stack"

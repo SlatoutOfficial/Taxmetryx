@@ -215,6 +215,102 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      {/* Meet the Founder Section - Premium */}
+      <section className="py-24 sm:py-32 bg-white relative overflow-hidden border-b border-[#E7E5E1]">
+        {/* Abstract Background Elements */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-brand-red/[0.03] to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+        
+        <Container className="relative z-10">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24 max-w-6xl mx-auto">
+            {/* Left Column: Image Card */}
+            <div className="w-full max-w-[420px] shrink-0 relative group">
+              <FadeIn distance={30} duration={1.2}>
+                <div className="relative w-full rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#e00019] to-[#a30012] aspect-[4/5] shadow-[0_20px_60px_rgba(224,0,25,0.25)] transition-transform duration-700 hover:-translate-y-2">
+                  {/* Animated Background Circles */}
+                  <div className="absolute top-0 right-0 w-[150%] h-[150%] -translate-y-1/4 translate-x-1/4 opacity-30 animate-[spin_40s_linear_infinite] pointer-events-none">
+                    <div className="absolute inset-0 border-[40px] border-white/20 rounded-full" />
+                    <div className="absolute inset-[15%] border-[20px] border-white/10 rounded-full" />
+                  </div>
+                  
+                  {/* Portrait Image */}
+                  <div className="absolute inset-0 flex items-end justify-center">
+                    <img
+                      src="/images/ajin-thomos.webp"
+                      alt="Ajin Thomas"
+                      className="w-full h-auto max-h-[95%] object-contain object-bottom drop-shadow-2xl transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  
+                  {/* Overlay Gradient for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 pointer-events-none" />
+                </div>
+                
+                {/* Name / Title */}
+                <div className="mt-8 text-center">
+                  <h3 className="font-editorial text-3xl text-brand-primary tracking-tight">Ajin Thomas</h3>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-brand-red mt-2">Founder & Managing Partner</p>
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Right Column: Text Content */}
+            <div className="w-full max-w-2xl relative">
+              <FadeIn distance={20} delay={0.2}>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="w-12 h-[2px] bg-[#e00019]" />
+                  <span className="text-[11px] font-mono font-bold tracking-[0.2em] text-[#e00019] uppercase">
+                    Leadership Profile
+                  </span>
+                </div>
+                
+                <h2 className="font-editorial text-5xl sm:text-6xl text-brand-primary mb-8 leading-tight">
+                  Meet the <br />
+                  <span className="text-brand-red italic">Architect.</span>
+                </h2>
+                
+                <div className="relative">
+                  {/* Large decorative quote mark */}
+                  <div className="absolute -top-10 -left-8 text-[10rem] text-[#f8f7f4] font-editorial leading-none select-none z-0">
+                    &ldquo;
+                  </div>
+                  
+                  <div className="relative z-10 space-y-6 text-[15px] text-brand-charcoal/80 leading-relaxed font-light">
+                    <p>
+                      Ajin Thomas is a Chartered Accountant whose work focuses on Transfer Pricing, Corporate Tax and International Taxation. His experience includes the meticulous analysis of related-party arrangements, rigorous economic benchmarking, and the preparation of bulletproof supporting documentation.
+                    </p>
+                    <p>
+                      At Taxmetryx, Ajin&apos;s approach is fundamentally different: stay intimately close to the client&apos;s operational realities and maintain an unbreakable link between deep technical analysis and highly practical recommendations. He works alongside his team to build a boutique practice where institutional quality, elite responsiveness, and absolute responsibility define the day-to-day client experience.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Tag Pills */}
+                <div className="mt-10">
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-brand-muted mb-4">
+                    Areas of Expertise
+                  </div>
+                  <div className="flex flex-wrap gap-2.5">
+                    {[
+                      "Chartered Accountant",
+                      "Transfer Pricing",
+                      "Corporate Tax",
+                      "International Taxation"
+                    ].map((tag) => (
+                      <span 
+                        key={tag}
+                        className="px-5 py-2.5 bg-[#f8f7f4] border border-[#e8e6e1] rounded-full text-xs font-medium text-brand-primary transition-all duration-300 hover:border-brand-red hover:text-brand-red hover:shadow-md cursor-default"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Leadership & Practice Pillars */}
       <section className="py-20 sm:py-28 bg-white border-b border-[#E7E5E1]">
         <Container>

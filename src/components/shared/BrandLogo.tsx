@@ -6,19 +6,12 @@ export default function BrandLogo({
   markOnly?: boolean;
 }) {
   return (
-    <span className={`brand-logo ${light ? "brand-logo-light" : ""}`}>
-      <svg viewBox="0 0 46 48" aria-hidden="true">
-        <path
-          fill="#e00019"
-          d="M2 29 14 20v11L2 35zm14-11 9-7v34l-9-6zm11-9 8-6v28l-8 6zm10-8 7-1v22l-7 7z"
-        />
-      </svg>
-      {!markOnly && (
-        <span>
-          <strong>TAXMETRYX</strong>
-          <small>GLOBAL</small>
-        </span>
-      )}
+    <span className={`brand-logo ${light ? "brand-logo-light" : ""} flex items-center`}>
+      <img 
+        src="/logo.png" 
+        alt="Taxmetryx Logo" 
+        className="h-12 md:h-14 lg:h-16 w-auto object-contain" 
+      />
     </span>
   );
 }
