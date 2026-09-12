@@ -276,7 +276,7 @@ export default function ContactSection() {
                           Select Area of Advisory
                         </span>
                         <span className="text-[10px] font-mono text-brand-red font-semibold">
-                          DIFC PRACTICE
+                          PRACTICE
                         </span>
                       </div>
 

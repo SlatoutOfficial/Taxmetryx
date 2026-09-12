@@ -23,20 +23,20 @@ export default function TermsPage() {
                 Terms of Use
               </h1>
               <p className="text-xs font-mono text-brand-muted">
-                Effective: August 2026 • Governed by the Laws of the Dubai International Financial Centre (DIFC)
+                Effective: August 2026
               </p>
             </FadeIn>
             <ScaleIn delay={0.1} className="lg:col-span-4 relative aspect-[16/9] overflow-hidden border border-[#E7E5E1] bg-brand-dark hidden sm:block">
               <Image
                 src="/images/expertise-architecture.jpg"
-                alt="Taxmetryx DIFC Legal & Governance"
+                alt="Taxmetryx Legal & Governance"
                 fill
                 sizes="(max-width: 1024px) 100vw, 30vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-black/30" />
               <div className="absolute bottom-2 left-3 text-[10px] font-mono text-white/80 uppercase">
-                DIFC Courts Jurisdiction
+                Website Terms of Use
               </div>
             </ScaleIn>
           </div>
@@ -49,7 +49,7 @@ export default function TermsPage() {
             <StaggerItem className="space-y-3">
               <h2 className="font-editorial text-2xl text-brand-primary">1. Acceptance of Terms</h2>
               <p>
-                By accessing or browsing this website operated by Taxmetryx Advisory Ltd., you agree to be bound by these Terms of Use and all applicable laws and regulations of the Dubai International Financial Centre (DIFC) and the United Arab Emirates.
+                By accessing or browsing this website operated by Taxmetryx Advisory Ltd., you agree to be bound by these Terms of Use and all applicable laws and regulations.
               </p>
             </StaggerItem>
 
@@ -68,9 +68,9 @@ export default function TermsPage() {
             </StaggerItem>
 
             <StaggerItem className="space-y-3">
-              <h2 className="font-editorial text-2xl text-brand-primary">4. Governing Law & Dispute Resolution</h2>
+              <h2 className="font-editorial text-2xl text-brand-primary">4. Questions & Disputes</h2>
               <p>
-                These terms and any disputes arising out of your use of this website shall be governed by and construed in accordance with the laws of the Dubai International Financial Centre (DIFC). The DIFC Courts shall have exclusive jurisdiction.
+                For questions about these terms or to raise a dispute concerning this website, please contact Taxmetryx.
               </p>
             </StaggerItem>
           </StaggerContainer>

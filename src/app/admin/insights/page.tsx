@@ -92,7 +92,7 @@ export default function AdminInsightsPage() {
               featured: false,
               author: { name: "Tariq Al-Mansoor", role: "Partner" },
               keyTakeaways: ["Key statutory requirement", "Practical implementation guideline"],
-              tags: ["Tax Advisory", "DIFC"],
+              tags: ["Tax Advisory", "UAE"],
             });
             setIsModalOpen(true);
           }}

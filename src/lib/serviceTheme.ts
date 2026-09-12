@@ -38,7 +38,7 @@ export const serviceThemes: Record<string, ServiceTheme> = {
     themeName: "Economic Valuation & Arm's Length Alignment",
     heroImage: "/images/services/transfer-pricing-hero.jpg",
     contextImage: "/images/services/transfer-pricing-context.jpg",
-    contextCaption: "DIFC Econometric Interquartile Analysis & FAR Benchmarking Dossier",
+    contextCaption: "Econometric Interquartile Analysis & FAR Benchmarking Dossier",
     badgeLabel: "OECD & FTA STATUTORY ALIGNMENT",
     primaryColor: BRAND_DARK,
     accentColor: BRAND_RED,
@@ -58,7 +58,7 @@ export const serviceThemes: Record<string, ServiceTheme> = {
     highlightQuote: {
       quote: "Defensible economics and rigorous FAR substantiation are the only insurmountable shields against FTA transfer pricing adjustments.",
       author: "Advisory Practice Head",
-      title: "Transfer Pricing & Economics, DIFC",
+      title: "Transfer Pricing & Economics",
     },
   },
   "corporate-tax": {
@@ -218,7 +218,7 @@ export function getServiceTheme(slug: string): ServiceTheme {
       themeName: "Specialized Corporate Tax Advisory",
       heroImage: "/images/services/transfer-pricing-hero.jpg",
       contextImage: "/images/services/transfer-pricing-context.jpg",
-      contextCaption: "Taxmetryx DIFC Technical Advisory Practice",
+      contextCaption: "Taxmetryx Technical Advisory Practice",
       badgeLabel: "UAE TAX STATUTE",
       primaryColor: BRAND_DARK,
       accentColor: BRAND_RED,
@@ -231,14 +231,14 @@ export function getServiceTheme(slug: string): ServiceTheme {
       statBadgeBg: "bg-[#eb0045]/10",
       accentHighlightText: "text-[#eb0045]",
       statCard: {
-        number: "DIFC",
+        number: "UAE",
         label: "Direct Partner Representation",
         sublabel: "UAE FTA Accredited Advisory",
       },
       highlightQuote: {
         quote: "Direct partner representation and unyielding technical rigor for enterprise groups across the UAE and GCC.",
         author: "Managing Partner",
-        title: "Taxmetryx Advisory DIFC",
+        title: "Taxmetryx Advisory",
       },
     }
   );

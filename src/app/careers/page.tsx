@@ -103,7 +103,7 @@ export default function CareersPage() {
                       <Counter prefix="Level " end={14} />
                     </div>
                     <div className="text-[10px] font-mono uppercase tracking-wider text-brand-muted whitespace-nowrap">
-                      DIFC Headquarters
+                      Headquarters
                     </div>
                   </div>
                   <div className="border-l border-[#E7E5E1] pl-4 sm:pl-7">
@@ -132,7 +132,7 @@ export default function CareersPage() {
                   <div className="relative aspect-[16/11] w-full overflow-hidden bg-brand-dark group">
                     <Image
                       src="/images/careers/careers-hero.jpg"
-                      alt="Taxmetryx advisory practice culture in Dubai DIFC"
+                      alt="Taxmetryx advisory practice culture in Dubai"
                       fill
                       priority
                       sizes="(max-width: 1024px) 100vw, 42vw"
@@ -144,7 +144,7 @@ export default function CareersPage() {
                         LIFE AT TAXMETRYX
                       </div>
                       <div className="font-editorial text-base sm:text-lg">
-                        DIFC Gate Precinct • Al Sa&apos;ada Tower
+                        Dubai, UAE
                       </div>
                     </div>
                   </div>
@@ -284,7 +284,7 @@ export default function CareersPage() {
             <div className="max-w-4xl mb-12 space-y-3">
               <SectionLabel>CURRENT VACANCIES</SectionLabel>
               <h2 className="font-editorial text-clamp-heading text-brand-primary lg:whitespace-nowrap">
-                Open Positions in Dubai DIFC
+                Open Positions in Dubai
               </h2>
               <p className="text-xs sm:text-sm text-brand-muted max-w-2xl">
                 Select a position to view responsibilities, prerequisites, and submit your application.

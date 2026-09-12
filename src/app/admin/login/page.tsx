@@ -54,7 +54,7 @@ export default function AdminLoginPage() {
 
         <div className="flex items-center gap-2 text-xs text-white/50 border border-white/10 px-3 py-1.5">
           <ShieldCheck className="w-3.5 h-3.5 text-brand-red" />
-          <span>DIFC Executive Portal</span>
+          <span>Executive Portal</span>
         </div>
       </div>
 
@@ -137,7 +137,7 @@ export default function AdminLoginPage() {
 
       {/* Footer */}
       <div className="text-center text-xs text-white/40 font-mono">
-        © 2026 Taxmetryx Advisory Ltd. • DIFC Gate Precinct 4 • Encrypted Access
+        © 2026 Taxmetryx Advisory Ltd. • Dubai, UAE • Encrypted Access
       </div>
     </div>
   );

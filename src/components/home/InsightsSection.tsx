@@ -71,8 +71,8 @@ export default function InsightsSection() {
                     className="insights-visual-slide"
                   >
                     <Image
-                      src={hoveredInsight?.image || "/images/insights-reference.webp"}
-                      alt={hoveredInsight?.title || "Sculptural concrete architecture"}
+                      src={hoveredInsight?.image || featured?.image || "/images/insights-reference.webp"}
+                      alt={hoveredInsight?.title || featured?.title || "Taxmetryx insights"}
                       fill
                       className="insights-visual-img"
                       sizes="(max-width: 900px) 100vw, 60vw"

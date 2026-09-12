@@ -96,7 +96,7 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
                   {insight.author.name}
                 </div>
                 <div className="text-xs text-brand-muted">
-                  {insight.author.role} • Taxmetryx DIFC
+                  {insight.author.role} • Taxmetryx
                 </div>
               </div>
             </div>
@@ -154,10 +154,9 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
               )}
 
               {/* Editorial Sections */}
-              <FadeIn direction="up" delay={0.15}>
-                <div className="space-y-12 bg-white p-8 sm:p-12 border border-[#E7E5E1]">
+              <div className="space-y-12 bg-white p-8 sm:p-12 border border-[#E7E5E1]">
                   {insight.sections.map((section, idx) => (
-                    <div key={idx} id={`section-${idx}`} className="space-y-4">
+                    <div key={idx} id={`section-${idx}`} className="space-y-4 scroll-mt-32">
                       <h2 className="font-editorial text-2xl sm:text-3xl text-brand-primary border-b border-[#E7E5E1] pb-3">
                         {section.heading}
                       </h2>
@@ -168,8 +167,22 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
                       </div>
                     </div>
                   ))}
+              </div>
+
+              {insight.sourceLinks && insight.sourceLinks.length > 0 && (
+                <div className="p-6 sm:p-8 bg-white border border-[#E7E5E1] space-y-4">
+                  <h2 className="font-editorial text-2xl text-brand-primary">Sources from the article</h2>
+                  <ul className="space-y-3 text-sm">
+                    {insight.sourceLinks.map((source) => (
+                      <li key={source.url}>
+                        <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-brand-red underline underline-offset-4 break-words">
+                          {source.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </FadeIn>
+              )}
 
               {/* Author Bio Box */}
               <FadeIn direction="up">
@@ -237,7 +250,7 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
                   Facing a similar compliance or controversy matter?
                 </h3>
                 <p className="text-xs text-white/70 leading-relaxed">
-                  Our DIFC practice conducts rapid diagnostic reviews to determine corporate tax and transfer pricing exposure.
+                  Our practice conducts rapid diagnostic reviews to determine corporate tax and transfer pricing exposure.
                 </p>
                 <CTAButton href="/contact" variant="primary" size="sm" icon className="w-full justify-center">
                   Request Technical Review

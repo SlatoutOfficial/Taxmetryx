@@ -96,7 +96,7 @@ export default function AdminDashboardPage() {
             Advisory Operations Centre
           </h1>
           <p className="text-xs text-white/60">
-            DIFC Gate Precinct 4 • Commercial License DIFC-CL-89240
+            Dubai, UAE • Commercial License-CL-89240
           </p>
         </div>
 
@@ -180,7 +180,7 @@ export default function AdminDashboardPage() {
 
         <div className="p-6 bg-white/5 border border-white/10 space-y-2">
           <div className="flex items-center justify-between text-xs text-white/50">
-            <span className="uppercase tracking-wider">DIFC Vacancies</span>
+            <span className="uppercase tracking-wider">Vacancies</span>
             <Briefcase className="w-4 h-4 text-brand-red" />
           </div>
           <div className="font-editorial text-4xl text-white">
@@ -304,10 +304,10 @@ export default function AdminDashboardPage() {
             <ArrowUpRight className="w-4 h-4 text-brand-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </div>
           <div className="font-editorial text-lg text-white group-hover:text-brand-red transition-colors">
-            Firm & DIFC Settings
+            Firm & Settings
           </div>
           <p className="text-xs text-white/50">
-            Update telephone hotline, license ID, and DIFC registered addresses.
+            Update telephone hotline, license ID, and registered addresses.
           </p>
         </Link>
       </div>

@@ -8,7 +8,7 @@ import { FadeIn, ScaleIn, StaggerContainer, StaggerItem } from "@/components/sha
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Taxmetryx Advisory Ltd.",
-  description: "DIFC Data Protection Law No. 5 of 2020 privacy policy for Taxmetryx Advisory Ltd.",
+  description: "Privacy policy for Taxmetryx Advisory Ltd.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
                 Privacy Policy
               </h1>
               <p className="text-xs font-mono text-brand-muted">
-                Last Updated: August 2026 • Governed under DIFC Data Protection Law No. 5 of 2020
+                Last Updated: August 2026
               </p>
             </FadeIn>
             <ScaleIn delay={0.1} className="lg:col-span-4 relative aspect-[16/9] overflow-hidden border border-[#E7E5E1] bg-brand-dark hidden sm:block">
@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
               />
               <div className="absolute inset-0 bg-black/30" />
               <div className="absolute bottom-2 left-3 text-[10px] font-mono text-white/80 uppercase">
-                DIFC Commissioner of Data Protection
+                Data Protection
               </div>
             </ScaleIn>
           </div>
@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
             <StaggerItem className="space-y-3">
               <h2 className="font-editorial text-2xl text-brand-primary">1. Overview & Data Controller</h2>
               <p>
-                Taxmetryx Advisory Ltd. (&ldquo;Taxmetryx&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) operates as a registered corporate and tax advisory firm within the Dubai International Financial Centre (DIFC), registered under Commercial License No. DIFC-CL-89240. We are committed to safeguarding personal data in accordance with DIFC Data Protection Law No. 5 of 2020 and global privacy benchmarks.
+                Taxmetryx Advisory Ltd. (&ldquo;Taxmetryx&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) provides corporate and tax advisory services. We are committed to safeguarding personal data.
               </p>
             </StaggerItem>
 
@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
             <StaggerItem className="space-y-3">
               <h2 className="font-editorial text-2xl text-brand-primary">4. Data Confidentiality & Cross-Border Transfers</h2>
               <p>
-                Client data is strictly protected under DIFC professional legal privilege. We do not sell or monetize personal information. Data shared with foreign associate tax counsel for multi-jurisdictional treaty matters is governed by standard contractual data transfer clauses approved by the DIFC Commissioner of Data Protection.
+                We treat client data as confidential. We do not sell or monetize personal information. 
               </p>
             </StaggerItem>
 
@@ -86,7 +86,7 @@ export default function PrivacyPolicyPage() {
                 <br />
                 <strong>Data Protection Office</strong>
                 <br />
-                Taxmetryx Advisory Ltd. • Level 14, Al Sa&apos;ada Tower, DIFC, PO Box 507211, Dubai, UAE
+                Taxmetryx Advisory Ltd. • Sultan Business Centre, Oud Metha, Dubai, UAE
                 <br />
                 Email: <span className="text-brand-red">dpo@taxmetryx.com</span>
               </p>

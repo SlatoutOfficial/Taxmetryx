@@ -4,7 +4,7 @@
     "slug": "financial-services",
     "number": "01",
     "name": "Financial Services & Asset Management",
-    "shortDescription": "Navigating banking, private equity, hedge funds, sovereign wealth managers, and DIFC/ADGM regulated capital market vehicles.",
+    "shortDescription": "Navigating banking, private equity, hedge funds, sovereign wealth managers, and UAE regulated capital market vehicles.",
     "description": "Financial institutions face intricate tax interactions under UAE Corporate Tax and VAT. From qualifying investment fund exemptions under Article 10 to financial services input tax recovery apportionment methods, Taxmetryx designs resilient fiscal structures for banks, private equity managers, and credit funds.",
     "challenges": [
       "Securing Qualifying Investment Fund (QIF) corporate tax exemption",
@@ -133,7 +133,7 @@
     "shortDescription": "Cross-generational wealth succession, UAE Foundation structuring, unincorporated partnership rules, and private wealth governance.",
     "description": "Family business conglomerates contribute over 60% of regional GDP. With the arrival of corporate tax and international reporting transparency (CRS/FATCA), family enterprises must delineate personal investment assets from commercial operating companies to insulate family wealth.",
     "challenges": [
-      "DIFC and ADGM Foundation corporate tax status elections",
+      "UAE Foundation corporate tax status elections",
       "Connected Person remuneration rules for family board members",
       "Multi-jurisdictional inheritance and estate tax exposure for overseas assets"
     ],

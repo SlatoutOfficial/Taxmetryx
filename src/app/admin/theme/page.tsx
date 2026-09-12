@@ -495,7 +495,7 @@ export default function AdminTypographyPage() {
             style={{ fontFamily: `"${config.fontBody}", sans-serif` }}
             className="text-sm sm:text-base text-[#53606a] leading-relaxed max-w-3xl"
           >
-            Taxmetryx is a premier UAE-based specialist corporate tax and transfer pricing advisory firm operating from DIFC Dubai. We deliver defensible, commercially grounded solutions across Corporate Tax, Transfer Pricing policies, Qualifying Free Zone Person assessments, and FTA controversy management.
+            Taxmetryx is a premier UAE-based specialist corporate tax and transfer pricing advisory firm operating from Dubai. We deliver defensible, commercially grounded solutions across Corporate Tax, Transfer Pricing policies, Qualifying Free Zone Person assessments, and FTA controversy management.
           </p>
         </div>
 

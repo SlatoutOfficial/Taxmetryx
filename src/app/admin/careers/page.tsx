@@ -13,7 +13,7 @@ export default function AdminCareersPage() {
   const [newJob, setNewJob] = useState<Partial<JobOpening>>({
     title: "",
     department: "Transfer Pricing",
-    location: "Dubai (DIFC), UAE",
+    location: "Dubai, UAE",
     type: "Full-Time",
     experience: "5-8 Years",
     overview: "",
@@ -70,7 +70,7 @@ export default function AdminCareersPage() {
             TALENT & RECRUITMENT
           </span>
           <h1 className="font-editorial text-3xl sm:text-4xl text-white mt-1">
-            DIFC Advisory Vacancies
+            Advisory Vacancies
           </h1>
           <p className="text-xs text-white/60">
             Publish, edit, and manage career positions stored in MySQL.
@@ -124,7 +124,7 @@ export default function AdminCareersPage() {
           <div className="bg-[#0B1A24] border border-white/20 max-w-xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative my-8 text-white">
             <div className="flex items-center justify-between pb-4 border-b border-white/10">
               <h3 className="font-editorial text-2xl text-white">
-                Create DIFC Vacancy in MySQL
+                Create Vacancy in MySQL
               </h3>
               <button onClick={() => setIsModalOpen(false)} className="text-white/60">
                 Cancel
