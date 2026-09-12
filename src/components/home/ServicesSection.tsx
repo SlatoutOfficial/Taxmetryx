@@ -16,17 +16,6 @@ export default function ServicesSection() {
       className="reference-section reference-services relative overflow-hidden py-14 lg:py-20"
     >
       <Container>
-        {/* Section Tag Above All */}
-        <div className="flex justify-start mb-8 lg:mb-12">
-          <FadeIn distance={15}>
-            <div className="flex items-center gap-2.5">
-              <span className="text-[11px] font-mono tracking-[0.22em] text-[#53606a] uppercase">
-                OUR SERVICES
-              </span>
-            </div>
-          </FadeIn>
-        </div>
-
         {/* Main Grid: Left Intro + Right Radial Orbit */}
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[330px_1fr] gap-6 xl:gap-10 items-center">
           <div className="services-intro relative z-10">
