@@ -67,11 +67,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 />
               </section>}
 
-              {service.typicalOutputs && <section className="relative mt-10 overflow-hidden bg-[#111b23] p-7 sm:p-9">
+              {/* {service.typicalOutputs && <section className="relative mt-10 overflow-hidden bg-[#111b23] p-7 sm:p-9">
                 <div className="absolute left-0 top-0 h-full w-1 bg-[#e00019]" />
                 <div className="flex items-center gap-3"><FileCheck2 className="h-5 w-5 text-[#fca5a5]" aria-hidden="true" /><h2 className="text-white service-card-heading"><ServiceHeadingText text="Typical outputs" /></h2></div>
                 <p className="mt-5 text-sm leading-8 text-white/80">{service.typicalOutputs}</p>
-              </section>}
+              </section>} */}
             </div>
           </div>
         </Container>
