@@ -185,15 +185,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       {/* Main Workspace Layout: Fixed Viewport */}
       <div className="flex-1 flex min-h-0 overflow-hidden relative">
-        {/* Sidebar: Fixed, pinned, independent scrolling, no gap */}
+        {/* Sidebar: Fixed, pinned at bottom, independent scrolling navigation */}
         <aside
           className={cn(
-            "w-64 shrink-0 bg-[#050D12] border-r border-white/10 flex flex-col p-4 gap-6 overflow-y-auto scrollbar-thin transition-transform duration-200 z-30",
+            "w-64 shrink-0 bg-[#050D12] border-r border-white/10 flex flex-col justify-between overflow-hidden transition-transform duration-200 z-30",
             "fixed inset-y-16 left-0 lg:static lg:inset-auto lg:h-full",
             mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           )}
         >
-          <div className="space-y-6">
+          {/* Scrollable Navigation Items */}
+          <div className="flex-1 min-h-0 overflow-y-auto scrollbar-thin p-4 space-y-6">
             {navGroups.map((group) => (
               <div key={group.label} className="space-y-1.5">
                 <div className="text-[11px] font-mono font-medium text-white/40 uppercase tracking-wider px-3">
@@ -230,17 +231,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             ))}
           </div>
 
-          {/* User Session Footer (sits neatly below nav without giant empty gap) */}
-          <div className="p-3 border border-white/10 bg-[#09151C] rounded-sm space-y-1 mt-2">
-            <div className="text-[10px] font-mono text-[#eb0045] font-semibold flex items-center gap-1.5">
-              <Shield className="w-3 h-3" />
-              <span>Signed In As</span>
-            </div>
-            <div className="text-xs font-semibold text-white truncate">
-              Senior Managing Partner
-            </div>
-            <div className="text-[11px] text-white/50 font-mono truncate">
-              admin@taxmetryx.com
+          {/* User Session Footer: Fixed at sidebar bottom */}
+          <div className="shrink-0 p-4 border-t border-white/10 bg-[#050D12]">
+            <div className="p-3 border border-white/10 bg-[#09151C] rounded-sm space-y-1">
+              <div className="text-[10px] font-mono text-[#eb0045] font-semibold flex items-center gap-1.5">
+                <Shield className="w-3 h-3" />
+                <span>Signed In As</span>
+              </div>
+              <div className="text-xs font-semibold text-white truncate">
+                Senior Managing Partner
+              </div>
+              <div className="text-[11px] text-white/50 font-mono truncate">
+                admin@taxmetryx.com
+              </div>
             </div>
           </div>
         </aside>
