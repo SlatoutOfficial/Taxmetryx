@@ -1,0 +1,157 @@
+// Taxmetryx Prisma Schema
+// Designed for PostgreSQL on Supabase with Direct Connection Support
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model AdminUser {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  name         String
+  passwordHash String   @map("password_hash")
+  role         String   @default("admin")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("admin_users")
+}
+
+model Service {
+  id                   Int      @id @default(autoincrement())
+  slug                 String   @unique
+  number               String
+  title                String
+  eyebrow              String?
+  shortDescription     String?  @map("short_description")
+  description          String?
+  heroStatement        String?  @map("hero_statement")
+  servicesJson         String?  @map("services_json")
+  capabilitiesJson     String?  @map("capabilities_json")
+  approachJson         String?  @map("approach_json")
+  whyItMattersJson     String?  @map("why_it_matters_json")
+  deliverablesJson     String?  @map("deliverables_json")
+  frameworksJson       String?  @map("frameworks_json")
+  icon                 String?
+  statsJson            String?  @map("stats_json")
+  relatedSlugsJson     String?  @map("related_slugs_json")
+  updatedAt            DateTime @updatedAt @map("updated_at")
+
+  @@map("services")
+}
+
+model Insight {
+  id                  Int      @id @default(autoincrement())
+  slug                String   @unique
+  title               String
+  category            String
+  publishedAt         String?  @map("published_at")
+  readTime            String?  @map("read_time")
+  day                 String?
+  monthYear           String?  @map("month_year")
+  featured            Boolean  @default(false)
+  leadText            String?  @map("lead_text")
+  excerpt             String?
+  image               String?
+  authorJson          String?  @map("author_json")
+  tableOfContentsJson String?  @map("table_of_contents_json")
+  keyTakeawaysJson    String?  @map("key_takeaways_json")
+  sectionsJson        String?  @map("sections_json")
+  tagsJson            String?  @map("tags_json")
+  relatedSlugsJson    String?  @map("related_slugs_json")
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  @@map("insights")
+}
+
+model Industry {
+  id                  Int      @id @default(autoincrement())
+  slug                String   @unique
+  number              String
+  name                String
+  shortDescription    String?  @map("short_description")
+  description         String?
+  challengesJson      String?  @map("challenges_json")
+  advisoryFocusJson   String?  @map("advisory_focus_json")
+  relatedServicesJson String?  @map("related_services_json")
+  statsJson           String?  @map("stats_json")
+  image               String?
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  @@map("industries")
+}
+
+model Career {
+  id                   String   @id
+  title                String
+  department           String
+  location             String
+  type                 String
+  experience           String?
+  overview             String?
+  responsibilitiesJson String?  @map("responsibilities_json")
+  requirementsJson     String?  @map("requirements_json")
+  postedDate           String?  @map("posted_date")
+  status               String   @default("ACTIVE")
+  updatedAt            DateTime @updatedAt @map("updated_at")
+
+  @@map("careers")
+}
+
+model CareerApplication {
+  id             String   @id @default(uuid())
+  jobId          String   @map("job_id")
+  jobTitle       String   @map("job_title")
+  fullName       String   @map("full_name")
+  email          String
+  phone          String
+  linkedin       String?
+  coverLetter    String?  @map("cover_letter")
+  resumeUrl      String?  @map("resume_url")
+  resumeFilename String?  @map("resume_filename")
+  status         String   @default("NEW")
+  submittedAt    DateTime @default(now()) @map("submitted_at")
+
+  @@map("career_applications")
+}
+
+model ContactSubmission {
+  id             String   @id @default(uuid())
+  name           String
+  company        String
+  email          String
+  phone          String?
+  areaOfInterest String?  @map("area_of_interest")
+  message        String?
+  status         String   @default("NEW")
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  @@map("contact_submissions")
+}
+
+model SiteConfig {
+  key       String   @id
+  valueJson String   @map("value_json")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("site_config")
+}
+
+model FileUpload {
+  id              String   @id @default(uuid())
+  originalName    String   @map("original_name")
+  fileName        String   @map("file_name")
+  mimeType        String   @map("mime_type")
+  size            Int
+  storageProvider String   @map("storage_provider") // "supabase" | "local"
+  url             String
+  path            String?
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@map("file_uploads")
+}

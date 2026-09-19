@@ -28,7 +28,9 @@ export const careerApplicationSchema = z.object({
   email: z.string().email("Valid email required"),
   phone: z.string().min(6, "Valid phone number required"),
   linkedin: z.string().url("Please provide a valid LinkedIn URL").optional().or(z.literal("")),
-  coverLetter: z.string().max(3000).optional()
+  coverLetter: z.string().max(3000).optional(),
+  resumeUrl: z.string().optional().or(z.literal("")),
+  resumeFilename: z.string().optional().or(z.literal("")),
 });
 
 export type CareerApplicationFormData = z.infer<typeof careerApplicationSchema>;

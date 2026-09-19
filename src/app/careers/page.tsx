@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,21 +20,100 @@ import {
   StaggerItem,
 } from "@/components/shared/ScrollMotion";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Briefcase, Clock, Check, X, ArrowUpRight, Award, GraduationCap, Users } from "lucide-react";
+import {
+  MapPin,
+  Briefcase,
+  Clock,
+  Check,
+  X,
+  ArrowUpRight,
+  Award,
+  GraduationCap,
+  Users,
+  UploadCloud,
+  FileCheck,
+  Trash2,
+  Loader2,
+} from "lucide-react";
 
 export default function CareersPage() {
-  const careers = getCareers();
+  const [careers, setCareers] = useState(getCareers());
   const [selectedJob, setSelectedJob] = useState<JobOpening | null>(null);
+
+  useEffect(() => {
+    fetch("/api/careers")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.data) {
+          setCareers(data.data);
+        }
+      })
+      .catch(() => {});
+  }, []);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isUploadingResume, setIsUploadingResume] = useState(false);
+  const [uploadedResume, setUploadedResume] = useState<{
+    name: string;
+    url: string;
+    size: number;
+    provider: string;
+  } | null>(null);
 
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<CareerApplicationFormData>({
     resolver: zodResolver(careerApplicationSchema),
   });
+
+  const handleResumeChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (file.size > 15 * 1024 * 1024) {
+      toast.error("File exceeds 15MB limit.");
+      return;
+    }
+
+    setIsUploadingResume(true);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("subfolder", "resumes");
+
+    try {
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setUploadedResume({
+          name: file.name,
+          url: data.data.url,
+          size: file.size,
+          provider: data.data.provider,
+        });
+        setValue("resumeUrl", data.data.url);
+        setValue("resumeFilename", file.name);
+        toast.success(`CV uploaded via ${data.data.provider === "supabase" ? "Supabase Bucket" : "Secure Local Storage"}`);
+      } else {
+        toast.error(data.message || "Failed to upload CV");
+      }
+    } catch {
+      toast.error("Network error while uploading CV.");
+    } finally {
+      setIsUploadingResume(false);
+    }
+  };
+
+  const removeResume = () => {
+    setUploadedResume(null);
+    setValue("resumeUrl", "");
+    setValue("resumeFilename", "");
+  };
 
   const onSubmit = async (data: CareerApplicationFormData) => {
     setIsSubmitting(true);
@@ -52,6 +131,7 @@ export default function CareersPage() {
           "Your application has been received by Taxmetryx Talent Advisory. We review profiles within 5 business days."
         );
         setSelectedJob(null);
+        setUploadedResume(null);
         reset();
       } else {
         toast.error(resData.message || "Failed to submit application.");
@@ -476,6 +556,64 @@ export default function CareersPage() {
                     <span className="text-[10px] text-brand-red block">
                       {errors.linkedin.message}
                     </span>
+                  )}
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold uppercase text-brand-charcoal block">
+                    Curriculum Vitae / Resume
+                  </label>
+                  {uploadedResume ? (
+                    <div className="flex items-center justify-between p-3 bg-white border border-[#E7E5E1] shadow-xs">
+                      <div className="flex items-center gap-2.5 overflow-hidden">
+                        <FileCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <div className="min-w-0">
+                          <p className="text-xs font-medium text-brand-primary truncate max-w-[220px]">
+                            {uploadedResume.name}
+                          </p>
+                          <p className="text-[10px] text-brand-muted">
+                            {(uploadedResume.size / 1024).toFixed(0)} KB •{" "}
+                            <span className="text-brand-charcoal font-medium">
+                              {uploadedResume.provider === "supabase" ? "Supabase Bucket" : "Local Secure Storage"}
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={removeResume}
+                        className="text-brand-muted hover:text-brand-red p-1.5 cursor-pointer transition-colors"
+                        title="Remove uploaded CV"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  ) : (
+                    <label className="flex flex-col items-center justify-center p-4 border border-dashed border-[#CCD0D5] hover:border-brand-red bg-[#F8F7F4] hover:bg-white cursor-pointer transition-all group">
+                      {isUploadingResume ? (
+                        <div className="flex items-center gap-2 text-xs text-brand-primary">
+                          <Loader2 className="w-4 h-4 animate-spin text-brand-red" />
+                          <span>Uploading to storage...</span>
+                        </div>
+                      ) : (
+                        <div className="flex flex-col items-center gap-1 text-center">
+                          <div className="flex items-center gap-1.5 text-xs text-brand-charcoal font-medium">
+                            <UploadCloud className="w-4 h-4 text-brand-red transition-transform group-hover:-translate-y-0.5" />
+                            <span>Upload CV / Resume</span>
+                          </div>
+                          <span className="text-brand-muted text-[10px]">
+                            PDF, DOC, DOCX up to 15MB • Auto-syncs to Supabase / Local
+                          </span>
+                        </div>
+                      )}
+                      <input
+                        type="file"
+                        accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                        onChange={handleResumeChange}
+                        disabled={isUploadingResume}
+                        className="hidden"
+                      />
+                    </label>
                   )}
                 </div>
 

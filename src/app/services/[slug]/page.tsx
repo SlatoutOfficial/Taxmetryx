@@ -8,7 +8,8 @@ import Container from "@/components/shared/Container";
 import CTAButton from "@/components/shared/CTAButton";
 import ServiceHero from "@/components/services/ServiceHero";
 import ServiceAreasAccordion from "@/components/services/ServiceAreasAccordion";
-import { getServices, getServiceBySlug } from "@/lib/json";
+import { getServices } from "@/lib/json";
+import { getServiceBySlug } from "@/lib/data-repository";
 import { getServiceTheme } from "@/lib/serviceTheme";
 
 interface ServicePageProps { params: Promise<{ slug: string }> }
@@ -20,17 +21,18 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const service = await getServiceBySlug(slug);
   if (!service) return { title: "Service Not Found" };
   return { title: `${service.title} | Taxmetryx Global`, description: service.shortDescription };
 }
 
 export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const service = await getServiceBySlug(slug);
   if (!service) notFound();
   const theme = getServiceTheme(service.slug);
-  const relatedServices = (service.relatedSlugs || []).map(getServiceBySlug).filter(service => service !== undefined);
+  const relatedResults = await Promise.all((service.relatedSlugs || []).map(getServiceBySlug));
+  const relatedServices = relatedResults.filter((s): s is NonNullable<typeof s> => Boolean(s));
 
   return (
     <div className="service-page bg-white text-[#17232c]">

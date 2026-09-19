@@ -1,12 +1,11 @@
 import { NextRequest } from "next/server";
-import { getCareers } from "@/lib/json";
+import { getCareers, saveCareerApplication } from "@/lib/data-repository";
 import { careerApplicationSchema } from "@/lib/validations";
 import { successResponse, errorResponse } from "@/lib/api-response";
-import crypto from "crypto";
 
 export async function GET() {
   try {
-    const careers = getCareers();
+    const careers = await getCareers();
     return successResponse(careers, "Careers data retrieved successfully");
   } catch (error) {
     return errorResponse(
@@ -31,14 +30,10 @@ export async function POST(request: NextRequest) {
       return errorResponse("Validation failed", 422, formattedErrors);
     }
 
-    const application = {
-      id: crypto.randomUUID(),
-      ...result.data,
-      submittedAt: new Date().toISOString(),
-    };
+    const saved = await saveCareerApplication(result.data);
 
     return successResponse(
-      application,
+      { id: saved.id, ...result.data, dbSaved: saved.dbSaved },
       "Your application has been received by Taxmetryx Talent Advisory. We review profiles within 5 business days."
     );
   } catch (error) {

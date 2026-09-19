@@ -5,10 +5,9 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Container from "@/components/shared/Container";
 import SectionLabel from "@/components/shared/SectionLabel";
-import Breadcrumb from "@/components/shared/Breadcrumb";
 import CTAButton from "@/components/shared/CTAButton";
-import { getInsights, getInsightBySlug } from "@/lib/json";
-import { ArrowUpRight, Clock, User, CheckCircle2, Share2, ArrowLeft, Bookmark } from "lucide-react";
+import { getInsights, getInsightBySlug } from "@/lib/data-repository";
+import { ArrowUpRight, Clock, CheckCircle2, ArrowLeft, Bookmark } from "lucide-react";
 import { FadeIn, ScaleIn, StaggerContainer, StaggerItem } from "@/components/shared/ScrollMotion";
 
 interface InsightPageProps {
@@ -16,7 +15,7 @@ interface InsightPageProps {
 }
 
 export async function generateStaticParams() {
-  const insights = getInsights();
+  const insights = await getInsights();
   return insights.map((insight) => ({
     slug: insight.slug,
   }));
@@ -24,7 +23,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: InsightPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const insight = getInsightBySlug(slug);
+  const insight = await getInsightBySlug(slug);
 
   if (!insight) {
     return { title: "Publication Not Found" };
@@ -53,13 +52,13 @@ export async function generateMetadata({ params }: InsightPageProps): Promise<Me
 
 export default async function InsightDetailPage({ params }: InsightPageProps) {
   const { slug } = await params;
-  const insight = getInsightBySlug(slug);
+  const insight = await getInsightBySlug(slug);
 
   if (!insight) {
     notFound();
   }
 
-  const allInsights = getInsights();
+  const allInsights = await getInsights();
   const related = allInsights
     .filter((i) => i.slug !== insight.slug)
     .slice(0, 3);

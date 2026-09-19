@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { getServices, getServiceBySlug } from "@/lib/json";
+import { getServices, getServiceBySlug } from "@/lib/data-repository";
 import { successResponse, errorResponse } from "@/lib/api-response";
 
 export async function GET(request: NextRequest) {
@@ -8,14 +8,14 @@ export async function GET(request: NextRequest) {
     const slug = searchParams.get("slug");
 
     if (slug) {
-      const service = getServiceBySlug(slug);
+      const service = await getServiceBySlug(slug);
       if (!service) {
         return errorResponse("Service not found", 404);
       }
       return successResponse(service, "Service retrieved successfully");
     }
 
-    const services = getServices();
+    const services = await getServices();
     return successResponse(services, "Services retrieved successfully");
   } catch (error) {
     return errorResponse(

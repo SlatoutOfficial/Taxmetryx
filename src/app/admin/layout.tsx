@@ -39,19 +39,22 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     checking: true,
   });
 
-  // Skip admin layout styling on /admin/login
-  if (pathname === "/admin/login") {
-    return <>{children}</>;
-  }
+  const isLoginPage = pathname === "/admin/login";
 
   useEffect(() => {
+    if (isLoginPage) return;
     fetch("/api/admin/seed")
       .then((res) => res.json())
       .then((data) => {
         setDbStatus({ isOnline: Boolean(data?.data?.isOnline), checking: false });
       })
       .catch(() => setDbStatus({ isOnline: false, checking: false }));
-  }, []);
+  }, [isLoginPage]);
+
+  // Skip admin layout styling on /admin/login
+  if (isLoginPage) {
+    return <>{children}</>;
+  }
 
   const handleLogout = async () => {
     try {

@@ -1,9 +1,7 @@
 import { NextRequest } from "next/server";
 import { contactSchema } from "@/lib/validations";
 import { successResponse, errorResponse } from "@/lib/api-response";
-import fs from "fs/promises";
-import path from "path";
-import crypto from "crypto";
+import { saveContactSubmission } from "@/lib/data-repository";
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,32 +18,10 @@ export async function POST(request: NextRequest) {
       return errorResponse("Validation failed", 422, formattedErrors);
     }
 
-    const submissionData = {
-      id: crypto.randomUUID(),
-      ...result.data,
-      createdAt: new Date().toISOString(),
-    };
-
-    // Store in JSON file (for local/server environment)
-    const filePath = path.join(process.cwd(), "src", "data", "contact-submissions.json");
-    try {
-      let existingSubmissions: unknown[] = [];
-      try {
-        const fileContent = await fs.readFile(filePath, "utf-8");
-        existingSubmissions = JSON.parse(fileContent || "[]");
-      } catch {
-        existingSubmissions = [];
-      }
-
-      existingSubmissions.push(submissionData);
-      await fs.writeFile(filePath, JSON.stringify(existingSubmissions, null, 2), "utf-8");
-    } catch (fsError) {
-      console.warn("Notice: File system write failed (expected on serverless environments):", fsError);
-      // Even on read-only serverless, we acknowledge submission success for demo/API contracts
-    }
+    const saved = await saveContactSubmission(result.data);
 
     return successResponse(
-      { id: submissionData.id, name: submissionData.name, email: submissionData.email },
+      { id: saved.id, name: result.data.name, email: result.data.email, persistedToDb: saved.dbSaved },
       "Thank you. Your advisory inquiry has been received. A Taxmetryx specialist will contact you shortly."
     );
   } catch (error) {
