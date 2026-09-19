@@ -14,11 +14,13 @@ import {
   X,
   Sparkles,
   Clock,
-  User,
-  Eye,
+  Code2,
+  FileCode,
+  Check,
 } from "lucide-react";
 import { getInsights } from "@/lib/json";
 import { Insight } from "@/types/insight";
+import { convertHtmlToMarkdown } from "@/lib/turndown";
 
 export default function AdminInsightsPage() {
   const [insights, setInsights] = useState<Insight[]>(getInsights());
@@ -26,6 +28,10 @@ export default function AdminInsightsPage() {
   const [isSaving, setIsSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("ALL");
+  const [markdownContent, setMarkdownContent] = useState("");
+  const [htmlToConvert, setHtmlToConvert] = useState("");
+  const [showHtmlImport, setShowHtmlImport] = useState(false);
+
   const [currentInsight, setCurrentInsight] = useState<Partial<Insight>>({
     title: "",
     slug: "",
@@ -72,6 +78,23 @@ export default function AdminInsightsPage() {
     });
   }, [insights, selectedCategory, searchQuery]);
 
+  const handleConvertHtml = () => {
+    if (!htmlToConvert.trim()) {
+      toast.error("Please paste HTML content to convert.");
+      return;
+    }
+
+    try {
+      const result = convertHtmlToMarkdown(htmlToConvert);
+      setMarkdownContent(result);
+      setHtmlToConvert("");
+      setShowHtmlImport(false);
+      toast.success("HTML successfully converted to GitHub-Flavored Markdown (Turndown)!");
+    } catch {
+      toast.error("Failed to convert HTML to markdown.");
+    }
+  };
+
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!currentInsight.title || !currentInsight.slug) {
@@ -82,10 +105,15 @@ export default function AdminInsightsPage() {
     setIsSaving(true);
     try {
       const isExisting = insights.some((i) => i.slug === currentInsight.slug);
+      const payload = {
+        ...currentInsight,
+        markdown: markdownContent,
+      };
+
       const res = await fetch("/api/admin/insights", {
         method: isExisting ? "PUT" : "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(currentInsight),
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json();
@@ -132,6 +160,10 @@ export default function AdminInsightsPage() {
 
   const openEdit = (article: Insight) => {
     setCurrentInsight({ ...article });
+    const existingMarkdown =
+      article.sections?.map((s) => `## ${s.heading}\n\n${s.content?.join("\n\n")}`).join("\n\n\n") || "";
+    setMarkdownContent(existingMarkdown);
+    setShowHtmlImport(false);
     setIsModalOpen(true);
   };
 
@@ -145,9 +177,13 @@ export default function AdminInsightsPage() {
       excerpt: "",
       featured: false,
       author: { name: "Taxmetryx Advisory Partner", role: "Partner" },
-      keyTakeaways: ["Clear executive compliance point"],
+      keyTakeaways: ["Key statutory guideline"],
       tags: ["UAE Tax"],
     });
+    setMarkdownContent(
+      "## Introduction\n\nEnter the background context of the statutory advisory topic...\n\n## Technical Analysis\n\nDetailed analysis of corporate tax and transfer pricing implications...\n\n## Practical Recommendations\n\nActionable advisory steps for multinational groups in the UAE."
+    );
+    setShowHtmlImport(false);
     setIsModalOpen(true);
   };
 
@@ -180,7 +216,7 @@ export default function AdminInsightsPage() {
             </span>
           </div>
           <p className="text-xs sm:text-sm text-white/60 mt-1">
-            Write, edit, and organize articles and technical bulletins published on your website.
+            Write, edit, and organize articles and technical bulletins with GitHub-Flavored Markdown (Turndown).
           </p>
         </div>
 
@@ -334,17 +370,23 @@ export default function AdminInsightsPage() {
         )}
       </div>
 
-      {/* Clean Edit / Create Article Modal */}
+      {/* Edit / Create Article Modal with Markdown & Turndown GFM */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-[#0D1C26] border border-white/20 max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative my-8 text-white rounded-lg">
+          <div className="bg-[#0D1C26] border border-white/20 max-w-3xl w-full p-6 sm:p-8 space-y-5 shadow-2xl relative my-8 text-white rounded-lg">
+            {/* Modal Header */}
             <div className="flex items-center justify-between pb-4 border-b border-white/10">
               <div>
-                <h3 className="text-xl font-bold text-white">
-                  {currentInsight.slug ? "Edit Article" : "Create New Article"}
-                </h3>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-white">
+                    {currentInsight.slug ? "Edit Article" : "Create New Article"}
+                  </h3>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#eb0045]/15 text-[#eb0045] border border-[#eb0045]/30">
+                    Turndown GFM Markdown
+                  </span>
+                </div>
                 <p className="text-xs text-white/60 mt-0.5">
-                  Publish authoritative legal updates and technical commentary.
+                  Author content using GitHub Flavored Markdown or paste HTML to convert automatically.
                 </p>
               </div>
               <button
@@ -356,6 +398,7 @@ export default function AdminInsightsPage() {
             </div>
 
             <form onSubmit={handleSave} className="space-y-4 text-xs">
+              {/* Title */}
               <div className="space-y-1.5">
                 <label className="text-white/80 font-medium text-xs">
                   Article Title *
@@ -382,6 +425,7 @@ export default function AdminInsightsPage() {
                 />
               </div>
 
+              {/* Slug & Category */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <label className="text-white/80 font-medium text-xs">
@@ -423,6 +467,7 @@ export default function AdminInsightsPage() {
                 </div>
               </div>
 
+              {/* Author & Read Time */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <label className="text-white/80 font-medium text-xs">
@@ -461,21 +506,7 @@ export default function AdminInsightsPage() {
                 </div>
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-white/80 font-medium text-xs">
-                  Article Lead / Opening Statement
-                </label>
-                <textarea
-                  rows={2}
-                  value={currentInsight.lead}
-                  onChange={(e) =>
-                    setCurrentInsight({ ...currentInsight, lead: e.target.value })
-                  }
-                  placeholder="A strong opening sentence summarizing the core finding..."
-                  className="w-full px-3.5 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-md focus:outline-hidden focus:border-[#eb0045] transition-colors resize-none"
-                />
-              </div>
-
+              {/* Excerpt */}
               <div className="space-y-1.5">
                 <label className="text-white/80 font-medium text-xs">
                   Short Excerpt (Card Summary)
@@ -491,6 +522,67 @@ export default function AdminInsightsPage() {
                 />
               </div>
 
+              {/* Markdown Content & Turndown HTML Converter */}
+              <div className="space-y-2 pt-2 border-t border-white/10">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <label className="text-white/90 font-semibold text-xs flex items-center gap-1.5">
+                      <Code2 className="w-3.5 h-3.5 text-[#eb0045]" />
+                      <span>Article Body (Markdown)</span>
+                    </label>
+                    <span className="text-[10px] text-white/40 font-mono">
+                      (supports # Headings, lists, bold, tables)
+                    </span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setShowHtmlImport(!showHtmlImport)}
+                    className="text-xs text-[#eb0045] hover:underline font-medium inline-flex items-center gap-1 cursor-pointer"
+                  >
+                    <FileCode className="w-3.5 h-3.5" />
+                    <span>{showHtmlImport ? "Close HTML Converter" : "Convert HTML to Markdown (Turndown)"}</span>
+                  </button>
+                </div>
+
+                {/* HTML Import Drawer */}
+                {showHtmlImport && (
+                  <div className="p-4 bg-[#071219] border border-white/15 rounded-md space-y-2.5">
+                    <div className="text-xs text-white/80 font-medium flex items-center justify-between">
+                      <span>Paste Rich HTML (from Word, Google Docs, or CMS):</span>
+                      <span className="text-[10px] text-white/40 font-mono">Turndown v7.2.4 + GFM</span>
+                    </div>
+                    <textarea
+                      rows={4}
+                      value={htmlToConvert}
+                      onChange={(e) => setHtmlToConvert(e.target.value)}
+                      placeholder="<h3>Section Title</h3><p>Paste formatted HTML here...</p><ul><li>Point A</li></ul>"
+                      className="w-full px-3 py-2 bg-[#050D12] border border-white/10 text-white font-mono text-xs rounded-md focus:outline-hidden focus:border-[#eb0045] transition-colors resize-none"
+                    />
+                    <div className="flex justify-end">
+                      <button
+                        type="button"
+                        onClick={handleConvertHtml}
+                        className="px-3.5 py-1.5 bg-[#eb0045] hover:bg-[#c9003b] text-white text-xs font-semibold rounded-md inline-flex items-center gap-1.5 cursor-pointer shadow-sm transition-colors"
+                      >
+                        <Sparkles className="w-3 h-3" />
+                        <span>Convert to GFM Markdown</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Markdown Editor */}
+                <textarea
+                  rows={8}
+                  value={markdownContent}
+                  onChange={(e) => setMarkdownContent(e.target.value)}
+                  placeholder="## Section Heading&#10;&#10;Detailed commentary and statutory analysis...&#10;&#10;## Key Takeaways&#10;&#10;- Action point 1&#10;- Action point 2"
+                  className="w-full px-3.5 py-2.5 bg-[#071219] border border-white/15 text-white font-mono text-xs rounded-md focus:outline-hidden focus:border-[#eb0045] transition-colors resize-y leading-relaxed"
+                />
+              </div>
+
+              {/* Homepage Feature Toggle */}
               <div className="flex items-center gap-2 pt-1">
                 <input
                   type="checkbox"
@@ -506,6 +598,7 @@ export default function AdminInsightsPage() {
                 </label>
               </div>
 
+              {/* Modal Actions */}
               <div className="pt-4 flex items-center justify-end gap-3 border-t border-white/10">
                 <button
                   type="button"

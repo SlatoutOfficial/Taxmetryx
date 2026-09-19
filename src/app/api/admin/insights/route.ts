@@ -3,6 +3,7 @@ import { prisma, checkPrismaConnection } from "@/lib/prisma";
 import { getSession } from "@/lib/admin-auth";
 import { getInsights } from "@/lib/json";
 import { successResponse, errorResponse } from "@/lib/api-response";
+import { convertHtmlToMarkdown, parseMarkdownToSections } from "@/lib/turndown";
 
 export async function GET() {
   const session = await getSession();
@@ -55,6 +56,18 @@ export async function POST(request: NextRequest) {
       return errorResponse("Slug and title are required", 400);
     }
 
+    // Process HTML to Markdown using Turndown GFM if provided
+    let finalSections = data.sections || [];
+    let markdownBody = data.markdown || "";
+
+    if (data.htmlContent) {
+      markdownBody = convertHtmlToMarkdown(data.htmlContent);
+    }
+
+    if (markdownBody && (!finalSections || finalSections.length === 0)) {
+      finalSections = parseMarkdownToSections(markdownBody);
+    }
+
     // Prisma (Supabase)
     const isPrismaOnline = await checkPrismaConnection();
     if (isPrismaOnline) {
@@ -80,7 +93,7 @@ export async function POST(request: NextRequest) {
           ),
           tableOfContentsJson: JSON.stringify(data.tableOfContents || []),
           keyTakeawaysJson: JSON.stringify(data.keyTakeaways || []),
-          sectionsJson: JSON.stringify(data.sections || []),
+          sectionsJson: JSON.stringify(finalSections),
           tagsJson: JSON.stringify(data.tags || []),
           relatedSlugsJson: JSON.stringify(data.relatedSlugs || []),
         },
@@ -107,6 +120,18 @@ export async function PUT(request: NextRequest) {
       return errorResponse("Slug and title are required", 400);
     }
 
+    // Process HTML to Markdown using Turndown GFM if provided
+    let finalSections = data.sections || [];
+    let markdownBody = data.markdown || "";
+
+    if (data.htmlContent) {
+      markdownBody = convertHtmlToMarkdown(data.htmlContent);
+    }
+
+    if (markdownBody && (!finalSections || finalSections.length === 0)) {
+      finalSections = parseMarkdownToSections(markdownBody);
+    }
+
     // Prisma (Supabase)
     const isPrismaOnline = await checkPrismaConnection();
     if (isPrismaOnline) {
@@ -122,7 +147,7 @@ export async function PUT(request: NextRequest) {
           image: data.image,
           authorJson: JSON.stringify(data.author || {}),
           keyTakeawaysJson: JSON.stringify(data.keyTakeaways || []),
-          sectionsJson: JSON.stringify(data.sections || []),
+          sectionsJson: JSON.stringify(finalSections),
           tagsJson: JSON.stringify(data.tags || []),
         },
       });
