@@ -334,7 +334,7 @@ export default function NewInsightPage() {
               </div>
 
               {activeTab === "editor" && (
-                <div className="flex items-center gap-1 text-white/60 overflow-x-auto py-1">
+                <div className="flex items-center gap-1 text-white/60 overflow-x-auto scrollbar-thin py-1">
                   <button
                     onClick={() => insertMarkdown("## ", "")}
                     className="p-1.5 hover:text-white hover:bg-white/10 rounded-sm transition-colors cursor-pointer"

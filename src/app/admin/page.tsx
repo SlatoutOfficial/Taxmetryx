@@ -258,7 +258,7 @@ export default function AdminDashboardPage() {
             No inquiries received yet. Any messages sent from the contact form will appear here.
           </div>
         ) : (
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto scrollbar-thin">
             <table className="w-full text-left text-xs">
               <thead className="border-b border-white/10 text-white/50 text-[11px] font-medium bg-[#071219]">
                 <tr>

@@ -134,7 +134,7 @@ export default function AdminInquiriesPage() {
             <p className="text-white/40">Any submissions sent from the contact form will show up here.</p>
           </div>
         ) : (
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto scrollbar-thin">
             <table className="w-full text-left text-xs">
               <thead className="border-b border-white/10 text-white/50 text-[11px] font-medium bg-[#071219]">
                 <tr>

@@ -50,7 +50,7 @@ export default function AdminServicesPage() {
 
       {/* Services Table */}
       <div className="bg-[#0D1C26] border border-white/10 rounded-lg shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto scrollbar-thin">
           <table className="w-full text-left text-xs">
             <thead className="border-b border-white/10 text-white/50 text-[11px] font-semibold tracking-wider uppercase bg-[#071219]">
               <tr>

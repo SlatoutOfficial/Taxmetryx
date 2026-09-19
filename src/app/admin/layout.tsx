@@ -188,7 +188,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Sidebar: Fixed, pinned, independent scrolling, no gap */}
         <aside
           className={cn(
-            "w-64 shrink-0 bg-[#050D12] border-r border-white/10 flex flex-col p-4 gap-6 overflow-y-auto transition-transform duration-200 z-30",
+            "w-64 shrink-0 bg-[#050D12] border-r border-white/10 flex flex-col p-4 gap-6 overflow-y-auto scrollbar-thin transition-transform duration-200 z-30",
             "fixed inset-y-16 left-0 lg:static lg:inset-auto lg:h-full",
             mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           )}
@@ -246,7 +246,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </aside>
 
         {/* Content Area: Scrolls independently */}
-        <main className="flex-1 min-h-0 overflow-y-auto p-6 sm:p-10 bg-[#09151C]">
+        <main className="flex-1 min-h-0 overflow-y-auto scrollbar-thin p-6 sm:p-10 bg-[#09151C]">
           <div className="max-w-6xl mx-auto space-y-8">
             {children}
           </div>

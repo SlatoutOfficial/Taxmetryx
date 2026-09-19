@@ -393,7 +393,7 @@ export default function EditServicePage() {
       </div>
 
       {/* Tabs Navigation */}
-      <div className="flex items-center gap-1.5 bg-[#0D1C26] p-1.5 rounded-lg border border-white/10 overflow-x-auto shadow-xs">
+      <div className="flex items-center gap-1.5 bg-[#0D1C26] p-1.5 rounded-lg border border-white/10 overflow-x-auto scrollbar-thin pb-2 shadow-xs">
         <button
           onClick={() => setActiveTab("overview")}
           className={`px-3.5 py-2 text-xs font-semibold rounded-md flex items-center gap-2 transition-all cursor-pointer whitespace-nowrap ${
