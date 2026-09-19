@@ -28,6 +28,7 @@ import {
   AlertCircle,
   Boxes,
   Minus,
+  Image as ImageIcon,
 } from "lucide-react";
 import { Service, ServiceCapability, SubService } from "@/types/service";
 import { slugifySubService } from "@/lib/json";
@@ -52,6 +53,8 @@ export default function EditServicePage() {
     title: "",
     eyebrow: "",
     heroStatement: "",
+    heroImage: "",
+    contextImage: "",
     shortDescription: "",
     description: "",
     lede: "",
@@ -597,6 +600,104 @@ export default function EditServicePage() {
                 placeholder="e.g. Impact assessment; benchmarking report; Local File; Master File; pricing policy; agreement pricing schedules; disclosure workings; authority-response support."
                 className="w-full px-4 py-2.5 bg-[#071219] border border-white/15 text-white text-xs rounded-md focus:outline-hidden focus:border-[#eb0045] resize-none"
               />
+            </div>
+
+            {/* Practice Visual Assets & Media */}
+            <div className="pt-4 border-t border-white/10 space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                    <ImageIcon className="w-3.5 h-3.5 text-[#eb0045]" />
+                    <span>Practice Visual Assets & Media</span>
+                  </h4>
+                  <p className="text-[11px] text-white/50 mt-0.5">
+                    Images are stored in the database and rendered on the live service page and navigation cards.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setService({
+                      ...service,
+                      heroImage: `/images/services/${service.slug}-hero.jpg`,
+                      contextImage: `/images/services/${service.slug}-context.jpg`,
+                    })
+                  }
+                  className="px-2.5 py-1 text-[11px] bg-white/5 hover:bg-white/10 border border-white/10 text-white/70 hover:text-white rounded-md transition-colors cursor-pointer"
+                >
+                  Reset to Standard Paths
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Hero Image */}
+                <div className="p-4 bg-[#071219] border border-white/10 rounded-lg space-y-3">
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-white/90">
+                      Hero Banner Image (Header & Practice Cards)
+                    </label>
+                    <input
+                      type="text"
+                      value={service.heroImage || ""}
+                      onChange={(e) => setService({ ...service, heroImage: e.target.value })}
+                      placeholder="/images/services/transfer-pricing-hero.jpg or https://..."
+                      className="w-full px-3 py-2 bg-[#0D1C26] border border-white/15 text-white font-mono text-xs rounded-md focus:border-[#eb0045] focus:outline-hidden"
+                    />
+                  </div>
+
+                  <div className="relative aspect-video w-full rounded-md overflow-hidden bg-black/40 border border-white/10 flex items-center justify-center">
+                    {service.heroImage ? (
+                      <img
+                        src={service.heroImage}
+                        alt="Hero preview"
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          (e.target as HTMLElement).style.display = "none";
+                        }}
+                      />
+                    ) : (
+                      <span className="text-white/30 text-xs">No image specified</span>
+                    )}
+                  </div>
+                  <span className="text-[10px] text-white/40 block">
+                    Recommended resolution: 1920x1080 (16:9), under 1MB.
+                  </span>
+                </div>
+
+                {/* Context Image */}
+                <div className="p-4 bg-[#071219] border border-white/10 rounded-lg space-y-3">
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-white/90">
+                      Context Image ("When to Involve Us" Section)
+                    </label>
+                    <input
+                      type="text"
+                      value={service.contextImage || ""}
+                      onChange={(e) => setService({ ...service, contextImage: e.target.value })}
+                      placeholder="/images/services/transfer-pricing-context.jpg or https://..."
+                      className="w-full px-3 py-2 bg-[#0D1C26] border border-white/15 text-white font-mono text-xs rounded-md focus:border-[#eb0045] focus:outline-hidden"
+                    />
+                  </div>
+
+                  <div className="relative aspect-video w-full rounded-md overflow-hidden bg-black/40 border border-white/10 flex items-center justify-center">
+                    {service.contextImage ? (
+                      <img
+                        src={service.contextImage}
+                        alt="Context preview"
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          (e.target as HTMLElement).style.display = "none";
+                        }}
+                      />
+                    ) : (
+                      <span className="text-white/30 text-xs">No image specified</span>
+                    )}
+                  </div>
+                  <span className="text-[10px] text-white/40 block">
+                    Recommended resolution: 1200x800 (3:2 or 4:3), under 1MB.
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

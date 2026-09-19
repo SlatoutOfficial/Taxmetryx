@@ -46,6 +46,8 @@ model Service {
   faqsJson             String?  @map("faqs_json")
   lede                 String?
   overviewDescription  String?  @map("overview_description")
+  heroImage            String?  @map("hero_image")
+  contextImage         String?  @map("context_image")
   updatedAt            DateTime @updatedAt @map("updated_at")
 
   @@map("services")

@@ -46,6 +46,8 @@ function formatDbService(r: any, staticFallback?: Service): Service {
     shortDescription: r.shortDescription || staticFallback?.shortDescription || "",
     description: r.description || staticFallback?.description || "",
     heroStatement: r.heroStatement || staticFallback?.heroStatement || "",
+    heroImage: r.heroImage || r.hero_image || staticFallback?.heroImage || `/images/services/${r.slug}-hero.jpg`,
+    contextImage: r.contextImage || r.context_image || staticFallback?.contextImage || `/images/services/${r.slug}-context.jpg`,
     lede: r.lede || staticFallback?.lede || "",
     overviewDescription: r.overviewDescription || staticFallback?.overviewDescription || "",
     whenToInvolve,

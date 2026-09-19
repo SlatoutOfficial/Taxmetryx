@@ -28,6 +28,8 @@ export interface Service {
   shortDescription: string;
   description: string;
   heroStatement: string;
+  heroImage?: string;
+  contextImage?: string;
   lede?: string;
   overviewDescription?: string;
   whenToInvolve?: string[];

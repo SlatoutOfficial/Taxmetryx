@@ -77,6 +77,8 @@ export async function GET(request: NextRequest) {
             shortDescription: r.shortDescription || fallback?.shortDescription || "",
             description: r.description || fallback?.description || "",
             heroStatement: r.heroStatement || fallback?.heroStatement || "",
+            heroImage: r.heroImage || r.hero_image || fallback?.heroImage || `/images/services/${r.slug}-hero.jpg`,
+            contextImage: r.contextImage || r.context_image || fallback?.contextImage || `/images/services/${r.slug}-context.jpg`,
             lede: r.lede || fallback?.lede || "",
             overviewDescription: r.overviewDescription || fallback?.overviewDescription || "",
             whenToInvolve,
@@ -113,6 +115,8 @@ export async function GET(request: NextRequest) {
             shortDescription: r.shortDescription || fallback?.shortDescription || "",
             description: r.description || fallback?.description || "",
             heroStatement: r.heroStatement || fallback?.heroStatement || "",
+            heroImage: r.heroImage || r.hero_image || fallback?.heroImage || `/images/services/${r.slug}-hero.jpg`,
+            contextImage: r.contextImage || r.context_image || fallback?.contextImage || `/images/services/${r.slug}-context.jpg`,
             lede: r.lede || fallback?.lede || "",
             overviewDescription: r.overviewDescription || fallback?.overviewDescription || "",
             whenToInvolve,
@@ -206,6 +210,8 @@ export async function PUT(request: NextRequest) {
             faqsJson: data.faqs ? JSON.stringify(data.faqs) : undefined,
             lede: data.lede,
             overviewDescription: data.overviewDescription,
+            heroImage: data.heroImage,
+            contextImage: data.contextImage,
           },
         });
         return successResponse(updated, "Service updated successfully in Supabase and local cache");
