@@ -1,10 +1,8 @@
 import { NextRequest } from "next/server";
-import { getDbPool, checkDbConnection as checkMysqlConnection } from "@/lib/db";
 import { prisma, checkPrismaConnection } from "@/lib/prisma";
 import { getSession } from "@/lib/admin-auth";
 import { getServices } from "@/lib/json";
 import { successResponse, errorResponse } from "@/lib/api-response";
-import { RowDataPacket } from "mysql2";
 
 export async function GET() {
   const session = await getSession();
@@ -39,41 +37,10 @@ export async function GET() {
       return successResponse(formatted, "Services retrieved from Supabase (Prisma)");
     }
   } catch (err) {
-    console.warn("[Admin/Services] Prisma query failed, trying MySQL:", err);
+    console.warn("[Admin/Services] Prisma query failed, using static fallback:", err);
   }
 
-  // 2. MySQL fallback
-  try {
-    const isMysqlOnline = await checkMysqlConnection();
-    if (isMysqlOnline) {
-      const p = getDbPool();
-      const [rows] = await p.query<RowDataPacket[]>("SELECT * FROM services ORDER BY number ASC");
-      const formatted = rows.map((r) => ({
-        id: r.id,
-        slug: r.slug,
-        number: r.number,
-        title: r.title,
-        eyebrow: r.eyebrow,
-        shortDescription: r.short_description,
-        description: r.description,
-        heroStatement: r.hero_statement,
-        services: JSON.parse(r.services_json || "[]"),
-        capabilities: JSON.parse(r.capabilities_json || "[]"),
-        approach: JSON.parse(r.approach_json || "[]"),
-        whyItMatters: JSON.parse(r.why_it_matters_json || "{}"),
-        keyDeliverables: JSON.parse(r.deliverables_json || "[]"),
-        applicableFrameworks: JSON.parse(r.frameworks_json || "[]"),
-        icon: r.icon,
-        stats: JSON.parse(r.stats_json || "{}"),
-        relatedSlugs: JSON.parse(r.related_slugs_json || "[]"),
-      }));
-      return successResponse(formatted, "Services retrieved from MySQL");
-    }
-  } catch (err) {
-    console.warn("[Admin/Services] MySQL query failed, using static fallback:", err);
-  }
-
-  // 3. Static fallback
+  // 2. Static fallback
   return successResponse(getServices(), "Services loaded from fallback static cache");
 }
 
@@ -87,7 +54,7 @@ export async function PUT(request: NextRequest) {
       return errorResponse("Slug and title are required", 400);
     }
 
-    // 1. Prisma (Supabase)
+    // Prisma (Supabase)
     const isPrismaOnline = await checkPrismaConnection();
     if (isPrismaOnline) {
       const updated = await prisma.service.update({
@@ -108,42 +75,8 @@ export async function PUT(request: NextRequest) {
       return successResponse(updated, "Service updated successfully in Supabase");
     }
 
-    // 2. MySQL
-    const isMysqlOnline = await checkMysqlConnection();
-    if (isMysqlOnline) {
-      const p = getDbPool();
-      await p.query(
-        `UPDATE services SET
-          title = ?,
-          eyebrow = ?,
-          short_description = ?,
-          description = ?,
-          hero_statement = ?,
-          services_json = ?,
-          capabilities_json = ?,
-          approach_json = ?,
-          deliverables_json = ?,
-          icon = ?
-        WHERE slug = ?`,
-        [
-          data.title,
-          data.eyebrow,
-          data.shortDescription,
-          data.description,
-          data.heroStatement,
-          JSON.stringify(data.services || []),
-          JSON.stringify(data.capabilities || []),
-          JSON.stringify(data.approach || []),
-          JSON.stringify(data.keyDeliverables || []),
-          data.icon,
-          data.slug,
-        ]
-      );
-      return successResponse(data, "Service updated successfully in MySQL");
-    }
-
     return errorResponse(
-      "Database offline. Connect Supabase or MySQL to update services.",
+      "Database offline. Connect Supabase to update services.",
       503
     );
   } catch (err) {

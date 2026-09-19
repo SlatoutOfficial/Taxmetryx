@@ -63,7 +63,7 @@ export default function AdminServicesPage() {
             Six Core Tax Disciplines
           </h1>
           <p className="text-xs text-white/60">
-            Configure practice statements, capabilities, deliverables, and statutory frameworks in MySQL.
+            Configure practice statements, capabilities, deliverables, and statutory frameworks in Supabase.
           </p>
         </div>
 
@@ -141,7 +141,7 @@ export default function AdminServicesPage() {
             <div className="flex items-center justify-between pb-4 border-b border-white/10">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-widest text-brand-red">
-                  EDIT PRACTICE IN MYSQL
+                  EDIT PRACTICE IN SUPABASE
                 </span>
                 <h3 className="font-editorial text-2xl text-white">
                   {editingService.title} ({editingService.number})
@@ -231,7 +231,7 @@ export default function AdminServicesPage() {
                   disabled={isSaving}
                   className="px-6 py-2.5 bg-brand-red hover:bg-[#b80012] text-white uppercase tracking-wider font-semibold transition-colors cursor-pointer disabled:opacity-50"
                 >
-                  {isSaving ? "Saving to MySQL..." : "Save Changes"}
+                  {isSaving ? "Saving to Supabase..." : "Save Changes"}
                 </button>
               </div>
             </form>

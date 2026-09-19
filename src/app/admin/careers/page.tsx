@@ -49,7 +49,7 @@ export default function AdminCareersPage() {
 
       const data = await res.json();
       if (res.ok && data.success) {
-        toast.success("Job position posted successfully in MySQL!");
+        toast.success("Job position posted successfully in Supabase!");
         setOpenings((prev) => [data.data as JobOpening, ...prev]);
         setIsModalOpen(false);
       } else {
@@ -73,7 +73,7 @@ export default function AdminCareersPage() {
             Advisory Vacancies
           </h1>
           <p className="text-xs text-white/60">
-            Publish, edit, and manage career positions stored in MySQL.
+            Publish, edit, and manage career positions stored in Supabase.
           </p>
         </div>
 
@@ -124,7 +124,7 @@ export default function AdminCareersPage() {
           <div className="bg-[#0B1A24] border border-white/20 max-w-xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative my-8 text-white">
             <div className="flex items-center justify-between pb-4 border-b border-white/10">
               <h3 className="font-editorial text-2xl text-white">
-                Create Vacancy in MySQL
+                Create Vacancy in Supabase
               </h3>
               <button onClick={() => setIsModalOpen(false)} className="text-white/60">
                 Cancel

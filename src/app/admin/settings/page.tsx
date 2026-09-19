@@ -33,7 +33,7 @@ export default function AdminSettingsPage() {
 
       const data = await res.json();
       if (res.ok && data.success) {
-        toast.success("Firm settings updated successfully in MySQL!");
+        toast.success("Firm settings updated successfully in Supabase!");
       } else {
         toast.error(data.message || "Failed to update settings.");
       }

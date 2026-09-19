@@ -50,7 +50,7 @@ export default function AdminDashboardPage() {
     // Check DB status
     fetch("/api/admin/seed")
       .then((res) => res.json())
-      .then((data) => setDbInfo({ isOnline: Boolean(data?.data?.isOnline) }))
+      .then((data) => setDbInfo({ isOnline: Boolean(data?.data?.prismaOnline) }))
       .catch(() => {});
 
     // Load Inquiries
@@ -70,10 +70,10 @@ export default function AdminDashboardPage() {
       const res = await fetch("/api/admin/seed", { method: "POST" });
       const data = await res.json();
       if (res.ok && data.success) {
-        toast.success("MySQL database synced successfully from Taxmetryx JSON records!");
+        toast.success("Supabase database synced successfully!");
         setDbInfo({ isOnline: true });
       } else {
-        toast.error(data.message || "Failed to sync MySQL. Ensure MySQL is running on port 3306.");
+        toast.error(data.message || "Failed to sync Supabase database.");
       }
     } catch {
       toast.error("Network error connecting to database sync API");
@@ -100,14 +100,14 @@ export default function AdminDashboardPage() {
           </p>
         </div>
 
-        {/* Sync MySQL Button */}
+        {/* Sync Supabase Button */}
         <button
           onClick={handleSyncDatabase}
           disabled={seeding}
           className="px-4 py-3 bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs uppercase tracking-wider font-semibold inline-flex items-center gap-2 transition-colors cursor-pointer disabled:opacity-50"
         >
           <RefreshCw className={`w-3.5 h-3.5 text-brand-red ${seeding ? "animate-spin" : ""}`} />
-          <span>{seeding ? "Syncing to MySQL..." : "Sync JSON to MySQL"}</span>
+          <span>{seeding ? "Syncing to Supabase..." : "Sync Data to Supabase"}</span>
         </button>
       </div>
 
@@ -119,13 +119,13 @@ export default function AdminDashboardPage() {
             <div className="text-xs font-semibold text-white">
               Data Engine Status:{" "}
               <span className={dbInfo.isOnline ? "text-emerald-400 font-mono" : "text-amber-300 font-mono"}>
-                {dbInfo.isOnline ? "MySQL 3306 (Active & Connected)" : "Resilient JSON Cache Mode (Active)"}
+                {dbInfo.isOnline ? "Supabase PostgreSQL (Active & Connected)" : "Resilient JSON Cache Mode (Active)"}
               </span>
             </div>
             <p className="text-[11px] text-white/50">
               {dbInfo.isOnline
-                ? "All read/write operations execute against MySQL database tables."
-                : "MySQL service is offline on 127.0.0.1:3306. Platform automatically serves cached seed data with zero downtime."}
+                ? "All read/write operations execute against Supabase PostgreSQL database tables."
+                : "Database is operating in fallback mode. Platform automatically serves cached seed data with zero downtime."}
             </p>
           </div>
         </div>

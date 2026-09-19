@@ -52,7 +52,7 @@ export default function AdminInsightsPage() {
 
       const data = await res.json();
       if (res.ok && data.success) {
-        toast.success("Publication saved successfully to MySQL!");
+        toast.success("Publication saved successfully to Supabase!");
         setInsights((prev) => [data.data as Insight, ...prev]);
         setIsModalOpen(false);
       } else {
@@ -76,7 +76,7 @@ export default function AdminInsightsPage() {
             Technical Insights & Bulletins
           </h1>
           <p className="text-xs text-white/60">
-            Publish, edit, and categorize thought leadership articles in MySQL.
+            Publish, edit, and categorize thought leadership articles in Supabase.
           </p>
         </div>
 
@@ -175,7 +175,7 @@ export default function AdminInsightsPage() {
                   AUTHOR NEW TECHNICAL BULLETIN
                 </span>
                 <h3 className="font-editorial text-2xl text-white">
-                  Publish Insight in MySQL
+                  Publish Insight in Supabase
                 </h3>
               </div>
               <button

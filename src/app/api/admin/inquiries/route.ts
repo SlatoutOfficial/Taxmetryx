@@ -1,8 +1,7 @@
 import { NextRequest } from "next/server";
-import { getDbPool, checkDbConnection } from "@/lib/db";
+import { prisma, checkPrismaConnection } from "@/lib/prisma";
 import { getSession } from "@/lib/admin-auth";
 import { successResponse, errorResponse } from "@/lib/api-response";
-import { RowDataPacket } from "mysql2";
 import fs from "fs/promises";
 import path from "path";
 
@@ -10,29 +9,16 @@ export async function GET() {
   const session = await getSession();
   if (!session) return errorResponse("Unauthorized", 401);
 
-  const isOnline = await checkDbConnection();
-
-  if (isOnline) {
-    try {
-      const p = getDbPool();
-      const [rows] = await p.query<RowDataPacket[]>(
-        "SELECT * FROM contact_submissions ORDER BY created_at DESC"
-      );
-      const formatted = rows.map((r) => ({
-        id: r.id,
-        name: r.name,
-        company: r.company,
-        email: r.email,
-        phone: r.phone,
-        areaOfInterest: r.area_of_interest,
-        message: r.message,
-        status: r.status,
-        createdAt: r.created_at,
-      }));
-      return successResponse(formatted, "Inquiries loaded from MySQL");
-    } catch {
-      // Fallback
+  try {
+    const isOnline = await checkPrismaConnection();
+    if (isOnline) {
+      const rows = await prisma.contactSubmission.findMany({
+        orderBy: { createdAt: "desc" },
+      });
+      return successResponse(rows, "Inquiries loaded from Supabase");
     }
+  } catch (err) {
+    console.warn("[Admin/Inquiries] Prisma query failed, trying JSON fallback:", err);
   }
 
   // Fallback to JSON file
@@ -56,10 +42,12 @@ export async function PUT(request: NextRequest) {
       return errorResponse("Inquiry ID and new status required", 400);
     }
 
-    const isOnline = await checkDbConnection();
+    const isOnline = await checkPrismaConnection();
     if (isOnline) {
-      const p = getDbPool();
-      await p.query("UPDATE contact_submissions SET status = ? WHERE id = ?", [status, id]);
+      await prisma.contactSubmission.update({
+        where: { id },
+        data: { status },
+      });
     }
 
     // Also update JSON file if present
@@ -90,10 +78,11 @@ export async function DELETE(request: NextRequest) {
     const id = searchParams.get("id");
     if (!id) return errorResponse("ID required", 400);
 
-    const isOnline = await checkDbConnection();
+    const isOnline = await checkPrismaConnection();
     if (isOnline) {
-      const p = getDbPool();
-      await p.query("DELETE FROM contact_submissions WHERE id = ?", [id]);
+      await prisma.contactSubmission.delete({
+        where: { id },
+      });
     }
 
     const filePath = path.join(process.cwd(), "src", "data", "contact-submissions.json");

@@ -1,4 +1,3 @@
-import { syncJsonToMysql, checkDbConnection as checkMysqlConnection } from "@/lib/db";
 import { checkPrismaConnection } from "@/lib/prisma";
 import { runPrismaSeed } from "../../../../../prisma/seed";
 import { getSession } from "@/lib/admin-auth";
@@ -10,7 +9,7 @@ export async function POST() {
     return errorResponse("Unauthorized", 401);
   }
 
-  // 1. Try Prisma (Supabase PostgreSQL)
+  // Prisma (Supabase PostgreSQL)
   const isPrismaOnline = await checkPrismaConnection();
   if (isPrismaOnline) {
     try {
@@ -28,18 +27,8 @@ export async function POST() {
     }
   }
 
-  // 2. Try MySQL fallback
-  const isMysqlOnline = await checkMysqlConnection();
-  if (isMysqlOnline) {
-    const result = await syncJsonToMysql();
-    if (!result.success) {
-      return errorResponse(result.message, 500);
-    }
-    return successResponse(result.counts, result.message);
-  }
-
   return errorResponse(
-    "No database connection available (both Supabase/Prisma and MySQL are offline). Using static JSON data fallback.",
+    "Supabase database connection is offline. Connect Supabase to run seed.",
     503
   );
 }
@@ -51,22 +40,16 @@ export async function GET() {
   }
 
   const isPrismaOnline = await checkPrismaConnection();
-  const isMysqlOnline = await checkMysqlConnection();
 
   return successResponse(
     {
       prismaOnline: isPrismaOnline,
-      mysqlOnline: isMysqlOnline,
       activeSource: isPrismaOnline
         ? "Supabase (Prisma)"
-        : isMysqlOnline
-        ? "MySQL"
         : "Static JSON Fallback",
     },
     isPrismaOnline
       ? "Supabase PostgreSQL connected via Prisma"
-      : isMysqlOnline
-      ? "MySQL connected"
-      : "Databases offline - Serving static JSON fallback with 100% fidelity"
+      : "Database offline - Serving static JSON fallback with 100% fidelity"
   );
 }

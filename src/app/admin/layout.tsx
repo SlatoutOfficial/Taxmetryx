@@ -46,7 +46,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     fetch("/api/admin/seed")
       .then((res) => res.json())
       .then((data) => {
-        setDbStatus({ isOnline: Boolean(data?.data?.isOnline), checking: false });
+        setDbStatus({ isOnline: Boolean(data?.data?.prismaOnline), checking: false });
       })
       .catch(() => setDbStatus({ isOnline: false, checking: false }));
   }, [isLoginPage]);
@@ -59,22 +59,22 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const handleLogout = async () => {
     try {
       await fetch("/api/admin/logout", { method: "POST" });
-      toast.success("Logged out successfully");
-      router.push("/admin/login");
-      router.refresh();
     } catch {
-      router.push("/admin/login");
+      // Ignore
     }
+    router.push("/admin/login");
+    router.refresh();
   };
 
   return (
-    <div className="min-h-screen bg-[#061016] text-white flex flex-col">
+    <div className="min-h-screen bg-brand-charcoal text-brand-dark flex flex-col font-sans">
       {/* Top Bar */}
-      <header className="h-16 border-b border-white/10 bg-[#061016]/95 backdrop-blur-md px-6 flex items-center justify-between sticky top-0 z-30">
-        <div className="flex items-center gap-4">
+      <header className="h-16 bg-brand-dark border-b border-white/10 px-4 sm:px-8 flex items-center justify-between sticky top-0 z-40">
+        <div className="flex items-center space-x-4">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-white/70 hover:text-white"
+            className="md:hidden text-white/70 hover:text-white p-1"
+            aria-label="Toggle navigation"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -99,15 +99,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
                 : "border-amber-500/30 bg-amber-500/10 text-amber-300"
             )}
-            title={dbStatus.isOnline ? "MySQL 3306 Connected" : "Operating in Resilient JSON Cache Mode"}
+            title={dbStatus.isOnline ? "Supabase (Prisma) Connected" : "Operating in Resilient JSON Cache Mode"}
           >
             <Database className="w-3.5 h-3.5" />
             <span className="font-mono text-[11px]">
               {dbStatus.checking
                 ? "Checking DB..."
                 : dbStatus.isOnline
-                  ? "MySQL: Online"
-                  : "MySQL: Fallback Mode"}
+                  ? "Supabase: Online"
+                  : "Database: Fallback Mode"}
             </span>
           </div>
 
