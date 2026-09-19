@@ -137,3 +137,29 @@ export async function PUT(request: NextRequest) {
     return errorResponse(err instanceof Error ? err.message : "Database error", 500);
   }
 }
+
+export async function DELETE(request: NextRequest) {
+  const session = await getSession();
+  if (!session) return errorResponse("Unauthorized", 401);
+
+  try {
+    const { searchParams } = new URL(request.url);
+    const slug = searchParams.get("slug");
+    if (!slug) {
+      return errorResponse("Slug parameter is required", 400);
+    }
+
+    const isPrismaOnline = await checkPrismaConnection();
+    if (isPrismaOnline) {
+      await prisma.insight.delete({
+        where: { slug },
+      });
+      return successResponse(null, "Publication deleted successfully from database");
+    }
+
+    return errorResponse("Database offline.", 503);
+  } catch (err) {
+    return errorResponse(err instanceof Error ? err.message : "Database error", 500);
+  }
+}
+

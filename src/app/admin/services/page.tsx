@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { toast } from "sonner";
-import { Layers, Edit3, ArrowUpRight, Check } from "lucide-react";
+import { Layers, Edit3, ArrowUpRight, Check, X, Plus } from "lucide-react";
 import { getServices } from "@/lib/json";
 import { Service } from "@/types/service";
 
@@ -37,13 +37,13 @@ export default function AdminServicesPage() {
 
       const data = await res.json();
       if (res.ok && data.success) {
-        toast.success(`Practice ${editingService.title} updated successfully.`);
+        toast.success(`"${editingService.title}" updated successfully.`);
         setServices((prev) =>
           prev.map((s) => (s.slug === editingService.slug ? editingService : s))
         );
         setEditingService(null);
       } else {
-        toast.error(data.message || "Failed to update service in database.");
+        toast.error(data.message || "Failed to update service.");
       }
     } catch {
       toast.error("Network error while updating service.");
@@ -54,74 +54,72 @@ export default function AdminServicesPage() {
 
   return (
     <div className="space-y-8">
+      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
         <div>
-          <span className="text-[10px] font-mono uppercase tracking-widest text-brand-red font-semibold">
-            PRACTICE MANAGEMENT
-          </span>
-          <h1 className="font-editorial text-3xl sm:text-4xl text-white mt-1">
-            Six Core Tax Disciplines
+          <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Services
           </h1>
-          <p className="text-xs text-white/60">
-            Configure practice statements, capabilities, deliverables, and statutory frameworks in Supabase.
+          <p className="text-sm text-white/60 mt-1">
+            Manage the practice areas and advisory services shown on the website.
           </p>
         </div>
 
         <Link
           href="/services"
           target="_blank"
-          className="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs uppercase tracking-wider font-semibold inline-flex items-center gap-1.5 transition-colors"
+          className="px-3.5 py-2 bg-[#0D1C26] hover:bg-[#152735] border border-white/15 text-white text-xs font-semibold rounded-sm inline-flex items-center gap-1.5 transition-colors shadow-xs"
         >
           <span>View Public Services Page</span>
-          <ArrowUpRight className="w-3.5 h-3.5 text-brand-red" />
+          <ArrowUpRight className="w-3.5 h-3.5 text-[#eb0045]" />
         </Link>
       </div>
 
       {/* Services Table */}
-      <div className="bg-white/5 border border-white/10 overflow-hidden">
+      <div className="bg-[#0D1C26] border border-white/10 rounded-sm shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="border-b border-white/10 text-white/50 uppercase font-mono text-[10px] bg-white/5">
+            <thead className="border-b border-white/10 text-white/50 text-[11px] font-medium bg-[#071219]">
               <tr>
-                <th className="py-4 px-4">No.</th>
-                <th className="py-4 px-4">Practice Title</th>
-                <th className="py-4 px-4">Eyebrow</th>
-                <th className="py-4 px-4">Capabilities</th>
-                <th className="py-4 px-4">Statutory Frameworks</th>
-                <th className="py-4 px-4 text-right">Actions</th>
+                <th className="py-3.5 px-4">#</th>
+                <th className="py-3.5 px-4">Service Title & Summary</th>
+                <th className="py-3.5 px-4">Category</th>
+                <th className="py-3.5 px-4">Workstreams</th>
+                <th className="py-3.5 px-4">Regulations</th>
+                <th className="py-3.5 px-4 text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/5">
               {services.map((service) => (
-                <tr key={service.slug} className="hover:bg-white/5">
-                  <td className="py-4 px-4 font-mono text-brand-red font-bold">
+                <tr key={service.slug} className="hover:bg-white/[0.03] transition-colors">
+                  <td className="py-4 px-4 font-bold text-[#eb0045] text-sm">
                     {service.number}
                   </td>
-                  <td className="py-4 px-4">
+                  <td className="py-4 px-4 max-w-sm">
                     <div className="font-semibold text-white text-sm">
                       {service.title}
                     </div>
-                    <div className="text-[11px] text-white/50 line-clamp-1 max-w-sm">
+                    <div className="text-xs text-white/60 line-clamp-1 mt-0.5">
                       {service.shortDescription}
                     </div>
                   </td>
-                  <td className="py-4 px-4 text-white/60 font-mono text-[10px] uppercase">
+                  <td className="py-4 px-4 text-white/70">
                     {service.eyebrow}
                   </td>
                   <td className="py-4 px-4">
-                    <span className="px-2.5 py-1 bg-white/10 text-white text-[11px] font-mono">
-                      {service.capabilities?.length || 0} Workstreams
+                    <span className="px-2 py-0.5 bg-[#071219] text-white/80 border border-white/10 text-xs rounded-xs font-medium">
+                      {service.capabilities?.length || 0} workstreams
                     </span>
                   </td>
-                  <td className="py-4 px-4 text-white/60">
-                    <div className="text-[11px] line-clamp-1 max-w-xs">
-                      {service.applicableFrameworks?.join(", ") || "OECD / UAE CT Law"}
+                  <td className="py-4 px-4 text-white/70">
+                    <div className="text-xs line-clamp-1 max-w-xs">
+                      {service.applicableFrameworks?.join(", ") || "OECD Guidelines / UAE CT Law"}
                     </div>
                   </td>
                   <td className="py-4 px-4 text-right">
                     <button
-                      onClick={() => setEditingService(service)}
-                      className="px-3 py-1.5 bg-brand-red hover:bg-[#b80012] text-white text-[11px] uppercase tracking-wider font-semibold inline-flex items-center gap-1 transition-colors cursor-pointer"
+                      onClick={() => setEditingService({ ...service })}
+                      className="px-3 py-1.5 bg-[#eb0045] hover:bg-[#c9003b] text-white text-xs font-semibold rounded-sm inline-flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
                     >
                       <Edit3 className="w-3 h-3" />
                       <span>Edit</span>
@@ -134,87 +132,116 @@ export default function AdminServicesPage() {
         </div>
       </div>
 
-      {/* Quick Edit Modal */}
+      {/* Edit Service Modal */}
       {editingService && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-[#0B1A24] border border-white/20 max-w-3xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative my-8 text-white">
+          <div className="bg-[#0D1C26] border border-white/20 max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative my-8 text-white rounded-sm">
             <div className="flex items-center justify-between pb-4 border-b border-white/10">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-brand-red">
-                  EDIT PRACTICE IN SUPABASE
-                </span>
-                <h3 className="font-editorial text-2xl text-white">
-                  {editingService.title} ({editingService.number})
+                <h3 className="text-xl font-bold text-white">
+                  Edit Service: {editingService.title}
                 </h3>
+                <p className="text-xs text-white/60 mt-0.5">
+                  Update service details. Changes will reflect on the live website.
+                </p>
               </div>
               <button
                 onClick={() => setEditingService(null)}
-                className="text-white/60 hover:text-white text-xs uppercase font-mono cursor-pointer"
+                className="w-8 h-8 rounded-sm hover:bg-white/10 border border-white/10 flex items-center justify-center text-white/60 hover:text-white transition-colors cursor-pointer"
               >
-                Close
+                <X className="w-4 h-4" />
               </button>
             </div>
 
             <form onSubmit={handleSave} className="space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1">
-                  <label className="text-white/70 uppercase font-semibold">Title</label>
+                <div className="space-y-1.5">
+                  <label className="text-white/80 font-medium text-xs">
+                    Service Title
+                  </label>
                   <input
                     type="text"
                     value={editingService.title}
                     onChange={(e) =>
                       setEditingService({ ...editingService, title: e.target.value })
                     }
-                    className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red"
+                    className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
                   />
                 </div>
 
-                <div className="space-y-1">
-                  <label className="text-white/70 uppercase font-semibold">Eyebrow</label>
+                <div className="space-y-1.5">
+                  <label className="text-white/80 font-medium text-xs">
+                    Category Tag
+                  </label>
                   <input
                     type="text"
                     value={editingService.eyebrow}
                     onChange={(e) =>
                       setEditingService({ ...editingService, eyebrow: e.target.value })
                     }
-                    className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red"
+                    className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
                   />
                 </div>
               </div>
 
-              <div className="space-y-1">
-                <label className="text-white/70 uppercase font-semibold">Hero Statement</label>
+              <div className="space-y-1.5">
+                <label className="text-white/80 font-medium text-xs">
+                  Hero Tagline
+                </label>
                 <input
                   type="text"
-                  value={editingService.heroStatement}
+                  value={editingService.heroStatement || ""}
                   onChange={(e) =>
                     setEditingService({ ...editingService, heroStatement: e.target.value })
                   }
-                  className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red"
+                  placeholder="e.g. Robust Corporate Tax Structuring Across UAE Jurisdictions"
+                  className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
                 />
               </div>
 
-              <div className="space-y-1">
-                <label className="text-white/70 uppercase font-semibold">Short Summary</label>
+              <div className="space-y-1.5">
+                <label className="text-white/80 font-medium text-xs">
+                  Short Summary (Shown on Cards & Homepage)
+                </label>
                 <textarea
                   rows={2}
                   value={editingService.shortDescription}
                   onChange={(e) =>
                     setEditingService({ ...editingService, shortDescription: e.target.value })
                   }
-                  className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red resize-none"
+                  className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors resize-none"
                 />
               </div>
 
-              <div className="space-y-1">
-                <label className="text-white/70 uppercase font-semibold">Full Editorial Overview</label>
+              <div className="space-y-1.5">
+                <label className="text-white/80 font-medium text-xs">
+                  Full Description (Shown on Service Detail Page)
+                </label>
                 <textarea
                   rows={4}
                   value={editingService.description}
                   onChange={(e) =>
                     setEditingService({ ...editingService, description: e.target.value })
                   }
-                  className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red resize-none"
+                  className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors resize-none"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-white/80 font-medium text-xs">
+                  Applicable Regulations (Separated by commas)
+                </label>
+                <input
+                  type="text"
+                  value={(editingService.applicableFrameworks || []).join(", ")}
+                  onChange={(e) =>
+                    setEditingService({
+                      ...editingService,
+                      applicableFrameworks: e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
+                    })
+                  }
+                  placeholder="e.g. UAE Federal Decree-Law No. 47, OECD Guidelines"
+                  className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
                 />
               </div>
 
@@ -222,16 +249,16 @@ export default function AdminServicesPage() {
                 <button
                   type="button"
                   onClick={() => setEditingService(null)}
-                  className="px-4 py-2.5 text-white/60 hover:text-white uppercase tracking-wider font-semibold cursor-pointer"
+                  className="px-4 py-2 border border-white/10 text-white/70 hover:text-white hover:bg-white/5 text-xs font-semibold rounded-sm cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSaving}
-                  className="px-6 py-2.5 bg-brand-red hover:bg-[#b80012] text-white uppercase tracking-wider font-semibold transition-colors cursor-pointer disabled:opacity-50"
+                  className="px-5 py-2 bg-[#eb0045] hover:bg-[#c9003b] text-white text-xs font-semibold rounded-sm transition-colors cursor-pointer disabled:opacity-50 shadow-sm"
                 >
-                  {isSaving ? "Saving to Supabase..." : "Save Changes"}
+                  {isSaving ? "Saving..." : "Save Changes"}
                 </button>
               </div>
             </form>

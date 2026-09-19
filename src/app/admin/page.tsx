@@ -12,6 +12,9 @@ import {
   RefreshCw,
   ArrowUpRight,
   ShieldCheck,
+  CheckCircle2,
+  Mail,
+  Calendar,
 } from "lucide-react";
 import { getServices, getInsights, getCareers } from "@/lib/json";
 
@@ -70,13 +73,13 @@ export default function AdminDashboardPage() {
       const res = await fetch("/api/admin/seed", { method: "POST" });
       const data = await res.json();
       if (res.ok && data.success) {
-        toast.success("Supabase database synced successfully!");
+        toast.success("Database synchronized successfully!");
         setDbInfo({ isOnline: true });
       } else {
-        toast.error(data.message || "Failed to sync Supabase database.");
+        toast.error(data.message || "Failed to sync database.");
       }
     } catch {
-      toast.error("Network error connecting to database sync API");
+      toast.error("Network error connecting to database sync.");
     } finally {
       setSeeding(false);
     }
@@ -89,168 +92,205 @@ export default function AdminDashboardPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
         <div>
-          <span className="text-[10px] font-mono uppercase tracking-widest text-brand-red font-semibold">
-            EXECUTIVE DASHBOARD
-          </span>
-          <h1 className="font-editorial text-3xl sm:text-4xl text-white mt-1">
-            Advisory Operations Centre
+          <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Dashboard
           </h1>
-          <p className="text-xs text-white/60">
-            Dubai, UAE • Commercial License-CL-89240
+          <p className="text-sm text-white/60 mt-1">
+            Welcome back. Here is an overview of your website content and recent inquiries.
           </p>
         </div>
 
-        {/* Sync Supabase Button */}
-        <button
-          onClick={handleSyncDatabase}
-          disabled={seeding}
-          className="px-4 py-3 bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs uppercase tracking-wider font-semibold inline-flex items-center gap-2 transition-colors cursor-pointer disabled:opacity-50"
-        >
-          <RefreshCw className={`w-3.5 h-3.5 text-brand-red ${seeding ? "animate-spin" : ""}`} />
-          <span>{seeding ? "Syncing to Supabase..." : "Sync Data to Supabase"}</span>
-        </button>
+        {/* Action Buttons */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={handleSyncDatabase}
+            disabled={seeding}
+            className="px-3.5 py-2 bg-[#0D1C26] hover:bg-[#152735] border border-white/15 text-white text-xs font-medium rounded-sm inline-flex items-center gap-2 transition-all cursor-pointer disabled:opacity-50 shadow-sm"
+          >
+            <RefreshCw className={`w-3.5 h-3.5 text-[#eb0045] ${seeding ? "animate-spin" : ""}`} />
+            <span>{seeding ? "Syncing..." : "Sync Database"}</span>
+          </button>
+
+          <Link
+            href="/"
+            target="_blank"
+            className="px-3.5 py-2 bg-[#eb0045] hover:bg-[#c9003b] text-white text-xs font-semibold rounded-sm inline-flex items-center gap-1.5 transition-colors shadow-sm"
+          >
+            <span>View Website</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </div>
 
-      {/* Database Status Alert Banner */}
-      <div className="p-4 border border-white/10 bg-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <Database className="w-5 h-5 text-brand-red shrink-0" />
-          <div className="space-y-0.5">
-            <div className="text-xs font-semibold text-white">
-              Data Engine Status:{" "}
-              <span className={dbInfo.isOnline ? "text-emerald-400 font-mono" : "text-amber-300 font-mono"}>
-                {dbInfo.isOnline ? "Supabase PostgreSQL (Active & Connected)" : "Resilient JSON Cache Mode (Active)"}
+      {/* Database Connection Alert */}
+      <div className="p-4 rounded-sm border border-white/10 bg-[#0D1C26] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="w-9 h-9 rounded-sm bg-[#071219] border border-white/10 flex items-center justify-center shrink-0">
+            <Database className="w-4 h-4 text-[#eb0045]" />
+          </div>
+          <div>
+            <div className="text-xs font-semibold text-white flex items-center gap-2">
+              <span>Database Connection:</span>
+              <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-medium rounded-sm border ${
+                dbInfo.isOnline 
+                  ? "bg-emerald-950/50 text-emerald-400 border-emerald-500/30" 
+                  : "bg-amber-950/50 text-amber-300 border-amber-500/30"
+              }`}>
+                <span className={`w-1.5 h-1.5 rounded-full ${dbInfo.isOnline ? "bg-emerald-400 animate-pulse" : "bg-amber-400"}`} />
+                {dbInfo.isOnline ? "Connected to Supabase" : "Fallback Cache Active"}
               </span>
             </div>
-            <p className="text-[11px] text-white/50">
+            <p className="text-xs text-white/50 mt-0.5">
               {dbInfo.isOnline
-                ? "All read/write operations execute against Supabase PostgreSQL database tables."
-                : "Database is operating in fallback mode. Platform automatically serves cached seed data with zero downtime."}
+                ? "Changes made in this admin panel are saved directly to your live database."
+                : "Database is working in high-availability cache mode."}
             </p>
           </div>
         </div>
-
-        {!dbInfo.isOnline && (
-          <span className="text-[10px] font-mono px-2.5 py-1 bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-widest shrink-0">
-            Zero-Downtime Fallback
-          </span>
-        )}
       </div>
 
-      {/* 4 Metric Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div className="p-6 bg-white/5 border border-white/10 space-y-2">
-          <div className="flex items-center justify-between text-xs text-white/50">
-            <span className="uppercase tracking-wider">Client Inquiries</span>
-            <Inbox className="w-4 h-4 text-brand-red" />
+      {/* 4 Summary Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Inquiries */}
+        <Link
+          href="/admin/inquiries"
+          className="p-5 bg-[#0D1C26] border border-white/10 rounded-sm space-y-3 hover:border-white/20 transition-colors block group"
+        >
+          <div className="flex items-center justify-between text-xs text-white/60">
+            <span className="font-medium text-white/70">Client Inquiries</span>
+            <div className="w-7 h-7 rounded-sm bg-[#071219] flex items-center justify-center border border-white/10 group-hover:border-[#eb0045]/40 transition-colors">
+              <Inbox className="w-3.5 h-3.5 text-[#eb0045]" />
+            </div>
           </div>
-          <div className="font-editorial text-4xl text-white">
+          <div className="text-3xl font-bold text-white tracking-tight">
             {inquiries.length}
           </div>
-          <div className="text-[11px] text-brand-red font-semibold">
-            {newInquiriesCount} Require Review
+          <div className="text-xs font-medium text-[#eb0045]">
+            {newInquiriesCount > 0 ? `${newInquiriesCount} new message${newInquiriesCount > 1 ? "s" : ""}` : "All messages reviewed"}
           </div>
-        </div>
+        </Link>
 
-        <div className="p-6 bg-white/5 border border-white/10 space-y-2">
-          <div className="flex items-center justify-between text-xs text-white/50">
-            <span className="uppercase tracking-wider">Core Practices</span>
-            <Layers className="w-4 h-4 text-brand-red" />
+        {/* Services */}
+        <Link
+          href="/admin/services"
+          className="p-5 bg-[#0D1C26] border border-white/10 rounded-sm space-y-3 hover:border-white/20 transition-colors block group"
+        >
+          <div className="flex items-center justify-between text-xs text-white/60">
+            <span className="font-medium text-white/70">Services</span>
+            <div className="w-7 h-7 rounded-sm bg-[#071219] flex items-center justify-center border border-white/10 group-hover:border-[#eb0045]/40 transition-colors">
+              <Layers className="w-3.5 h-3.5 text-[#eb0045]" />
+            </div>
           </div>
-          <div className="font-editorial text-4xl text-white">
+          <div className="text-3xl font-bold text-white tracking-tight">
             {services.length}
           </div>
-          <div className="text-[11px] text-white/50">
-            All 6 Practices Published
+          <div className="text-xs text-white/50">
+            6 active service practices
           </div>
-        </div>
+        </Link>
 
-        <div className="p-6 bg-white/5 border border-white/10 space-y-2">
-          <div className="flex items-center justify-between text-xs text-white/50">
-            <span className="uppercase tracking-wider">Publications</span>
-            <BookOpen className="w-4 h-4 text-brand-red" />
+        {/* Insights */}
+        <Link
+          href="/admin/insights"
+          className="p-5 bg-[#0D1C26] border border-white/10 rounded-sm space-y-3 hover:border-white/20 transition-colors block group"
+        >
+          <div className="flex items-center justify-between text-xs text-white/60">
+            <span className="font-medium text-white/70">Articles & Insights</span>
+            <div className="w-7 h-7 rounded-sm bg-[#071219] flex items-center justify-center border border-white/10 group-hover:border-[#eb0045]/40 transition-colors">
+              <BookOpen className="w-3.5 h-3.5 text-[#eb0045]" />
+            </div>
           </div>
-          <div className="font-editorial text-4xl text-white">
+          <div className="text-3xl font-bold text-white tracking-tight">
             {insights.length}
           </div>
-          <div className="text-[11px] text-white/50">
-            Technical Bulletins Live
+          <div className="text-xs text-white/50">
+            Published articles on site
           </div>
-        </div>
+        </Link>
 
-        <div className="p-6 bg-white/5 border border-white/10 space-y-2">
-          <div className="flex items-center justify-between text-xs text-white/50">
-            <span className="uppercase tracking-wider">Vacancies</span>
-            <Briefcase className="w-4 h-4 text-brand-red" />
+        {/* Careers */}
+        <Link
+          href="/admin/careers"
+          className="p-5 bg-[#0D1C26] border border-white/10 rounded-sm space-y-3 hover:border-white/20 transition-colors block group"
+        >
+          <div className="flex items-center justify-between text-xs text-white/60">
+            <span className="font-medium text-white/70">Job Openings</span>
+            <div className="w-7 h-7 rounded-sm bg-[#071219] flex items-center justify-center border border-white/10 group-hover:border-[#eb0045]/40 transition-colors">
+              <Briefcase className="w-3.5 h-3.5 text-[#eb0045]" />
+            </div>
           </div>
-          <div className="font-editorial text-4xl text-white">
+          <div className="text-3xl font-bold text-white tracking-tight">
             {openingsCount}
           </div>
-          <div className="text-[11px] text-white/50">
-            Recruiting Top Tax Leaders
+          <div className="text-xs text-white/50">
+            Open positions listed
           </div>
-        </div>
+        </Link>
       </div>
 
-      {/* Recent Client Inquiries Table */}
-      <div className="p-6 bg-white/5 border border-white/10 space-y-5">
+      {/* Recent Client Messages Table */}
+      <div className="p-6 bg-[#0D1C26] border border-white/10 rounded-sm shadow-sm space-y-5">
         <div className="flex items-center justify-between pb-4 border-b border-white/10">
           <div>
-            <h3 className="font-editorial text-xl text-white">
-              Recent Confidential Inquiries
-            </h3>
-            <p className="text-xs text-white/50">
-              Direct form submissions received through taxmetryx.com/contact
+            <h2 className="text-lg font-bold text-white">
+              Recent Inquiries
+            </h2>
+            <p className="text-xs text-white/50 mt-0.5">
+              Messages received from visitors using the contact form.
             </p>
           </div>
 
           <Link
             href="/admin/inquiries"
-            className="text-xs uppercase tracking-wider font-semibold text-brand-red hover:underline inline-flex items-center gap-1"
+            className="text-xs font-semibold text-[#eb0045] hover:underline inline-flex items-center gap-1 transition-colors"
           >
-            <span>View All Inbox</span>
+            <span>View All Messages</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
         {loadingInquiries ? (
-          <div className="py-8 text-center text-xs text-white/50 font-mono">
-            Loading inquiries...
+          <div className="py-8 text-center text-xs text-white/40">
+            Loading recent messages...
           </div>
         ) : inquiries.length === 0 ? (
-          <div className="py-8 text-center text-xs text-white/50 font-mono">
-            No inquiries received yet. Submit the public contact form to test.
+          <div className="py-8 text-center text-xs text-white/40">
+            No inquiries received yet. Any messages sent from the contact form will appear here.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="border-b border-white/10 text-white/50 uppercase font-mono text-[10px]">
+              <thead className="border-b border-white/10 text-white/50 text-[11px] font-medium bg-[#071219]">
                 <tr>
-                  <th className="py-3 px-2">Sender Name</th>
-                  <th className="py-3 px-2">Company</th>
-                  <th className="py-3 px-2">Area of Interest</th>
-                  <th className="py-3 px-2">Date Received</th>
-                  <th className="py-3 px-2">Status</th>
+                  <th className="py-3 px-3">Name</th>
+                  <th className="py-3 px-3">Company</th>
+                  <th className="py-3 px-3">Interest</th>
+                  <th className="py-3 px-3">Date</th>
+                  <th className="py-3 px-3">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5">
                 {inquiries.slice(0, 5).map((inq) => (
-                  <tr key={inq.id} className="hover:bg-white/5">
-                    <td className="py-3 px-2 font-semibold text-white">
+                  <tr key={inq.id} className="hover:bg-white/[0.03] transition-colors">
+                    <td className="py-3.5 px-3 font-medium text-white">
                       {inq.name}
                     </td>
-                    <td className="py-3 px-2 text-white/80">{inq.company}</td>
-                    <td className="py-3 px-2">
-                      <span className="px-2 py-0.5 bg-brand-red/10 text-brand-red border border-brand-red/20 text-[10px] font-mono">
+                    <td className="py-3.5 px-3 text-white/70">{inq.company || "—"}</td>
+                    <td className="py-3.5 px-3">
+                      <span className="px-2 py-0.5 bg-[#eb0045]/15 text-[#eb0045] border border-[#eb0045]/30 text-[11px] rounded-xs font-medium">
                         {inq.areaOfInterest}
                       </span>
                     </td>
-                    <td className="py-3 px-2 text-white/50 font-mono text-[11px]">
+                    <td className="py-3.5 px-3 text-white/50">
                       {new Date(inq.createdAt).toLocaleDateString()}
                     </td>
-                    <td className="py-3 px-2">
-                      <span className="px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider bg-white/10 text-white border border-white/15">
-                        {inq.status || "NEW"}
+                    <td className="py-3.5 px-3">
+                      <span className={`px-2 py-0.5 text-[11px] font-medium rounded-xs border ${
+                        !inq.status || inq.status === "NEW"
+                          ? "bg-amber-950/50 text-amber-300 border-amber-500/30"
+                          : "bg-emerald-950/50 text-emerald-400 border-emerald-500/30"
+                      }`}>
+                        {!inq.status || inq.status === "NEW" ? "New" : inq.status}
                       </span>
                     </td>
                   </tr>
@@ -261,53 +301,53 @@ export default function AdminDashboardPage() {
         )}
       </div>
 
-      {/* Quick Shortcuts */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      {/* Quick Navigation Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <Link
           href="/admin/services"
-          className="p-5 border border-white/10 bg-white/5 hover:border-brand-red transition-all block group space-y-1.5"
+          className="p-5 border border-white/10 bg-[#0D1C26] hover:border-white/25 rounded-sm transition-all block group space-y-1.5"
         >
           <div className="flex items-center justify-between text-xs text-white/50">
-            <span className="uppercase tracking-wider font-mono">PRACTICE SUITE</span>
-            <ArrowUpRight className="w-4 h-4 text-brand-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <span className="font-medium text-white/60">Manage Services</span>
+            <ArrowUpRight className="w-4 h-4 text-[#eb0045] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </div>
-          <div className="font-editorial text-lg text-white group-hover:text-brand-red transition-colors">
-            Manage 6 Core Practices
+          <div className="text-base font-bold text-white group-hover:text-[#eb0045] transition-colors">
+            Services & Practices
           </div>
           <p className="text-xs text-white/50">
-            Edit Transfer Pricing, Corporate Tax, and international service matrices.
+            Update service descriptions, deliverables, and capabilities shown to clients.
           </p>
         </Link>
 
         <Link
           href="/admin/insights"
-          className="p-5 border border-white/10 bg-white/5 hover:border-brand-red transition-all block group space-y-1.5"
+          className="p-5 border border-white/10 bg-[#0D1C26] hover:border-white/25 rounded-sm transition-all block group space-y-1.5"
         >
           <div className="flex items-center justify-between text-xs text-white/50">
-            <span className="uppercase tracking-wider font-mono">EDITORIAL SUITE</span>
-            <ArrowUpRight className="w-4 h-4 text-brand-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <span className="font-medium text-white/60">Publish Content</span>
+            <ArrowUpRight className="w-4 h-4 text-[#eb0045] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </div>
-          <div className="font-editorial text-lg text-white group-hover:text-brand-red transition-colors">
-            Publish New Insight
+          <div className="text-base font-bold text-white group-hover:text-[#eb0045] transition-colors">
+            Articles & Insights
           </div>
           <p className="text-xs text-white/50">
-            Author technical bulletins, executive takeaways, and legal interpretations.
+            Write new technical bulletins and thought leadership posts for the website.
           </p>
         </Link>
 
         <Link
           href="/admin/settings"
-          className="p-5 border border-white/10 bg-white/5 hover:border-brand-red transition-all block group space-y-1.5"
+          className="p-5 border border-white/10 bg-[#0D1C26] hover:border-white/25 rounded-sm transition-all block group space-y-1.5"
         >
           <div className="flex items-center justify-between text-xs text-white/50">
-            <span className="uppercase tracking-wider font-mono">GOVERNANCE</span>
-            <ArrowUpRight className="w-4 h-4 text-brand-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <span className="font-medium text-white/60">Firm Details</span>
+            <ArrowUpRight className="w-4 h-4 text-[#eb0045] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </div>
-          <div className="font-editorial text-lg text-white group-hover:text-brand-red transition-colors">
-            Firm & Settings
+          <div className="text-base font-bold text-white group-hover:text-[#eb0045] transition-colors">
+            Firm Settings
           </div>
           <p className="text-xs text-white/50">
-            Update telephone hotline, license ID, and registered addresses.
+            Update telephone number, office address, and commercial license details.
           </p>
         </Link>
       </div>
