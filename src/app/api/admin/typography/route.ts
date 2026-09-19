@@ -58,8 +58,15 @@ export async function PUT(request: NextRequest) {
       return errorResponse("fontHeading and fontBody are required", 400);
     }
 
+    const configToSave: TypographyConfig = {
+      fontHeading: data.fontHeading,
+      fontBody: data.fontBody,
+      googleFontHeading: data.googleFontHeading || data.fontHeading,
+      googleFontBody: data.googleFontBody || data.fontBody,
+    };
+
     // 1. Write to local file
-    writeTypographyToFile(data);
+    writeTypographyToFile(configToSave);
 
     // 2. Write to Supabase DB if online
     try {
@@ -67,15 +74,15 @@ export async function PUT(request: NextRequest) {
       if (isOnline) {
         await prisma.siteConfig.upsert({
           where: { key: "typography" },
-          update: { valueJson: JSON.stringify(data) },
-          create: { key: "typography", valueJson: JSON.stringify(data) },
+          update: { valueJson: JSON.stringify(configToSave) },
+          create: { key: "typography", valueJson: JSON.stringify(configToSave) },
         });
       }
     } catch (dbErr) {
       console.warn("Could not save typography to Supabase, saved to file:", dbErr);
     }
 
-    return successResponse(data, "Font families updated successfully");
+    return successResponse(configToSave, "Font families updated successfully");
   } catch (err) {
     return errorResponse(err instanceof Error ? err.message : "Save error", 500);
   }
