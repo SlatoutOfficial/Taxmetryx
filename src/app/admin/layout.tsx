@@ -120,9 +120,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   };
 
   return (
-    <div className="min-h-screen bg-[#071117] text-white flex flex-col font-sans selection:bg-[#eb0045] selection:text-white">
+    <div className="h-screen bg-[#071117] text-white flex flex-col font-sans selection:bg-[#eb0045] selection:text-white overflow-hidden">
       {/* Top Navigation Bar */}
-      <header className="h-16 bg-[#09141C] border-b border-white/10 px-4 sm:px-8 flex items-center justify-between sticky top-0 z-40 backdrop-blur-md">
+      <header className="h-16 shrink-0 bg-[#09141C] border-b border-white/10 px-4 sm:px-8 flex items-center justify-between z-40">
         <div className="flex items-center space-x-4">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -183,13 +183,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
       </header>
 
-      {/* Main Workspace Layout */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Sidebar */}
+      {/* Main Workspace Layout: Fixed Viewport */}
+      <div className="flex-1 flex min-h-0 overflow-hidden relative">
+        {/* Sidebar: Fixed, pinned, independent scrolling, no gap */}
         <aside
           className={cn(
-            "fixed inset-y-16 left-0 z-30 w-64 bg-[#050D12] border-r border-white/10 flex flex-col justify-between p-4 transition-transform duration-200 lg:static lg:translate-x-0",
-            mobileOpen ? "translate-x-0" : "-translate-x-full"
+            "w-64 shrink-0 bg-[#050D12] border-r border-white/10 flex flex-col p-4 gap-6 overflow-y-auto transition-transform duration-200 z-30",
+            "fixed inset-y-16 left-0 lg:static lg:inset-auto lg:h-full",
+            mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           )}
         >
           <div className="space-y-6">
@@ -229,8 +230,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             ))}
           </div>
 
-          {/* User Session Footer */}
-          <div className="p-3 border border-white/10 bg-[#09151C] rounded-sm space-y-1">
+          {/* User Session Footer (sits neatly below nav without giant empty gap) */}
+          <div className="p-3 border border-white/10 bg-[#09151C] rounded-sm space-y-1 mt-2">
             <div className="text-[10px] font-mono text-[#eb0045] font-semibold flex items-center gap-1.5">
               <Shield className="w-3 h-3" />
               <span>Signed In As</span>
@@ -244,8 +245,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
         </aside>
 
-        {/* Content Area */}
-        <main className="flex-1 overflow-y-auto p-6 sm:p-10 bg-[#09151C]">
+        {/* Content Area: Scrolls independently */}
+        <main className="flex-1 min-h-0 overflow-y-auto p-6 sm:p-10 bg-[#09151C]">
           <div className="max-w-6xl mx-auto space-y-8">
             {children}
           </div>

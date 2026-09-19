@@ -1,6 +1,6 @@
 export interface InsightAuthor {
   name: string;
-  role: string;
+  role?: string;
   avatar?: string;
   bio?: string;
 }
@@ -14,7 +14,7 @@ export interface Insight {
   id: number;
   slug: string;
   title: string;
-  category: "Transfer Pricing" | "Corporate Tax" | "International Tax" | "VAT & Indirect Tax" | "Tax Regulation" | "Global Tax";
+  category: "Transfer Pricing" | "Corporate Tax" | "International Tax" | "VAT & Indirect Tax" | "Tax Regulation" | "Global Tax" | string;
   jurisdiction?: "UAE" | "KSA" | "UK & EU" | "APAC";
   publishedAt: string;
   readTime: string;
@@ -29,6 +29,6 @@ export interface Insight {
   keyTakeaways: string[];
   sections: InsightSection[];
   tags: string[];
-  relatedSlugs: string[];
+  relatedSlugs?: string[];
   sourceLinks?: { title: string; url: string }[];
 }

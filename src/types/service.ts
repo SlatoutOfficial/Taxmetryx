@@ -37,14 +37,17 @@ export interface Service {
   services: string[];
   capabilities: ServiceCapability[];
   approach: ServiceApproachStep[];
-  whyItMatters: {
-    headline: string;
-    points: { title: string; text: string }[];
+  whyItMatters?: {
+    headline?: string;
+    points?: { title: string; text: string }[];
+    quote?: string;
+    source?: string;
   };
   keyDeliverables: string[];
   applicableFrameworks: string[];
   icon: string;
   stats?: { value: string; label: string };
   relatedSlugs: string[];
+  faqs?: { question: string; answer: string }[];
 }
 

@@ -26,6 +26,45 @@ import crypto from "crypto";
 // -------------------------------------------------------------
 // SERVICES
 // -------------------------------------------------------------
+const SERVICE_SLUG_ALIASES: Record<string, string> = {
+  "vat-indirect-tax": "vat-and-indirect-tax",
+  "tax-regulatory-controversy": "tax-regulatory-and-controversy",
+  "global-tax-emerging-regulations": "global-tax-and-emerging-regulations",
+};
+
+function formatDbService(r: any, staticFallback?: Service): Service {
+  const subservices = r.subservicesJson ? JSON.parse(r.subservicesJson) : (staticFallback?.subservices || []);
+  const whenToInvolve = r.whenToInvolveJson ? JSON.parse(r.whenToInvolveJson) : (staticFallback?.whenToInvolve || []);
+  const faqs = r.faqsJson ? JSON.parse(r.faqsJson) : (staticFallback?.faqs || []);
+
+  return {
+    id: r.id,
+    slug: r.slug,
+    number: r.number,
+    title: r.title,
+    eyebrow: r.eyebrow || staticFallback?.eyebrow || "",
+    shortDescription: r.shortDescription || staticFallback?.shortDescription || "",
+    description: r.description || staticFallback?.description || "",
+    heroStatement: r.heroStatement || staticFallback?.heroStatement || "",
+    lede: r.lede || staticFallback?.lede || "",
+    overviewDescription: r.overviewDescription || staticFallback?.overviewDescription || "",
+    whenToInvolve,
+    subservices,
+    subservicesCount: subservices.length,
+    typicalOutputs: r.typicalOutputs || staticFallback?.typicalOutputs || "",
+    services: r.servicesJson ? JSON.parse(r.servicesJson) : (staticFallback?.services || []),
+    capabilities: r.capabilitiesJson ? JSON.parse(r.capabilitiesJson) : (staticFallback?.capabilities || []),
+    approach: r.approachJson ? JSON.parse(r.approachJson) : (staticFallback?.approach || []),
+    whyItMatters: r.whyItMattersJson ? JSON.parse(r.whyItMattersJson) : (staticFallback?.whyItMatters || {}),
+    keyDeliverables: r.deliverablesJson ? JSON.parse(r.deliverablesJson) : (staticFallback?.keyDeliverables || []),
+    applicableFrameworks: r.frameworksJson ? JSON.parse(r.frameworksJson) : (staticFallback?.applicableFrameworks || []),
+    icon: r.icon || staticFallback?.icon || "landmark",
+    stats: r.statsJson ? JSON.parse(r.statsJson) : (staticFallback?.stats || {}),
+    relatedSlugs: r.relatedSlugsJson ? JSON.parse(r.relatedSlugsJson) : (staticFallback?.relatedSlugs || []),
+    faqs,
+  };
+}
+
 export async function getServices(): Promise<Service[]> {
   try {
     const isOnline = await checkPrismaConnection();
@@ -34,25 +73,10 @@ export async function getServices(): Promise<Service[]> {
         orderBy: { number: "asc" },
       });
       if (rows && rows.length > 0) {
-        return rows.map((r) => ({
-          id: r.id,
-          slug: r.slug,
-          number: r.number,
-          title: r.title,
-          eyebrow: r.eyebrow || "",
-          shortDescription: r.shortDescription || "",
-          description: r.description || "",
-          heroStatement: r.heroStatement || "",
-          services: JSON.parse(r.servicesJson || "[]"),
-          capabilities: JSON.parse(r.capabilitiesJson || "[]"),
-          approach: JSON.parse(r.approachJson || "[]"),
-          whyItMatters: JSON.parse(r.whyItMattersJson || "{}"),
-          keyDeliverables: JSON.parse(r.deliverablesJson || "[]"),
-          applicableFrameworks: JSON.parse(r.frameworksJson || "[]"),
-          icon: r.icon || "landmark",
-          stats: JSON.parse(r.statsJson || "{}"),
-          relatedSlugs: JSON.parse(r.relatedSlugsJson || "[]"),
-        })) as Service[];
+        return rows.map((r) => {
+          const staticFallback = getStaticServiceBySlug(r.slug);
+          return formatDbService(r, staticFallback);
+        });
       }
     }
   } catch (err) {
@@ -62,38 +86,22 @@ export async function getServices(): Promise<Service[]> {
 }
 
 export async function getServiceBySlug(slug: string): Promise<Service | undefined> {
+  const normalizedSlug = SERVICE_SLUG_ALIASES[slug] || slug;
   try {
     const isOnline = await checkPrismaConnection();
     if (isOnline) {
       const r = await prisma.service.findUnique({
-        where: { slug },
+        where: { slug: normalizedSlug },
       });
       if (r) {
-        return {
-          id: r.id,
-          slug: r.slug,
-          number: r.number,
-          title: r.title,
-          eyebrow: r.eyebrow || "",
-          shortDescription: r.shortDescription || "",
-          description: r.description || "",
-          heroStatement: r.heroStatement || "",
-          services: JSON.parse(r.servicesJson || "[]"),
-          capabilities: JSON.parse(r.capabilitiesJson || "[]"),
-          approach: JSON.parse(r.approachJson || "[]"),
-          whyItMatters: JSON.parse(r.whyItMattersJson || "{}"),
-          keyDeliverables: JSON.parse(r.deliverablesJson || "[]"),
-          applicableFrameworks: JSON.parse(r.frameworksJson || "[]"),
-          icon: r.icon || "landmark",
-          stats: JSON.parse(r.statsJson || "{}"),
-          relatedSlugs: JSON.parse(r.relatedSlugsJson || "[]"),
-        } as Service;
+        const staticFallback = getStaticServiceBySlug(normalizedSlug);
+        return formatDbService(r, staticFallback);
       }
     }
   } catch (err) {
     console.warn(`[DataRepo] Service '${slug}' DB query failed, using static fallback:`, err);
   }
-  return getStaticServiceBySlug(slug);
+  return getStaticServiceBySlug(normalizedSlug);
 }
 
 // -------------------------------------------------------------

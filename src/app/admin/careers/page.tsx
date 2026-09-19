@@ -1,27 +1,25 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { toast } from "sonner";
-import { Briefcase, Plus, MapPin, Trash2, ArrowUpRight, X } from "lucide-react";
+import {
+  Briefcase,
+  Plus,
+  MapPin,
+  Trash2,
+  ArrowUpRight,
+  Edit3,
+  Clock,
+  CheckCircle2,
+} from "lucide-react";
 import { getCareers } from "@/lib/json";
 import { JobOpening } from "@/types/career";
 
 export default function AdminCareersPage() {
   const [openings, setOpenings] = useState<JobOpening[]>(getCareers().openings);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSaving, setIsSaving] = useState(false);
-  const [newJob, setNewJob] = useState<Partial<JobOpening>>({
-    title: "",
-    department: "Transfer Pricing",
-    location: "Dubai, UAE",
-    type: "Full-Time",
-    experience: "5-8 Years",
-    overview: "",
-    responsibilities: ["Lead client engagements and benchmarking studies"],
-    requirements: ["Degree in Law, Economics, or Taxation", "Big-4 or tier-one advisory experience"],
-  });
 
-  useEffect(() => {
+  const fetchCareers = () => {
     fetch("/api/admin/careers")
       .then((res) => res.json())
       .then((data) => {
@@ -30,58 +28,56 @@ export default function AdminCareersPage() {
         }
       })
       .catch(() => {});
+  };
+
+  useEffect(() => {
+    fetchCareers();
   }, []);
 
-  const handleCreateJob = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newJob.title) {
-      toast.error("Please enter a job title.");
-      return;
-    }
+  const handleDelete = async (id: string, title: string) => {
+    if (!confirm(`Are you sure you want to delete the role "${title}"?`)) return;
 
-    setIsSaving(true);
     try {
-      const res = await fetch("/api/admin/careers", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newJob),
+      const res = await fetch(`/api/admin/careers?id=${encodeURIComponent(id)}`, {
+        method: "DELETE",
       });
-
       const data = await res.json();
       if (res.ok && data.success) {
-        toast.success("Job opening created successfully!");
-        setOpenings((prev) => [data.data as JobOpening, ...prev]);
-        setIsModalOpen(false);
+        toast.success("Role deleted successfully.");
+        setOpenings((prev) => prev.filter((o) => o.id !== id));
       } else {
-        toast.error(data.message || "Failed to post job.");
+        toast.error(data.message || "Failed to delete role.");
       }
     } catch {
-      toast.error("Network error while creating career role.");
-    } finally {
-      setIsSaving(false);
+      toast.error("Network error while deleting role.");
     }
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 max-w-6xl pb-16">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            Job Openings
-          </h1>
+          <div className="flex items-center gap-3">
+            <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              Job Openings
+            </h1>
+            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-white/10 text-white/80 border border-white/15">
+              {openings.length} Positions
+            </span>
+          </div>
           <p className="text-sm text-white/60 mt-1">
-            Manage career opportunities and positions listed on the website.
+            Manage active career opportunities, statutory mandates, and candidate qualifications.
           </p>
         </div>
 
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="px-4 py-2.5 bg-[#eb0045] hover:bg-[#c9003b] text-white text-xs font-semibold rounded-sm inline-flex items-center gap-2 transition-colors cursor-pointer shadow-sm"
+        <Link
+          href="/admin/careers/new"
+          className="px-4 py-2.5 bg-[#eb0045] hover:bg-[#c9003b] text-white text-xs font-semibold rounded-md inline-flex items-center gap-2 transition-all cursor-pointer shadow-lg shadow-[#eb0045]/20 self-start sm:self-auto"
         >
           <Plus className="w-4 h-4" />
           <span>Post New Job</span>
-        </button>
+        </Link>
       </div>
 
       {/* Vacancy Cards List */}
@@ -89,12 +85,12 @@ export default function AdminCareersPage() {
         {openings.map((job) => (
           <div
             key={job.id}
-            className="p-6 bg-[#0D1C26] border border-white/10 rounded-sm shadow-sm space-y-4 hover:border-white/20 transition-colors"
+            className="p-6 bg-[#0D1C26] border border-white/10 rounded-lg shadow-sm space-y-4 hover:border-white/20 transition-colors group"
           >
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div>
-                <div className="flex items-center gap-2 text-xs mb-1.5">
-                  <span className="px-2 py-0.5 bg-[#eb0045]/15 text-[#eb0045] border border-[#eb0045]/30 text-xs font-medium rounded-xs">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+              <div className="space-y-1">
+                <div className="flex flex-wrap items-center gap-2 text-xs">
+                  <span className="px-2 py-0.5 bg-[#eb0045]/15 text-[#eb0045] border border-[#eb0045]/30 text-xs font-semibold rounded-sm">
                     {job.department}
                   </span>
                   <span className="text-white/50 text-xs">{job.type}</span>
@@ -103,14 +99,46 @@ export default function AdminCareersPage() {
                     <MapPin className="w-3 h-3 text-[#eb0045]" />
                     {job.location}
                   </span>
+                  <span className="text-white/30">•</span>
+                  <span className="text-white/50 text-xs">
+                    Exp: <span className="text-white/80 font-medium">{job.experience}</span>
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold text-white">
+                <Link
+                  href={`/admin/careers/edit/${job.id}`}
+                  className="text-lg font-bold text-white group-hover:text-[#eb0045] transition-colors block"
+                >
                   {job.title}
-                </h3>
+                </Link>
               </div>
 
-              <div className="text-xs text-white/80 bg-[#071219] px-3 py-1 rounded-xs border border-white/10">
-                Experience: <span className="font-semibold text-white">{job.experience}</span>
+              <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
+                <Link
+                  href={`/admin/careers/edit/${job.id}`}
+                  className="px-3 py-1.5 bg-[#071219] hover:bg-[#eb0045] border border-white/10 hover:border-transparent text-white text-xs font-medium rounded-md inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <Edit3 className="w-3 h-3" />
+                  <span>Edit</span>
+                </Link>
+
+                <Link
+                  href="/careers"
+                  target="_blank"
+                  className="px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white/80 hover:text-white text-xs font-medium rounded-md inline-flex items-center gap-1.5 transition-colors"
+                  title="View on Careers page"
+                >
+                  <span>View</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#eb0045]" />
+                </Link>
+
+                <button
+                  type="button"
+                  onClick={() => handleDelete(job.id, job.title)}
+                  className="p-1.5 text-white/40 hover:text-[#eb0045] transition-colors cursor-pointer rounded-md hover:bg-white/5"
+                  title="Delete role"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                </button>
               </div>
             </div>
 
@@ -123,119 +151,24 @@ export default function AdminCareersPage() {
                 {job.requirements.map((req, idx) => (
                   <span
                     key={idx}
-                    className="text-xs px-2.5 py-1 bg-[#071219] text-white/80 rounded-xs border border-white/10"
+                    className="text-xs px-2.5 py-1 bg-[#071219] text-white/80 rounded-sm border border-white/10 flex items-center gap-1.5"
                   >
-                    ✓ {req}
+                    <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                    <span>{req}</span>
                   </span>
                 ))}
               </div>
             )}
           </div>
         ))}
-      </div>
 
-      {/* Post Job Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-[#0D1C26] border border-white/20 max-w-xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative my-8 text-white rounded-sm">
-            <div className="flex items-center justify-between pb-4 border-b border-white/10">
-              <div>
-                <h3 className="text-xl font-bold text-white">
-                  Post New Job Opening
-                </h3>
-                <p className="text-xs text-white/60 mt-0.5">
-                  This role will be listed on your public Careers page immediately.
-                </p>
-              </div>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="w-8 h-8 rounded-sm hover:bg-white/10 border border-white/10 flex items-center justify-center text-white/60 hover:text-white transition-colors cursor-pointer"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <form onSubmit={handleCreateJob} className="space-y-4 text-xs">
-              <div className="space-y-1.5">
-                <label className="text-white/80 font-medium text-xs">
-                  Job Title *
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={newJob.title}
-                  onChange={(e) => setNewJob({ ...newJob, title: e.target.value })}
-                  placeholder="e.g. Senior Tax Consultant - Corporate Tax"
-                  className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <label className="text-white/80 font-medium text-xs">
-                    Department
-                  </label>
-                  <select
-                    value={newJob.department}
-                    onChange={(e) =>
-                      setNewJob({ ...newJob, department: e.target.value as JobOpening["department"] })
-                    }
-                    className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors cursor-pointer"
-                  >
-                    <option value="Transfer Pricing">Transfer Pricing</option>
-                    <option value="Corporate Tax">Corporate Tax</option>
-                    <option value="International Tax">International Tax</option>
-                    <option value="Controversy & Regulatory">Controversy & Regulatory</option>
-                  </select>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-white/80 font-medium text-xs">
-                    Experience Required
-                  </label>
-                  <input
-                    type="text"
-                    value={newJob.experience}
-                    onChange={(e) => setNewJob({ ...newJob, experience: e.target.value })}
-                    placeholder="e.g. 3-5 Years"
-                    className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="text-white/80 font-medium text-xs">
-                  Job Overview / Summary
-                </label>
-                <textarea
-                  rows={3}
-                  value={newJob.overview}
-                  onChange={(e) => setNewJob({ ...newJob, overview: e.target.value })}
-                  placeholder="Describe the role responsibilities and what you are looking for..."
-                  className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors resize-none"
-                />
-              </div>
-
-              <div className="pt-4 flex justify-end gap-3 border-t border-white/10">
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 border border-white/10 text-white/70 hover:text-white hover:bg-white/5 text-xs font-semibold rounded-sm cursor-pointer transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={isSaving}
-                  className="px-5 py-2 bg-[#eb0045] hover:bg-[#c9003b] text-white text-xs font-semibold rounded-sm transition-colors cursor-pointer disabled:opacity-50 shadow-sm"
-                >
-                  {isSaving ? "Posting..." : "Post Job Opening"}
-                </button>
-              </div>
-            </form>
+        {openings.length === 0 && (
+          <div className="p-12 text-center bg-[#0D1C26] border border-white/10 rounded-lg">
+            <Briefcase className="w-10 h-10 text-white/20 mx-auto mb-3" />
+            <p className="text-white/60 text-sm">No job openings currently posted.</p>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

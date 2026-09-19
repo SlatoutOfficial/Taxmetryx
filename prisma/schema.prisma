@@ -40,6 +40,12 @@ model Service {
   icon                 String?
   statsJson            String?  @map("stats_json")
   relatedSlugsJson     String?  @map("related_slugs_json")
+  whenToInvolveJson    String?  @map("when_to_involve_json")
+  subservicesJson      String?  @map("subservices_json")
+  typicalOutputs       String?  @map("typical_outputs")
+  faqsJson             String?  @map("faqs_json")
+  lede                 String?
+  overviewDescription  String?  @map("overview_description")
   updatedAt            DateTime @updatedAt @map("updated_at")
 
   @@map("services")
