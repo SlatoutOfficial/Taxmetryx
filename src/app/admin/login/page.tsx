@@ -9,8 +9,8 @@ import BrandLogo from "@/components/shared/BrandLogo";
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("admin@taxmetryx.com");
-  const [password, setPassword] = useState("Taxmetryx@2026");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -123,16 +123,7 @@ export default function AdminLoginPage() {
           </button>
         </form>
 
-        {/* Demo Credentials Helper */}
-        <div className="p-4 border border-white/10 bg-white/5 space-y-2 text-xs text-white/60">
-          <div className="text-[10px] font-mono text-brand-red uppercase font-semibold">
-            Pre-Configured Administrative Access:
-          </div>
-          <div className="space-y-1 font-mono text-[11px] text-white/80">
-            <div>Email: <span className="text-white">admin@taxmetryx.com</span></div>
-            <div>Password: <span className="text-white">Taxmetryx@2026</span></div>
-          </div>
-        </div>
+
       </div>
 
       {/* Footer */}
