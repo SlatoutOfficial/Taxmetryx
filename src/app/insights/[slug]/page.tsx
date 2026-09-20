@@ -14,6 +14,9 @@ interface InsightPageProps {
   params: Promise<{ slug: string }>;
 }
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export async function generateStaticParams() {
   const insights = await getInsights();
   return insights.map((insight) => ({

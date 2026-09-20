@@ -7,8 +7,14 @@ import ExpertiseSection from "@/components/home/ExpertiseSection";
 import ValuesSection from "@/components/home/ValuesSection";
 import InsightsSection from "@/components/home/InsightsSection";
 import ContactSection from "@/components/home/ContactSection";
+import { getInsights } from "@/lib/data-repository";
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+export default async function HomePage() {
+  const insights = await getInsights();
+
   return (
     <div className="reference-home">
       <HeroSection />
@@ -17,7 +23,7 @@ export default function HomePage() {
       <WhereWeServeSection />
       <ExpertiseSection />
       <ValuesSection />
-      <InsightsSection />
+      <InsightsSection initialInsights={insights} />
       <ContactSection />
     </div>
   );
