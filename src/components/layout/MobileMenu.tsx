@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { X, ChevronDown, ArrowUpRight, Globe } from "lucide-react";
 import { getServices, getNavigation } from "@/lib/json";
+import { Service } from "@/types/service";
 import CTAButton from "@/components/shared/CTAButton";
 import BrandLogo from "@/components/shared/BrandLogo";
 
@@ -15,7 +16,19 @@ interface MobileMenuProps {
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const [servicesExpanded, setServicesExpanded] = useState(false);
   const navigation = getNavigation();
-  const services = getServices();
+  const [services, setServices] = useState<Service[]>(getServices());
+
+  useEffect(() => {
+    if (!isOpen) return;
+    fetch("/api/services")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+          setServices(data.data);
+        }
+      })
+      .catch(() => {});
+  }, [isOpen]);
 
   if (!isOpen) return null;
 

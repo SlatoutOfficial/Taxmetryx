@@ -1,11 +1,10 @@
 import { NextRequest } from "next/server";
 import fs from "fs";
 import path from "path";
-import { getDbPool, checkDbConnection } from "@/lib/db";
+import { prisma, checkPrismaConnection } from "@/lib/prisma";
 import { getSession } from "@/lib/admin-auth";
 import { getTypographyConfig, TypographyConfig } from "@/lib/json";
 import { successResponse, errorResponse } from "@/lib/api-response";
-import { RowDataPacket } from "mysql2";
 
 const TYPOGRAPHY_FILE = path.join(process.cwd(), "src", "data", "typography.json");
 
@@ -30,23 +29,21 @@ function writeTypographyToFile(data: TypographyConfig) {
 }
 
 export async function GET() {
-  const isOnline = await checkDbConnection();
-  if (!isOnline) {
-    return successResponse(readTypographyFromFile(), "Typography loaded from file");
+  try {
+    const isOnline = await checkPrismaConnection();
+    if (isOnline) {
+      const row = await prisma.siteConfig.findUnique({
+        where: { key: "typography" },
+      });
+      if (row && row.valueJson) {
+        return successResponse(JSON.parse(row.valueJson), "Typography loaded from Supabase");
+      }
+    }
+  } catch (err) {
+    console.warn("[Admin/Typography] Prisma query failed, using file fallback:", err);
   }
 
-  try {
-    const p = getDbPool();
-    const [rows] = await p.query<RowDataPacket[]>(
-      "SELECT config_value FROM site_config WHERE config_key = 'typography'"
-    );
-    if (rows.length === 0) {
-      return successResponse(readTypographyFromFile(), "Default typography returned");
-    }
-    return successResponse(JSON.parse(rows[0].config_value), "Typography loaded from MySQL");
-  } catch (err) {
-    return successResponse(readTypographyFromFile(), "Fallback typography loaded from file");
-  }
+  return successResponse(readTypographyFromFile(), "Typography loaded from file");
 }
 
 export async function PUT(request: NextRequest) {
@@ -61,26 +58,31 @@ export async function PUT(request: NextRequest) {
       return errorResponse("fontHeading and fontBody are required", 400);
     }
 
-    // 1. Dual persistence: Write to file
-    writeTypographyToFile(data);
+    const configToSave: TypographyConfig = {
+      fontHeading: data.fontHeading,
+      fontBody: data.fontBody,
+      googleFontHeading: data.googleFontHeading || data.fontHeading,
+      googleFontBody: data.googleFontBody || data.fontBody,
+    };
 
-    // 2. Dual persistence: Write to DB if online
-    const isOnline = await checkDbConnection();
-    if (isOnline) {
-      try {
-        const p = getDbPool();
-        await p.query(
-          `INSERT INTO site_config (config_key, config_value)
-           VALUES ('typography', ?)
-           ON DUPLICATE KEY UPDATE config_value = VALUES(config_value)`,
-          [JSON.stringify(data)]
-        );
-      } catch (dbErr) {
-        console.warn("Could not save typography to MySQL, saved to file:", dbErr);
+    // 1. Write to local file
+    writeTypographyToFile(configToSave);
+
+    // 2. Write to Supabase DB if online
+    try {
+      const isOnline = await checkPrismaConnection();
+      if (isOnline) {
+        await prisma.siteConfig.upsert({
+          where: { key: "typography" },
+          update: { valueJson: JSON.stringify(configToSave) },
+          create: { key: "typography", valueJson: JSON.stringify(configToSave) },
+        });
       }
+    } catch (dbErr) {
+      console.warn("Could not save typography to Supabase, saved to file:", dbErr);
     }
 
-    return successResponse(data, "Font families updated successfully");
+    return successResponse(configToSave, "Font families updated successfully");
   } catch (err) {
     return errorResponse(err instanceof Error ? err.message : "Save error", 500);
   }

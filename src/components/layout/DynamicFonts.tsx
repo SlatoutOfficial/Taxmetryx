@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useState, useMemo } from "react";
-import { TypographyConfig } from "@/lib/json";
+import { getTypographyConfig, TypographyConfig } from "@/lib/json";
 
-const defaultFonts: TypographyConfig = {
+const defaultFonts: TypographyConfig = getTypographyConfig() || {
   fontHeading: "Montserrat",
   fontBody: "Montserrat",
 };
@@ -36,17 +36,6 @@ export default function DynamicFonts() {
       const cached = localStorage.getItem("taxmetryx_typography");
       if (cached) {
         const parsed = JSON.parse(cached);
-        if (
-          parsed.fontHeading === "DM Serif Display" ||
-          parsed.fontHeading === "Taxmetryx Serif" ||
-          parsed.fontHeading === "Inter"
-        ) {
-          parsed.fontHeading = "Montserrat";
-        }
-        if (parsed.fontBody === "Inter") {
-          parsed.fontBody = "Montserrat";
-        }
-        localStorage.setItem("taxmetryx_typography", JSON.stringify(parsed));
         setFonts(parsed);
       }
     } catch {
@@ -58,20 +47,9 @@ export default function DynamicFonts() {
       .then((res) => res.json())
       .then((data) => {
         if (data.success && data.data) {
-          const freshData = data.data;
-          if (
-            freshData.fontHeading === "DM Serif Display" ||
-            freshData.fontHeading === "Taxmetryx Serif" ||
-            freshData.fontHeading === "Inter"
-          ) {
-            freshData.fontHeading = "Montserrat";
-          }
-          if (freshData.fontBody === "Inter") {
-            freshData.fontBody = "Montserrat";
-          }
-          setFonts(freshData);
+          setFonts(data.data);
           try {
-            localStorage.setItem("taxmetryx_typography", JSON.stringify(freshData));
+            localStorage.setItem("taxmetryx_typography", JSON.stringify(data.data));
           } catch {
             // ignore
           }
@@ -96,6 +74,11 @@ export default function DynamicFonts() {
   const headingFont = fonts.fontHeading || "Montserrat";
   const bodyFont = fonts.fontBody || "Montserrat";
 
+  const isHeadingSerif = /serif|cormorant|playfair|bodoni|prata|cinzel|merriweather/i.test(headingFont);
+  const headingFallback = isHeadingSerif
+    ? "Georgia, serif"
+    : "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+
   const fontUrl = useMemo(() => {
     return getGoogleFontUrl([headingFont, bodyFont]);
   }, [headingFont, bodyFont]);
@@ -110,31 +93,27 @@ export default function DynamicFonts() {
         dangerouslySetInnerHTML={{
           __html: `
             :root {
-              --font-serif: "${headingFont}", "Montserrat", var(--font-sans), sans-serif;
+              --font-heading: "${headingFont}", ${headingFallback};
+              --font-serif: "${headingFont}", Georgia, serif;
               --font-sans: "${bodyFont}", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+              --font-body: "${bodyFont}", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             }
 
             /* Apply typography consistently across all pages */
             body, button, input, textarea, select {
-              font-family: var(--font-sans), "Montserrat", sans-serif;
+              font-family: var(--font-body) !important;
             }
 
-            h1, h2, h3, h4, h5, h6, .font-editorial {
-              font-family: var(--font-sans), "Montserrat", sans-serif;
-              letter-spacing: -0.025em;
-            }
-
-            .reference-heading {
-              font-family: var(--font-sans), "Montserrat", sans-serif;
-              letter-spacing: -0.03em;
+            h1, h2, h3, h4, h5, h6, .font-editorial, .reference-heading, .font-serif {
+              font-family: var(--font-heading) !important;
             }
 
             .reference-sans-heading {
-              font-family: var(--font-sans), "Montserrat", sans-serif;
+              font-family: var(--font-body) !important;
             }
 
-            .reference-copy {
-              font-family: var(--font-sans), "Montserrat", sans-serif;
+            .reference-copy, .font-sans {
+              font-family: var(--font-body) !important;
             }
           `,
         }}

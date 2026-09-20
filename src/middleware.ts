@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { jwtVerify } from "jose";
+import { createClient } from "@/utils/supabase/middleware";
 
 const JWT_SECRET = new TextEncoder().encode(
   process.env.ADMIN_JWT_SECRET || "taxmetryx_super_secret_corporate_advisory_key_2026_difc"
@@ -8,6 +9,7 @@ const JWT_SECRET = new TextEncoder().encode(
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const { response } = createClient(request);
 
   // Protect /admin routes (except /admin/login)
   if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
@@ -21,7 +23,7 @@ export async function middleware(request: NextRequest) {
 
     try {
       await jwtVerify(token, JWT_SECRET);
-      return NextResponse.next();
+      return response;
     } catch {
       const loginUrl = new URL("/admin/login", request.url);
       loginUrl.searchParams.set("from", pathname);
@@ -42,9 +44,12 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+  ],
 };
+

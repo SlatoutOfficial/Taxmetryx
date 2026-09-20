@@ -33,7 +33,7 @@ export default function AdminSettingsPage() {
 
       const data = await res.json();
       if (res.ok && data.success) {
-        toast.success("Firm settings updated successfully in MySQL!");
+        toast.success("Firm settings saved successfully!");
       } else {
         toast.error(data.message || "Failed to update settings.");
       }
@@ -46,80 +46,86 @@ export default function AdminSettingsPage() {
 
   return (
     <div className="space-y-8">
+      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
         <div>
-          <span className="text-[10px] font-mono uppercase tracking-widest text-brand-red font-semibold">
-            GLOBAL FIRM GOVERNANCE
-          </span>
-          <h1 className="font-editorial text-3xl sm:text-4xl text-white mt-1">
-            Site & Licensing Settings
+          <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Firm Settings
           </h1>
-          <p className="text-xs text-white/60">
-            Dynamically update firm regulatory credentials, hotline numbers, and headquarters metadata.
+          <p className="text-sm text-white/60 mt-1">
+            Update company profile information, telephone numbers, email hotlines, and licensing details.
           </p>
         </div>
 
         <button
           onClick={handleSave}
           disabled={isSaving}
-          className="px-6 py-3 bg-brand-red hover:bg-[#b80012] text-white text-xs uppercase tracking-wider font-semibold inline-flex items-center gap-2 transition-colors cursor-pointer disabled:opacity-50"
+          className="px-5 py-2.5 bg-[#eb0045] hover:bg-[#c9003b] text-white text-xs font-semibold rounded-sm inline-flex items-center gap-2 transition-colors cursor-pointer disabled:opacity-50 shadow-sm"
         >
           <Save className="w-4 h-4" />
           <span>{isSaving ? "Saving..." : "Save Settings"}</span>
         </button>
       </div>
 
-      <form onSubmit={handleSave} className="space-y-8 text-xs">
-        {/* Section 1: Firm Identity */}
-        <div className="p-6 bg-white/5 border border-white/10 space-y-4">
-          <div className="flex items-center gap-2 text-brand-red uppercase tracking-wider font-semibold text-xs border-b border-white/10 pb-3">
-            <Building className="w-4 h-4" />
-            <span>Firm Legal Identity</span>
+      <form onSubmit={handleSave} className="space-y-6 text-xs">
+        {/* Section 1: Company Profile */}
+        <div className="p-6 bg-[#0D1C26] border border-white/10 rounded-sm shadow-sm space-y-4">
+          <div className="flex items-center gap-2 text-white font-semibold text-xs border-b border-white/10 pb-3">
+            <Building className="w-4 h-4 text-[#eb0045]" />
+            <span>Company Profile</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1">
-              <label className="text-white/70 uppercase font-semibold">Brand Name</label>
+            <div className="space-y-1.5">
+              <label className="text-white/80 font-medium text-xs">
+                Brand Name
+              </label>
               <input
                 type="text"
                 value={config.name}
                 onChange={(e) => setConfig({ ...config, name: e.target.value })}
-                className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red"
+                className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
               />
             </div>
 
-            <div className="space-y-1">
-              <label className="text-white/70 uppercase font-semibold">Legal Entity Name</label>
+            <div className="space-y-1.5">
+              <label className="text-white/80 font-medium text-xs">
+                Legal Entity Name
+              </label>
               <input
                 type="text"
                 value={config.legalName}
                 onChange={(e) => setConfig({ ...config, legalName: e.target.value })}
-                className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red"
+                className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
               />
             </div>
           </div>
 
-          <div className="space-y-1">
-            <label className="text-white/70 uppercase font-semibold">Firm Description</label>
+          <div className="space-y-1.5">
+            <label className="text-white/80 font-medium text-xs">
+              Company Tagline / Description
+            </label>
             <textarea
               rows={2}
               value={config.description}
               onChange={(e) => setConfig({ ...config, description: e.target.value })}
-              className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red resize-none"
+              className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors resize-none"
             />
           </div>
         </div>
 
-        {/* Section 2: Contact & Communications */}
-        <div className="p-6 bg-white/5 border border-white/10 space-y-4">
-          <div className="flex items-center gap-2 text-brand-red uppercase tracking-wider font-semibold text-xs border-b border-white/10 pb-3">
-            <Phone className="w-4 h-4" />
-            <span>Contact Numbers & Hotlines</span>
+        {/* Section 2: Contact Information */}
+        <div className="p-6 bg-[#0D1C26] border border-white/10 rounded-sm shadow-sm space-y-4">
+          <div className="flex items-center gap-2 text-white font-semibold text-xs border-b border-white/10 pb-3">
+            <Phone className="w-4 h-4 text-[#eb0045]" />
+            <span>Contact Information</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="space-y-1">
-              <label className="text-white/70 uppercase font-semibold">Advisory Email</label>
+            <div className="space-y-1.5">
+              <label className="text-white/80 font-medium text-xs">
+                Contact Email
+              </label>
               <input
                 type="email"
                 value={config.contact.email}
@@ -129,12 +135,14 @@ export default function AdminSettingsPage() {
                     contact: { ...config.contact, email: e.target.value },
                   })
                 }
-                className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red"
+                className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
               />
             </div>
 
-            <div className="space-y-1">
-              <label className="text-white/70 uppercase font-semibold">Main Telephone</label>
+            <div className="space-y-1.5">
+              <label className="text-white/80 font-medium text-xs">
+                Main Telephone
+              </label>
               <input
                 type="text"
                 value={config.contact.phoneFormatted}
@@ -144,12 +152,14 @@ export default function AdminSettingsPage() {
                     contact: { ...config.contact, phoneFormatted: e.target.value },
                   })
                 }
-                className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red"
+                className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
               />
             </div>
 
-            <div className="space-y-1">
-              <label className="text-white/70 uppercase font-semibold">Advisory Hotline</label>
+            <div className="space-y-1.5">
+              <label className="text-white/80 font-medium text-xs">
+                Direct Hotline
+              </label>
               <input
                 type="text"
                 value={config.contact.advisoryHotline}
@@ -159,22 +169,24 @@ export default function AdminSettingsPage() {
                     contact: { ...config.contact, advisoryHotline: e.target.value },
                   })
                 }
-                className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red"
+                className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
               />
             </div>
           </div>
         </div>
 
         {/* Section 3: Headquarters & Licensing */}
-        <div className="p-6 bg-white/5 border border-white/10 space-y-4">
-          <div className="flex items-center gap-2 text-brand-red uppercase tracking-wider font-semibold text-xs border-b border-white/10 pb-3">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Licensing & Registration</span>
+        <div className="p-6 bg-[#0D1C26] border border-white/10 rounded-sm shadow-sm space-y-4">
+          <div className="flex items-center gap-2 text-white font-semibold text-xs border-b border-white/10 pb-3">
+            <ShieldCheck className="w-4 h-4 text-[#eb0045]" />
+            <span>Office Address & Licensing</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1">
-              <label className="text-white/70 uppercase font-semibold">License No.</label>
+            <div className="space-y-1.5">
+              <label className="text-white/80 font-medium text-xs">
+                Commercial License No.
+              </label>
               <input
                 type="text"
                 value={config.legal.licenseNo}
@@ -184,12 +196,14 @@ export default function AdminSettingsPage() {
                     legal: { ...config.legal, licenseNo: e.target.value },
                   })
                 }
-                className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white font-mono focus:outline-hidden focus:border-brand-red"
+                className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
               />
             </div>
 
-            <div className="space-y-1">
-              <label className="text-white/70 uppercase font-semibold">Regulatory Body</label>
+            <div className="space-y-1.5">
+              <label className="text-white/80 font-medium text-xs">
+                Regulatory Authority
+              </label>
               <input
                 type="text"
                 value={config.legal.regulatoryBody}
@@ -199,13 +213,15 @@ export default function AdminSettingsPage() {
                     legal: { ...config.legal, regulatoryBody: e.target.value },
                   })
                 }
-                className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red"
+                className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
               />
             </div>
           </div>
 
-          <div className="space-y-1">
-            <label className="text-white/70 uppercase font-semibold">Headquarters Address</label>
+          <div className="space-y-1.5">
+            <label className="text-white/80 font-medium text-xs">
+              Office Address
+            </label>
             <input
               type="text"
               value={config.headquarters.address}
@@ -215,7 +231,7 @@ export default function AdminSettingsPage() {
                   headquarters: { ...config.headquarters, address: e.target.value },
                 })
               }
-              className="w-full px-3 py-2 bg-white/5 border border-white/15 text-white focus:outline-hidden focus:border-brand-red"
+              className="w-full px-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-sm focus:outline-hidden focus:border-[#eb0045] transition-colors"
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -12,9 +12,12 @@ import {
   Receipt,
   Scale,
   ShieldAlert,
+  Layers,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Button from "@/components/shared/Button";
+import { getServices } from "@/lib/json";
+import { Service } from "@/types/service";
 
 interface PracticeDetail {
   slug: string;
@@ -25,86 +28,62 @@ interface PracticeDetail {
   icon: React.ReactNode;
 }
 
-const practices: PracticeDetail[] = [
-  {
-    slug: "transfer-pricing",
-    title: "Transfer Pricing",
-    tagline: "Arm's Length Structuring & Documentation",
-    description:
-      "Substantiate related-party transactions with defensible economic benchmarking aligned with OECD Guidelines and UAE Federal Tax Authority requirements.",
-    highlights: [
-      "OECD Local File & Master File documentation",
-      "Economic benchmarking & comparable searches",
-      "Intercompany financial transaction pricing",
-    ],
-    icon: <Scale className="w-4 h-4" />,
-  },
-  {
-    slug: "corporate-tax",
-    title: "Corporate Tax",
-    tagline: "UAE Corporate Tax Law No. 47 Advisory",
-    description:
-      "Navigate UAE corporate tax obligations, qualify for the 0% Free Zone regime (QFZP), and structure tax groups to protect business value.",
-    highlights: [
-      "0% Qualifying Free Zone Person (QFZP) qualification",
-      "Tax grouping & intra-group relief optimization",
-      "Corporate tax impact diagnostics & filing support",
-    ],
-    icon: <Building2 className="w-4 h-4" />,
-  },
-  {
-    slug: "international-tax",
-    title: "International Tax",
-    tagline: "Cross-Border Structuring & Treaties",
-    description:
-      "Strategic cross-border advisory addressing OECD Pillar Two global minimum tax, Double Tax Treaties (DTAA), and permanent establishment risks.",
-    highlights: [
-      "OECD Pillar Two 15% Global Minimum Tax analysis",
-      "Double Tax Treaty (DTAA) network structuring",
-      "Permanent Establishment (PE) mitigation",
-    ],
-    icon: <Globe2 className="w-4 h-4" />,
-  },
-  {
-    slug: "vat-and-indirect-tax",
-    title: "VAT & Indirect Tax",
-    tagline: "GCC VAT Advisory & Compliance",
-    description:
-      "End-to-end VAT advisory and compliance across the UAE and GCC, covering transaction reviews, real estate structuring, and audit readiness.",
-    highlights: [
-      "GCC VAT compliance & transactional reviews",
-      "FTA audit support & Voluntary Disclosures",
-      "Real estate tax structuring & input tax recovery",
-    ],
-    icon: <Receipt className="w-4 h-4" />,
-  },
-  {
-    slug: "tax-regulatory-and-controversy",
-    title: "Tax Regulatory & Controversy",
-    tagline: "FTA Audit Defense & Dispute Resolution",
-    description:
-      "Defend your tax position with rigorous technical representation in Federal Tax Authority audits, Reconsiderations, and dispute committees.",
-    highlights: [
-      "FTA audit defense & inquiries management",
-      "Reconsideration requests & penalty waivers",
-      "Tax Dispute Resolution Committee representation",
-    ],
-    icon: <ShieldAlert className="w-4 h-4" />,
-  },
-  {
-    slug: "global-tax-and-emerging-regulations",
-    title: "Global Tax & Emerging Regulations",
-    tagline: "Economic Substance & Global Transparency",
-    description:
-      "Maintain proactive compliance with international transparency rules including Economic Substance Regulations (ESR), CbCR, and FATCA/CRS.",
-    highlights: [
-      "Economic Substance Regulations (ESR) compliance",
-      "Country-by-Country Reporting (CbCR) filing",
-      "FATCA & CRS transparency compliance",
-    ],
-    icon: <Cpu className="w-4 h-4" />,
-  },
-];
+const defaultIconMap: Record<string, React.ReactNode> = {
+  "transfer-pricing": <Scale className="w-4 h-4" />,
+  "corporate-tax": <Building2 className="w-4 h-4" />,
+  "international-tax": <Globe2 className="w-4 h-4" />,
+  "vat-and-indirect-tax": <Receipt className="w-4 h-4" />,
+  "vat-indirect-tax": <Receipt className="w-4 h-4" />,
+  "tax-regulatory-and-controversy": <ShieldAlert className="w-4 h-4" />,
+  "tax-regulatory-controversy": <ShieldAlert className="w-4 h-4" />,
+  "global-tax-and-emerging-regulations": <Cpu className="w-4 h-4" />,
+  "global-tax-emerging-regulations": <Cpu className="w-4 h-4" />,
+};
+
+const defaultTaglines: Record<string, string> = {
+  "transfer-pricing": "Arm's Length Structuring & Documentation",
+  "corporate-tax": "UAE Corporate Tax Law No. 47 Advisory",
+  "international-tax": "Cross-Border Structuring & Treaties",
+  "vat-and-indirect-tax": "GCC VAT Advisory & Compliance",
+  "vat-indirect-tax": "GCC VAT Advisory & Compliance",
+  "tax-regulatory-and-controversy": "FTA Audit Defense & Dispute Resolution",
+  "tax-regulatory-controversy": "FTA Audit Defense & Dispute Resolution",
+  "global-tax-and-emerging-regulations": "Economic Substance & Global Transparency",
+  "global-tax-emerging-regulations": "Economic Substance & Global Transparency",
+};
+
+const defaultHighlights: Record<string, string[]> = {
+  "transfer-pricing": [
+    "OECD Local File & Master File documentation",
+    "Economic benchmarking & comparable searches",
+    "Intercompany financial transaction pricing",
+  ],
+  "corporate-tax": [
+    "0% Qualifying Free Zone Person (QFZP) qualification",
+    "Tax grouping & intra-group relief optimization",
+    "Corporate tax impact diagnostics & filing support",
+  ],
+  "international-tax": [
+    "OECD Pillar Two 15% Global Minimum Tax analysis",
+    "Double Tax Treaty (DTAA) network structuring",
+    "Permanent Establishment (PE) mitigation",
+  ],
+  "vat-and-indirect-tax": [
+    "GCC VAT compliance & transactional reviews",
+    "FTA audit support & Voluntary Disclosures",
+    "Real estate tax structuring & input tax recovery",
+  ],
+  "tax-regulatory-and-controversy": [
+    "FTA audit defense & inquiries management",
+    "Reconsideration requests & penalty waivers",
+    "Tax Dispute Resolution Committee representation",
+  ],
+  "global-tax-and-emerging-regulations": [
+    "Economic Substance Regulations (ESR) compliance",
+    "Country-by-Country Reporting (CbCR) filing",
+    "FATCA & CRS transparency compliance",
+  ],
+};
 
 interface ServicesDropdownProps {
   isOpen: boolean;
@@ -117,12 +96,58 @@ export default function ServicesDropdown({
   onClose,
   onMouseEnter,
 }: ServicesDropdownProps) {
-  const [activeSlug, setActiveSlug] = useState<string>(practices[0].slug);
+  const [servicesList, setServicesList] = useState<Service[]>(getServices());
+  const [activeSlug, setActiveSlug] = useState<string>("transfer-pricing");
+
+  // Fetch latest services dynamically to always reflect edits made in CMS/admin
+  useEffect(() => {
+    fetch("/api/services")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+          setServicesList(data.data);
+        }
+      })
+      .catch(() => {});
+  }, [isOpen]);
+
+  const practices: PracticeDetail[] = useMemo(() => {
+    return servicesList.map((s) => ({
+      slug: s.slug,
+      title: s.title, // Dynamic title updated live from admin!
+      tagline: s.eyebrow || defaultTaglines[s.slug] || "Specialized Advisory",
+      description:
+        s.shortDescription ||
+        s.heroStatement ||
+        "Specialist advisory services across UAE and international tax jurisdictions.",
+      highlights:
+        s.capabilities && s.capabilities.length > 0
+          ? s.capabilities.map((c) => c.title).slice(0, 3)
+          : defaultHighlights[s.slug] || [
+              "OECD Local File & Master File documentation",
+              "Economic benchmarking & comparable searches",
+              "Intercompany financial transaction pricing",
+            ],
+      icon: defaultIconMap[s.slug] || <Layers className="w-4 h-4" />,
+    }));
+  }, [servicesList]);
 
   if (!isOpen) return null;
 
   const active =
-    practices.find((p) => p.slug === activeSlug) || practices[0];
+    practices.find((p) => p.slug === activeSlug) ||
+    practices[0] || {
+      slug: "transfer-pricing",
+      title: "Transfer Pricing",
+      tagline: "Arm's Length Structuring & Documentation",
+      description:
+        "Substantiate related-party transactions with defensible economic benchmarking.",
+      highlights: [
+        "OECD Local File & Master File documentation",
+        "Economic benchmarking & comparable searches",
+      ],
+      icon: <Scale className="w-4 h-4" />,
+    };
 
   return (
     <div
@@ -140,7 +165,7 @@ export default function ServicesDropdown({
           {/* LEFT PANE: Clean List of Practices */}
           <div className="p-3 bg-[#FCFCFA] border-r border-[#EFECE6] flex flex-col justify-between">
             <div>
-              {/* Header Label - Clean, user-friendly, no number count */}
+              {/* Header Label */}
               <div className="px-3 pt-2 pb-2.5 flex items-center gap-2">
                 <span className="text-[11px] font-medium tracking-[0.16em] text-[#55636e] uppercase">
                   Advisory Practices
@@ -177,7 +202,7 @@ export default function ServicesDropdown({
                           {practice.icon}
                         </div>
 
-                        {/* Title */}
+                        {/* Title - Dynamically Updated */}
                         <span
                           className={cn(
                             "text-[13px] font-semibold tracking-tight transition-colors truncate",
@@ -233,7 +258,7 @@ export default function ServicesDropdown({
                 </h4>
               </div>
 
-              {/* Natural, readable description without truncation */}
+              {/* Description */}
               <p className="text-[12.5px] text-[#55636e] leading-relaxed">
                 {active.description}
               </p>

@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/shared/Container";
 import ServiceHero from "@/components/services/ServiceHero";
-import { getServices } from "@/lib/json";
+import { getServices } from "@/lib/data-repository";
 import { getServiceTheme } from "@/lib/serviceTheme";
 
 export const metadata: Metadata = {
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   description: "Taxmetryx provides advisory, documentation and compliance support across six areas of tax.",
 };
 
-export default function ServicesPage() {
-  const services = getServices();
+export default async function ServicesPage() {
+  const services = await getServices();
   return (
     <div className="service-page bg-white text-[#17232c]">
       <ServiceHero title="Our services" description="Taxmetryx provides advisory, documentation and compliance support across six areas of tax. Whether you are reviewing a transaction, preparing a return or responding to an enquiry, we help identify the work required and the information needed to support it." image="/images/services-hero.jpg" count={65} />

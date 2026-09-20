@@ -1,4 +1,5 @@
-import { syncJsonToMysql, checkDbConnection } from "@/lib/db";
+import { checkPrismaConnection } from "@/lib/prisma";
+import { runPrismaSeed } from "../../../../../prisma/seed";
 import { getSession } from "@/lib/admin-auth";
 import { successResponse, errorResponse } from "@/lib/api-response";
 
@@ -8,20 +9,28 @@ export async function POST() {
     return errorResponse("Unauthorized", 401);
   }
 
-  const isOnline = await checkDbConnection();
-  if (!isOnline) {
-    return errorResponse(
-      "Cannot seed: MySQL server is not connected on port 3306. Please start MySQL and try again.",
-      503
-    );
+  // Prisma (Supabase PostgreSQL)
+  const isPrismaOnline = await checkPrismaConnection();
+  if (isPrismaOnline) {
+    try {
+      const result = await runPrismaSeed();
+      return successResponse(
+        result.counts,
+        "Database seeded successfully via Prisma to Supabase PostgreSQL."
+      );
+    } catch (prismaErr) {
+      console.error("[Seed API] Prisma seed failed:", prismaErr);
+      return errorResponse(
+        prismaErr instanceof Error ? prismaErr.message : "Prisma seed error",
+        500
+      );
+    }
   }
 
-  const result = await syncJsonToMysql();
-  if (!result.success) {
-    return errorResponse(result.message, 500);
-  }
-
-  return successResponse(result.counts, result.message);
+  return errorResponse(
+    "Supabase database connection is offline. Connect Supabase to run seed.",
+    503
+  );
 }
 
 export async function GET() {
@@ -30,6 +39,17 @@ export async function GET() {
     return errorResponse("Unauthorized", 401);
   }
 
-  const isOnline = await checkDbConnection();
-  return successResponse({ isOnline }, isOnline ? "MySQL is connected" : "MySQL is offline (using fallback)");
+  const isPrismaOnline = await checkPrismaConnection();
+
+  return successResponse(
+    {
+      prismaOnline: isPrismaOnline,
+      activeSource: isPrismaOnline
+        ? "Supabase (Prisma)"
+        : "Static JSON Fallback",
+    },
+    isPrismaOnline
+      ? "Supabase PostgreSQL connected via Prisma"
+      : "Database offline - Serving static JSON fallback with 100% fidelity"
+  );
 }

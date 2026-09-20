@@ -241,11 +241,11 @@ When a user submits the contact form, `POST /api/contact` validates the payload 
 > **Note on Serverless Hosting (e.g., Vercel)**:
 > Serverless function filesystems are read-only / ephemeral. While the form responds with success on all platforms, persistent storage across serverless restarts requires a database or CRM webhook.
 
-### How to Migrate to Database Later
-Because all data access is cleanly abstracted into `src/lib/json.ts` and `src/app/api/contact/route.ts`, replacing JSON with PostgreSQL, MySQL, Supabase, or Salesforce CRM requires **zero changes to frontend components**:
-1. Simply replace `fs.writeFile` in `src/app/api/contact/route.ts` with your ORM client:
+### Database Integration (Supabase & Prisma)
+All data access is powered by Prisma ORM and Supabase PostgreSQL with a high-fidelity static JSON fallback:
+1. Database queries are managed via `src/lib/data-repository.ts` and `prisma/schema.prisma`:
    ```typescript
-   // Example PostgreSQL / Prisma migration:
+   // Example Supabase / Prisma query:
    await prisma.contactSubmission.create({ data: result.data });
    ```
 2. In `src/lib/json.ts`, replace static JSON imports with database query helpers.

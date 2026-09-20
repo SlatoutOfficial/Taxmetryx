@@ -8,7 +8,8 @@ import Container from "@/components/shared/Container";
 import CTAButton from "@/components/shared/CTAButton";
 import ServiceHero from "@/components/services/ServiceHero";
 import ServiceAreasAccordion from "@/components/services/ServiceAreasAccordion";
-import { getServices, getServiceBySlug } from "@/lib/json";
+import { getServices } from "@/lib/json";
+import { getServiceBySlug } from "@/lib/data-repository";
 import { getServiceTheme } from "@/lib/serviceTheme";
 
 interface ServicePageProps { params: Promise<{ slug: string }> }
@@ -20,27 +21,28 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const service = await getServiceBySlug(slug);
   if (!service) return { title: "Service Not Found" };
   return { title: `${service.title} | Taxmetryx Global`, description: service.shortDescription };
 }
 
 export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const service = await getServiceBySlug(slug);
   if (!service) notFound();
   const theme = getServiceTheme(service.slug);
-  const relatedServices = (service.relatedSlugs || []).map(getServiceBySlug).filter(service => service !== undefined);
+  const relatedResults = await Promise.all((service.relatedSlugs || []).map(getServiceBySlug));
+  const relatedServices = relatedResults.filter((s): s is NonNullable<typeof s> => Boolean(s));
 
   return (
     <div className="service-page bg-white text-[#17232c]">
-      <ServiceHero title={service.title} description={service.description} image={theme.heroImage} number={service.number} count={service.subservices?.length || 0} />
+      <ServiceHero title={service.title} description={service.description} image={service.heroImage || theme.heroImage} number={service.number} count={service.subservices?.length || 0} />
 
       {service.whenToInvolve && <section className="py-14 sm:py-20" aria-labelledby="when-to-involve">
         <Container className="px-4 sm:px-6 lg:px-8">
           <div className="grid overflow-hidden bg-[#f6f5f2] lg:grid-cols-[0.8fr_1.2fr]">
             <div className="relative min-h-[280px] sm:min-h-[360px]">
-              <Image src={theme.contextImage} alt="" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+              <Image src={service.contextImage || theme.contextImage} alt="" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
               <div className="absolute bottom-0 left-0 h-2 w-24 bg-[#eb0045]" />
             </div>
             <div className="p-7 sm:p-10 xl:p-12">
@@ -81,7 +83,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <Container className="px-4 sm:px-6 lg:px-8">
           <div className="mb-8 flex items-center justify-between gap-4"><h2 className="text-[#414042] service-section-heading"><ServiceHeadingText text="Related services" /></h2><Link href="/services" className="inline-flex items-center gap-2 text-xs font-semibold text-[#eb0045]">All services<ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link></div>
           <div className="grid gap-6 md:grid-cols-3">{relatedServices.map(related => <Link key={related.slug} href={`/services/${related.slug}`} className="group relative min-h-[280px] overflow-hidden bg-[#414042] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#eb0045]">
-            <Image src={getServiceTheme(related.slug).heroImage} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105" />
+            <Image src={related.heroImage || getServiceTheme(related.slug).heroImage} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#091318] via-[#091318]/35 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6"><p className="mb-3 font-mono text-xs text-[#fca5a5]">{related.number}</p><div className="flex items-end justify-between gap-4"><h3 className="text-white service-card-heading"><ServiceHeadingText text={related.title} /></h3><ArrowUpRight className="h-5 w-5 shrink-0 text-white" aria-hidden="true" /></div></div>
           </Link>)}</div>

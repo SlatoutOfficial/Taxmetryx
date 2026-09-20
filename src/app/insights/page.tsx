@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/shared/Container";
@@ -9,6 +9,7 @@ import SectionLabel from "@/components/shared/SectionLabel";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import CTAButton from "@/components/shared/CTAButton";
 import { getInsights } from "@/lib/json";
+import { Insight } from "@/types/insight";
 import { ArrowUpRight, Search, Clock, User, Tag, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useJurisdiction } from "@/context/JurisdictionContext";
@@ -25,10 +26,21 @@ const categories = [
 ];
 
 export default function InsightsPage() {
-  const allInsights = getInsights();
+  const [allInsights, setAllInsights] = useState<Insight[]>(getInsights());
   const { jurisdiction, filterActive, clearFilter } = useJurisdiction();
   const [selectedCategory, setSelectedCategory] = useState("ALL");
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    fetch("/api/insights")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+          setAllInsights(data.data);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const filteredInsights = allInsights.filter((item) => {
     const matchesJurisdiction =

@@ -6,7 +6,7 @@ import Container from "@/components/shared/Container";
 import SectionLabel from "@/components/shared/SectionLabel";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import CTAButton from "@/components/shared/CTAButton";
-import { getIndustries } from "@/lib/json";
+import { getIndustries } from "@/lib/data-repository";
 import { cn } from "@/lib/utils";
 import {
   FadeIn,
@@ -44,8 +44,8 @@ const sectorIcons: Record<string, React.ReactNode> = {
   "professional-and-corporate-services": <Briefcase className="w-3.5 h-3.5 text-brand-red" />,
 };
 
-export default function IndustriesPage() {
-  const industries = getIndustries();
+export default async function IndustriesPage() {
+  const industries = await getIndustries();
 
   return (
     <div className="bg-[#FAF9F5] text-brand-charcoal min-h-screen">
