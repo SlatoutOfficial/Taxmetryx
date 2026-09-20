@@ -173,6 +173,7 @@ export default function EditInsightPage() {
     try {
       const payload = {
         ...article,
+        originalSlug: slug,
         markdown: markdownContent,
       };
 

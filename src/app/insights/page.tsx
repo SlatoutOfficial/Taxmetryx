@@ -32,7 +32,7 @@ export default function InsightsPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    fetch("/api/insights")
+    fetch("/api/insights", { cache: "no-store" })
       .then((res) => res.json())
       .then((data) => {
         if (data.success && Array.isArray(data.data) && data.data.length > 0) {

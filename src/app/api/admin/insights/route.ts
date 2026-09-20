@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { revalidatePath } from "next/cache";
 import fs from "fs";
 import path from "path";
 import { prisma, checkPrismaConnection } from "@/lib/prisma";
@@ -189,10 +190,25 @@ export async function POST(request: NextRequest) {
             relatedSlugsJson: JSON.stringify(data.relatedSlugs || []),
           },
         });
+        try {
+          revalidatePath("/", "layout");
+          revalidatePath("/insights");
+          revalidatePath(`/insights/${data.slug}`);
+        } catch (e) {
+          console.warn("Revalidation error:", e);
+        }
         return successResponse(created, "Publication created successfully in Supabase");
       }
     } catch (err) {
       console.warn("[Admin/Insights] Prisma create failed, saved to file:", err);
+    }
+
+    try {
+      revalidatePath("/", "layout");
+      revalidatePath("/insights");
+      revalidatePath(`/insights/${data.slug}`);
+    } catch (e) {
+      console.warn("Revalidation error:", e);
     }
 
     return successResponse(newInsight, "Publication created successfully");
@@ -211,6 +227,8 @@ export async function PUT(request: NextRequest) {
       return errorResponse("Slug and title are required", 400);
     }
 
+    const targetSlug = data.originalSlug || data.slug;
+
     // Process HTML to Markdown using Turndown GFM if provided
     let finalSections = data.sections || [];
     let markdownBody = data.markdown || "";
@@ -225,7 +243,7 @@ export async function PUT(request: NextRequest) {
 
     // Always persist to local file fallback
     const fileInsights = readInsightsFromFile();
-    const existingIndex = fileInsights.findIndex((i) => i.slug === data.slug);
+    const existingIndex = fileInsights.findIndex((i) => i.slug === targetSlug || i.slug === data.slug);
     const updatedInsightObj: Insight = {
       ...(existingIndex !== -1 ? fileInsights[existingIndex] : {}),
       ...data,
@@ -244,8 +262,9 @@ export async function PUT(request: NextRequest) {
       const isPrismaOnline = await checkPrismaConnection();
       if (isPrismaOnline) {
         const updated = await prisma.insight.update({
-          where: { slug: data.slug },
+          where: { slug: targetSlug },
           data: {
+            slug: data.slug,
             title: data.title,
             category: data.category,
             readTime: data.readTime,
@@ -259,10 +278,33 @@ export async function PUT(request: NextRequest) {
             tagsJson: JSON.stringify(data.tags || []),
           },
         });
+
+        try {
+          revalidatePath("/", "layout");
+          revalidatePath("/insights");
+          revalidatePath(`/insights/${data.slug}`);
+          if (targetSlug !== data.slug) {
+            revalidatePath(`/insights/${targetSlug}`);
+          }
+        } catch (e) {
+          console.warn("Revalidation error:", e);
+        }
+
         return successResponse(updated, "Publication updated successfully in Supabase");
       }
     } catch (err) {
       console.warn("[Admin/Insights] Prisma update failed, saved to file:", err);
+    }
+
+    try {
+      revalidatePath("/", "layout");
+      revalidatePath("/insights");
+      revalidatePath(`/insights/${data.slug}`);
+      if (targetSlug !== data.slug) {
+        revalidatePath(`/insights/${targetSlug}`);
+      }
+    } catch (e) {
+      console.warn("Revalidation error:", e);
     }
 
     return successResponse(updatedInsightObj, "Publication updated and saved successfully");
@@ -294,10 +336,27 @@ export async function DELETE(request: NextRequest) {
         await prisma.insight.delete({
           where: { slug },
         });
+
+        try {
+          revalidatePath("/", "layout");
+          revalidatePath("/insights");
+          revalidatePath(`/insights/${slug}`);
+        } catch (e) {
+          console.warn("Revalidation error:", e);
+        }
+
         return successResponse(null, "Publication deleted successfully from database");
       }
     } catch (err) {
       console.warn("[Admin/Insights] Prisma delete failed:", err);
+    }
+
+    try {
+      revalidatePath("/", "layout");
+      revalidatePath("/insights");
+      revalidatePath(`/insights/${slug}`);
+    } catch (e) {
+      console.warn("Revalidation error:", e);
     }
 
     return successResponse(null, "Publication deleted successfully");

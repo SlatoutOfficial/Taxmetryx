@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -28,11 +28,34 @@ const categories = [
   "Tax Regulation",
 ];
 
-export default function InsightsSection() {
+interface InsightsSectionProps {
+  initialInsights?: Insight[];
+}
+
+export default function InsightsSection({ initialInsights }: InsightsSectionProps) {
   const [selected, setSelected] = useState("All");
   const [hoveredInsight, setHoveredInsight] = useState<Insight | null>(null);
   const { jurisdiction, filterActive } = useJurisdiction();
-  const allInsights = getInsights();
+  const [allInsights, setAllInsights] = useState<Insight[]>(
+    initialInsights && initialInsights.length > 0 ? initialInsights : getInsights()
+  );
+
+  useEffect(() => {
+    if (initialInsights && initialInsights.length > 0) {
+      setAllInsights(initialInsights);
+    }
+  }, [initialInsights]);
+
+  useEffect(() => {
+    fetch("/api/insights", { cache: "no-store" })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+          setAllInsights(data.data);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   // Filter by active jurisdiction first
   const jurisdictionFiltered = filterActive && jurisdiction
