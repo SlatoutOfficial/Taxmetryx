@@ -7,8 +7,7 @@ const supabaseAnonKey =
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
   process.env.SUPABASE_ANON_KEY ||
   "";
-const supabaseServiceKey =
-  process.env.SUPABASE_SERVICE_ROLE_KEY || supabaseAnonKey;
+const supabaseServiceKey = supabaseAnonKey;
 
 export const DEFAULT_STORAGE_BUCKET =
   process.env.SUPABASE_STORAGE_BUCKET || "taxmetryx-uploads";
