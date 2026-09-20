@@ -241,12 +241,30 @@ export async function PUT(request: NextRequest) {
       finalSections = parseMarkdownToSections(markdownBody);
     }
 
+    let day = data.day;
+    let monthYear = data.monthYear;
+    if (data.publishedAt) {
+      const parts = data.publishedAt.split("-");
+      if (parts.length === 3) {
+        const [year, month, d] = parts;
+        const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+        const mIndex = parseInt(month, 10) - 1;
+        if (mIndex >= 0 && mIndex < 12) {
+          day = d.padStart(2, "0");
+          monthYear = `${monthNames[mIndex]} ${year}`;
+        }
+      }
+    }
+
     // Always persist to local file fallback
     const fileInsights = readInsightsFromFile();
     const existingIndex = fileInsights.findIndex((i) => i.slug === targetSlug || i.slug === data.slug);
     const updatedInsightObj: Insight = {
       ...(existingIndex !== -1 ? fileInsights[existingIndex] : {}),
       ...data,
+      publishedAt: data.publishedAt || (existingIndex !== -1 ? fileInsights[existingIndex].publishedAt : ""),
+      day: day || (existingIndex !== -1 ? fileInsights[existingIndex].day : "15"),
+      monthYear: monthYear || (existingIndex !== -1 ? fileInsights[existingIndex].monthYear : "SEP 2026"),
       sections: finalSections.length > 0 ? finalSections : (existingIndex !== -1 ? fileInsights[existingIndex].sections : []),
     };
 
@@ -267,6 +285,9 @@ export async function PUT(request: NextRequest) {
             slug: data.slug,
             title: data.title,
             category: data.category,
+            publishedAt: data.publishedAt,
+            day: day,
+            monthYear: monthYear,
             readTime: data.readTime,
             featured: Boolean(data.featured),
             leadText: data.lead,

@@ -127,6 +127,28 @@ export default function NewInsightPage() {
     toast.success(`Calculated: ${minutes} min read (${wordCount} words)`);
   };
 
+  const handleDateChange = (dateVal: string) => {
+    if (!dateVal) {
+      setArticle((prev) => ({ ...prev, publishedAt: "" }));
+      return;
+    }
+    const parts = dateVal.split("-");
+    if (parts.length === 3) {
+      const [year, month, day] = parts;
+      const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+      const mIndex = parseInt(month, 10) - 1;
+      const monthYear = `${monthNames[mIndex] || "JAN"} ${year}`;
+      setArticle((prev) => ({
+        ...prev,
+        publishedAt: dateVal,
+        day: day.padStart(2, "0"),
+        monthYear,
+      }));
+    } else {
+      setArticle((prev) => ({ ...prev, publishedAt: dateVal }));
+    }
+  };
+
   const handleSave = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (!article.title || !article.slug) {
@@ -656,7 +678,7 @@ export default function NewInsightPage() {
                 <input
                   type="date"
                   value={article.publishedAt || ""}
-                  onChange={(e) => setArticle({ ...article, publishedAt: e.target.value })}
+                  onChange={(e) => handleDateChange(e.target.value)}
                   className="w-full pl-9 pr-3 py-2 bg-[#071219] border border-white/15 text-white text-xs rounded-md focus:outline-hidden focus:border-[#eb0045]"
                 />
               </div>

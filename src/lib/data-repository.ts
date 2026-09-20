@@ -107,6 +107,26 @@ export async function getServiceBySlug(slug: string): Promise<Service | undefine
 }
 
 // -------------------------------------------------------------
+function resolveInsightDate(publishedAt?: string | null, day?: string | null, monthYear?: string | null) {
+  if (publishedAt) {
+    const parts = publishedAt.split("-");
+    if (parts.length === 3) {
+      const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+      const mIndex = parseInt(parts[1], 10) - 1;
+      if (mIndex >= 0 && mIndex < 12) {
+        return {
+          day: parts[2].padStart(2, "0"),
+          monthYear: `${monthNames[mIndex]} ${parts[0]}`,
+        };
+      }
+    }
+  }
+  return {
+    day: day || "15",
+    monthYear: monthYear || "MAR 2026",
+  };
+}
+
 // INSIGHTS
 // -------------------------------------------------------------
 export async function getInsights(): Promise<Insight[]> {
@@ -117,26 +137,29 @@ export async function getInsights(): Promise<Insight[]> {
         orderBy: { id: "desc" },
       });
       if (rows && rows.length > 0) {
-        return rows.map((r) => ({
-          id: r.id,
-          slug: r.slug,
-          title: r.title,
-          category: r.category,
-          publishedAt: r.publishedAt || "",
-          readTime: r.readTime || "5 min read",
-          day: r.day || "15",
-          monthYear: r.monthYear || "MAR 2026",
-          featured: r.featured,
-          lead: r.leadText || "",
-          excerpt: r.excerpt || "",
-          image: r.image || "/images/insights-architecture.jpg",
-          author: JSON.parse(r.authorJson || "{}"),
-          tableOfContents: JSON.parse(r.tableOfContentsJson || "[]"),
-          keyTakeaways: JSON.parse(r.keyTakeawaysJson || "[]"),
-          sections: JSON.parse(r.sectionsJson || "[]"),
-          tags: JSON.parse(r.tagsJson || "[]"),
-          relatedSlugs: JSON.parse(r.relatedSlugsJson || "[]"),
-        })) as Insight[];
+        return rows.map((r) => {
+          const { day, monthYear } = resolveInsightDate(r.publishedAt, r.day, r.monthYear);
+          return {
+            id: r.id,
+            slug: r.slug,
+            title: r.title,
+            category: r.category,
+            publishedAt: r.publishedAt || "",
+            readTime: r.readTime || "5 min read",
+            day,
+            monthYear,
+            featured: r.featured,
+            lead: r.leadText || "",
+            excerpt: r.excerpt || "",
+            image: r.image || "/images/insights-architecture.jpg",
+            author: JSON.parse(r.authorJson || "{}"),
+            tableOfContents: JSON.parse(r.tableOfContentsJson || "[]"),
+            keyTakeaways: JSON.parse(r.keyTakeawaysJson || "[]"),
+            sections: JSON.parse(r.sectionsJson || "[]"),
+            tags: JSON.parse(r.tagsJson || "[]"),
+            relatedSlugs: JSON.parse(r.relatedSlugsJson || "[]"),
+          };
+        }) as Insight[];
       }
     }
   } catch (err) {
@@ -153,6 +176,7 @@ export async function getInsightBySlug(slug: string): Promise<Insight | undefine
         where: { slug },
       });
       if (r) {
+        const { day, monthYear } = resolveInsightDate(r.publishedAt, r.day, r.monthYear);
         return {
           id: r.id,
           slug: r.slug,
@@ -160,8 +184,8 @@ export async function getInsightBySlug(slug: string): Promise<Insight | undefine
           category: r.category,
           publishedAt: r.publishedAt || "",
           readTime: r.readTime || "5 min read",
-          day: r.day || "15",
-          monthYear: r.monthYear || "MAR 2026",
+          day,
+          monthYear,
           featured: r.featured,
           lead: r.leadText || "",
           excerpt: r.excerpt || "",
